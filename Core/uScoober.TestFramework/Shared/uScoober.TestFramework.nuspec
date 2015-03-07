@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<package>
+    <metadata>
+        <id>uScoober.TestFramework</id>
+        <version>0.0.0-core</version>
+        <title>uScoober.TestFramework: THE test framework for NETMF</title>
+        <description>uScoober.TestFramework: THE test framework for NETMF</description>
+        <authors>Eddie Garmon</authors>
+        <owners>Eddie Garmon</owners>
+        <copyright>Eddie Garmon</copyright>
+        <licenseUrl>https://github.com/EddieGarmon/uScoober/blob/master/LICENSE.txt</licenseUrl>
+        <projectUrl>https://github.com/EddieGarmon/uScoober</projectUrl>
+        <iconUrl>http://eddiegarmon.github.io/MyLogo.png</iconUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <summary>
+            xUnit inspired testing with uFacts and uTheories.
+            Built in 'Should...' asserts.
+            Support for async tests with the use of Tasks.
+            Built in hardware mocks.
+            Runs in emulator (GUI) and on target.
+            Pluggable user feedback mechanism.
+            Support for NETMF 4.2 and 4.3.
+        </summary>
+        <tags>NETMF Micro IO uFramework TPL Tasks test testing fact theory</tags>
+        <dependencies>
+            <dependency id="uScoober" version="0.0.0-core" />
+            <dependency id="uScoober.Threading" version="0.0.0-core" />
+        </dependencies>
+        <frameworkAssemblies>
+            <frameworkAssembly assemblyName="Microsoft.Spot.Graphics" />
+            <frameworkAssembly assemblyName="Microsoft.Spot.Hardware" />
+            <frameworkAssembly assemblyName="Microsoft.Spot.Native" />
+            <frameworkAssembly assemblyName="Microsoft.Spot.TinyCore" />
+            <frameworkAssembly assemblyName="System.IO" />
+        </frameworkAssemblies>
+    </metadata>
+    <files>
+        <!--NETMF 4.2-->
+        <file src="..\Micro-4.2\bin\Release\**\uScoober.TestFramework.*" target="lib\netmf42\" />
+        <!--NETMF 4.3-->
+        <file src="..\Micro-4.3\bin\Release\**\uScoober.TestFramework.*" target="lib\netmf43\" />
+        <!--Entry Point Code-->
+        <file src="..\PackageContent\EntryPoint.cs" target="content\" />
+    </files>
+</package>

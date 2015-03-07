@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>de6ba8a9-cafc-472e-801b-3d31fa2004ab</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>uScoober.Storage</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Boards\NetduinoPlus2.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Storage\AbsoluteFilePath.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Storage\AbsoluteFolderPath.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Storage\AbsolutePath.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Storage\BasePath.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Storage\CollisionStrategy.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Storage\FileCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Storage\FolderCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Storage\IAbsolutePath.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Storage\IFile.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Storage\IFileExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Storage\IFilePath.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Storage\IFileSystem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Storage\IFileSystemExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Storage\IFolder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Storage\IFolderExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Storage\IFolderPath.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Storage\IPath.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Storage\IRelativePath.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Storage\NameHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Storage\PathExceptions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Storage\PathRootResolver.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Storage\PathType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Storage\PathTypeExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Storage\Ram\RamFile.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Storage\Ram\RamFileSystem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Storage\Ram\RamFolder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Storage\RelativeFilePath.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Storage\RelativeFolderPath.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Storage\RelativePath.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Storage\Spot\SpotFile.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Storage\Spot\SpotFileSystem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Storage\Spot\SpotFolder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Storage\StorageExceptions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)depends.txt" />
+  </ItemGroup>
+</Project>

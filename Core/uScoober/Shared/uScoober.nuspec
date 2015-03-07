@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+    <metadata>
+        <id>uScoober</id>
+        <version>0.0.0-core</version>
+        <title>uScoober: The filament for NETMF</title>
+        <description>uScoober: The filament for NETMF</description>
+        <authors>Eddie Garmon</authors>
+        <owners>Eddie Garmon</owners>
+        <copyright>Eddie Garmon</copyright>
+        <licenseUrl>https://github.com/EddieGarmon/uScoober/blob/master/LICENSE.txt</licenseUrl>
+        <projectUrl>https://github.com/EddieGarmon/uScoober</projectUrl>
+        <iconUrl>http://eddiegarmon.github.io/MyLogo.png</iconUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <summary>
+            Good core abstractions that are testable.
+            Interface based IO and IO buses.
+            Core data structures.
+            Little and Big Endian; reading and writing.
+            An implementation of Tasks (inspired by the TPL).
+            An implementation of Units of Measure.
+            Support for NETMF 4.2 and 4.3.
+        </summary>
+        <tags>NETMF Micro Framework IO TPL Tasks UoM</tags>
+        <!-- example:        
+        <dependencies>
+            <dependency id="uScoober" version="[0.0.0-core,1.0.0-core)" />
+            <dependency id="uScoober.Threading" version="[0.0.0-core,1.0.0-core)" />
+        </dependencies>
+        -->
+        <!-- example:
+        <references>
+            <reference file="libfolderdll.dll" />
+        </references>
+        -->
+        <frameworkAssemblies>
+            <frameworkAssembly assemblyName="Microsoft.Spot.Hardware" />
+            <frameworkAssembly assemblyName="Microsoft.Spot.Hardware.PWM" />
+            <frameworkAssembly assemblyName="Microsoft.Spot.Native" />
+        </frameworkAssemblies>
+        <!-- example:
+        <developmentDependency>true</developmentDependency>
+        -->
+    </metadata>
+    <files>
+        <!--NETMF 4.2-->
+        <file src="..\Micro-4.2\bin\Release\**\uScoober.*" target="lib\netmf42\" />
+        <!--NETMF 4.3-->
+        <file src="..\Micro-4.3\bin\Release\**\uScoober.*" target="lib\netmf43\" />
+    </files>
+</package>

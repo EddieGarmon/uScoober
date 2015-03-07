@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>76a70af9-35ec-4a0d-92c0-c48752c53df0</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>
+    </Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Properties\AssemblyInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\ByteOrder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\DataStructures\Enumerable.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\DataStructures\IQueue.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\DataStructures\IStack.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\DataStructures\List.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\DataStructures\Queue.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\DataStructures\Ring.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\DataStructures\Ring.Enumerator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\DataStructures\Ring.Link.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\DataStructures\Ring.IndexedLink.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\DataStructures\Enumerable.Singular.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\DataStructures\Stack.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\DataStructures\Typed\StringList.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Delegates.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Disposable.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\DisposableBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\DisposableWithNotification.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\DisposeReason.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Extensions\ArrayExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Extensions\FloatExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Extensions\RandomExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Extensions\StringBuilderExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Extensions\StringExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\AddressMap.AddressRange.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\AddressMap.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\IHaveAddressedMemory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\IHaveDefaultSetup.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\InterruptMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\Light\IAnalogLed.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\Light\IDigitalLed.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\ResistorMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\Time\ClockFrequency.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\Time\IRealTimeClock.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\IO\I2CBus\I2CBusDevice.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\IO\I2CBus\II2CBus.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\IO\IAnalogInput.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\IO\IDigitalInput.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\IO\IDigitalOutput.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\IO\IPulseWidthModulatedOutput.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\IO\SpiBus\ISpiBus.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\IO\SpiBus\SpiBusDevice.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\IO\Spot\AnalogInput.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\IO\Spot\DigitalInput.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\IO\Spot\DigitalOutput.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\IO\Spot\PulseWidthModulatedOutput.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Stopwatch.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Text\HexString.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Text\StringContainsResult.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Text\StringEndsWithResult.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\DataStructures\Typed\StringListEnumerator.cs" />
+    <None Include="$(MSBuildThisFileDirectory)uScoober.nuspec" />
+    <None Include="$(MSBuildThisFileDirectory)uScoober\IO\I2CBus\I²C Bus spec.pdf" />
+    <None Include="$(MSBuildThisFileDirectory)uScoober\IO\SpiBus\ST SPI protocol.pdf" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)uScoober.ExternalAnnotations.xml">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>

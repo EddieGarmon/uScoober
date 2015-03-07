@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+    <metadata>
+        <id>uScoober.Threading</id>
+        <version>0.0.0-core</version>
+        <title>uScoober Threading (Tasks)</title>
+        <description>uScoober Threading (Tasks)</description>
+        <authors>Eddie Garmon</authors>
+        <owners>Eddie Garmon</owners>
+        <copyright>Eddie Garmon</copyright>
+        <licenseUrl>https://github.com/EddieGarmon/uScoober/blob/master/LICENSE.txt</licenseUrl>
+        <projectUrl>https://github.com/EddieGarmon/uScoober</projectUrl>
+        <iconUrl>http://eddiegarmon.github.io/MyLogo.png</iconUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <summary>uScoober Threading (Tasks)</summary>
+        <tags>NETMF Micro Framework TPL Task Tasks</tags>
+        <dependencies>
+            <dependency id="uScoober" version="0.0.0-core" />
+        </dependencies>
+        <frameworkAssemblies>
+            <frameworkAssembly assemblyName="Microsoft.Spot.Native" />
+        </frameworkAssemblies>
+    </metadata>
+    <files>
+        <!--NETMF 4.2-->
+        <file src="..\Micro-4.2\bin\Release\**\uScoober.Threading.*" target="lib\netmf42\" />
+        <!--NETMF 4.3-->
+        <file src="..\Micro-4.3\bin\Release\**\uScoober.Threading.*" target="lib\netmf43\" />
+    </files>
+</package>

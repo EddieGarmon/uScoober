@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+    <metadata>
+        <id>uScoober.IO.I2CBus.Spot</id>
+        <version>0.0.0-me</version>
+        <title>uScoober Feature: Spot I2C bus</title>
+        <description>uScoober Feature: Spot I2C bus</description>
+        <authors>Eddie Garmon</authors>
+        <owners>Eddie Garmon</owners>
+        <copyright>Eddie Garmon</copyright>
+        <licenseUrl>https://github.com/EddieGarmon/uScoober/blob/master/LICENSE.txt</licenseUrl>
+        <projectUrl>https://github.com/EddieGarmon/uScoober</projectUrl>
+        <iconUrl>http://eddiegarmon.github.io/MyLogo.png</iconUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <tags>NETMF Micro Framework I2C</tags>
+        <dependencies>
+            <dependency id="uScoober" version="[0.0.0-core,1.0.0-core)" />
+        </dependencies>
+        <frameworkAssemblies>
+            <frameworkAssembly assemblyName="Microsoft.Spot.Hardware" />
+        </frameworkAssemblies>
+        <developmentDependency>true</developmentDependency>
+    </metadata>
+    <files>
+        <file src="*.cs" target="content\uScoober.Feature\uScoober.IO.I2CBus.Spot-0.0.0-me" />
+    </files>
+</package>

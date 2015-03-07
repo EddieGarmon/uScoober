@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>57e03e08-13b1-415d-81d6-786b9ae7d9d5</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Shared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Properties\AssemblyInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\DataStructures\ListTests.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\DataStructures\QueueTests.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\DataStructures\RingTests.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\DataStructures\Typed\StringListTests.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Extensions\StringExtensionTests.Contains.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Extensions\StringExtensionTests.ContainsAny.cs" />
+  </ItemGroup>
+</Project>

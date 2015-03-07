@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>93359132-79b1-427b-a782-3d83c3135ad7</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>
+    </Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Boot\ApplicationConfig.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Boot\ApplicationLoader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Boot\BootConfig.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Storage\Spot\SpotFileSystem.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)depends.txt" />
+  </ItemGroup>
+</Project>

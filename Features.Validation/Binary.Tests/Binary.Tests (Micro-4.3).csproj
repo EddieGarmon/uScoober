@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <AssemblyName>Binary.Tests</AssemblyName>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>uScoober.Binary</RootNamespace>
+    <ProjectTypeGuids>{b69e3092-b931-443c-abe7-7e7b65f2a37f};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{87712199-3F2A-4FD4-A08F-80A444F8AA93}</ProjectGuid>
+    <TargetFrameworkVersion>v4.3</TargetFrameworkVersion>
+    <NetMfTargetsBaseDir Condition="'$(NetMfTargetsBaseDir)'==''">$(MSBuildExtensionsPath32)\Microsoft\.NET Micro Framework\</NetMfTargetsBaseDir>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="EntryPoint.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.SPOT.Native" />
+    <Reference Include="Microsoft.SPOT.TinyCore" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\uScoober.TestFramework\Micro-4.3\uScoober.TestFramework %28Micro-4.3%29.csproj">
+      <Project>{1B2715B7-6174-4CBD-B5A4-A871074D4AF2}</Project>
+      <Name>uScoober.TestFramework %28Micro-4.3%29</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="..\..\Features\uScoober.Binary\uScoober.Binary.projitems" Label="Shared" Condition="Exists('..\..\Features\uScoober.Binary\uScoober.Binary.projitems')" />
+  <Import Project="..\..\Features\uScoober.Binary.BinaryCodedDecimal\uScoober.Binary.BinaryCodedDecimal.projitems" Label="Shared" Condition="Exists('..\..\Features\uScoober.Binary.BinaryCodedDecimal\uScoober.Binary.BinaryCodedDecimal.projitems')" />
+  <Import Project="..\..\Features\uScoober.Binary.BitCounter\uScoober.Binary.BitCounter.projitems" Label="Shared" Condition="Exists('..\..\Features\uScoober.Binary.BitCounter\uScoober.Binary.BitCounter.projitems')" />
+  <Import Project="..\..\Features\uScoober.Binary.BitMask\uScoober.Binary.BitMask.projitems" Label="Shared" Condition="Exists('..\..\Features\uScoober.Binary.BitMask\uScoober.Binary.BitMask.projitems')" />
+  <Import Project="..\..\Features\uScoober.Binary.Endian\uScoober.Binary.Endian.projitems" Label="Shared" Condition="Exists('..\..\Features\uScoober.Binary.Endian\uScoober.Binary.Endian.projitems')" />
+  <Import Project="..\..\Features\Binary.BinaryCodedDecimal\uScoober.Binary.BinaryCodedDecimal.projitems" Label="Shared" Condition="Exists('..\..\Features\Binary.BinaryCodedDecimal\uScoober.Binary.BinaryCodedDecimal.projitems')" />
+  <Import Project="..\..\Features\Binary.BitCounter\uScoober.Binary.BitCounter.projitems" Label="Shared" Condition="Exists('..\..\Features\Binary.BitCounter\uScoober.Binary.BitCounter.projitems')" />
+  <Import Project="..\..\Features\Binary.BitMask\uScoober.Binary.BitMask.projitems" Label="Shared" Condition="Exists('..\..\Features\Binary.BitMask\uScoober.Binary.BitMask.projitems')" />
+  <Import Project="..\..\Features\Binary.Endian\uScoober.Binary.Endian.projitems" Label="Shared" Condition="Exists('..\..\Features\Binary.Endian\uScoober.Binary.Endian.projitems')" />
+  <Import Condition="EXISTS('$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets')" Project="$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets" />
+  <Import Condition="!EXISTS('$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets')" Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

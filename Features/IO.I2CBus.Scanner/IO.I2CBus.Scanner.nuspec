@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+    <metadata>
+        <id>uScoober.IO.I2CBus.Scanner</id>
+        <version>0.0.0-me</version>
+        <title>uScoober Feature: IO.I2CBus.Scanner</title>
+        <description>uScoober Feature: IO.I2CBus.Scanner</description>
+        <authors>Eddie Garmon</authors>
+        <owners>Eddie Garmon</owners>
+        <copyright>Eddie Garmon</copyright>
+        <licenseUrl>https://github.com/EddieGarmon/uScoober/blob/master/LICENSE.txt</licenseUrl>
+        <projectUrl>https://github.com/EddieGarmon/uScoober</projectUrl>
+        <iconUrl>http://eddiegarmon.github.io/MyLogo.png</iconUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <tags>NETMF Micro Framework I2C Scanner</tags>
+        <dependencies>
+            <dependency id="uScoober" version="[0.0.0-core,1.0.0-core)" />
+        </dependencies>
+        <developmentDependency>true</developmentDependency>
+    </metadata>
+    <files>
+        <file src="*.cs" target="content\uScoober.Feature\IO.I2CBus.Scanner-0.0.0-me" />
+    </files>
+</package>

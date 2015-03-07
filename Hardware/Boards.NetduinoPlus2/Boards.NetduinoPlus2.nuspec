@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+    <metadata>
+        <id>uScoober.Hardware.Boards.NetduinoPlus2</id>
+        <version>0.0.0-me</version>
+        <title>uScoober Driver: Boards.NetduinoPlus2</title>
+        <description>uScoober Driver: Boards.NetduinoPlus2</description>
+        <authors>Eddie Garmon</authors>
+        <owners>Eddie Garmon</owners>
+        <copyright>Eddie Garmon</copyright>
+        <licenseUrl>https://github.com/EddieGarmon/uScoober/blob/master/LICENSE.txt</licenseUrl>
+        <projectUrl>https://github.com/EddieGarmon/uScoober</projectUrl>
+        <iconUrl>http://eddiegarmon.github.io/MyLogo.png</iconUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <tags>NETMF Micro Framework Netduino Plus 2</tags>
+        <dependencies>
+            <dependency id="uScoober" version="[0.0.0-core,1.0.0-core)" />
+            <dependency id="uScoober.IO.I2CBus.Spot" version="[0.0.0-IO.I2CBus.Spot,1.0.0-IO.I2CBus.Spot)" />
+            <dependency id="uScoober.Hardware.Input.Button" version="[0.0.0-Input.Button,1.0.0-Input.Button)" />
+            <dependency id="uScoober.Hardware.Light.Led" version="[0.0.0-Light.Led,1.0.0-Light.Led)" />
+        </dependencies>
+        <frameworkAssemblies>
+            <frameworkAssembly assemblyName="Microsoft.SPOT.Hardware" />
+            <frameworkAssembly assemblyName="SecretLabs.NETMF.Hardware.NetduinoPlus" />
+        </frameworkAssemblies>
+    </metadata>
+    <files>
+        <file src="*.cs" target="content\uScoober.Hardware\Boards.NetduinoPlus2-0.0.0-me" />
+    </files>
+</package>

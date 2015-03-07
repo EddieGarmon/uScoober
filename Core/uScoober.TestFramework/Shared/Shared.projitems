@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>cfa58043-cab1-4b6f-8504-35e397b8bbe0</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>uScoober</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Properties\AssemblyInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Assert\AssertionFailureException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Assert\ShouldExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Assert\Throw.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Mocks\MockAnalogInput.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Mocks\MockDigitalInput.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Mocks\MockDigitalOutput.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Mocks\MockI2CBus.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Mocks\MockIOBuffer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Mocks\MockPulseWidthModulatedOutput.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Mocks\MockSpiBus.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\PrettyArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Sdk\Runners\BuildRunner.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Sdk\Runners\EmulatorRunner.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Sdk\Runners\Feedback\AnalogLedFeedback.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Sdk\Runners\Feedback\BuildRunnerFeedback.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Sdk\Runners\Feedback\GuiFeedback.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Sdk\Runners\Feedback\ITestRunFeedback.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Sdk\Runners\Feedback\NullFeedback.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Sdk\Runners\TestRunner.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Sdk\Runners\TestRunnerState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Sdk\TestCase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Sdk\TestCase.Fact.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Sdk\TestCase.Theory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Sdk\TestCaseFinder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Sdk\TestRun.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\TestHarness.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Trap.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\UI\Resources\Fonts.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\UI\Views\TestFailureDetails.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\UI\Views\TestRunView.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)Testing How To.md" />
+    <None Include="$(MSBuildThisFileDirectory)uScoober.TestFramework.nuspec" />
+  </ItemGroup>
+</Project>

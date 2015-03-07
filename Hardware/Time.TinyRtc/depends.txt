@@ -1,0 +1,3 @@
+﻿uScoober.Hardware.Time.DS1307
+uScoober.Hardware.Eeprom
+uScoober.Hardware.Eeprom.AT24C32
