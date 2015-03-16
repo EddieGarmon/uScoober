@@ -32,7 +32,7 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="uScoober\Binary\BitCastingTests.cs" />
+    <Compile Include="uScoober\Extensions\FloatExtensionTests.cs" />
     <Compile Include="EntryPoint.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,10 +1,9 @@
 using System;
-using uScoober.Extensions;
 using uScoober.TestFramework.Assert;
 
-namespace uScoober.Binary
+namespace uScoober.Extensions
 {
-    public class BitCastingTests
+    public class FloatExtensionTests
     {
         public void FloatToInt32_Fact() {
             float source = 3.14f;

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Threading;
@@ -73,6 +74,7 @@ namespace uScoober.TestFramework
             var gui = _testRunner.Feedback.InitializeGui();
             if (gui != null) {
                 if (MainWindow == null) {
+                    Debugger.Break();
                     throw new Exception("Did you call TestHarness.Run() instead of TestHarness.ExecuteTests()?");
                 }
                 MainWindow.Child = gui;
