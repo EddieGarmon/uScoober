@@ -44,14 +44,18 @@
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\ResistorMode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\Time\ClockFrequency.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\Time\IRealTimeClock.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)uScoober\IO\I2CBus\I2CBusDevice.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)uScoober\IO\I2CBus\II2CBus.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\IO\I2C\I2CDeviceCore.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\IO\I2C\II2CBus.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\IO\I2C\II2CDevice.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\IO\IAnalogInput.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\IO\IDigitalInput.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\IO\IDigitalOutput.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\IO\IPulseWidthModulatedOutput.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)uScoober\IO\SpiBus\ISpiBus.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)uScoober\IO\SpiBus\SpiBusDevice.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\IO\Signal.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\IO\Spi\ISpiBus.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\IO\Spi\ISpiDevice.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\IO\Spi\SpiDeviceConfig.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\IO\Spi\SpiDeviceCore.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\IO\Spot\AnalogInput.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\IO\Spot\DigitalInput.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\IO\Spot\DigitalOutput.cs" />
@@ -64,8 +68,8 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\DataStructures\Typed\StringListEnumerator.cs" />
     <None Include="$(MSBuildThisFileDirectory)uScoober.nuspec" />
-    <None Include="$(MSBuildThisFileDirectory)uScoober\IO\I2CBus\I²C Bus spec.pdf" />
-    <None Include="$(MSBuildThisFileDirectory)uScoober\IO\SpiBus\ST SPI protocol.pdf" />
+    <None Include="$(MSBuildThisFileDirectory)uScoober\IO\I2C\I²C Bus spec.pdf" />
+    <None Include="$(MSBuildThisFileDirectory)uScoober\IO\Spi\ST SPI protocol.pdf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)uScoober.ExternalAnnotations.xml">

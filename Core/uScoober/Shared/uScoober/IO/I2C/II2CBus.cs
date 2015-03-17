@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.SPOT.Hardware;
 
-namespace uScoober.IO.I2CBus
+namespace uScoober.IO.I2C
 {
     // I²C Bus
     public interface II2CBus : IDisposable

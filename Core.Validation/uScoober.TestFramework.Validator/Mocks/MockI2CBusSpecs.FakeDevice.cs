@@ -1,11 +1,11 @@
 using Microsoft.SPOT.Hardware;
-using uScoober.IO.I2CBus;
+using uScoober.IO.I2C;
 
 namespace uScoober.TestFramework.Mocks
 {
     public partial class MockI2CBusSpecs
     {
-        private class FakeDevice : I2CBusDevice
+        private class FakeDevice : I2CDeviceCore
         {
             public FakeDevice(MockI2CBus bus, ushort address, int clockRateKhz)
                 : base(bus, address, clockRateKhz) { }

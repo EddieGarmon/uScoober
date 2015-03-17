@@ -2,6 +2,7 @@
 using uScoober.Hardware.Input;
 using uScoober.Hardware.Light;
 using uScoober.IO;
+using uScoober.IO.I2C;
 using uScoober.IO.I2CBus;
 using uScoober.IO.Spot;
 using SL = SecretLabs.NETMF.Hardware.Netduino;

@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.SPOT;
 using Microsoft.SPOT.Hardware;
+using uScoober.IO.I2C;
 using uScoober.Text;
 
 namespace uScoober.IO.I2CBus

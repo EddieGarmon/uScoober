@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.SPOT.Hardware;
 using uScoober.DataStructures;
-using uScoober.IO.I2CBus;
+using uScoober.IO.I2C;
 using uScoober.TestFramework.Assert;
 
 namespace uScoober.TestFramework.Mocks

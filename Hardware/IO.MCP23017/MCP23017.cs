@@ -1,9 +1,9 @@
 ﻿using System;
-using uScoober.IO.I2CBus;
+using uScoober.IO.I2C;
 
 namespace uScoober.Hardware.IO
 {
-    public class MCP23017 : I2CBusDevice
+    public class MCP23017 : I2CDeviceCore
     {
         public enum AddressPointer
         {
