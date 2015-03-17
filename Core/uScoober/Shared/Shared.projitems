@@ -56,10 +56,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\IO\Spi\ISpiDevice.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\IO\Spi\SpiDeviceConfig.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\IO\Spi\SpiDeviceCore.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)uScoober\IO\Spot\AnalogInput.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)uScoober\IO\Spot\DigitalInput.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)uScoober\IO\Spot\DigitalOutput.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)uScoober\IO\Spot\PulseWidthModulatedOutput.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Stopwatch.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Text\HexString.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Text\StringContainsResult.cs" />

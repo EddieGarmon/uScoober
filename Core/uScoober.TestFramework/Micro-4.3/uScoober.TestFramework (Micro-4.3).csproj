@@ -32,10 +32,13 @@
   <Import Project="..\..\Source\uScoober.Extensions\uScoober.Extensions.projitems" Label="Shared" Condition="Exists('..\..\Source\uScoober.Extensions\uScoober.Extensions.projitems')" />
   <Import Project="..\Shared\SharedSource.projitems" Label="Shared" Condition="Exists('..\Shared\SharedSource.projitems')" />
   <Import Project="..\Shared\Shared.projitems" Label="Shared" Condition="Exists('..\Shared\Shared.projitems')" />
+  <Import Project="..\..\..\Features\IO.Spot\IO.Spot.projitems" Label="Shared" Condition="Exists('..\..\..\Features\IO.Spot\IO.Spot.projitems')" />
+  <Import Project="..\..\..\Features\IO.Spot.Digital\IO.Spot.Digital.projitems" Label="Shared" Condition="Exists('..\..\..\Features\IO.Spot.Digital\IO.Spot.Digital.projitems')" />
   <Import Project="$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets" />
   <ItemGroup>
     <Reference Include="Microsoft.SPOT.Graphics" />
     <Reference Include="Microsoft.SPOT.Hardware" />
+    <Reference Include="Microsoft.SPOT.Hardware.PWM" />
     <Reference Include="Microsoft.SPOT.Native">
     </Reference>
     <Reference Include="Microsoft.SPOT.TinyCore" />

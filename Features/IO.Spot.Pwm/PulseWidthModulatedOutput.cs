@@ -5,7 +5,7 @@ using SpotPwm = Microsoft.SPOT.Hardware.PWM;
 
 namespace uScoober.IO.Spot
 {
-    public class PulseWidthModulatedOutput : DisposableBase,
+    internal class PulseWidthModulatedOutput : DisposableBase,
                                              IPulseWidthModulatedOutput
     {
         private readonly SpotPwm _pwm;

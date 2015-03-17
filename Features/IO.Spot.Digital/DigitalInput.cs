@@ -6,7 +6,7 @@ using SpotInterruptPort = Microsoft.SPOT.Hardware.InterruptPort;
 
 namespace uScoober.IO.Spot
 {
-    public class DigitalInput : DisposableBase,
+    internal class DigitalInput : DisposableBase,
                                 IDigitalInput
     {
         private readonly SpotInterruptPort _port;

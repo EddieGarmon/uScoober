@@ -3,7 +3,7 @@ using SpotOutputPort = Microsoft.SPOT.Hardware.OutputPort;
 
 namespace uScoober.IO.Spot
 {
-    public class DigitalOutput : DisposableBase,
+    internal class DigitalOutput : DisposableBase,
                                  IDigitalOutput
     {
         private readonly SpotOutputPort _port;

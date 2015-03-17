@@ -3,7 +3,7 @@ using SpotAnalogInput = Microsoft.SPOT.Hardware.AnalogInput;
 
 namespace uScoober.IO.Spot
 {
-    public class AnalogInput : DisposableBase,
+    internal class AnalogInput : DisposableBase,
                                IAnalogInput
     {
         private readonly SpotAnalogInput _port;
