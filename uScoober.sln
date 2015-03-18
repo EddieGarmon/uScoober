@@ -98,6 +98,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Features.Preview", "Features.Preview", "{C1506BA1-46B3-4FE0-9F59-D854BC64E49B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{38B397B3-A7ED-479B-A151-E6200A2057F1}"
+	ProjectSection(SolutionItems) = preProject
+		Build\Psake\build_script.ps1 = Build\Psake\build_script.ps1
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PoshTypeDefinitions", "Build\PoshTypeDefinitions\PoshTypeDefinitions.csproj", "{C2E5AC5F-4D0F-4878-A456-CE78D16FC6C0}"
 EndProject
@@ -173,13 +176,13 @@ Global
 		Features\IO.SpiBus.Bitbang\uScoober.IO.SpiBus.Bitbang.projitems*{0f01d540-fe2e-4786-8697-7f2c097e516d}*SharedItemsImports = 13
 		Features\Binary.BitMask\uScoober.Binary.BitMask.projitems*{ebd8ca8d-0c20-49f1-9fbf-725f869dc94c}*SharedItemsImports = 13
 		Features\Binary.BitCounter\uScoober.Binary.BitCounter.projitems*{2c447b01-952c-4a50-aa90-2f0000e6f07f}*SharedItemsImports = 13
+		Features\IO.Spot.Analog\IO.Spot.Analog.projitems*{24171a35-f47d-4cc5-8d4b-46132bf26610}*SharedItemsImports = 4
+		Hardware\Input.Button\Input.Button.projitems*{24171a35-f47d-4cc5-8d4b-46132bf26610}*SharedItemsImports = 4
+		Hardware\Boards.Netduino2\Shared.projitems*{24171a35-f47d-4cc5-8d4b-46132bf26610}*SharedItemsImports = 4
+		Features\IO.I2CBus.Spot\uScoober.IO.I2CBus.Spot.projitems*{24171a35-f47d-4cc5-8d4b-46132bf26610}*SharedItemsImports = 4
+		Features\IO.Spot.Pwm\IO.Spot.Pwm.projitems*{24171a35-f47d-4cc5-8d4b-46132bf26610}*SharedItemsImports = 4
 		Hardware\Light.Led\Light.Led.projitems*{24171a35-f47d-4cc5-8d4b-46132bf26610}*SharedItemsImports = 4
 		Features\IO.Spot.Digital\IO.Spot.Digital.projitems*{24171a35-f47d-4cc5-8d4b-46132bf26610}*SharedItemsImports = 4
-		Features\IO.I2CBus.Spot\uScoober.IO.I2CBus.Spot.projitems*{24171a35-f47d-4cc5-8d4b-46132bf26610}*SharedItemsImports = 4
-		Features\IO.Spot.Analog\IO.Spot.Analog.projitems*{24171a35-f47d-4cc5-8d4b-46132bf26610}*SharedItemsImports = 4
-		Hardware\Boards.Netduino2\Shared.projitems*{24171a35-f47d-4cc5-8d4b-46132bf26610}*SharedItemsImports = 4
-		Features\IO.Spot.Pwm\IO.Spot.Pwm.projitems*{24171a35-f47d-4cc5-8d4b-46132bf26610}*SharedItemsImports = 4
-		Hardware\Input.Button\Input.Button.projitems*{24171a35-f47d-4cc5-8d4b-46132bf26610}*SharedItemsImports = 4
 		Features\Boot\uScoober.Boot.projitems*{4f6a4d22-ee38-4493-982f-01fa3175da69}*SharedItemsImports = 13
 		Hardware\Eeprom.AT24C32\Shared.projitems*{9246901d-ba7b-4ce8-becd-89389c6956b0}*SharedItemsImports = 13
 		Core\uScoober.Threading.Presentation\Shared\Shared.projitems*{5e3a3770-169d-484e-8f97-e98642f91a58}*SharedItemsImports = 4
@@ -192,8 +195,8 @@ Global
 		Features\IO.I2CBus.Bitbang\uScoober.IO.I2CBus.Bitbang.projitems*{bae344f9-bffd-47e7-8675-cf2d884480d2}*SharedItemsImports = 13
 		Features\IO.Spot.Pwm\IO.Spot.Pwm.projitems*{a7f12293-6743-40da-a959-0dac59b70afc}*SharedItemsImports = 13
 		Core.Validation\uScoober.Tests\Shared\Shared.projitems*{bd08df60-216f-4cc7-bba5-532ac929dace}*SharedItemsImports = 4
-		Features\IO.Spot.Digital\IO.Spot.Digital.projitems*{1b2715b7-6174-4cbd-b5a4-a871074d4af2}*SharedItemsImports = 4
 		Core\uScoober.TestFramework\Shared\Shared.projitems*{1b2715b7-6174-4cbd-b5a4-a871074d4af2}*SharedItemsImports = 4
+		Features\IO.Spot.Digital\IO.Spot.Digital.projitems*{1b2715b7-6174-4cbd-b5a4-a871074d4af2}*SharedItemsImports = 4
 		Features\IO.Spot.Analog\IO.Spot.Analog.projitems*{4001a371-80e2-4da8-ae8a-15d338cc87ec}*SharedItemsImports = 13
 		Features\Binary.Endian\uScoober.Binary.Endian.projitems*{c9503ba6-76f8-4ba8-99a1-6515dd7eacb3}*SharedItemsImports = 13
 		Core.Validation\uScoober.Threading.Tests\Shared\Shared.projitems*{04dbe653-e77b-4434-a604-04de48647cd0}*SharedItemsImports = 4
@@ -209,32 +212,32 @@ Global
 		Features\UnitsOfMeasure\uScoober.UnitsOfMeasure.projitems*{04b9ae65-4cc4-4da1-b3f7-50d1740f14ae}*SharedItemsImports = 4
 		Features\IO.Spot.Digital\IO.Spot.Digital.projitems*{37777689-9697-4128-95d1-bc630b061afb}*SharedItemsImports = 13
 		Core\uScoober.TestFramework\Shared\Shared.projitems*{cfa58043-cab1-4b6f-8504-35e397b8bbe0}*SharedItemsImports = 13
+		Features\IO.Spot.Analog\IO.Spot.Analog.projitems*{0e9849e7-7cc1-48b5-81aa-43c066f8dbeb}*SharedItemsImports = 4
+		Hardware\Input.Button\Input.Button.projitems*{0e9849e7-7cc1-48b5-81aa-43c066f8dbeb}*SharedItemsImports = 4
+		Features\IO.I2CBus.Spot\uScoober.IO.I2CBus.Spot.projitems*{0e9849e7-7cc1-48b5-81aa-43c066f8dbeb}*SharedItemsImports = 4
+		Features\IO.Spot.Pwm\IO.Spot.Pwm.projitems*{0e9849e7-7cc1-48b5-81aa-43c066f8dbeb}*SharedItemsImports = 4
 		Hardware\Light.Led\Light.Led.projitems*{0e9849e7-7cc1-48b5-81aa-43c066f8dbeb}*SharedItemsImports = 4
 		Features\IO.Spot.Digital\IO.Spot.Digital.projitems*{0e9849e7-7cc1-48b5-81aa-43c066f8dbeb}*SharedItemsImports = 4
-		Features\IO.I2CBus.Spot\uScoober.IO.I2CBus.Spot.projitems*{0e9849e7-7cc1-48b5-81aa-43c066f8dbeb}*SharedItemsImports = 4
-		Features\IO.Spot.Analog\IO.Spot.Analog.projitems*{0e9849e7-7cc1-48b5-81aa-43c066f8dbeb}*SharedItemsImports = 4
-		Features\IO.Spot.Pwm\IO.Spot.Pwm.projitems*{0e9849e7-7cc1-48b5-81aa-43c066f8dbeb}*SharedItemsImports = 4
 		Hardware\Boards.NetduinoPlus2\Shared.projitems*{0e9849e7-7cc1-48b5-81aa-43c066f8dbeb}*SharedItemsImports = 4
-		Hardware\Input.Button\Input.Button.projitems*{0e9849e7-7cc1-48b5-81aa-43c066f8dbeb}*SharedItemsImports = 4
 		Core\uScoober.Threading\Shared\Shared.projitems*{e797cc15-691d-4284-bc3f-b9e866e00aaf}*SharedItemsImports = 4
 		Features\Binary.BitCounter\uScoober.Binary.BitCounter.projitems*{87712199-3f2a-4fd4-a08f-80a444f8aa93}*SharedItemsImports = 4
+		Features\Binary.BitMask\uScoober.Binary.BitMask.projitems*{87712199-3f2a-4fd4-a08f-80a444f8aa93}*SharedItemsImports = 4
 		Features\Binary.Endian\uScoober.Binary.Endian.projitems*{87712199-3f2a-4fd4-a08f-80a444f8aa93}*SharedItemsImports = 4
 		Features\Binary.BinaryCodedDecimal\uScoober.Binary.BinaryCodedDecimal.projitems*{87712199-3f2a-4fd4-a08f-80a444f8aa93}*SharedItemsImports = 4
-		Features\Binary.BitMask\uScoober.Binary.BitMask.projitems*{87712199-3f2a-4fd4-a08f-80a444f8aa93}*SharedItemsImports = 4
 		Core.Validation\uScoober.Tests\Shared\Shared.projitems*{57e03e08-13b1-415d-81d6-786b9ae7d9d5}*SharedItemsImports = 13
 		Features\Binary.BinaryCodedDecimal\uScoober.Binary.BinaryCodedDecimal.projitems*{88ab822b-b7d3-4877-a9a7-003a7170e979}*SharedItemsImports = 13
 		Features\IO.SignalGenerators\uScoober.IO.SignalGenerators.projitems*{03bc4892-178e-4464-b52e-5dd1939047f8}*SharedItemsImports = 13
 		Hardware\Input.Button\Input.Button.projitems*{c73041d5-e4fb-4ebf-87ab-7c138399cbc5}*SharedItemsImports = 13
 		Core\uScoober\Shared\Shared.projitems*{cbb895b4-8cc4-46f5-96d2-247d54811c45}*SharedItemsImports = 4
 		Features\DataStructures.NotifyCollection\uScoober.DataStructures.NotifyCollection.projitems*{dce2d428-47c5-4577-9bdb-f19a10d01807}*SharedItemsImports = 13
-		Features\IO.I2CBus.Bitbang\uScoober.IO.I2CBus.Bitbang.projitems*{cc939252-a3dc-498f-a40c-05f8a2ae6a1d}*SharedItemsImports = 4
 		Features\IO.I2CBus.Spot\uScoober.IO.I2CBus.Spot.projitems*{cc939252-a3dc-498f-a40c-05f8a2ae6a1d}*SharedItemsImports = 4
+		Features\IO.I2CBus.Bitbang\uScoober.IO.I2CBus.Bitbang.projitems*{cc939252-a3dc-498f-a40c-05f8a2ae6a1d}*SharedItemsImports = 4
 		Features\IO.I2CBus.Scanner\uScoober.IO.I2CBus.Scanner.projitems*{cc939252-a3dc-498f-a40c-05f8a2ae6a1d}*SharedItemsImports = 4
 		Hardware\IO.MCP23017\Shared.projitems*{2f040993-4957-44f4-913c-0ad0ef717af8}*SharedItemsImports = 13
 		Hardware\IO.MCP23017\Shared.projitems*{82df5571-c721-4f20-b588-2b301f26c3ae}*SharedItemsImports = 4
 		Hardware\Boards.NetduinoPlus2\Shared.projitems*{d02bd8ca-0117-422b-9770-a3b02df4f3e1}*SharedItemsImports = 13
-		Features\IO.Spot.Digital\IO.Spot.Digital.projitems*{fe696cd6-e0fd-4d4b-9bb2-6a20dfe0e11f}*SharedItemsImports = 4
 		Core\uScoober.TestFramework\Shared\Shared.projitems*{fe696cd6-e0fd-4d4b-9bb2-6a20dfe0e11f}*SharedItemsImports = 4
+		Features\IO.Spot.Digital\IO.Spot.Digital.projitems*{fe696cd6-e0fd-4d4b-9bb2-6a20dfe0e11f}*SharedItemsImports = 4
 		Core\uScoober.Threading.Presentation\Shared\Shared.projitems*{60cfeea1-03d9-4a81-bd9f-161a78a5d005}*SharedItemsImports = 4
 		Core\uScoober.Threading\Shared\Shared.projitems*{ac5b0a92-e4d4-419c-ad50-3faf20947299}*SharedItemsImports = 4
 		Core\uScoober.Threading\Shared\Shared.projitems*{1a9ba106-9116-4145-a959-f3a815d8dd9b}*SharedItemsImports = 13

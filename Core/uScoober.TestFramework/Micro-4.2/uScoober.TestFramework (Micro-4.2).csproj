@@ -44,9 +44,7 @@
     <Reference Include="Microsoft.SPOT.TinyCore" />
     <Reference Include="System.IO" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\..\uScoober.Threading\Micro-4.2\uScoober.Threading %28Micro-4.2%29.csproj">
       <Project>{AC5B0A92-E4D4-419C-AD50-3FAF20947299}</Project>
@@ -68,6 +66,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\Shared\Properties\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="UI\Resources\ViewResources.Designer.cs">
       <DependentUpon>ViewResources.resx</DependentUpon>
       <AutoGen>True</AutoGen>

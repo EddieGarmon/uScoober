@@ -9,7 +9,6 @@
     <Import_RootNamespace>Shared</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Properties\AssemblyInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Threading\CancellationSourceTests.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Threading\CreatedCompletedTests.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Threading\CustomSchedulerTests.cs" />

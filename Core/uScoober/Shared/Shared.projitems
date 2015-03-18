@@ -10,7 +10,6 @@
     </Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Properties\AssemblyInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\ByteOrder.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\DataStructures\Enumerable.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\DataStructures\IQueue.cs" />

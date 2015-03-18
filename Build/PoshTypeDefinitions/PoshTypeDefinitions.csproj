@@ -42,7 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EntryPoint.cs" />
+    <Compile Include="DebugEntryPoint.cs" />
     <Compile Include="SemVer.cs" />
   </ItemGroup>
   <ItemGroup>

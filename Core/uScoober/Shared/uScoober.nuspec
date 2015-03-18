@@ -13,15 +13,12 @@
         <iconUrl>http://eddiegarmon.github.io/MyLogo.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <summary>
-            Good core abstractions that are testable.
-            Interface based IO and IO buses.
-            Core data structures.
-            Little and Big Endian; reading and writing.
-            An implementation of Tasks (inspired by the TPL).
-            An implementation of Units of Measure.
+            Minimalist core abstractions, that are testable.
+            Interface definitions for IO and IO buses.
             Support for NETMF 4.2 and 4.3.
+            Designed for extension.
         </summary>
-        <tags>NETMF Micro Framework IO TPL Tasks UoM</tags>
+        <tags>NETMF Micro Framework IO TPL Tasks</tags>
         <!-- example:        
         <dependencies>
             <dependency id="uScoober" version="[0.0.0-core,1.0.0-core)" />
@@ -35,7 +32,6 @@
         -->
         <frameworkAssemblies>
             <frameworkAssembly assemblyName="Microsoft.Spot.Hardware" />
-            <frameworkAssembly assemblyName="Microsoft.Spot.Hardware.PWM" />
             <frameworkAssembly assemblyName="Microsoft.Spot.Native" />
         </frameworkAssemblies>
         <!-- example:

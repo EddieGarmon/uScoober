@@ -31,9 +31,7 @@
   <ItemGroup>
     <Reference Include="Microsoft.SPOT.TinyCore" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\..\uScoober.Threading\Micro-4.3\uScoober.Threading %28Micro-4.3%29.csproj">
       <Project>{E797CC15-691D-4284-BC3F-B9E866E00AAF}</Project>
@@ -43,6 +41,11 @@
       <Project>{C8A0566E-DAA6-4FBD-B407-A9B806495F88}</Project>
       <Name>uScoober %28Micro-4.3%29</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Shared\Properties\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
   </ItemGroup>
   <Import Project="..\Shared\Shared.projitems" Label="Shared" Condition="Exists('..\Shared\Shared.projitems')" />
   <Import Condition="EXISTS('$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets')" Project="$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets" />

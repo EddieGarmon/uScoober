@@ -13,7 +13,6 @@
     <None Include="$(MSBuildThisFileDirectory)uScoober.Threading.nuspec" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Properties\AssemblyInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\AggregateException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Threading\ActionTask.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Threading\CancellationSource.cs" />
