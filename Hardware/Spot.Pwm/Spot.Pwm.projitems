@@ -11,4 +11,10 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)SpotPwmOutput.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)semver.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)Spot.Pwm.nuspec" />
+  </ItemGroup>
 </Project>

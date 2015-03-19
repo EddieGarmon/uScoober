@@ -9,6 +9,12 @@
     <Import_RootNamespace>Spot.Analog</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)AnalogInput.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SpotAnalogInput.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)semver.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)Spot.Analog.nuspec" />
   </ItemGroup>
 </Project>

@@ -12,4 +12,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)SpotDigitalInput.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SpotDigitalOutput.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)semver.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)Spot.Digital.nuspec" />
+  </ItemGroup>
 </Project>

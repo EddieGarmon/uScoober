@@ -9,7 +9,7 @@
     <Import_RootNamespace>Spot.I2C</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="$(MSBuildThisFileDirectory)IO.I2CBus.Spot.nuspec" />
+    <None Include="$(MSBuildThisFileDirectory)Spot.I2C.nuspec" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)SpotI2CBus.cs" />
