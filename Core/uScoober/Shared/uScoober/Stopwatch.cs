@@ -21,8 +21,8 @@ namespace uScoober
             if (_started == 0) {
                 throw new Exception("Stopwatch is not running.");
             }
-            var temp = GetMachineTicks();
-            var result = (temp - _lastSplit) / (1.0 * TimeSpan.TicksPerSecond);
+            long temp = GetMachineTicks();
+            double result = (temp - _lastSplit) / (1.0 * TimeSpan.TicksPerSecond);
             _lastSplit = temp;
             return result;
         }
@@ -39,7 +39,7 @@ namespace uScoober
             if (_started == 0) {
                 return 0;
             }
-            var result = ComputeElapsed();
+            double result = ComputeElapsed();
             _started = 0;
             return result;
         }

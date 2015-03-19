@@ -34,6 +34,7 @@
   <Import Project="..\Shared\Shared.projitems" Label="Shared" Condition="Exists('..\Shared\Shared.projitems')" />
   <Import Project="..\..\..\Features\IO.Spot\IO.Spot.projitems" Label="Shared" Condition="Exists('..\..\..\Features\IO.Spot\IO.Spot.projitems')" />
   <Import Project="..\..\..\Features\IO.Spot.Digital\IO.Spot.Digital.projitems" Label="Shared" Condition="Exists('..\..\..\Features\IO.Spot.Digital\IO.Spot.Digital.projitems')" />
+  <Import Project="..\..\..\Hardware\Spot.Digital\Spot.Digital.projitems" Label="Shared" Condition="Exists('..\..\..\Hardware\Spot.Digital\Spot.Digital.projitems')" />
   <Import Project="$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets" />
   <ItemGroup>
     <Reference Include="Microsoft.SPOT.Graphics" />

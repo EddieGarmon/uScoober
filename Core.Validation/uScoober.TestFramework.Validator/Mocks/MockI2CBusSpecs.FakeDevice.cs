@@ -1,5 +1,5 @@
 using Microsoft.SPOT.Hardware;
-using uScoober.IO.I2C;
+using uScoober.Hardware.I2C;
 
 namespace uScoober.TestFramework.Mocks
 {

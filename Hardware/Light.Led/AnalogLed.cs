@@ -1,6 +1,4 @@
-﻿using uScoober.IO;
-
-namespace uScoober.Hardware.Light
+﻿namespace uScoober.Hardware.Light
 {
     public class AnalogLed : DisposableBase,
                              IAnalogLed,

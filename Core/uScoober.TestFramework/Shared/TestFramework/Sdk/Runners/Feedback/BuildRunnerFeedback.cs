@@ -12,7 +12,7 @@ namespace uScoober.TestFramework.Sdk.Runners.Feedback
             Action baseUpdate = testRun.Updated;
             testRun.Updated = () => {
                                   baseUpdate();
-                                  using (var file = File.Open(LogFilename, FileMode.Append)) {
+                                  using (FileStream file = File.Open(LogFilename, FileMode.Append)) {
                                       using (var writer = new StreamWriter(file)) {
                                           writer.WriteLine("Update " + _updateCount++);
                                           writer.WriteLine("Pass: " + testRun.PassedCount + ", Fail: " + testRun.FailedCount);
@@ -23,7 +23,7 @@ namespace uScoober.TestFramework.Sdk.Runners.Feedback
                                   }
 
                                   if (testRun.IsComplete) {
-                                      using (var file = File.Open(SummaryFilename, FileMode.Create)) {
+                                      using (FileStream file = File.Open(SummaryFilename, FileMode.Create)) {
                                           using (var writer = new StreamWriter(file)) {
                                               writer.WriteLine("Pass: " + testRun.PassedCount + ", Fail: " + testRun.FailedCount + " ["
                                                                + testRun.DurationSummary + "]");
@@ -31,7 +31,7 @@ namespace uScoober.TestFramework.Sdk.Runners.Feedback
                                       }
                                       // write out failures file for build automation
                                       if (testRun.FailedCount > 0) {
-                                          using (var file = File.Open(FailuresFilename, FileMode.Create)) {
+                                          using (FileStream file = File.Open(FailuresFilename, FileMode.Create)) {
                                               using (var writer = new StreamWriter(file)) {
                                                   foreach (TestCase failure in testRun.Failures) {
                                                       writer.WriteLine(failure.Name);

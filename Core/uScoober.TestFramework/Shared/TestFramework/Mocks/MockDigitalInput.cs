@@ -1,5 +1,5 @@
 ﻿using System;
-using uScoober.IO;
+using uScoober.Hardware;
 
 namespace uScoober.TestFramework.Mocks
 {
@@ -32,7 +32,7 @@ namespace uScoober.TestFramework.Mocks
             if (!InteruptEnabled) {
                 return;
             }
-            var handler = OnInterupt;
+            InteruptHandler handler = OnInterupt;
             if (handler != null) {
                 bool newValue = InvertReading ? !state : state;
                 handler(this, newValue, time);
@@ -41,7 +41,7 @@ namespace uScoober.TestFramework.Mocks
 
         public bool Read() {
             ThrowIfDisposed();
-            var value = ValueProvider();
+            bool value = ValueProvider();
             return InvertReading ? !value : value;
         }
     }

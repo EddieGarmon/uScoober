@@ -1,5 +1,4 @@
 ﻿using System;
-using uScoober.IO;
 
 namespace uScoober.Hardware.Input
 {

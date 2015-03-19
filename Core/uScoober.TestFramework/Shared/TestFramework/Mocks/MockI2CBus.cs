@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.SPOT.Hardware;
 using uScoober.DataStructures;
-using uScoober.IO.I2C;
+using uScoober.Hardware.I2C;
 using uScoober.TestFramework.Assert;
 
 namespace uScoober.TestFramework.Mocks
@@ -11,7 +11,7 @@ namespace uScoober.TestFramework.Mocks
         private readonly Ring _devices = new Ring();
 
         public void BufferInputFor(ushort address, params byte[] input) {
-            var deviceBuffers = GetDevice(address);
+            DeviceBuffers deviceBuffers = GetDevice(address);
             deviceBuffers.Input.Append(input);
         }
 
@@ -28,7 +28,7 @@ namespace uScoober.TestFramework.Mocks
         }
 
         public int Execute(I2CDevice.Configuration config, I2CDevice.I2CTransaction[] actions, int timeoutMilliseconds) {
-            foreach (var action in actions) {
+            foreach (I2CDevice.I2CTransaction action in actions) {
                 if (action is I2CDevice.I2CReadTransaction) {
                     Read(config, action.Buffer, timeoutMilliseconds);
                 }
@@ -43,33 +43,33 @@ namespace uScoober.TestFramework.Mocks
         }
 
         public bool Read(I2CDevice.Configuration config, byte[] readBuffer, int timeoutMilliseconds) {
-            var device = GetDevice(config.Address);
+            DeviceBuffers device = GetDevice(config.Address);
             device.Input.ReadInto(readBuffer, 0, readBuffer.Length);
             return true;
         }
 
         public void ShouldObserveOutput(ushort address, params byte[] expectedOutput) {
-            var output = GetDevice(address)
+            MockIOBuffer output = GetDevice(address)
                 .Output;
             output.Storage.ShouldEnumerateEqual(expectedOutput);
             output.Clear();
         }
 
         public bool Write(I2CDevice.Configuration config, byte[] writeBuffer, int timeoutMilliseconds) {
-            var device = GetDevice(config.Address);
+            DeviceBuffers device = GetDevice(config.Address);
             device.Output.Append(writeBuffer);
             return true;
         }
 
         public bool WriteRead(I2CDevice.Configuration config, byte[] writeBuffer, byte[] readBuffer, int timeoutMilliseconds) {
-            var device = GetDevice(config.Address);
+            DeviceBuffers device = GetDevice(config.Address);
             device.Output.Append(writeBuffer);
             device.Input.ReadInto(readBuffer, 0, readBuffer.Length);
             return true;
         }
 
         private DeviceBuffers GetDevice(ushort address) {
-            var indexedLink = _devices.Find(obj => ((DeviceBuffers)obj).Address == address);
+            Ring.IndexedLink indexedLink = _devices.Find(obj => ((DeviceBuffers)obj).Address == address);
             if (indexedLink != null) {
                 return (DeviceBuffers)indexedLink.Value;
             }

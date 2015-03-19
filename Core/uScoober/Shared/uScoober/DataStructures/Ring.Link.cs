@@ -9,7 +9,7 @@ namespace uScoober.DataStructures
         public class Link
         {
             /// <summary>
-            /// Creates a single link ring.
+            ///     Creates a single link ring.
             /// </summary>
             /// <param name="value"></param>
             internal Link(object value) {
@@ -19,7 +19,7 @@ namespace uScoober.DataStructures
             }
 
             /// <summary>
-            /// Creates and connects a new link after the specified link
+            ///     Creates and connects a new link after the specified link
             /// </summary>
             /// <param name="value"></param>
             /// <param name="previous"></param>

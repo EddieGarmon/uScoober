@@ -1,10 +1,9 @@
 ﻿using System;
+using NetduinoPlus2.Tests;
+using uScoober.Hardware.I2C;
 using uScoober.Hardware.Input;
 using uScoober.Hardware.Light;
-using uScoober.IO;
-using uScoober.IO.I2C;
-using uScoober.IO.I2CBus;
-using uScoober.IO.Spot;
+using uScoober.Hardware.Spot;
 using SL = SecretLabs.NETMF.Hardware.Netduino;
 
 namespace uScoober.Hardware.Boards
@@ -29,12 +28,12 @@ namespace uScoober.Hardware.Boards
             get {
                 return _onboardButton
                        ?? (_onboardButton =
-                           new PushButton(new DigitalInput(SL.Pins.ONBOARD_BTN, "on-board button", ResistorMode.PullUp, InterruptMode.InterruptEdgeLevelLow)));
+                           new PushButton(new SpotDigitalInput(SL.Pins.ONBOARD_BTN, "on-board button", ResistorMode.PullUp, InterruptMode.InterruptEdgeLevelLow)));
             }
         }
 
         public AnalogLed OnboardLed {
-            get { return _onboardLed ?? (_onboardLed = new AnalogLed(new PulseWidthModulatedOutput(SL.PWMChannels.PWM_ONBOARD_LED))); }
+            get { return _onboardLed ?? (_onboardLed = new AnalogLed(new SpotPwmOutput(SL.PWMChannels.PWM_ONBOARD_LED))); }
         }
 
         public PwmOutputs PwmOut {
@@ -60,27 +59,27 @@ namespace uScoober.Hardware.Boards
             private IAnalogInput _a5;
 
             public IAnalogInput A0 {
-                get { return _a0 ?? (_a0 = new AnalogInput(SL.AnalogChannels.ANALOG_PIN_A0)); }
+                get { return _a0 ?? (_a0 = new SpotAnalogInput(SL.AnalogChannels.ANALOG_PIN_A0)); }
             }
 
             public IAnalogInput A1 {
-                get { return _a1 ?? (_a1 = new AnalogInput(SL.AnalogChannels.ANALOG_PIN_A1)); }
+                get { return _a1 ?? (_a1 = new SpotAnalogInput(SL.AnalogChannels.ANALOG_PIN_A1)); }
             }
 
             public IAnalogInput A2 {
-                get { return _a2 ?? (_a2 = new AnalogInput(SL.AnalogChannels.ANALOG_PIN_A2)); }
+                get { return _a2 ?? (_a2 = new SpotAnalogInput(SL.AnalogChannels.ANALOG_PIN_A2)); }
             }
 
             public IAnalogInput A3 {
-                get { return _a3 ?? (_a3 = new AnalogInput(SL.AnalogChannels.ANALOG_PIN_A3)); }
+                get { return _a3 ?? (_a3 = new SpotAnalogInput(SL.AnalogChannels.ANALOG_PIN_A3)); }
             }
 
             public IAnalogInput A4 {
-                get { return _a4 ?? (_a4 = new AnalogInput(SL.AnalogChannels.ANALOG_PIN_A4)); }
+                get { return _a4 ?? (_a4 = new SpotAnalogInput(SL.AnalogChannels.ANALOG_PIN_A4)); }
             }
 
             public IAnalogInput A5 {
-                get { return _a5 ?? (_a5 = new AnalogInput(SL.AnalogChannels.ANALOG_PIN_A5)); }
+                get { return _a5 ?? (_a5 = new SpotAnalogInput(SL.AnalogChannels.ANALOG_PIN_A5)); }
             }
 
             public IAnalogInput this[int index] {
@@ -115,27 +114,27 @@ namespace uScoober.Hardware.Boards
             private IPulseWidthModulatedOutput _d9;
 
             public IPulseWidthModulatedOutput D10 {
-                get { return _d10 ?? (_d10 = new PulseWidthModulatedOutput(SL.PWMChannels.PWM_PIN_D10)); }
+                get { return _d10 ?? (_d10 = new SpotPwmOutput(SL.PWMChannels.PWM_PIN_D10)); }
             }
 
             public IPulseWidthModulatedOutput D11 {
-                get { return _d11 ?? (_d11 = new PulseWidthModulatedOutput(SL.PWMChannels.PWM_PIN_D11)); }
+                get { return _d11 ?? (_d11 = new SpotPwmOutput(SL.PWMChannels.PWM_PIN_D11)); }
             }
 
             public IPulseWidthModulatedOutput D3 {
-                get { return _d3 ?? (_d3 = new PulseWidthModulatedOutput(SL.PWMChannels.PWM_PIN_D3)); }
+                get { return _d3 ?? (_d3 = new SpotPwmOutput(SL.PWMChannels.PWM_PIN_D3)); }
             }
 
             public IPulseWidthModulatedOutput D5 {
-                get { return _d5 ?? (_d5 = new PulseWidthModulatedOutput(SL.PWMChannels.PWM_PIN_D5)); }
+                get { return _d5 ?? (_d5 = new SpotPwmOutput(SL.PWMChannels.PWM_PIN_D5)); }
             }
 
             public IPulseWidthModulatedOutput D6 {
-                get { return _d6 ?? (_d6 = new PulseWidthModulatedOutput(SL.PWMChannels.PWM_PIN_D6)); }
+                get { return _d6 ?? (_d6 = new SpotPwmOutput(SL.PWMChannels.PWM_PIN_D6)); }
             }
 
             public IPulseWidthModulatedOutput D9 {
-                get { return _d9 ?? (_d9 = new PulseWidthModulatedOutput(SL.PWMChannels.PWM_PIN_D9)); }
+                get { return _d9 ?? (_d9 = new SpotPwmOutput(SL.PWMChannels.PWM_PIN_D9)); }
             }
 
             public IPulseWidthModulatedOutput this[int index] {

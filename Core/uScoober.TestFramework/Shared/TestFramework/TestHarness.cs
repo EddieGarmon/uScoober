@@ -71,7 +71,7 @@ namespace uScoober.TestFramework
             base.OnStartup(e);
 
             //NB: we must wait and create all UI objects in 'OnStartup' so they are on the dispatcher thread
-            var gui = _testRunner.Feedback.InitializeGui();
+            UIElement gui = _testRunner.Feedback.InitializeGui();
             if (gui != null) {
                 if (MainWindow == null) {
                     Debugger.Break();

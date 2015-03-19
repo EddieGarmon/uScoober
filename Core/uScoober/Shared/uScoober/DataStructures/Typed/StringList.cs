@@ -39,7 +39,7 @@ namespace uScoober.DataStructures.Typed
                                        .Value;
             }
             set {
-                var findResult = _storage.FindAtIndex(index);
+                Ring.IndexedLink findResult = _storage.FindAtIndex(index);
                 _storage.IncrementEditVersion();
                 findResult.RingLink.Value = value;
             }
@@ -96,7 +96,7 @@ namespace uScoober.DataStructures.Typed
         }
 
         public int IndexOf(string value) {
-            var findResult = _storage.Find(value);
+            Ring.IndexedLink findResult = _storage.Find(value);
             return (findResult == null) ? -1 : findResult.Index;
         }
 
@@ -109,7 +109,7 @@ namespace uScoober.DataStructures.Typed
         }
 
         public bool Remove(string value) {
-            var findResult = _storage.Find(value);
+            Ring.IndexedLink findResult = _storage.Find(value);
             if (findResult == null) {
                 return false;
             }

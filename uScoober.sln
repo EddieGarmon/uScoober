@@ -46,8 +46,6 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Boards.NetduinoPlus2", "Har
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Eeprom.AT24C32", "Hardware\Eeprom.AT24C32\Eeprom.AT24C32.shproj", "{9246901D-BA7B-4CE8-BECD-89389C6956B0}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "IO.MCP23017", "Hardware\IO.MCP23017\IO.MCP23017.shproj", "{2F040993-4957-44F4-913C-0AD0EF717AF8}"
-EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Time.DS1307", "Hardware\Time.DS1307\Time.DS1307.shproj", "{EC07E887-91D9-44E7-84D7-8BDF627A3E60}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Time.TinyRtc", "Hardware\Time.TinyRtc\Time.TinyRtc.shproj", "{35A48594-AA08-4704-AD10-1ED4ADDDED9B}"
@@ -55,8 +53,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boards.Netduino2.Tests (Micro-4.3)", "Hardware.Validation\Boards.Netduino2.Tests\Boards.Netduino2.Tests (Micro-4.3).csproj", "{24171A35-F47D-4CC5-8D4B-46132BF26610}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boards.NetduinoPlus2.Tests (Micro-4.3)", "Hardware.Validation\Boards.NetduinoPlus2.Tests\Boards.NetduinoPlus2.Tests (Micro-4.3).csproj", "{0E9849E7-7CC1-48B5-81AA-43C066F8DBEB}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IO.MCP23017.Tests (Micro-4.3)", "Hardware.Validation\IO.MCP23017.UnitTests\Micro-4.3\IO.MCP23017.Tests (Micro-4.3).csproj", "{82DF5571-C721-4F20-B588-2B301F26C3AE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Start Here_", "_Start Here_", "{DFD13F03-3780-445B-8910-EF07555AF09D}"
 	ProjectSection(SolutionItems) = preProject
@@ -100,6 +96,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{38B397B3-A7ED-479B-A151-E6200A2057F1}"
 	ProjectSection(SolutionItems) = preProject
 		Build\Psake\build_script.ps1 = Build\Psake\build_script.ps1
+		Build\TestRunner\BuildTestRunner.ps1 = Build\TestRunner\BuildTestRunner.ps1
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PoshTypeDefinitions", "Build\PoshTypeDefinitions\PoshTypeDefinitions.csproj", "{C2E5AC5F-4D0F-4878-A456-CE78D16FC6C0}"
@@ -130,23 +127,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructures.Tests (Micro
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "DataStructures.NotifyCollection", "Features\DataStructures.NotifyCollection\DataStructures.NotifyCollection.shproj", "{DCE2D428-47C5-4577-9BDB-F19A10D01807}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IO.I2CBus.Tests (Micro-4.3)", "Features.Validation\IO.I2CBus.Tests\IO.I2CBus.Tests (Micro-4.3).csproj", "{CC939252-A3DC-498F-A40C-05F8A2AE6A1D}"
-EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Boot", "Features\Boot\Boot.shproj", "{4F6A4D22-EE38-4493-982F-01FA3175DA69}"
-EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "IO.I2CBus.Bitbang", "Features\IO.I2CBus.Bitbang\IO.I2CBus.Bitbang.shproj", "{BAE344F9-BFFD-47E7-8675-CF2D884480D2}"
-EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "IO.I2CBus.Scanner", "Features\IO.I2CBus.Scanner\IO.I2CBus.Scanner.shproj", "{81D9F870-F18F-47D5-9C9A-9D9BA0576C4B}"
-EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "IO.I2CBus.Spot", "Features\IO.I2CBus.Spot\IO.I2CBus.Spot.shproj", "{97E88847-0FA3-4929-B051-5A1E41E94C33}"
-EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "IO.SignalGenerators", "Features\IO.SignalGenerators\IO.SignalGenerators.shproj", "{03BC4892-178E-4464-B52E-5DD1939047F8}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IO.SpiBus.Tests (Micro-4.3)", "Features.Validation\IO.SpiBus.Tests\IO.SpiBus.Tests (Micro-4.3).csproj", "{070EB8C0-AEF1-4789-8365-BC74D437DF97}"
-EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "IO.SpiBus.Bitbang", "Features\IO.SpiBus.Bitbang\IO.SpiBus.Bitbang.shproj", "{0F01D540-FE2E-4786-8697-7F2C097E516D}"
-EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "IO.SpiBus.Spot", "Features\IO.SpiBus.Spot\IO.SpiBus.Spot.shproj", "{FA8F4761-88BF-497C-A38E-64743EF6ECDF}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Storage", "Features\Storage\Storage.shproj", "{BC5F5562-784A-4140-9B70-3A7ACDF2987A}"
 EndProject
@@ -156,33 +137,54 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitsOfMeasure.Tests (Micro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Storage.Tests (Micro-4.3)", "Features.Validation\Storage.Tests\Storage.Tests (Micro-4.3).csproj", "{0A481BEF-6D7C-48A3-A332-ED963061158A}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IO", "IO", "{FA9CF8D3-BFEB-48AE-8FF9-0488EFD97596}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Expander.MCP23017", "Hardware\Expander.MCP23017\Expander.MCP23017.shproj", "{75B318FD-4673-493B-8EE5-319771DB396F}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IO", "IO", "{81B6382C-C37B-481E-B35A-3BAD321BFB89}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Expander.MCP23008", "Hardware\Expander.MCP23008\Expander.MCP23008.shproj", "{8C1F311B-3731-47D1-8596-5AB5666BD328}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "IO.Spot.Digital", "Features\IO.Spot.Digital\IO.Spot.Digital.shproj", "{37777689-9697-4128-95D1-BC630B061AFB}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Spot.Pwm", "Hardware\Spot.Pwm\Spot.Pwm.shproj", "{434B0E18-2104-46B1-B33B-E6985490AE98}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "IO.Spot.Analog", "Features\IO.Spot.Analog\IO.Spot.Analog.shproj", "{4001A371-80E2-4DA8-AE8A-15D338CC87EC}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Spot.Digital", "Hardware\Spot.Digital\Spot.Digital.shproj", "{47BE963B-B8EF-4961-831D-8C907D349CF5}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "IO.Spot.Pwm", "Features\IO.Spot.Pwm\IO.Spot.Pwm.shproj", "{A7F12293-6743-40DA-A959-0DAC59B70AFC}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Spot.Analog", "Hardware\Spot.Analog\Spot.Analog.shproj", "{4C313A4A-1A46-4BE6-A895-476EB62AD196}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Spot.Spi", "Hardware\Spot.Spi\Spot.Spi.shproj", "{EFA58381-E07B-4446-8D35-666C2DF1E0E6}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Spot.I2C", "Hardware\Spot.I2C\Spot.I2C.shproj", "{CFE23C08-997B-4FC9-AAA1-52DC3AC9DC62}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "I2C.Scanner", "Hardware\I2C.Scanner\I2C.Scanner.shproj", "{06CADCFF-2E78-4918-846F-3F9AC53A7E71}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Spot", "Spot", "{6BB2C4A8-D59C-42F0-965D-08BC783C7908}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bitbang", "Bitbang", "{88206F7A-8F71-4F59-AA33-517C9DC10AF1}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "BitBang.Spi", "Hardware\BitBang.Spi\BitBang.Spi.shproj", "{303732D6-7700-446E-B1C4-B8A307186284}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "BitBang.I2C", "Hardware\BitBang.I2C\BitBang.I2C.shproj", "{CF27F5D3-3052-4879-8E3A-32B8B327D81F}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SignalGenerators", "Features\SignalGenerators\SignalGenerators.shproj", "{E3DE5C82-1353-4DE3-B34C-A7183FF54B0D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spot.Tests", "Hardware.Validation\Spot.Tests\Spot.Tests.csproj", "{FA34C83E-5B39-4C8D-9BB2-ED6620E69C68}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Expander.MCP23017.Tests", "Hardware.Validation\Expander.MCP23017.Tests\Expander.MCP23017.Tests.csproj", "{DB71D3F5-05C5-4FA3-8DC7-30A1EA426CE1}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Core.Validation\uScoober.Threading.Tests\Shared\Shared.projitems*{cf1effe6-39d7-4014-a3d5-76a64b1ce448}*SharedItemsImports = 4
 		Hardware\Time.TinyRtc\Shared.projitems*{35a48594-aa08-4704-ad10-1ed4addded9b}*SharedItemsImports = 13
+		Hardware\Spot.Pwm\Spot.Pwm.projitems*{434b0e18-2104-46b1-b33b-e6985490ae98}*SharedItemsImports = 13
 		Core\uScoober\Shared\Shared.projitems*{76a70af9-35ec-4a0d-92c0-c48752c53df0}*SharedItemsImports = 13
 		Hardware\Motors.BrushlessSpeedController\Shared.projitems*{c8473a2b-e27d-4cb1-8e68-a315a6796513}*SharedItemsImports = 13
 		Features\Storage\uScoober.Storage.projitems*{0a481bef-6d7c-48a3-a332-ed963061158a}*SharedItemsImports = 4
-		Features\IO.SpiBus.Bitbang\uScoober.IO.SpiBus.Bitbang.projitems*{0f01d540-fe2e-4786-8697-7f2c097e516d}*SharedItemsImports = 13
 		Features\Binary.BitMask\uScoober.Binary.BitMask.projitems*{ebd8ca8d-0c20-49f1-9fbf-725f869dc94c}*SharedItemsImports = 13
 		Features\Binary.BitCounter\uScoober.Binary.BitCounter.projitems*{2c447b01-952c-4a50-aa90-2f0000e6f07f}*SharedItemsImports = 13
-		Features\IO.Spot.Analog\IO.Spot.Analog.projitems*{24171a35-f47d-4cc5-8d4b-46132bf26610}*SharedItemsImports = 4
 		Hardware\Input.Button\Input.Button.projitems*{24171a35-f47d-4cc5-8d4b-46132bf26610}*SharedItemsImports = 4
+		Hardware\Spot.I2C\Spot.I2C.projitems*{24171a35-f47d-4cc5-8d4b-46132bf26610}*SharedItemsImports = 4
 		Hardware\Boards.Netduino2\Shared.projitems*{24171a35-f47d-4cc5-8d4b-46132bf26610}*SharedItemsImports = 4
-		Features\IO.I2CBus.Spot\uScoober.IO.I2CBus.Spot.projitems*{24171a35-f47d-4cc5-8d4b-46132bf26610}*SharedItemsImports = 4
-		Features\IO.Spot.Pwm\IO.Spot.Pwm.projitems*{24171a35-f47d-4cc5-8d4b-46132bf26610}*SharedItemsImports = 4
+		Hardware\Spot.Pwm\Spot.Pwm.projitems*{24171a35-f47d-4cc5-8d4b-46132bf26610}*SharedItemsImports = 4
+		Hardware\Spot.Digital\Spot.Digital.projitems*{24171a35-f47d-4cc5-8d4b-46132bf26610}*SharedItemsImports = 4
+		Hardware\Spot.Spi\Spot.Spi.projitems*{24171a35-f47d-4cc5-8d4b-46132bf26610}*SharedItemsImports = 4
+		Hardware\Spot.Analog\Spot.Analog.projitems*{24171a35-f47d-4cc5-8d4b-46132bf26610}*SharedItemsImports = 4
 		Hardware\Light.Led\Light.Led.projitems*{24171a35-f47d-4cc5-8d4b-46132bf26610}*SharedItemsImports = 4
-		Features\IO.Spot.Digital\IO.Spot.Digital.projitems*{24171a35-f47d-4cc5-8d4b-46132bf26610}*SharedItemsImports = 4
 		Features\Boot\uScoober.Boot.projitems*{4f6a4d22-ee38-4493-982f-01fa3175da69}*SharedItemsImports = 13
 		Hardware\Eeprom.AT24C32\Shared.projitems*{9246901d-ba7b-4ce8-becd-89389c6956b0}*SharedItemsImports = 13
 		Core\uScoober.Threading.Presentation\Shared\Shared.projitems*{5e3a3770-169d-484e-8f97-e98642f91a58}*SharedItemsImports = 4
@@ -191,33 +193,34 @@ Global
 		Core\uScoober\Shared\Shared.projitems*{c8a0566e-daa6-4fbd-b407-a9b806495f88}*SharedItemsImports = 4
 		Hardware\Boards.Netduino2\Shared.projitems*{deb4a14b-a542-4169-a2d8-c5b49ed4ba6d}*SharedItemsImports = 13
 		Core\uScoober.Threading.Presentation\Shared\Shared.projitems*{a5e36e63-2cc8-4bac-80c6-49c95aaf534c}*SharedItemsImports = 13
-		Features\IO.I2CBus.Spot\uScoober.IO.I2CBus.Spot.projitems*{97e88847-0fa3-4929-b051-5a1e41e94c33}*SharedItemsImports = 13
-		Features\IO.I2CBus.Bitbang\uScoober.IO.I2CBus.Bitbang.projitems*{bae344f9-bffd-47e7-8675-cf2d884480d2}*SharedItemsImports = 13
-		Features\IO.Spot.Pwm\IO.Spot.Pwm.projitems*{a7f12293-6743-40da-a959-0dac59b70afc}*SharedItemsImports = 13
+		Hardware\BitBang.I2C\BitBang.I2C.projitems*{cf27f5d3-3052-4879-8e3a-32b8b327d81f}*SharedItemsImports = 13
 		Core.Validation\uScoober.Tests\Shared\Shared.projitems*{bd08df60-216f-4cc7-bba5-532ac929dace}*SharedItemsImports = 4
+		Hardware\Spot.Digital\Spot.Digital.projitems*{1b2715b7-6174-4cbd-b5a4-a871074d4af2}*SharedItemsImports = 4
 		Core\uScoober.TestFramework\Shared\Shared.projitems*{1b2715b7-6174-4cbd-b5a4-a871074d4af2}*SharedItemsImports = 4
 		Features\IO.Spot.Digital\IO.Spot.Digital.projitems*{1b2715b7-6174-4cbd-b5a4-a871074d4af2}*SharedItemsImports = 4
-		Features\IO.Spot.Analog\IO.Spot.Analog.projitems*{4001a371-80e2-4da8-ae8a-15d338cc87ec}*SharedItemsImports = 13
 		Features\Binary.Endian\uScoober.Binary.Endian.projitems*{c9503ba6-76f8-4ba8-99a1-6515dd7eacb3}*SharedItemsImports = 13
+		Hardware\Expander.MCP23008\Expander.MCP23008.projitems*{8c1f311b-3731-47d1-8596-5ab5666bd328}*SharedItemsImports = 13
 		Core.Validation\uScoober.Threading.Tests\Shared\Shared.projitems*{04dbe653-e77b-4434-a604-04de48647cd0}*SharedItemsImports = 4
 		Features\DataStructures.NotifyCollection\uScoober.DataStructures.NotifyCollection.projitems*{ce076ae6-7711-4359-b98b-55ef72b18113}*SharedItemsImports = 4
-		Features\IO.I2CBus.Scanner\uScoober.IO.I2CBus.Scanner.projitems*{81d9f870-f18f-47d5-9c9a-9d9ba0576c4b}*SharedItemsImports = 13
+		Hardware\Expander.MCP23017\Expander.MCP23017.projitems*{db71d3f5-05c5-4fa3-8dc7-30a1ea426ce1}*SharedItemsImports = 4
 		Hardware\Time.DS1307\Shared.projitems*{ec07e887-91d9-44e7-84d7-8bdf627a3e60}*SharedItemsImports = 13
 		Features\Storage\uScoober.Storage.projitems*{bc5f5562-784a-4140-9b70-3a7acdf2987a}*SharedItemsImports = 13
+		Hardware\BitBang.Spi\BitBang.Spi.projitems*{303732d6-7700-446e-b1c4-b8a307186284}*SharedItemsImports = 13
+		Hardware\Expander.MCP23017\Expander.MCP23017.projitems*{75b318fd-4673-493b-8ee5-319771db396f}*SharedItemsImports = 13
+		Hardware\Spot.I2C\Spot.I2C.projitems*{cfe23c08-997b-4fc9-aaa1-52dc3ac9dc62}*SharedItemsImports = 13
 		Core.Validation\uScoober.Threading.Tests\Shared\Shared.projitems*{3ac05dea-eabf-482c-aac7-d52cb76bd240}*SharedItemsImports = 13
 		Hardware\Light.Led\Light.Led.projitems*{06c8b867-4db2-4448-8827-4717c3258529}*SharedItemsImports = 13
-		Features\IO.SpiBus.Spot\uScoober.IO.SpiBus.Spot.projitems*{070eb8c0-aef1-4789-8365-bc74d437df97}*SharedItemsImports = 4
-		Features\IO.SpiBus.Bitbang\uScoober.IO.SpiBus.Bitbang.projitems*{070eb8c0-aef1-4789-8365-bc74d437df97}*SharedItemsImports = 4
-		Features\IO.SpiBus.Spot\uScoober.IO.SpiBus.Spot.projitems*{fa8f4761-88bf-497c-a38e-64743ef6ecdf}*SharedItemsImports = 13
+		Hardware\Spot.Analog\Spot.Analog.projitems*{4c313a4a-1a46-4be6-a895-476eb62ad196}*SharedItemsImports = 13
+		Hardware\I2C.Scanner\I2C.Scanner.projitems*{06cadcff-2e78-4918-846f-3f9ac53a7e71}*SharedItemsImports = 13
 		Features\UnitsOfMeasure\uScoober.UnitsOfMeasure.projitems*{04b9ae65-4cc4-4da1-b3f7-50d1740f14ae}*SharedItemsImports = 4
-		Features\IO.Spot.Digital\IO.Spot.Digital.projitems*{37777689-9697-4128-95d1-bc630b061afb}*SharedItemsImports = 13
 		Core\uScoober.TestFramework\Shared\Shared.projitems*{cfa58043-cab1-4b6f-8504-35e397b8bbe0}*SharedItemsImports = 13
-		Features\IO.Spot.Analog\IO.Spot.Analog.projitems*{0e9849e7-7cc1-48b5-81aa-43c066f8dbeb}*SharedItemsImports = 4
 		Hardware\Input.Button\Input.Button.projitems*{0e9849e7-7cc1-48b5-81aa-43c066f8dbeb}*SharedItemsImports = 4
-		Features\IO.I2CBus.Spot\uScoober.IO.I2CBus.Spot.projitems*{0e9849e7-7cc1-48b5-81aa-43c066f8dbeb}*SharedItemsImports = 4
-		Features\IO.Spot.Pwm\IO.Spot.Pwm.projitems*{0e9849e7-7cc1-48b5-81aa-43c066f8dbeb}*SharedItemsImports = 4
+		Hardware\Spot.I2C\Spot.I2C.projitems*{0e9849e7-7cc1-48b5-81aa-43c066f8dbeb}*SharedItemsImports = 4
+		Hardware\Spot.Pwm\Spot.Pwm.projitems*{0e9849e7-7cc1-48b5-81aa-43c066f8dbeb}*SharedItemsImports = 4
+		Hardware\Spot.Digital\Spot.Digital.projitems*{0e9849e7-7cc1-48b5-81aa-43c066f8dbeb}*SharedItemsImports = 4
+		Hardware\Spot.Spi\Spot.Spi.projitems*{0e9849e7-7cc1-48b5-81aa-43c066f8dbeb}*SharedItemsImports = 4
+		Hardware\Spot.Analog\Spot.Analog.projitems*{0e9849e7-7cc1-48b5-81aa-43c066f8dbeb}*SharedItemsImports = 4
 		Hardware\Light.Led\Light.Led.projitems*{0e9849e7-7cc1-48b5-81aa-43c066f8dbeb}*SharedItemsImports = 4
-		Features\IO.Spot.Digital\IO.Spot.Digital.projitems*{0e9849e7-7cc1-48b5-81aa-43c066f8dbeb}*SharedItemsImports = 4
 		Hardware\Boards.NetduinoPlus2\Shared.projitems*{0e9849e7-7cc1-48b5-81aa-43c066f8dbeb}*SharedItemsImports = 4
 		Core\uScoober.Threading\Shared\Shared.projitems*{e797cc15-691d-4284-bc3f-b9e866e00aaf}*SharedItemsImports = 4
 		Features\Binary.BitCounter\uScoober.Binary.BitCounter.projitems*{87712199-3f2a-4fd4-a08f-80a444f8aa93}*SharedItemsImports = 4
@@ -226,16 +229,19 @@ Global
 		Features\Binary.BinaryCodedDecimal\uScoober.Binary.BinaryCodedDecimal.projitems*{87712199-3f2a-4fd4-a08f-80a444f8aa93}*SharedItemsImports = 4
 		Core.Validation\uScoober.Tests\Shared\Shared.projitems*{57e03e08-13b1-415d-81d6-786b9ae7d9d5}*SharedItemsImports = 13
 		Features\Binary.BinaryCodedDecimal\uScoober.Binary.BinaryCodedDecimal.projitems*{88ab822b-b7d3-4877-a9a7-003a7170e979}*SharedItemsImports = 13
-		Features\IO.SignalGenerators\uScoober.IO.SignalGenerators.projitems*{03bc4892-178e-4464-b52e-5dd1939047f8}*SharedItemsImports = 13
+		Hardware\Spot.I2C\Spot.I2C.projitems*{fa34c83e-5b39-4c8d-9bb2-ed6620e69c68}*SharedItemsImports = 4
+		Hardware\Spot.Pwm\Spot.Pwm.projitems*{fa34c83e-5b39-4c8d-9bb2-ed6620e69c68}*SharedItemsImports = 4
+		Hardware\Spot.Digital\Spot.Digital.projitems*{fa34c83e-5b39-4c8d-9bb2-ed6620e69c68}*SharedItemsImports = 4
+		Hardware\Spot.Spi\Spot.Spi.projitems*{fa34c83e-5b39-4c8d-9bb2-ed6620e69c68}*SharedItemsImports = 4
+		Hardware\Spot.Analog\Spot.Analog.projitems*{fa34c83e-5b39-4c8d-9bb2-ed6620e69c68}*SharedItemsImports = 4
+		Features\SignalGenerators\SignalGenerators.projitems*{e3de5c82-1353-4de3-b34c-a7183ff54b0d}*SharedItemsImports = 13
 		Hardware\Input.Button\Input.Button.projitems*{c73041d5-e4fb-4ebf-87ab-7c138399cbc5}*SharedItemsImports = 13
 		Core\uScoober\Shared\Shared.projitems*{cbb895b4-8cc4-46f5-96d2-247d54811c45}*SharedItemsImports = 4
+		Hardware\Spot.Spi\Spot.Spi.projitems*{efa58381-e07b-4446-8d35-666c2df1e0e6}*SharedItemsImports = 13
 		Features\DataStructures.NotifyCollection\uScoober.DataStructures.NotifyCollection.projitems*{dce2d428-47c5-4577-9bdb-f19a10d01807}*SharedItemsImports = 13
-		Features\IO.I2CBus.Spot\uScoober.IO.I2CBus.Spot.projitems*{cc939252-a3dc-498f-a40c-05f8a2ae6a1d}*SharedItemsImports = 4
-		Features\IO.I2CBus.Bitbang\uScoober.IO.I2CBus.Bitbang.projitems*{cc939252-a3dc-498f-a40c-05f8a2ae6a1d}*SharedItemsImports = 4
-		Features\IO.I2CBus.Scanner\uScoober.IO.I2CBus.Scanner.projitems*{cc939252-a3dc-498f-a40c-05f8a2ae6a1d}*SharedItemsImports = 4
-		Hardware\IO.MCP23017\Shared.projitems*{2f040993-4957-44f4-913c-0ad0ef717af8}*SharedItemsImports = 13
-		Hardware\IO.MCP23017\Shared.projitems*{82df5571-c721-4f20-b588-2b301f26c3ae}*SharedItemsImports = 4
 		Hardware\Boards.NetduinoPlus2\Shared.projitems*{d02bd8ca-0117-422b-9770-a3b02df4f3e1}*SharedItemsImports = 13
+		Hardware\Spot.Digital\Spot.Digital.projitems*{47be963b-b8ef-4961-831d-8c907d349cf5}*SharedItemsImports = 13
+		Hardware\Spot.Digital\Spot.Digital.projitems*{fe696cd6-e0fd-4d4b-9bb2-6a20dfe0e11f}*SharedItemsImports = 4
 		Core\uScoober.TestFramework\Shared\Shared.projitems*{fe696cd6-e0fd-4d4b-9bb2-6a20dfe0e11f}*SharedItemsImports = 4
 		Features\IO.Spot.Digital\IO.Spot.Digital.projitems*{fe696cd6-e0fd-4d4b-9bb2-6a20dfe0e11f}*SharedItemsImports = 4
 		Core\uScoober.Threading.Presentation\Shared\Shared.projitems*{60cfeea1-03d9-4a81-bd9f-161a78a5d005}*SharedItemsImports = 4
@@ -333,20 +339,6 @@ Global
 		{0E9849E7-7CC1-48B5-81AA-43C066F8DBEB}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{0E9849E7-7CC1-48B5-81AA-43C066F8DBEB}.Release|Mixed Platforms.Deploy.0 = Release|Any CPU
 		{0E9849E7-7CC1-48B5-81AA-43C066F8DBEB}.Release|x86.ActiveCfg = Release|Any CPU
-		{82DF5571-C721-4F20-B588-2B301F26C3AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{82DF5571-C721-4F20-B588-2B301F26C3AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{82DF5571-C721-4F20-B588-2B301F26C3AE}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{82DF5571-C721-4F20-B588-2B301F26C3AE}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{82DF5571-C721-4F20-B588-2B301F26C3AE}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{82DF5571-C721-4F20-B588-2B301F26C3AE}.Debug|Mixed Platforms.Deploy.0 = Debug|Any CPU
-		{82DF5571-C721-4F20-B588-2B301F26C3AE}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{82DF5571-C721-4F20-B588-2B301F26C3AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{82DF5571-C721-4F20-B588-2B301F26C3AE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{82DF5571-C721-4F20-B588-2B301F26C3AE}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{82DF5571-C721-4F20-B588-2B301F26C3AE}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{82DF5571-C721-4F20-B588-2B301F26C3AE}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{82DF5571-C721-4F20-B588-2B301F26C3AE}.Release|Mixed Platforms.Deploy.0 = Release|Any CPU
-		{82DF5571-C721-4F20-B588-2B301F26C3AE}.Release|x86.ActiveCfg = Release|Any CPU
 		{AC5B0A92-E4D4-419C-AD50-3FAF20947299}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AC5B0A92-E4D4-419C-AD50-3FAF20947299}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC5B0A92-E4D4-419C-AD50-3FAF20947299}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
@@ -465,34 +457,6 @@ Global
 		{CE076AE6-7711-4359-B98B-55EF72B18113}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{CE076AE6-7711-4359-B98B-55EF72B18113}.Release|Mixed Platforms.Deploy.0 = Release|Any CPU
 		{CE076AE6-7711-4359-B98B-55EF72B18113}.Release|x86.ActiveCfg = Release|Any CPU
-		{CC939252-A3DC-498F-A40C-05F8A2AE6A1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CC939252-A3DC-498F-A40C-05F8A2AE6A1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CC939252-A3DC-498F-A40C-05F8A2AE6A1D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{CC939252-A3DC-498F-A40C-05F8A2AE6A1D}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{CC939252-A3DC-498F-A40C-05F8A2AE6A1D}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{CC939252-A3DC-498F-A40C-05F8A2AE6A1D}.Debug|Mixed Platforms.Deploy.0 = Debug|Any CPU
-		{CC939252-A3DC-498F-A40C-05F8A2AE6A1D}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{CC939252-A3DC-498F-A40C-05F8A2AE6A1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CC939252-A3DC-498F-A40C-05F8A2AE6A1D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CC939252-A3DC-498F-A40C-05F8A2AE6A1D}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{CC939252-A3DC-498F-A40C-05F8A2AE6A1D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{CC939252-A3DC-498F-A40C-05F8A2AE6A1D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{CC939252-A3DC-498F-A40C-05F8A2AE6A1D}.Release|Mixed Platforms.Deploy.0 = Release|Any CPU
-		{CC939252-A3DC-498F-A40C-05F8A2AE6A1D}.Release|x86.ActiveCfg = Release|Any CPU
-		{070EB8C0-AEF1-4789-8365-BC74D437DF97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{070EB8C0-AEF1-4789-8365-BC74D437DF97}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{070EB8C0-AEF1-4789-8365-BC74D437DF97}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{070EB8C0-AEF1-4789-8365-BC74D437DF97}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{070EB8C0-AEF1-4789-8365-BC74D437DF97}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{070EB8C0-AEF1-4789-8365-BC74D437DF97}.Debug|Mixed Platforms.Deploy.0 = Debug|Any CPU
-		{070EB8C0-AEF1-4789-8365-BC74D437DF97}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{070EB8C0-AEF1-4789-8365-BC74D437DF97}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{070EB8C0-AEF1-4789-8365-BC74D437DF97}.Release|Any CPU.Build.0 = Release|Any CPU
-		{070EB8C0-AEF1-4789-8365-BC74D437DF97}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{070EB8C0-AEF1-4789-8365-BC74D437DF97}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{070EB8C0-AEF1-4789-8365-BC74D437DF97}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{070EB8C0-AEF1-4789-8365-BC74D437DF97}.Release|Mixed Platforms.Deploy.0 = Release|Any CPU
-		{070EB8C0-AEF1-4789-8365-BC74D437DF97}.Release|x86.ActiveCfg = Release|Any CPU
 		{04B9AE65-4CC4-4DA1-B3F7-50D1740F14AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{04B9AE65-4CC4-4DA1-B3F7-50D1740F14AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04B9AE65-4CC4-4DA1-B3F7-50D1740F14AE}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
@@ -521,6 +485,34 @@ Global
 		{0A481BEF-6D7C-48A3-A332-ED963061158A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{0A481BEF-6D7C-48A3-A332-ED963061158A}.Release|Mixed Platforms.Deploy.0 = Release|Any CPU
 		{0A481BEF-6D7C-48A3-A332-ED963061158A}.Release|x86.ActiveCfg = Release|Any CPU
+		{FA34C83E-5B39-4C8D-9BB2-ED6620E69C68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA34C83E-5B39-4C8D-9BB2-ED6620E69C68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA34C83E-5B39-4C8D-9BB2-ED6620E69C68}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{FA34C83E-5B39-4C8D-9BB2-ED6620E69C68}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{FA34C83E-5B39-4C8D-9BB2-ED6620E69C68}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{FA34C83E-5B39-4C8D-9BB2-ED6620E69C68}.Debug|Mixed Platforms.Deploy.0 = Debug|Any CPU
+		{FA34C83E-5B39-4C8D-9BB2-ED6620E69C68}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FA34C83E-5B39-4C8D-9BB2-ED6620E69C68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA34C83E-5B39-4C8D-9BB2-ED6620E69C68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA34C83E-5B39-4C8D-9BB2-ED6620E69C68}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{FA34C83E-5B39-4C8D-9BB2-ED6620E69C68}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{FA34C83E-5B39-4C8D-9BB2-ED6620E69C68}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{FA34C83E-5B39-4C8D-9BB2-ED6620E69C68}.Release|Mixed Platforms.Deploy.0 = Release|Any CPU
+		{FA34C83E-5B39-4C8D-9BB2-ED6620E69C68}.Release|x86.ActiveCfg = Release|Any CPU
+		{DB71D3F5-05C5-4FA3-8DC7-30A1EA426CE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB71D3F5-05C5-4FA3-8DC7-30A1EA426CE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB71D3F5-05C5-4FA3-8DC7-30A1EA426CE1}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{DB71D3F5-05C5-4FA3-8DC7-30A1EA426CE1}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{DB71D3F5-05C5-4FA3-8DC7-30A1EA426CE1}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{DB71D3F5-05C5-4FA3-8DC7-30A1EA426CE1}.Debug|Mixed Platforms.Deploy.0 = Debug|Any CPU
+		{DB71D3F5-05C5-4FA3-8DC7-30A1EA426CE1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DB71D3F5-05C5-4FA3-8DC7-30A1EA426CE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB71D3F5-05C5-4FA3-8DC7-30A1EA426CE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB71D3F5-05C5-4FA3-8DC7-30A1EA426CE1}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{DB71D3F5-05C5-4FA3-8DC7-30A1EA426CE1}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{DB71D3F5-05C5-4FA3-8DC7-30A1EA426CE1}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{DB71D3F5-05C5-4FA3-8DC7-30A1EA426CE1}.Release|Mixed Platforms.Deploy.0 = Release|Any CPU
+		{DB71D3F5-05C5-4FA3-8DC7-30A1EA426CE1}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -540,12 +532,10 @@ Global
 		{DEB4A14B-A542-4169-A2D8-C5B49ED4BA6D} = {BD6FE277-FA8F-452C-B15B-DA929898D5F8}
 		{D02BD8CA-0117-422B-9770-A3B02DF4F3E1} = {BD6FE277-FA8F-452C-B15B-DA929898D5F8}
 		{9246901D-BA7B-4CE8-BECD-89389C6956B0} = {1543F3EA-5B76-471B-A810-B4C19107565C}
-		{2F040993-4957-44F4-913C-0AD0EF717AF8} = {1543F3EA-5B76-471B-A810-B4C19107565C}
 		{EC07E887-91D9-44E7-84D7-8BDF627A3E60} = {1543F3EA-5B76-471B-A810-B4C19107565C}
 		{35A48594-AA08-4704-AD10-1ED4ADDDED9B} = {1543F3EA-5B76-471B-A810-B4C19107565C}
 		{24171A35-F47D-4CC5-8D4B-46132BF26610} = {616DE5A6-8583-4817-A8F9-46AACD8ADBAA}
 		{0E9849E7-7CC1-48B5-81AA-43C066F8DBEB} = {616DE5A6-8583-4817-A8F9-46AACD8ADBAA}
-		{82DF5571-C721-4F20-B588-2B301F26C3AE} = {616DE5A6-8583-4817-A8F9-46AACD8ADBAA}
 		{7DCA6E58-5EEA-4C87-BB1B-224C3423A93C} = {C6AE0BAE-6DDB-4CE0-8E40-07233FC3F2F3}
 		{37B576FF-11BE-4D45-83F4-6E693ECEB799} = {C6AE0BAE-6DDB-4CE0-8E40-07233FC3F2F3}
 		{1A9BA106-9116-4145-A959-F3A815D8DD9B} = {7DCA6E58-5EEA-4C87-BB1B-224C3423A93C}
@@ -574,23 +564,25 @@ Global
 		{C9503BA6-76F8-4BA8-99A1-6515DD7EACB3} = {6CF7DB6F-B33C-4167-BA8A-BAC35075CD55}
 		{CE076AE6-7711-4359-B98B-55EF72B18113} = {7672A071-4BCC-40D7-B540-B59A8F76BEB0}
 		{DCE2D428-47C5-4577-9BDB-F19A10D01807} = {C3DB2CB6-D935-4CB1-80AF-9ED1D9BE3AC1}
-		{CC939252-A3DC-498F-A40C-05F8A2AE6A1D} = {7672A071-4BCC-40D7-B540-B59A8F76BEB0}
 		{4F6A4D22-EE38-4493-982F-01FA3175DA69} = {C1506BA1-46B3-4FE0-9F59-D854BC64E49B}
-		{BAE344F9-BFFD-47E7-8675-CF2D884480D2} = {FA9CF8D3-BFEB-48AE-8FF9-0488EFD97596}
-		{81D9F870-F18F-47D5-9C9A-9D9BA0576C4B} = {81B6382C-C37B-481E-B35A-3BAD321BFB89}
-		{97E88847-0FA3-4929-B051-5A1E41E94C33} = {81B6382C-C37B-481E-B35A-3BAD321BFB89}
-		{03BC4892-178E-4464-B52E-5DD1939047F8} = {FA9CF8D3-BFEB-48AE-8FF9-0488EFD97596}
-		{070EB8C0-AEF1-4789-8365-BC74D437DF97} = {7672A071-4BCC-40D7-B540-B59A8F76BEB0}
-		{0F01D540-FE2E-4786-8697-7F2C097E516D} = {FA9CF8D3-BFEB-48AE-8FF9-0488EFD97596}
-		{FA8F4761-88BF-497C-A38E-64743EF6ECDF} = {FA9CF8D3-BFEB-48AE-8FF9-0488EFD97596}
 		{BC5F5562-784A-4140-9B70-3A7ACDF2987A} = {C1506BA1-46B3-4FE0-9F59-D854BC64E49B}
 		{16C85494-AAA2-4538-92D2-04ECAF14E88E} = {C1506BA1-46B3-4FE0-9F59-D854BC64E49B}
 		{04B9AE65-4CC4-4DA1-B3F7-50D1740F14AE} = {7672A071-4BCC-40D7-B540-B59A8F76BEB0}
 		{0A481BEF-6D7C-48A3-A332-ED963061158A} = {7672A071-4BCC-40D7-B540-B59A8F76BEB0}
-		{FA9CF8D3-BFEB-48AE-8FF9-0488EFD97596} = {C1506BA1-46B3-4FE0-9F59-D854BC64E49B}
-		{81B6382C-C37B-481E-B35A-3BAD321BFB89} = {8EBB5C6A-275B-42E3-A68C-F202524AAE85}
-		{37777689-9697-4128-95D1-BC630B061AFB} = {81B6382C-C37B-481E-B35A-3BAD321BFB89}
-		{4001A371-80E2-4DA8-AE8A-15D338CC87EC} = {81B6382C-C37B-481E-B35A-3BAD321BFB89}
-		{A7F12293-6743-40DA-A959-0DAC59B70AFC} = {81B6382C-C37B-481E-B35A-3BAD321BFB89}
+		{75B318FD-4673-493B-8EE5-319771DB396F} = {1543F3EA-5B76-471B-A810-B4C19107565C}
+		{8C1F311B-3731-47D1-8596-5AB5666BD328} = {1543F3EA-5B76-471B-A810-B4C19107565C}
+		{434B0E18-2104-46B1-B33B-E6985490AE98} = {6BB2C4A8-D59C-42F0-965D-08BC783C7908}
+		{47BE963B-B8EF-4961-831D-8C907D349CF5} = {6BB2C4A8-D59C-42F0-965D-08BC783C7908}
+		{4C313A4A-1A46-4BE6-A895-476EB62AD196} = {6BB2C4A8-D59C-42F0-965D-08BC783C7908}
+		{EFA58381-E07B-4446-8D35-666C2DF1E0E6} = {6BB2C4A8-D59C-42F0-965D-08BC783C7908}
+		{CFE23C08-997B-4FC9-AAA1-52DC3AC9DC62} = {6BB2C4A8-D59C-42F0-965D-08BC783C7908}
+		{06CADCFF-2E78-4918-846F-3F9AC53A7E71} = {BD6FE277-FA8F-452C-B15B-DA929898D5F8}
+		{6BB2C4A8-D59C-42F0-965D-08BC783C7908} = {BD6FE277-FA8F-452C-B15B-DA929898D5F8}
+		{88206F7A-8F71-4F59-AA33-517C9DC10AF1} = {BD6FE277-FA8F-452C-B15B-DA929898D5F8}
+		{303732D6-7700-446E-B1C4-B8A307186284} = {88206F7A-8F71-4F59-AA33-517C9DC10AF1}
+		{CF27F5D3-3052-4879-8E3A-32B8B327D81F} = {88206F7A-8F71-4F59-AA33-517C9DC10AF1}
+		{E3DE5C82-1353-4DE3-B34C-A7183FF54B0D} = {C1506BA1-46B3-4FE0-9F59-D854BC64E49B}
+		{FA34C83E-5B39-4C8D-9BB2-ED6620E69C68} = {616DE5A6-8583-4817-A8F9-46AACD8ADBAA}
+		{DB71D3F5-05C5-4FA3-8DC7-30A1EA426CE1} = {616DE5A6-8583-4817-A8F9-46AACD8ADBAA}
 	EndGlobalSection
 EndGlobal

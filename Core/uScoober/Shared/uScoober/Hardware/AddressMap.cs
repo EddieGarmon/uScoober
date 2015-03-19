@@ -21,7 +21,7 @@ namespace uScoober.Hardware
 
             // NB: ranges in sorted order...
             Link previous = null;
-            var enumerator = GetForwardEnumerator();
+            Enumerator enumerator = GetForwardEnumerator();
             while (enumerator.MoveNext()) {
                 var range = (_AddressRange)enumerator.Current;
                 if (range.EndAddress < startAddress) {
@@ -57,27 +57,27 @@ namespace uScoober.Hardware
         }
 
         public byte ReadMemory(ushort address) {
-            var range = FindRange(address);
+            _AddressRange range = FindRange(address);
             return range.Handler.ReadMemory(range.Map(address));
         }
 
         public void ReadMemory(ushort startAddress, byte[] buffer, int bufferStartIndex = 0, int length = -1) {
-            var range = FindRange(startAddress);
+            _AddressRange range = FindRange(startAddress);
             range.Handler.ReadMemory(range.Map(startAddress), buffer, bufferStartIndex, length);
         }
 
         public void WriteMemory(ushort address, byte value) {
-            var range = FindRange(address);
+            _AddressRange range = FindRange(address);
             range.Handler.WriteMemory(range.Map(address), value);
         }
 
         public void WriteMemory(ushort startAddress, byte[] buffer, int bufferStartIndex = 0, int length = -1) {
-            var range = FindRange(startAddress);
+            _AddressRange range = FindRange(startAddress);
             range.Handler.WriteMemory(range.Map(startAddress), buffer, bufferStartIndex, length);
         }
 
         private _AddressRange FindRange(ushort address) {
-            var enumerator = GetForwardEnumerator();
+            Enumerator enumerator = GetForwardEnumerator();
             while (enumerator.MoveNext()) {
                 var range = (_AddressRange)enumerator.Current;
                 if (range.StartAddress <= address && address <= range.EndAddress) {

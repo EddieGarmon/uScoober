@@ -35,7 +35,7 @@ namespace uScoober.DataStructures
                                .Value;
             }
             set {
-                var findResult = _storage.FindAtIndex(index);
+                Ring.IndexedLink findResult = _storage.FindAtIndex(index);
                 _storage.IncrementEditVersion();
                 findResult.RingLink.Value = value;
             }
@@ -67,12 +67,12 @@ namespace uScoober.DataStructures
         }
 
         public object Find(Predicate whereClause) {
-            var indexedLink = _storage.Find(whereClause);
+            Ring.IndexedLink indexedLink = _storage.Find(whereClause);
             return (indexedLink == null) ? null : indexedLink.Value;
         }
 
         public object FindLast(Predicate whereClause) {
-            var indexedLink = _storage.FindLast(whereClause);
+            Ring.IndexedLink indexedLink = _storage.FindLast(whereClause);
             return (indexedLink == null) ? null : indexedLink.Value;
         }
 
@@ -81,7 +81,7 @@ namespace uScoober.DataStructures
         }
 
         public int IndexOf(object value) {
-            var findResult = _storage.Find(value);
+            Ring.IndexedLink findResult = _storage.Find(value);
             return (findResult == null) ? -1 : findResult.Index;
         }
 
@@ -101,10 +101,10 @@ namespace uScoober.DataStructures
             _storage.IncrementEditVersion();
 
             //bug: do we really need two enumerations to find the approprate links?
-            var moveThis = _storage.FindAtIndex(index)
-                                   .RingLink;
-            var beforeThis = _storage.FindAtIndex(newIndex)
-                                     .RingLink;
+            Ring.Link moveThis = _storage.FindAtIndex(index)
+                                         .RingLink;
+            Ring.Link beforeThis = _storage.FindAtIndex(newIndex)
+                                           .RingLink;
 
             //stitch hole
             moveThis.Previous.Next = moveThis.Next;
@@ -124,7 +124,7 @@ namespace uScoober.DataStructures
         }
 
         public virtual void Remove(object value) {
-            var findResult = _storage.Find(value);
+            Ring.IndexedLink findResult = _storage.Find(value);
             if (findResult != null) {
                 _storage.RemoveLink(findResult);
             }
@@ -144,8 +144,8 @@ namespace uScoober.DataStructures
 
         public virtual void Swap(int indexA, int indexB) {
             //bug: do we really need two enumerations to find the approprate links?
-            var link1 = _storage.FindAtIndex(indexA);
-            var link2 = _storage.FindAtIndex(indexB);
+            Ring.IndexedLink link1 = _storage.FindAtIndex(indexA);
+            Ring.IndexedLink link2 = _storage.FindAtIndex(indexB);
             _storage.SwapValues(link1, link2);
         }
 

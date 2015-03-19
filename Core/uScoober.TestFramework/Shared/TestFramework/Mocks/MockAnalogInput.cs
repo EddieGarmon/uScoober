@@ -1,4 +1,4 @@
-﻿using uScoober.IO;
+﻿using uScoober.Hardware;
 
 namespace uScoober.TestFramework.Mocks
 {

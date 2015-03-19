@@ -11,12 +11,12 @@ namespace uScoober.TestFramework.Sdk
         public static void FindAndRunTestCases(Assembly assemblyUnderTest, TestRun testRun) {
             var random = new Random();
 
-            var types = assemblyUnderTest.GetTypes();
+            Type[] types = assemblyUnderTest.GetTypes();
             for (int typeIndex = 0; typeIndex < types.Length; typeIndex++) {
                 // NB: randomize run order
                 int typeOffsetMax = types.Length - typeIndex - 1;
                 int typeOffset = typeOffsetMax > 0 ? random.Next(typeOffsetMax) : 0;
-                var type = types[typeIndex + typeOffset];
+                Type type = types[typeIndex + typeOffset];
                 types[typeIndex + typeOffset] = types[typeIndex];
                 types[typeIndex] = type;
 
@@ -27,20 +27,20 @@ namespace uScoober.TestFramework.Sdk
                 if (!typeName.EndsWithAny("Test", "Tests", "Spec", "Specs")) {
                     continue;
                 }
-                var constructor = type.GetConstructor(new Type[0]);
+                ConstructorInfo constructor = type.GetConstructor(new Type[0]);
                 if (constructor == null) {
                     continue;
                 }
 
-                var methods = type.GetMethods(BindingFlags.Public | BindingFlags.Instance);
+                MethodInfo[] methods = type.GetMethods(BindingFlags.Public | BindingFlags.Instance);
                 for (int methodIndex = 0; methodIndex < methods.Length; methodIndex++) {
                     // NB: randomize run order
                     int methodOffsetMax = methods.Length - methodIndex - 1;
                     int methodOffset = methodOffsetMax > 0 ? random.Next(methodOffsetMax) : 0;
-                    var method = methods[methodIndex + methodOffset];
+                    MethodInfo method = methods[methodIndex + methodOffset];
                     methods[methodIndex + methodOffset] = methods[methodIndex];
                     methods[methodIndex] = method;
-                    var methodName = method.Name;
+                    string methodName = method.Name;
 
                     // NB: ALL facts and theories must return void for synchronous execution or Task for async execution
                     if (method.ReturnType != typeof(void) && method.ReturnType.IsSubclassOf(typeof(Task))) {
@@ -56,12 +56,12 @@ namespace uScoober.TestFramework.Sdk
                     // Find and run all Theories
                     if ((methodName.Length > 7) && (methodName.EndsWith("_Theory"))) {
                         //check for theory data provider method by name
-                        var theoryDataName = methodName.Substring(0, methodName.Length - 7) + "_Data";
+                        string theoryDataName = methodName.Substring(0, methodName.Length - 7) + "_Data";
                         for (int theoryDataIndex = 0; theoryDataIndex < methods.Length; theoryDataIndex++) {
                             if (methods[theoryDataIndex].Name == theoryDataName) {
-                                var argsInstance = constructor.Invoke(new object[0]);
+                                object argsInstance = constructor.Invoke(new object[0]);
                                 var theoryData = (IEnumerable)methods[theoryDataIndex].Invoke(argsInstance, new object[0]);
-                                foreach (var theoryArgs in theoryData) {
+                                foreach (object theoryArgs in theoryData) {
                                     var theory = new TestCase.Theory(typeName, constructor, method, theoryArgs);
                                     testRun.RunAndRecord(theory);
                                 }

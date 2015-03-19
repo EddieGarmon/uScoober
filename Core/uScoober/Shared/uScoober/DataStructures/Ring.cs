@@ -12,7 +12,7 @@ namespace uScoober.DataStructures
 
         public Ring(IEnumerable values) {
             if (values != null) {
-                foreach (var value in values) {
+                foreach (object value in values) {
                     InsertTail(value);
                 }
             }
@@ -24,7 +24,7 @@ namespace uScoober.DataStructures
         public int EditVersion { get; private set; }
 
         /// <summary>
-        /// Null when Count == 0, Head otherwise
+        ///     Null when Count == 0, Head otherwise
         /// </summary>
         public Link Head { get; internal set; }
 
@@ -33,7 +33,7 @@ namespace uScoober.DataStructures
         }
 
         /// <summary>
-        /// Null when Count &lt; 2, Tail otherwise
+        ///     Null when Count &lt; 2, Tail otherwise
         /// </summary>
         public Link Tail {
             get { return Head == null ? null : Head.Previous == Head ? null : Head.Previous; }
@@ -136,8 +136,8 @@ namespace uScoober.DataStructures
             if (index == Count) {
                 return InsertTail(value);
             }
-            var findResult = FindAtIndex(index);
-            var result = InsertAfter(findResult.RingLink.Previous, value);
+            IndexedLink findResult = FindAtIndex(index);
+            Link result = InsertAfter(findResult.RingLink.Previous, value);
             if (index == 0) {
                 Head = findResult.RingLink.Previous;
             }
@@ -153,15 +153,15 @@ namespace uScoober.DataStructures
 
         public void InsertRangeAtIndex(int index, IEnumerable values) {
             if (index == Count) {
-                foreach (var value in values) {
+                foreach (object value in values) {
                     InsertTail(value);
                 }
                 return;
             }
-            var findResult = FindAtIndex(index);
+            IndexedLink findResult = FindAtIndex(index);
             Link tail = (index == 0) ? Head.Previous : null;
-            var link = findResult.RingLink.Previous;
-            foreach (var value in values) {
+            Link link = findResult.RingLink.Previous;
+            foreach (object value in values) {
                 link = InsertAfter(link, value);
             }
             if (tail != null) {
@@ -183,8 +183,8 @@ namespace uScoober.DataStructures
         }
 
         public object RemoveAtIndex(int index) {
-            var findResult = FindAtIndex(index);
-            var result = findResult.Value;
+            IndexedLink findResult = FindAtIndex(index);
+            object result = findResult.Value;
             RemoveLink(findResult);
             return result;
         }
@@ -272,7 +272,7 @@ namespace uScoober.DataStructures
 
         private static IndexedLink FindAndIndex(Predicate whereClause, Enumerator enumerator) {
             while (enumerator.MoveNext()) {
-                var link = enumerator.CurrentLink;
+                Link link = enumerator.CurrentLink;
                 if (whereClause(link.Value)) {
                     return new IndexedLink(link, enumerator.CurrentIndex);
                 }

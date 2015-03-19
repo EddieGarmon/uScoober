@@ -24,7 +24,7 @@ namespace uScoober.TestFramework.Sdk
         public string DurationSummary {
             get {
                 var builder = new StringBuilder(10);
-                var executionTime = DurationOfSetup + DurationOfExecution + DurationOfTeardown;
+                double executionTime = DurationOfSetup + DurationOfExecution + DurationOfTeardown;
                 if (executionTime < 60) {
                     builder.Append("0:");
                 }
@@ -90,7 +90,7 @@ namespace uScoober.TestFramework.Sdk
         }
 
         private void OnUpdate() {
-            var updated = Updated;
+            Action updated = Updated;
             if (updated != null) {
                 updated();
             }

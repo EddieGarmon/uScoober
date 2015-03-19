@@ -35,7 +35,7 @@ namespace uScoober.TestFramework.Assert
             if (!expectedClassType.IsClass) {
                 throw new Exception("ShouldBeOfType() requires a class, not an interface. Use ShouldHaveInterface() instead.");
             }
-            var actualType = actual.GetType();
+            Type actualType = actual.GetType();
             if (actualType != expectedClassType) {
                 Throw.NotEqualException(actualType, expectedClassType);
             }
@@ -69,8 +69,8 @@ namespace uScoober.TestFramework.Assert
         public static void ShouldEnumerateEqual(this IEnumerable actual, IEnumerable expected) {
             int counter = 0;
 
-            var actualEnumerator = actual.GetEnumerator();
-            var expectedEnumerator = expected.GetEnumerator();
+            IEnumerator actualEnumerator = actual.GetEnumerator();
+            IEnumerator expectedEnumerator = expected.GetEnumerator();
 
             bool hasActual = actualEnumerator.MoveNext();
             bool hasExpected = expectedEnumerator.MoveNext();
@@ -128,7 +128,7 @@ namespace uScoober.TestFramework.Assert
         }
 
         public static void ShouldHaveInterface(this object actual, Type @interface) {
-            var actualType = actual.GetType();
+            Type actualType = actual.GetType();
             Type[] allInterfaces = actualType.GetInterfaces();
             if (!allInterfaces.Contains(@interface)) {
                 Throw.InterfaceMissingException(actualType, @interface);

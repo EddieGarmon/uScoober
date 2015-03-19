@@ -2,10 +2,11 @@ function LaunchTestRunner([string] $testsExePath) {
 	#This must be run with the current directory set to "Build\TestRunner"
 						
 	$testsDir = [System.IO.Path]::GetDirectoryName($testsExePath)
-	if ($testsExePath -like "*\Micro-4.3\*") {
-		$sdkDir = "..\MF.SDK\Micro-4.3"
-	} else {
+	if ($testsExePath -like "*\Micro-4.2\*") {
 		$sdkDir = "..\MF.SDK\Micro-4.2"
+	} else {
+        #default to NETMF 4.3
+		$sdkDir = "..\MF.SDK\Micro-4.3"
 	}
 	$exe = "$sdkDir\Microsoft.SPOT.Emulator.Sample.SampleEmulator.exe"
 					

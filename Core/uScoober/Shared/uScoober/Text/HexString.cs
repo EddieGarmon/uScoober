@@ -4,17 +4,17 @@ using System.Text;
 namespace uScoober.Text
 {
     /// <summary>
-    /// Basic Hex conversion class
+    ///     Basic Hex conversion class
     /// </summary>
     public static class HexString
     {
         /// <summary>
-        /// Gets the byte represented by the specified string value.
+        ///     Gets the byte represented by the specified string value.
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns></returns>
         public static byte GetByte(string value) {
-            var int32 = Convert.ToInt32(value, 16);
+            int int32 = Convert.ToInt32(value, 16);
             if (int32 < Byte.MinValue || int32 > Byte.MaxValue) {
                 throw new Exception("Byte Overflow");
             }
@@ -22,7 +22,7 @@ namespace uScoober.Text
         }
 
         /// <summary>
-        /// Gets the int represented by the specified string value.
+        ///     Gets the int represented by the specified string value.
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns></returns>
@@ -31,7 +31,7 @@ namespace uScoober.Text
         }
 
         /// <summary>
-        /// Gets the hex string representation of the specified value.
+        ///     Gets the hex string representation of the specified value.
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns></returns>
@@ -51,7 +51,7 @@ namespace uScoober.Text
         }
 
         /// <summary>
-        /// Gets the hex string representation of the specified value.
+        ///     Gets the hex string representation of the specified value.
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns></returns>
@@ -60,7 +60,7 @@ namespace uScoober.Text
         }
 
         /// <summary>
-        /// Gets the hex string representation of the specified value.
+        ///     Gets the hex string representation of the specified value.
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns></returns>

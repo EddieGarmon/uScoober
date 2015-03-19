@@ -39,7 +39,7 @@ namespace uScoober.DataStructures
         }
 
         public object Dequeue() {
-            var result = _storage.Head.Value;
+            object result = _storage.Head.Value;
             _storage.RemoveHead();
             return result;
         }

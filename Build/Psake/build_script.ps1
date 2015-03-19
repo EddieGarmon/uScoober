@@ -88,18 +88,18 @@ Task Test -depends Build {
 				#we need to shell out here so we can unload our reflection context used to find dependencies...
 				Exec { powershell.exe -NoProfile -ExecutionPolicy unrestricted -Command "& { . .\BuildTestRunner.ps1; LaunchTestRunner $testsAssembly; }" }
 				
+				#show summary
+				if (Test-Path "DOTNETMF_FS_EMULATION\WINFS\TestSummary.txt") {
+					Get-Content "DOTNETMF_FS_EMULATION\WINFS\TestSummary.txt"
+				} else {
+					throw "Test Runner did not exit gracefully for $testsAssembly"
+				}
+				
 				#check for a failure file
                 if (Test-Path "DOTNETMF_FS_EMULATION\WINFS\TestFailures.txt") {
                     $message = Get-Content "DOTNETMF_FS_EMULATION\WINFS\TestFailures.txt"
                     throw $message
                 }
-				
-				#show summary
-				if (Test-Path "DOTNETMF_FS_EMULATION\WINFS\TestSummary.txt") {
-					Get-Content "DOTNETMF_FS_EMULATION\WINFS\TestSummary.txt"
-				} else {
-					"No tests found"
-				}
     		}
     }
     
