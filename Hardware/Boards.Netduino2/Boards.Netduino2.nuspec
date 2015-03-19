@@ -25,6 +25,7 @@
         </dependencies>
         <frameworkAssemblies>
             <frameworkAssembly assemblyName="Microsoft.SPOT.Hardware" />
+            <frameworkAssembly assemblyName="Microsoft.SPOT.Hardware.PWM" />
             <frameworkAssembly assemblyName="SecretLabs.NETMF.Hardware.Netduino" />
         </frameworkAssemblies>
         <developmentDependency>true</developmentDependency>
