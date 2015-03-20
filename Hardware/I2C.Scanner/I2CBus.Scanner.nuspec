@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
     <metadata>
-        <id>uScoober.IO.I2CBus.Scanner</id>
-        <version>0.0.0-me</version>
-        <title>uScoober Feature: IO.I2CBus.Scanner</title>
-        <description>uScoober Feature: IO.I2CBus.Scanner</description>
+        <id>uScoober.Hardware.I2C.Scanner</id>
+        <version>0.12.0</version>
+        <title>uScoober Feature: I2C Scanner</title>
+        <description>uScoober Feature: I2C Scanner</description>
         <authors>Eddie Garmon</authors>
         <owners>Eddie Garmon</owners>
         <copyright>Eddie Garmon</copyright>
