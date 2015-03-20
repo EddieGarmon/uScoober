@@ -1,4 +1,6 @@
-public class SemVer
+using System;
+
+public class SemVer : IComparable
 {
     public SemVer(int major, int minor, int revision) {
         Major = major;
@@ -23,6 +25,23 @@ public class SemVer
     public string PreRelease { get; private set; }
 
     public int Revision { get; private set; }
+
+    public int CompareTo(object obj) {
+        // todo: support pre-release 
+        var other = obj as SemVer;
+        if (other == null) {
+            return 1;
+        }
+        int delta = Major - other.Major;
+        if (delta != 0) {
+            return delta;
+        }
+        delta = Minor - other.Minor;
+        if (delta != 0) {
+            return delta;
+        }
+        return Revision - Revision;
+    }
 
     public SemVer GetNextNonGuarenteedCompatibleVersion() {
         return Major == 0 ? new SemVer(0, Minor + 1, 0) : new SemVer(Major + 1, 0, 0);

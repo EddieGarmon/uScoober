@@ -14,6 +14,13 @@ Properties {
         $sourceRoots = $sourceRoots + $temp;
     }
 	$script:sourceSolution = PathFromScript "\..\..\uScoober.sln"
+	
+	#version maps
+	# - Component Name to Version
+	$script:mapComponentToVersions = @{}
+	# - Root Path to Version
+	$script:mapRootPathToVersion = @{}
+	
     # outputs
 	$script:packageOutput = PathFromScript "\..\Artifacts"
 }
@@ -39,7 +46,7 @@ Task Help -description "Helper to display task list (and should be auto generate
 
 # DEVELOPMENT Tasks
 
-Task Clean {
+Task Clean -depends ClearVersions {
     foreach ($sourceRoot in $sourceRoots) {
     	# Remove bin and obj directories
     	Get-ChildItem ($sourceRoot) -Recurse | 
@@ -100,55 +107,6 @@ Task Test -depends Build {
 }
 
 # DEPLOY Tasks
-
-Task SetVersions {
-	# import SemVer class
-	$tempPath = PathFromScript "\..\PoshTypeDefinitions\SemVer.cs" 
-	$semVerImpl = Get-Content $tempPath -Delimiter [Environment]::NewLine
-	Add-Type -TypeDefinition $semVerImpl
-	
-	# build processing maps 
-	# - Component Name to Version
-	$mapVersions = @{}
-	# - Root Path to Version
-	$mapRoots = @{}
-	# - Explore source tree	
-    # one version for all of core
-	$input = Get-Content ( PathFromScript "\..\..\Core\semver.txt" )
-	$version = [SemVer]::Parse($input)
-	$mapVersions.Add("core", $version)
-	$mapRoots.Add( ( PathFromScript "\..\..\Core\" ) , $version)
-    Write-Host "'Core' using SemVer: $version"
-    # one version per feature, all minimum referenced versions defined in nuspec
-	# one version per driver, all minimum referenced versions defined in nuspec
-	foreach ($area in @("Features", "Hardware")) {
-		Get-ChildItem ( PathFromScript "\..\..\$area\" ) -Recurse |
-			Where-Object { (!$_.PsIsContainer) } |
-    		Where-Object { ($_.Name -eq "semver.txt") } | 
-    		ForEach-Object { 
-                $dir = $_.DirectoryName;
-                $component = $_.Directory.Name;
-                $semVer = [SemVer]::Parse( (Get-Content $_.FullName) )			
-				$mapVersions.Add($component, $semVer)
-				$mapRoots.Add($dir, $semVer)
-            	Write-Host "'$component' using SemVer: $semVer"
-            }
-    }
-
-	# - Process every component directory
-	$mapRoots.GetEnumerator() |
-		ForEach-Object {
-			$version = $_.Value
-			Get-ChildItem ( $_.Key ) -Recurse |
-				Where-Object { (!$_.PsIsContainer) } |
-				Where-Object { ($_.Name -eq "AssemblyInfo.cs") -or ($_.Name -like "*.nuspec" ) } | 
-				ForEach-Object { 
-					SetVersionsInFile $_.FullName $version $mapVersions
-				}
-			
-		}		
-}
-
 Task ClearVersions {
     foreach ($sourceRoot in $sourceRoots) {
     	Get-ChildItem ($sourceRoot) -Recurse | 
@@ -161,6 +119,53 @@ Task ClearVersions {
     			[System.IO.File]::Move($_.FullName, $path)
     		}
     }
+}
+
+Task DefineSemVer {
+	# import SemVer class
+	$tempPath = PathFromScript "\..\PoshTypeDefinitions\SemVer.cs" 
+	$semVerImpl = Get-Content $tempPath -Delimiter [Environment]::NewLine
+	Add-Type -TypeDefinition $semVerImpl
+}
+
+Task MapSourceVersions -depends DefineSemVer {
+	# build processing maps - Explore the source tree	
+	
+    # one version for all of core
+	$coreVersion = Get-Content ( PathFromScript "\..\..\Core\semver.txt" )
+	$version = [SemVer]::Parse($coreVersion)
+	$mapComponentToVersions.Add("core", $version)
+	$mapRootPathToVersion.Add( ( PathFromScript "\..\..\Core\" ) , $version)
+    Write-Host "'Core' using SemVer: $version"
+	
+    # one version per feature/driver, all minimum referenced versions defined in nuspec
+	foreach ($area in @("Features", "Hardware")) {
+		Get-ChildItem ( PathFromScript "\..\..\$area\" ) -Recurse |
+			Where-Object { (!$_.PsIsContainer) } |
+    		Where-Object { ($_.Name -eq "semver.txt") } | 
+    		ForEach-Object { 
+                $dir = $_.DirectoryName;
+                $component = $_.Directory.Name;
+                $semVer = [SemVer]::Parse( (Get-Content $_.FullName) )			
+				$mapComponentToVersions.Add($component, $semVer)
+				$mapRootPathToVersion.Add($dir, $semVer)
+            	Write-Host "'$component' using SemVer: $semVer"
+            }
+    }
+}
+
+Task SetVersions -depends DefineSemVer, ClearVersions, MapSourceVersions {
+	# - Process every component directory
+	$mapRootPathToVersion.GetEnumerator() |
+		ForEach-Object {
+			$version = $_.Value
+			Get-ChildItem ( $_.Key ) -Recurse |
+				Where-Object { (!$_.PsIsContainer) } |
+				Where-Object { ($_.Name -eq "AssemblyInfo.cs") -or ($_.Name -like "*.nuspec" ) } | 
+				ForEach-Object { 
+					SetVersionsInFile $_.FullName $version $mapComponentToVersions
+				}
+		}		
 }
 
 Task Package {
@@ -179,20 +184,36 @@ Task Package {
     }
 }
 
-Task Release -depends Clean, SetVersions, Test, Package, ClearVersions
+Task Release -depends Clean, SetVersions, Test, Package
 
-Task Upload {
+Task Upload -depends DefineSemVer {
+	# fetch last nuget published versions
+	$pubMap = @{}
+	Write-Output "Querying NuGet feed..."
+	exec { 
+		$pubVersions = & $nuget list "uScoober" -NonInteractive
+		$pubVersions | ForEach-Object {
+			$split = $_.Split(' ')
+			$id = $split[0]
+			$version = [SemVer]::Parse($split[1])
+			$pubMap.Add($id, $version)
+			Write-Output "NuGet has: $id [$version]"
+		}
+	}
+
+	# do not upload duplicates
 	Get-ChildItem ($packageOutput) -Recurse | 
 		Where-Object { (!$_.PsIsContainer) } |
 		Where-Object { ($_.Name -like "uScoober*.nupkg") } | 
 		ForEach-Object { 
-			$path = $_.FullName
-			
-			# do a nuget list first, do not upload duplicates
-			throw "Not Implemented"
-			
-			Write-Host "Uploading: " $path
-			exec { & $nuget push $_.FullName -Verbosity detailed -NonInteractive }
+			$namePattern = '(.+)\.(\d+\.\d+\.\d+)' # todo: include pre-release if needed
+			$id = $_.BaseName -replace $namePattern , '$1'
+			$version = [SemVer]::Parse( ($_.BaseName -replace $namePattern , '$2') )
+			if ($pubMap[$id] -le $version) {
+				$path = $_.FullName
+				Write-Host "Uploading: $id [$version] from $path"
+				exec { & $nuget push $path -Verbosity detailed -NonInteractive }
+			}
 		}
 }
 
