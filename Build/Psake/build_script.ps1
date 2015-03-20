@@ -209,7 +209,7 @@ Task Upload -depends DefineSemVer {
 			$namePattern = '(.+)\.(\d+\.\d+\.\d+)' # todo: include pre-release if needed
 			$id = $_.BaseName -replace $namePattern , '$1'
 			$version = [SemVer]::Parse( ($_.BaseName -replace $namePattern , '$2') )
-			if ($pubMap[$id] -le $version) {
+			if ($pubMap[$id] -lt $version) {
 				$path = $_.FullName
 				Write-Host "Uploading: $id [$version] from $path"
 				exec { & $nuget push $path -Verbosity detailed -NonInteractive }
