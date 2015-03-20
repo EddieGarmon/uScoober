@@ -1,5 +1,4 @@
 using System.Threading;
-using uScoober.IO;
 
 namespace uScoober.Hardware.Motors
 {
