@@ -20,7 +20,9 @@ Properties {
 	$script:mapComponentToVersions = @{}
 	# - Root Path to Version
 	$script:mapRootPathToVersion = @{}
-	
+	# - Nuget published versions
+	$script:mapPublishedVersions = @{}
+
     # outputs
 	$script:packageOutput = PathFromScript "\..\Artifacts"
 }
@@ -187,34 +189,46 @@ Task Package {
 Task Release -depends Clean, SetVersions, Test, Package
 
 Task Upload -depends DefineSemVer {
-	# fetch last nuget published versions
-	$pubMap = @{}
-	Write-Output "Querying NuGet.org feed..."
-	exec { 
-		$pubVersions = & $nuget list "uScoober" -NonInteractive -Source "https://www.nuget.org/api/v2/"
-		$pubVersions | ForEach-Object {
-			$split = $_.Split(' ')
-			$id = $split[0]
-			$version = [SemVer]::Parse($split[1])
-			$pubMap.Add($id, $version)
-			Write-Output "NuGet has: $id [$version]"
-		}
-	}
-
-	# do not upload duplicates
 	Get-ChildItem ($packageOutput) -Recurse | 
 		Where-Object { (!$_.PsIsContainer) } |
 		Where-Object { ($_.Name -like "uScoober*.nupkg") } | 
 		ForEach-Object { 
 			$namePattern = '(.+)\.(\d+\.\d+\.\d+)' # todo: include pre-release if needed
 			$id = $_.BaseName -replace $namePattern , '$1'
-			$version = [SemVer]::Parse( ($_.BaseName -replace $namePattern , '$2') )
-			if ($pubMap[$id] -lt $version) {
+			$fileVersion = [SemVer]::Parse( ($_.BaseName -replace $namePattern , '$2') )
+
+			$pubVersion = GetLastPublishedVersion $id
+
+			# do not try to upload duplicates
+			if ($pubVersion -lt $fileVersion) {
 				$path = $_.FullName
-				Write-Host "Uploading: $id [$version] from $path"
+				Write-Host "Uploading: $id [$fileVersion] from $path"
 				exec { & $nuget push $path -Verbosity detailed -NonInteractive }
+			} else {
+				Write-Host "NuGet has: $id [$pubVersion]"							
 			}
 		}
+}
+
+function GetLastPublishedVersion($packageId) {
+	if (!($mapPublishedVersions.Contains($packageId))) {
+		# fetch last nuget published versions
+		Write-Host "Querying NuGet.org feed for $packageId..."
+		exec { 
+			$pubVersions = & $nuget list $packageId -NonInteractive -Source "https://www.nuget.org/api/v2/"
+			if ($pubVersions -eq "No packages found.") {
+				$mapPublishedVersions.Add($id, [SemVer]::Zero)
+			} else {
+				$pubVersions | ForEach-Object {
+					$split = $_.Split(' ')
+					$id = $split[0]
+					$version = [SemVer]::Parse($split[1])
+					$mapPublishedVersions.Add($id, $version)
+				}
+			}
+		}
+	}
+	$mapPublishedVersions[$packageId]
 }
 
 function PathFromScript($relativePath) {

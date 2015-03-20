@@ -62,6 +62,8 @@ public class SemVer : IComparable
                              BuildMetadata);
     }
 
+    public static readonly SemVer Zero = new SemVer(0, 0, 0);
+
     public static SemVer Parse(string input) {
         int major,
             minor,
