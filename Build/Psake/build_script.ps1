@@ -189,9 +189,9 @@ Task Release -depends Clean, SetVersions, Test, Package
 Task Upload -depends DefineSemVer {
 	# fetch last nuget published versions
 	$pubMap = @{}
-	Write-Output "Querying NuGet feed..."
+	Write-Output "Querying NuGet.org feed..."
 	exec { 
-		$pubVersions = & $nuget list "uScoober" -NonInteractive
+		$pubVersions = & $nuget list "uScoober" -NonInteractive -Source "https://www.nuget.org/api/v2/"
 		$pubVersions | ForEach-Object {
 			$split = $_.Split(' ')
 			$id = $split[0]
