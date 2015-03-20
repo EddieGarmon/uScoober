@@ -4,7 +4,7 @@ using System.Threading;
 
 namespace uScoober.DataStructures
 {
-    public class NotifyingList : List,
+    internal class NotifyingList : List,
                                  INotifyCollectionChanged
     {
         private IDisposable _stopNotifications;

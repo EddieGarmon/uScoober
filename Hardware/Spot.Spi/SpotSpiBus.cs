@@ -4,7 +4,7 @@ using uScoober.Hardware.Spi;
 
 namespace uScoober.Hardware.Spot
 {
-    public class SpotSpiBus : DisposableBase,
+    internal class SpotSpiBus : DisposableBase,
                               ISpiBus
     {
         private readonly SPI.SPI_module _module;

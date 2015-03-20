@@ -1,6 +1,6 @@
 ﻿namespace uScoober.Binary
 {
-    public static class BitCounter
+    internal static class BitCounter
     {
         internal static readonly uint[] Masks32 = {
             0x55555555,

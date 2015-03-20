@@ -1,6 +1,6 @@
 ﻿namespace uScoober.Binary
 {
-    public static class BitMask
+    internal static class BitMask
     {
         public static byte GetValue(byte value, byte mask) {
             return (byte)(value & mask);

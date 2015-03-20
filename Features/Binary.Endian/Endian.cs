@@ -5,7 +5,7 @@ using System;
 namespace uScoober.Binary
 {
     // This a managed replacement for BitConverter that does both big and little endian conversions
-    public static class Endian
+    internal static class Endian
     {
         public const bool MachineIsLittleEndian = true;
 

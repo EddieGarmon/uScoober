@@ -2,7 +2,7 @@
 
 namespace uScoober.Hardware.Input
 {
-    public class PushButton : DisposableBase,
+    internal class PushButton : DisposableBase,
                               IButton
     {
         private readonly IDigitalInput _input;

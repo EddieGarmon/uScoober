@@ -2,7 +2,7 @@
 
 namespace uScoober.Binary
 {
-    public static class BinaryCodedDecimal
+    internal static class BinaryCodedDecimal
     {
         public static byte Pack(int value) {
             if (value < 0 || value > 99) {

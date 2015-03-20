@@ -1,6 +1,6 @@
 ﻿namespace uScoober.DataStructures
 {
-    public enum NotifyCollectionChangedAction : byte
+    internal enum NotifyCollectionChangedAction : byte
     {
         Add,
         Remove,

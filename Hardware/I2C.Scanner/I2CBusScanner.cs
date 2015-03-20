@@ -6,7 +6,7 @@ using uScoober.Text;
 
 namespace uScoober.IO.I2CBus
 {
-    public class I2CBusScanner
+    internal class I2CBusScanner
     {
         public static void Scan(II2CBus bus) {
             if (bus == null) {

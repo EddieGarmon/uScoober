@@ -8,7 +8,7 @@ using SL = SecretLabs.NETMF.Hardware.Netduino;
 
 namespace uScoober.Hardware.Boards
 {
-    public class Netduino2 : DisposableBase
+    internal class Netduino2 : DisposableBase
     {
         private AnalogInputs _analogIn;
         private II2CBus _i2CBus;

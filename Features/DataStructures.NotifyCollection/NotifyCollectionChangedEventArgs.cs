@@ -1,6 +1,6 @@
 ﻿namespace uScoober.DataStructures
 {
-    public class NotifyCollectionChangedEventArgs
+    internal class NotifyCollectionChangedEventArgs
     {
         public NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction action) {
             Action = action;

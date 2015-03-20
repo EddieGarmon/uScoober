@@ -3,7 +3,7 @@ using uScoober.Hardware.I2C;
 
 namespace uScoober.Hardware.Spot
 {
-    public class SpotI2CBus : DisposableBase,
+    internal class SpotI2CBus : DisposableBase,
                               II2CBus
     {
         private readonly I2CDevice _nativeBus;

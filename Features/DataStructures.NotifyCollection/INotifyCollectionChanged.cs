@@ -1,6 +1,6 @@
 ﻿namespace uScoober.DataStructures
 {
-    public interface INotifyCollectionChanged
+    internal interface INotifyCollectionChanged
     {
         event NotifyCollectionChangedEventHandler CollectionChanged;
     }

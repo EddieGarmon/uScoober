@@ -2,7 +2,7 @@
 
 namespace uScoober.Hardware.Light
 {
-    public static class IDigitalLedExtensions
+    internal static class IDigitalLedExtensions
     {
         /// <summary>
         /// Beware: THIS BLOCKS!

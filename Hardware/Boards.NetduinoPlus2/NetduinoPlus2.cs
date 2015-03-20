@@ -10,7 +10,7 @@ using SL = SecretLabs.NETMF.Hardware.NetduinoPlus;
 
 namespace uScoober.Hardware.Boards
 {
-    public class NetduinoPlus2 : DisposableBase
+    internal class NetduinoPlus2 : DisposableBase
     {
         private AnalogInputs _analogIn;
         private II2CBus _i2CBus;
