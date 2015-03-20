@@ -13,9 +13,6 @@
         <iconUrl>http://eddiegarmon.github.io/MyLogo.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <tags>NETMF Micro Framework Binary</tags>
-        <!--<dependencies>
-            <dependency id="uScoober" version="[0.0.0-core,1.0.0-core)" />
-        </dependencies>-->
         <developmentDependency>true</developmentDependency>
     </metadata>
     <files>

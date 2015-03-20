@@ -14,14 +14,15 @@
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <tags>NETMF Micro Framework Netduino Plus 2</tags>
         <dependencies>
-            <dependency id="uScoober" version="[0.0.0-core,1.0.0-core)" />
-            <dependency id="uScoober.Hardware.Input.Button" version="[0.0.0-Input.Button,1.0.0-Input.Button)" />
-            <dependency id="uScoober.Hardware.Light.Led" version="[0.0.0-Light.Led,1.0.0-Light.Led)" />
-            <dependency id="uScoober.Hardware.Spot.Analog" version="[0.0.0-Spot.Analog,1.0.0-Spot.Analog)" />
-            <dependency id="uScoober.Hardware.Spot.Digital" version="[0.0.0-Spot.Digital,1.0.0-Spot.Digital)" />
-            <dependency id="uScoober.Hardware.Spot.I2C" version="[0.0.0-Spot.I2C,1.0.0-Spot.I2C)" />
-            <dependency id="uScoober.Hardware.Spot.Pwm" version="[0.0.0-Spot.Pwm,1.0.0-Spot.Pwm)" />
-            <dependency id="uScoober.Hardware.Spot.Spi" version="[0.0.0-Spot.Spi,1.0.0-Spot.Spi)" />
+            <!-- todo: once core goes 1.0, change the version specifier to '[0.0.0-core,1.0.0-core)' below -->
+            <dependency id="uScoober" version="[0.0.0-core,1.0.0)" />
+            <dependency id="uScoober.Hardware.Input.Button" version="[0.0.0-Input.Button,1.0.0)" />
+            <dependency id="uScoober.Hardware.Light.Led" version="[0.0.0-Light.Led,1.0.0)" />
+            <dependency id="uScoober.Hardware.Spot.Analog" version="[0.0.0-Spot.Analog,1.0.0)" />
+            <dependency id="uScoober.Hardware.Spot.Digital" version="[0.0.0-Spot.Digital,1.0.0)" />
+            <dependency id="uScoober.Hardware.Spot.I2C" version="[0.0.0-Spot.I2C,1.0.0)" />
+            <dependency id="uScoober.Hardware.Spot.Pwm" version="[0.0.0-Spot.Pwm,1.0.0)" />
+            <dependency id="uScoober.Hardware.Spot.Spi" version="[0.0.0-Spot.Spi,1.0.0)" />
         </dependencies>
         <frameworkAssemblies>
             <frameworkAssembly assemblyName="Microsoft.SPOT.Hardware" />

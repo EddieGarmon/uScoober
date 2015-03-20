@@ -14,7 +14,8 @@
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <tags>NETMF Micro Framework Spot SPI</tags>
         <dependencies>
-            <dependency id="uScoober" version="[0.0.0-core,1.0.0-core)" />
+            <!-- todo: once core goes 1.0, change the version specifier to '[0.0.0-core,1.0.0-core)' below -->
+            <dependency id="uScoober" version="[0.0.0-core,1.0.0)" />
         </dependencies>
         <frameworkAssemblies>
             <frameworkAssembly assemblyName="Microsoft.Spot.Hardware" />
