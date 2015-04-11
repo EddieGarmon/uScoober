@@ -26,9 +26,9 @@ namespace uScoober.Threading
 
         public static ActionTask Delay(int milliseconds, CancellationToken cancellationToken = null) {
             return new ActionTask(token => {
-                                      token.ThrowIfCancellationRequested();
-                                      Thread.Sleep(milliseconds);
-                                  },
+                token.ThrowIfCancellationRequested();
+                Thread.Sleep(milliseconds);
+            },
                                   cancellationToken);
         }
 
@@ -110,6 +110,11 @@ namespace uScoober.Threading
 
         public static WaitTask WaitAny(Task[] tasks, CancellationToken cancellationToken) {
             return new WaitTask(new WaitList(tasks), WaitOn.Single, cancellationToken);
+        }
+
+        public static void WarmUp() {
+            Run(() => { })
+                .Wait();
         }
     }
 }

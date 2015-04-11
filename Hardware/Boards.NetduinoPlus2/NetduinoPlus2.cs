@@ -96,10 +96,6 @@ namespace uScoober.Hardware.Boards
                 get { return GetOrCreate(5); }
             }
 
-            public DigitalInputs DigitalInput {
-                get { return new DigitalInputs(); }
-            }
-
             public IAnalogInput this[int index] {
                 get {
                     if (index < 0 || index > 5) {
