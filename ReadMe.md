@@ -1,6 +1,4 @@
 #uScoober
-
-[![Join the chat at https://gitter.im/EddieGarmon/uScoober](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/EddieGarmon/uScoober?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 The filament for NETMF.
 
 ##Use like a Surgeon
@@ -88,3 +86,4 @@ to be ignored by version control.)
 - [ ] support FTDI FT4232HL (GHI Lynx) - as a new .NET 4.5 class library?
 - [ ] UI primitives?
 
+[![Join the chat at https://gitter.im/EddieGarmon/uScoober](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/EddieGarmon/uScoober?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
