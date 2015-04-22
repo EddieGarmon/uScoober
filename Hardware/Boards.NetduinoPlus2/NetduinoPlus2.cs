@@ -38,10 +38,6 @@ namespace uScoober.Hardware.Boards
             get { return _i2CBus ?? (_i2CBus = new SpotI2CBus()); }
         }
 
-        public ISpiBus ISpiBus {
-            get { return _spiBus ?? (_spiBus = new SpotSpiBus(SL.SPI_Devices.SPI1)); }
-        }
-
         public PushButton OnboardButton {
             get {
                 return _onboardButton
@@ -56,6 +52,10 @@ namespace uScoober.Hardware.Boards
 
         public PwmOutputs PwmOut {
             get { return _pwmOut ?? (_pwmOut = new PwmOutputs()); }
+        }
+
+        public ISpiBus SpiBus {
+            get { return _spiBus ?? (_spiBus = new SpotSpiBus(SL.SPI_Devices.SPI1)); }
         }
 
         protected override void DisposeManagedResources() {

@@ -4,8 +4,8 @@
     <metadata>
         <id>uScoober</id>
         <version>0.0.0-core</version>
-        <title>uScoober: The filament for NETMF</title>
-        <description>uScoober: The filament for NETMF</description>
+        <title>uScoober: Core interfaces for NETMF</title>
+        <description>uScoober: Core interfaces for NETMF</description>
         <authors>Eddie Garmon</authors>
         <owners>Eddie Garmon</owners>
         <copyright>Eddie Garmon</copyright>
