@@ -1,6 +1,8 @@
-﻿namespace uScoober.Hardware.Spi
+﻿using System;
+
+namespace uScoober.Hardware.Spi
 {
-    public interface ISpiBus
+    public interface ISpiBus : IDisposable
     {
         void Read(SpiDeviceConfig config, byte[] buffer);
 

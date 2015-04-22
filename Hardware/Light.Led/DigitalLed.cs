@@ -4,13 +4,13 @@ namespace uScoober.Hardware.Light
 {
     [DebuggerDisplay("DigitalLed: {Id} IsOn:{IsOn}")]
     internal class DigitalLed : DisposableBase,
-                              IDigitalLed
+                                IDigitalLed
     {
         private readonly IDigitalOutput _output;
 
         public DigitalLed(IDigitalOutput output, string id = null) {
             _output = output;
-            Id = id ?? _output.Id;
+            Id = id ?? _output.Name;
         }
 
         public string Id { get; private set; }

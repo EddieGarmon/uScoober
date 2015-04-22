@@ -11,6 +11,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\ByteOrder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\DataStructures\Buffer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\DataStructures\Enumerable.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\DataStructures\IQueue.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\DataStructures\IStack.cs" />
@@ -33,22 +34,18 @@
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Extensions\RandomExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Extensions\StringBuilderExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Extensions\StringExtensions.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\AddressMap.AddressRange.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\AddressMap.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\I2C\I2CDeviceCore.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\I2C\II2CBus.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\I2C\II2CDevice.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\IAnalogInput.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\IDigitalInput.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\IDigitalOutput.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\IHaveAddressedMemory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\IAnalog.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\IDigital.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\IHaveDefaultSetup.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\InterruptMode.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\IPulseWidthModulatedOutput.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\IPwm.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\ISignal.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\Light\IAnalogLed.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\Light\IDigitalLed.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\ResistorMode.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\Signal.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\Memory\AddressMap.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\Memory\IHaveAddressedMemory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\Spi\ISpiBus.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\Spi\ISpiDevice.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\Spi\SpiDeviceConfig.cs" />

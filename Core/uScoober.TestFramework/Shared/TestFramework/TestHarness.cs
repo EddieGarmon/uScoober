@@ -21,8 +21,8 @@ namespace uScoober.TestFramework
         public TestHarness(Assembly assemblyUnderTest, bool showGcMessages = true)
             : this(assemblyUnderTest, (TestRunner)null, showGcMessages) { }
 
-        public TestHarness(Assembly assemblyUnderTest, IAnalogLed analogLed, bool showGcMessages = true)
-            : this(assemblyUnderTest, new TestRunner(assemblyUnderTest, new AnalogLedFeedback(analogLed), false), showGcMessages) { }
+        public TestHarness(Assembly assemblyUnderTest, IDigitalLed analogLed, bool showGcMessages = true)
+            : this(assemblyUnderTest, new TestRunner(assemblyUnderTest, new LedFeedback(analogLed), false), showGcMessages) { }
 
         //todo: support character display test feedback
         //public TestHarness(Assembly assemblyUnderTest, ICharacterDisplay characterDisplay, bool showGcMessages = true) {

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>a323f734-469f-40f8-a71c-0897400123a6</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>uScoober.Hardware.Boards.Duino.Pinout</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)Boards.Duino.nuspec" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)IDuino.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IDuinoAnalogInputs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IDuinoDigitalInputs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IDuinoDigitalOutputs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IDuinoPwmOutputs.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)semver.txt" />
+  </ItemGroup>
+</Project>

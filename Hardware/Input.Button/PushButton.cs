@@ -5,13 +5,13 @@ namespace uScoober.Hardware.Input
     internal class PushButton : DisposableBase,
                               IButton
     {
-        private readonly IDigitalInput _input;
+        private readonly IDigitalInterupt _input;
         private Action _onButtonDown = delegate { };
         private Action _onButtonUp = delegate { };
 
         // todo: add a digital debounce via a minimum time between state changes?
 
-        public PushButton(IDigitalInput input) {
+        public PushButton(IDigitalInterupt input) {
             _input = input;
             _input.OnInterupt += HandleInterupt;
         }

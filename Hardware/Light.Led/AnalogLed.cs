@@ -1,8 +1,8 @@
 ﻿namespace uScoober.Hardware.Light
 {
     internal class AnalogLed : DisposableBase,
-                             IAnalogLed,
-                             IDigitalLed
+                               IAnalogLed,
+                               IDigitalLed
     {
         private readonly IPulseWidthModulatedOutput _output;
 

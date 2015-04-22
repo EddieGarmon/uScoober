@@ -10,7 +10,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)SpotDigitalInput.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SpotDigitalInterupt.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SpotDigitalOutput.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SpotDigitalPort.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)semver.txt" />

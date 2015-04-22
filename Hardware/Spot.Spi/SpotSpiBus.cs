@@ -85,8 +85,8 @@ namespace uScoober.Hardware.Spot
                 return;
             }
             //todo optomize better by building a simple registry table
-            _spotSpi.Config = new SPI.Configuration(config.ChipSelect.Pin,
-                                                    config.ChipSelect.ActiveState,
+            _spotSpi.Config = new SPI.Configuration((Cpu.Pin)config.ChipSelect.Pin,
+                                                    config.ChipSelect_ActiveState,
                                                     config.ChipSelect_SetupTime,
                                                     config.ChipSelect_HoldTime,
                                                     config.Clock_IdleState,

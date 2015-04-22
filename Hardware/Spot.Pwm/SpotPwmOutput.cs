@@ -1,20 +1,20 @@
 ﻿using System;
 using System.Threading;
 using Microsoft.SPOT.Hardware;
-using uScoober;
-using uScoober.Hardware;
 
-namespace NetduinoPlus2.Tests
+namespace uScoober.Hardware.Spot
 {
     internal class SpotPwmOutput : DisposableBase,
                                    IPulseWidthModulatedOutput
     {
+        private readonly string _name;
         private readonly PWM _pwm;
         private bool _isActive;
+        private int _pin;
 
-        public SpotPwmOutput(Cpu.PWMChannel pwmChannel, string id = null) {
+        public SpotPwmOutput(Cpu.PWMChannel pwmChannel, string name = null) {
             _pwm = new PWM(pwmChannel, 100000u, 0, PWM.ScaleFactor.Nanoseconds, false);
-            Id = id ?? "PwmOut-" + pwmChannel;
+            _name = name ?? "PwmOut-" + pwmChannel;
         }
 
         public uint Duration {
@@ -54,10 +54,18 @@ namespace NetduinoPlus2.Tests
             }
         }
 
-        public string Id { get; private set; }
-
         public bool IsActive {
-            get { return _isActive; }
+            get {
+                ThrowIfDisposed();
+                return _isActive;
+            }
+        }
+
+        public string Name {
+            get {
+                ThrowIfDisposed();
+                return _name;
+            }
         }
 
         public uint Period {
@@ -67,7 +75,15 @@ namespace NetduinoPlus2.Tests
             }
         }
 
+        public int Pin {
+            get {
+                ThrowIfDisposed();
+                return _pin;
+            }
+        }
+
         public void RampTo(double finalDutyCycle, ushort durationMilliseconds = 1000, ushort stepCount = 100) {
+            ThrowIfDisposed();
             //todo: validate inputs
             int stepTime = durationMilliseconds / stepCount;
             var stepDelta = (uint)(((finalDutyCycle - DutyCycle) / stepCount) * _pwm.Period);

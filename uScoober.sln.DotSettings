@@ -1,21 +1,21 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=9722218DE4CD044CAE310C1238EA3A05/AbsolutePath/@EntryValue">C:\Dev.Eddie\uScoober\ReSharperSettings\Style.DotSettings</s:String>
-	<s:String x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=9722218DE4CD044CAE310C1238EA3A05/RelativePath/@EntryValue">..\..\ReSharperSettings\Style.DotSettings</s:String>
-	<s:Boolean x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=9722218DE4CD044CAE310C1238EA3A05/@KeyIndexDefined">True</s:Boolean>
-	<s:Boolean x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=BCA91855C956B841A08E96421A10A638/@KeyIndexDefined">True</s:Boolean>
-	<s:String x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=BCA91855C956B841A08E96421A10A638/AbsolutePath/@EntryValue">D:\Dev.Eddie\uScoober\uScoober.Templates.DotSettings</s:String>
-	<s:String x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=BCA91855C956B841A08E96421A10A638/RelativePath/@EntryValue">..\uScoober.Templates.DotSettings</s:String>
-	<s:Boolean x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=C0DF9BF6A6F0194EB8521556289CCE20/@KeyIndexDefined">True</s:Boolean>
-	<s:String x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=C0DF9BF6A6F0194EB8521556289CCE20/AbsolutePath/@EntryValue">C:\Dev.Eddie\uScoober\ReSharperSettings\Order.DotSettings</s:String>
-	<s:String x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=C0DF9BF6A6F0194EB8521556289CCE20/RelativePath/@EntryValue">..\..\ReSharperSettings\Order.DotSettings</s:String>
-	<s:String x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=19BD97199F0FB349A64C2445F0C4A376/AbsolutePath/@EntryValue">D:\Dev.Eddie\uScoober\ReSharperSettings\Templates.Common.DotSettings</s:String>
-	<s:String x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=19BD97199F0FB349A64C2445F0C4A376/RelativePath/@EntryValue">..\..\ReSharperSettings\Templates.Common.DotSettings</s:String>
-	<s:Boolean x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=19BD97199F0FB349A64C2445F0C4A376/@KeyIndexDefined">True</s:Boolean>
-	<s:Boolean x:Key="/Default/Environment/InjectedLayers/InjectedLayerCustomization/=File9722218DE4CD044CAE310C1238EA3A05/@KeyIndexDefined">True</s:Boolean>
-	<s:Double x:Key="/Default/Environment/InjectedLayers/InjectedLayerCustomization/=File9722218DE4CD044CAE310C1238EA3A05/RelativePriority/@EntryValue">1</s:Double>
-	<s:Boolean x:Key="/Default/Environment/InjectedLayers/InjectedLayerCustomization/=FileBCA91855C956B841A08E96421A10A638/@KeyIndexDefined">True</s:Boolean>
-	<s:Double x:Key="/Default/Environment/InjectedLayers/InjectedLayerCustomization/=FileBCA91855C956B841A08E96421A10A638/RelativePriority/@EntryValue">5</s:Double>
-	<s:Boolean x:Key="/Default/Environment/InjectedLayers/InjectedLayerCustomization/=FileC0DF9BF6A6F0194EB8521556289CCE20/@KeyIndexDefined">True</s:Boolean>
-	<s:Double x:Key="/Default/Environment/InjectedLayers/InjectedLayerCustomization/=FileC0DF9BF6A6F0194EB8521556289CCE20/RelativePriority/@EntryValue">2</s:Double>
-	<s:Boolean x:Key="/Default/Environment/InjectedLayers/InjectedLayerCustomization/=File19BD97199F0FB349A64C2445F0C4A376/@KeyIndexDefined">True</s:Boolean>
-	<s:Double x:Key="/Default/Environment/InjectedLayers/InjectedLayerCustomization/=File19BD97199F0FB349A64C2445F0C4A376/RelativePriority/@EntryValue">4</s:Double></wpf:ResourceDictionary>
+	
+	
+	
+	
+	
+	
+	<s:String x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=9C27B1D21CD3F142916E8015DD0E77D4/AbsolutePath/@EntryValue">D:\Dev.Eddie\uScoober\ReSharperSettings\Style.DotSettings</s:String>
+	<s:String x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=9C27B1D21CD3F142916E8015DD0E77D4/RelativePath/@EntryValue">..\ReSharperSettings\Style.DotSettings</s:String>
+	<s:Boolean x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=9C27B1D21CD3F142916E8015DD0E77D4/@KeyIndexDefined">True</s:Boolean>
+	<s:Boolean x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=AD28AB52EF0A3E42B4F55948543C3C66/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=AD28AB52EF0A3E42B4F55948543C3C66/AbsolutePath/@EntryValue">D:\Dev.Eddie\uScoober\ReSharperSettings\Templates.DotSettings</s:String>
+	<s:String x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=AD28AB52EF0A3E42B4F55948543C3C66/RelativePath/@EntryValue">..\ReSharperSettings\Templates.DotSettings</s:String>
+	
+	
+	
+	
+	<s:Boolean x:Key="/Default/Environment/InjectedLayers/InjectedLayerCustomization/=File9C27B1D21CD3F142916E8015DD0E77D4/@KeyIndexDefined">True</s:Boolean>
+	<s:Double x:Key="/Default/Environment/InjectedLayers/InjectedLayerCustomization/=File9C27B1D21CD3F142916E8015DD0E77D4/RelativePriority/@EntryValue">1</s:Double>
+	<s:Boolean x:Key="/Default/Environment/InjectedLayers/InjectedLayerCustomization/=FileAD28AB52EF0A3E42B4F55948543C3C66/@KeyIndexDefined">True</s:Boolean>
+	<s:Double x:Key="/Default/Environment/InjectedLayers/InjectedLayerCustomization/=FileAD28AB52EF0A3E42B4F55948543C3C66/RelativePriority/@EntryValue">3</s:Double></wpf:ResourceDictionary>

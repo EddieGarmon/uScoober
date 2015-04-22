@@ -9,27 +9,36 @@ namespace uScoober.TestFramework.Sdk.Runners
 {
     internal class EmulatorRunner : TestRunner
     {
-        private IDigitalInput _restartTests;
-        private IDigitalInput _scrollDown;
-        private IDigitalInput _scrollUp;
+        private readonly IDigitalInterupt _restartTests;
+        private readonly IDigitalInterupt _scrollDown;
+        private readonly IDigitalInterupt _scrollUp;
 
         public EmulatorRunner(Assembly assemblyUnderTest)
             : base(assemblyUnderTest, new GuiFeedback(), true) {
-            _restartTests = new SpotDigitalInput(EmulatorButtons.Select, "Restart Tests", ResistorMode.PullUp, InterruptMode.InterruptEdgeLow);
+            _restartTests = new SpotDigitalInterupt(EmulatorButtons.Select,
+                                                    "Restart Tests",
+                                                    (Port.ResistorMode)ResistorMode.PullUp,
+                                                    (Port.InterruptMode)InterruptMode.InterruptEdgeLow);
             _restartTests.OnInterupt += (source, state, time) => {
                                             Debug.Print("Attempt Restart");
                                             ExecuteTests();
                                         };
             _restartTests.InteruptEnabled = true;
 
-            _scrollUp = new SpotDigitalInput(EmulatorButtons.Up, "Scroll Up", ResistorMode.PullUp, InterruptMode.InterruptEdgeLow);
+            _scrollUp = new SpotDigitalInterupt(EmulatorButtons.Up,
+                                                "Scroll Up",
+                                                (Port.ResistorMode)ResistorMode.PullUp,
+                                                (Port.InterruptMode)InterruptMode.InterruptEdgeLow);
             _scrollUp.OnInterupt += (source, state, time) => {
                                         Debug.Print("Scroll Up Requested");
                                         Feedback.ScrollUp();
                                     };
             _scrollUp.InteruptEnabled = true;
 
-            _scrollDown = new SpotDigitalInput(EmulatorButtons.Down, "Scroll Down", ResistorMode.PullUp, InterruptMode.InterruptEdgeLow);
+            _scrollDown = new SpotDigitalInterupt(EmulatorButtons.Down,
+                                                  "Scroll Down",
+                                                  (Port.ResistorMode)ResistorMode.PullUp,
+                                                  (Port.InterruptMode)InterruptMode.InterruptEdgeLow);
             _scrollDown.OnInterupt += (source, state, time) => {
                                           Debug.Print("Scroll Down Requested");
                                           Feedback.ScrollDown();

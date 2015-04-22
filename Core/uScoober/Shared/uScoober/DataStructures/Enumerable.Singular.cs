@@ -14,12 +14,12 @@ namespace uScoober.DataStructures
                 _value = value;
             }
 
-            IEnumerator IEnumerable.GetEnumerator() {
-                return this;
-            }
-
             object IEnumerator.Current {
                 get { return _index == 0 ? _value : null; }
+            }
+
+            IEnumerator IEnumerable.GetEnumerator() {
+                return this;
             }
 
             bool IEnumerator.MoveNext() {
