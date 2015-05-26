@@ -4,7 +4,7 @@ namespace uScoober.TestFramework.Core
 {
     public class FeedbackDispatcher : IRunnerResultProcessor
     {
-        private readonly IRunnerResultProcessor[] _processors;
+        private IRunnerResultProcessor[] _processors;
 
         public FeedbackDispatcher() {
             _processors = new IRunnerResultProcessor[0];
@@ -18,6 +18,7 @@ namespace uScoober.TestFramework.Core
             var temp = new IRunnerResultProcessor[_processors.Length + 1];
             Array.Copy(_processors, temp, _processors.Length);
             temp[_processors.Length] = output;
+            _processors = temp;
         }
 
         public void TestCaseCompleted(TestCaseResult result) {

@@ -36,7 +36,6 @@
     <Reference Include="Microsoft.SPOT.Hardware" />
     <Reference Include="Microsoft.SPOT.Native">
     </Reference>
-    <Reference Include="System" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
