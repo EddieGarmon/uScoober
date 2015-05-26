@@ -7,6 +7,6 @@ internal static class EntryPoint
     public static void Main() {
         var board = new Cerbuino();
         var output = board.OnboardLed;
-        new TestHarness(Assembly.GetExecutingAssembly(), output).ExecuteTests();
+        TestHarness.RunTests(Assembly.GetExecutingAssembly(), null, null);
     }
 }

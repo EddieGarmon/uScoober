@@ -1,107 +1,42 @@
 ﻿using System;
-using System.Diagnostics;
-using System.IO;
 using System.Reflection;
 using System.Threading;
 using Microsoft.SPOT;
-using Microsoft.SPOT.Hardware;
-using Microsoft.SPOT.Presentation;
-using uScoober.Hardware.Light;
-using uScoober.TestFramework.Sdk.Runners;
-using uScoober.TestFramework.Sdk.Runners.Feedback;
-using uScoober.Threading;
+using uScoober.TestFramework.Core;
 
 namespace uScoober.TestFramework
 {
-    public class TestHarness : Application
+    public static class TestHarness
     {
-        private readonly bool _exitAfterFirstRun;
-        private readonly TestRunner _testRunner;
-
-        public TestHarness(Assembly assemblyUnderTest, bool showGcMessages = true)
-            : this(assemblyUnderTest, (TestRunner)null, showGcMessages) { }
-
-        public TestHarness(Assembly assemblyUnderTest, IDigitalLed analogLed, bool showGcMessages = true)
-            : this(assemblyUnderTest, new TestRunner(assemblyUnderTest, new LedFeedback(analogLed), false), showGcMessages) { }
-
-        //todo: support character display test feedback
-        //public TestHarness(Assembly assemblyUnderTest, ICharacterDisplay characterDisplay, bool showGcMessages = true) {
-        //    _assemblyUnderTest = assemblyUnderTest;
-        //    if (!SystemInfo.IsEmulator) {
-        //        throw new NotImplementedException();
-        //        _testRunPresenter = null; // new CharacterFeedback(characterDisplay);
-        //    }
-        //    Debug.EnableGCMessages(showGcMessages);
-        //}
-
-        private TestHarness(Assembly assemblyUnderTest, TestRunner runner, bool showGcMessages = true) {
-            //todo? use a file in emulated file system?
-            if (File.Exists(BuildRunnerFeedback.BuildMarkerFilename)) {
-                _testRunner = new BuildRunner(assemblyUnderTest);
-                _exitAfterFirstRun = true;
-            }
-            else if (runner != null) {
-                _testRunner = runner;
-            }
-            else {
-                if (SystemInfo.IsEmulator) {
-                    _testRunner = new EmulatorRunner(assemblyUnderTest);
-                }
-                else if (SystemMetrics.ScreenHeight > 0) {
-                    _testRunner = new TestRunner(assemblyUnderTest, new GuiFeedback(), false);
-                }
-                else {
-                    _testRunner = new TestRunner(assemblyUnderTest, new NullFeedback(), false);
-                }
+        public static void RunTests(Assembly assembly,
+                                    IRunnerUserInput input = null,
+                                    IRunnerResultProcessor output = null,
+                                    string logDirectory = null,
+                                    bool showGcMessages = false) {
+            if (assembly == null) {
+                throw new ArgumentNullException("assembly");
             }
             Debug.EnableGCMessages(showGcMessages);
-        }
 
-        public void ExecuteTests() {
-            Run(_testRunner.Feedback.IsGui
-                    ? new Window {
-                        Height = SystemMetrics.ScreenHeight,
-                        Width = SystemMetrics.ScreenWidth,
-                        Visibility = Visibility.Visible
-                    }
-                    : null);
-        }
-
-        protected override void OnStartup(EventArgs e) {
-            base.OnStartup(e);
-
-            //NB: we must wait and create all UI objects in 'OnStartup' so they are on the dispatcher thread
-            UIElement gui = _testRunner.Feedback.InitializeGui();
-            if (gui != null) {
-                if (MainWindow == null) {
-                    Debugger.Break();
-                    throw new Exception("Did you call TestHarness.Run() instead of TestHarness.ExecuteTests()?");
-                }
-                MainWindow.Child = gui;
+            var dispatch = new FeedbackDispatcher();
+            if (output != null) {
+                dispatch.Add(output);
+            }
+            dispatch.Add(new FeedbackToDebug());
+            if (BuildAutomation.InBuild) {
+                dispatch.Add(new FeedbackToLogFiles());
+            }
+            else if (logDirectory != null) {
+                dispatch.Add(new FeedbackToLogFiles(logDirectory));
             }
 
-            _testRunner.ExecuteTests();
+            TestRunner runner = new TestRunner(assembly, input, dispatch);
+            runner.ExecuteTests()
+                  .Wait();
 
-            if (_exitAfterFirstRun) {
-                Task.Run(() => {
-                             while (_testRunner.State != TestRunnerState.Stopped) {
-                                 Thread.Sleep(10);
-                             }
-                         })
-                    .ContinueWith(previous => Dispatcher.BeginInvoke(StartShutdown, null));
+            if (!BuildAutomation.InBuild) {
+                Thread.Sleep(Timeout.Infinite);
             }
-        }
-
-        private object StartShutdown(object unused) {
-            //shutdown task threads
-            TaskScheduler.UnusedThreadTimeoutMilliseconds = 10;
-            // empty task to pump all task threads
-            Task.Run(() => { });
-
-            // shutdown the application
-            ShutdownMode = ShutdownMode.OnExplicitShutdown;
-            Shutdown();
-            return null;
         }
     }
 }

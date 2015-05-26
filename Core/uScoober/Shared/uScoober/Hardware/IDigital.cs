@@ -27,7 +27,7 @@ namespace uScoober.Hardware
     public delegate void InteruptHandler(IDigitalInterupt source, bool newPinState, DateTime time);
 
     public interface IDigitalPort : ISignal,
-                                    IDigitalInterupt,
+                                    IDigitalInput,
                                     IDigitalOutput { }
 
     public enum InterruptMode

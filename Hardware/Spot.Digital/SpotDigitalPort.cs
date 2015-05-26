@@ -5,29 +5,17 @@ namespace uScoober.Hardware.Spot
     internal class SpotDigitalPort : DisposableBase,
                                      IDigitalPort
     {
-        private readonly int _debounceMilliseconds;
         private readonly string _name;
         private readonly TristatePort _tristate; // = new TristatePort(Cpu.Pin);
 
         public SpotDigitalPort(Cpu.Pin pin,
                                bool initialState = false,
                                string name = null,
-                               Port.ResistorMode internalResistorMode = Port.ResistorMode.Disabled,
-                               InterruptMode interruptMode = InterruptMode.InterruptNone,
-                               int debounceMilliseconds = 0) {
+                               Port.ResistorMode internalResistorMode = Port.ResistorMode.Disabled) {
             _tristate = new TristatePort(pin, initialState, false, internalResistorMode);
+            _tristate.Active = false;
             _name = name ?? "DigitalPort-" + pin;
-            //_tristate.
         }
-
-        public int DebounceMilliseconds {
-            get {
-                ThrowIfDisposed();
-                return _debounceMilliseconds;
-            }
-        }
-
-        public bool InteruptEnabled { get; set; }
 
         public bool InvertReading { get; set; }
 
@@ -39,7 +27,12 @@ namespace uScoober.Hardware.Spot
 
         public bool State { get; private set; }
 
-        public event InteruptHandler OnInterupt;
+        public void HighImpedance() {
+            if (_tristate.Active) {
+                //tristate.Active will not throw in 4.4
+                _tristate.Active = false;
+            }
+        }
 
         public bool Read() {
             ThrowIfDisposed();

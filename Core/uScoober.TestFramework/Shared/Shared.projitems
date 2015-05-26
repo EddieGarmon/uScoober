@@ -12,6 +12,12 @@
     <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Assert\AssertionFailureException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Assert\ShouldExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Assert\Throw.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Core\IRunnerResultProcessor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Core\IRunnerUserInput.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Core\ITestCase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Core\BuildAutomation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Core\TestCaseResult.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Core\TestRunner.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Mocks\MockAnalog.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Mocks\MockDigital.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Mocks\MockI2CBus.cs" />
@@ -19,26 +25,15 @@
     <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Mocks\MockPwm.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Mocks\MockSignal.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Mocks\MockSpiBus.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Output\FeedbackDispatcher.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Output\FeedbackToDebug.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Output\FeedbackToLogFiles.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TestFramework\PrettyArgs.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Sdk\Runners\BuildRunner.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Sdk\Runners\EmulatorRunner.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Sdk\Runners\Feedback\LedFeedback.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Sdk\Runners\Feedback\BuildRunnerFeedback.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Sdk\Runners\Feedback\GuiFeedback.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Sdk\Runners\Feedback\ITestRunFeedback.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Sdk\Runners\Feedback\NullFeedback.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Sdk\Runners\TestRunner.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Sdk\Runners\TestRunnerState.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Sdk\TestCase.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Sdk\TestCase.Fact.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Sdk\TestCase.Theory.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Sdk\TestCaseFinder.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Sdk\TestRun.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Core\ITestCase.Fact.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Core\ITestCase.Theory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Core\TestRunResult.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TestFramework\TestHarness.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Trap.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\UI\Resources\Fonts.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\UI\Views\TestFailureDetails.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\UI\Views\TestRunView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)Testing How To.md" />

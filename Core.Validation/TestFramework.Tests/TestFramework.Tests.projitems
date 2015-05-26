@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>1a3ab225-f09a-4f72-a5c8-c03c78179f8c</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>TestFramework.Tests</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)ExecuteFactsSpec.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ExecuteTheoriesSpec.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TrapSpec.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Mocks\MockI2CBusSpecs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Mocks\MockI2CBusSpecs.FakeDevice.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Mocks\MockIOBufferSpecs.cs" />
+  </ItemGroup>
+</Project>

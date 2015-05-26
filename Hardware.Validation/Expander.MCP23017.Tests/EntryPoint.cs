@@ -4,6 +4,6 @@ using uScoober.TestFramework;
 internal static class EntryPoint
 {
     public static void Main() {
-        new TestHarness(Assembly.GetExecutingAssembly()).ExecuteTests();
+        TestHarness.RunTests(Assembly.GetExecutingAssembly());
     }
 }

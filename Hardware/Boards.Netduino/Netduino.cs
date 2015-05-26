@@ -11,14 +11,14 @@ namespace uScoober.Hardware.Boards
     using SL = SecretLabs.NETMF.Hardware.Netduino;
 
     internal class Netduino : DisposableBase,
-                               IDuino
+                              IDuino
     {
         private AnalogInputs _analogIn;
         private DigitalInputs _digitalIn;
         private DigitalOutputs _digitalOut;
         private II2CBus _i2CBus;
         private PushButton _onboardButton;
-        private AnalogLed _onboardLed;
+        private DigitalLed _onboardLed;
         private PwmOutputs _pwmOut;
         private ISpiBus _spiBus;
 
@@ -42,15 +42,15 @@ namespace uScoober.Hardware.Boards
             get {
                 return _onboardButton
                        ?? (_onboardButton =
-                           new PushButton(new SpotDigitalInterupt(InterruptablePins.OnboardSwitch,
+                           new PushButton(new SpotDigitalInterupt(SL.Pins.ONBOARD_BTN,
                                                                   "on-board button",
                                                                   (Port.ResistorMode)ResistorMode.PullUp,
                                                                   (Port.InterruptMode)InterruptMode.InterruptEdgeLevelLow)));
             }
         }
 
-        public AnalogLed OnboardLed {
-            get { return _onboardLed ?? (_onboardLed = new AnalogLed(new SpotPwmOutput(SL.PWMChannels.PWM_ONBOARD_LED))); }
+        public DigitalLed OnboardLed {
+            get { return _onboardLed ?? (_onboardLed = new DigitalLed(new SpotDigitalOutput(SL.Pins.ONBOARD_LED))); }
         }
 
         public PwmOutputs PwmOut {
@@ -123,27 +123,27 @@ namespace uScoober.Hardware.Boards
         public sealed class AnalogInputs : SpotDuinoAnalogInputs
         {
             protected override Cpu.AnalogChannel PinA0 {
-                get { return Cpu.AnalogChannel.ANALOG_0; }
+                get { return SL.AnalogChannels.ANALOG_PIN_A0; }
             }
 
             protected override Cpu.AnalogChannel PinA1 {
-                get { return Cpu.AnalogChannel.ANALOG_1; }
+                get { return SL.AnalogChannels.ANALOG_PIN_A1; }
             }
 
             protected override Cpu.AnalogChannel PinA2 {
-                get { return Cpu.AnalogChannel.ANALOG_2; }
+                get { return SL.AnalogChannels.ANALOG_PIN_A2; }
             }
 
             protected override Cpu.AnalogChannel PinA3 {
-                get { return Cpu.AnalogChannel.ANALOG_3; }
+                get { return SL.AnalogChannels.ANALOG_PIN_A3; }
             }
 
             protected override Cpu.AnalogChannel PinA4 {
-                get { return Cpu.AnalogChannel.ANALOG_4; }
+                get { return SL.AnalogChannels.ANALOG_PIN_A4; }
             }
 
             protected override Cpu.AnalogChannel PinA5 {
-                get { return Cpu.AnalogChannel.ANALOG_5; }
+                get { return SL.AnalogChannels.ANALOG_PIN_A5; }
             }
         }
 
@@ -151,60 +151,30 @@ namespace uScoober.Hardware.Boards
 
         public sealed class DigitalOutputs : SpotDuinoDigitalOutputs { }
 
-        internal static class InterruptablePins
-        {
-            public const Cpu.Pin D0 = (Cpu.Pin)27;
-            public const Cpu.Pin D1 = (Cpu.Pin)28;
-            public const Cpu.Pin D10 = (Cpu.Pin)54;
-            public const Cpu.Pin D11 = (Cpu.Pin)17;
-            public const Cpu.Pin D12 = (Cpu.Pin)16;
-            public const Cpu.Pin D13 = (Cpu.Pin)18;
-            public const Cpu.Pin D2 = Cpu.Pin.GPIO_Pin0;
-            public const Cpu.Pin D3 = Cpu.Pin.GPIO_Pin1;
-            public const Cpu.Pin D4 = Cpu.Pin.GPIO_Pin12;
-            public const Cpu.Pin D5 = (Cpu.Pin)51;
-            public const Cpu.Pin D6 = (Cpu.Pin)52;
-            public const Cpu.Pin D7 = Cpu.Pin.GPIO_Pin3;
-            public const Cpu.Pin D8 = Cpu.Pin.GPIO_Pin4;
-            public const Cpu.Pin D9 = (Cpu.Pin)53;
-            public const Cpu.Pin OnboardSwitch = (Cpu.Pin)29;
-        }
-
-        internal static class Pins
-        {
-            public const Cpu.Pin A0 = (Cpu.Pin)59;
-            public const Cpu.Pin A1 = (Cpu.Pin)60;
-            public const Cpu.Pin A2 = (Cpu.Pin)61;
-            public const Cpu.Pin A3 = (Cpu.Pin)62;
-            public const Cpu.Pin A4 = Cpu.Pin.GPIO_Pin10;
-            public const Cpu.Pin A5 = Cpu.Pin.GPIO_Pin11;
-            public const Cpu.Pin OnboardLed = (Cpu.Pin)55;
-        }
-
         internal sealed class PwmOutputs : SpotDuinoPwmOutputs
         {
             protected override Cpu.PWMChannel PinD10 {
-                get { return Cpu.PWMChannel.PWM_3; }
+                get { return SL.PWMChannels.PWM_PIN_D10; }
             }
 
             protected override Cpu.PWMChannel PinD11 {
-                get { return Cpu.PWMChannel.PWM_NONE; }
+                get { return SL.PWMChannels.PWM_PIN_D11; }
             }
 
             protected override Cpu.PWMChannel PinD3 {
-                get { return Cpu.PWMChannel.PWM_NONE; }
+                get { return SL.PWMChannels.PWM_PIN_D3; }
             }
 
             protected override Cpu.PWMChannel PinD5 {
-                get { return Cpu.PWMChannel.PWM_0; }
+                get { return SL.PWMChannels.PWM_PIN_D5; }
             }
 
             protected override Cpu.PWMChannel PinD6 {
-                get { return Cpu.PWMChannel.PWM_1; }
+                get { return SL.PWMChannels.PWM_PIN_D6; }
             }
 
             protected override Cpu.PWMChannel PinD9 {
-                get { return Cpu.PWMChannel.PWM_2; }
+                get { return SL.PWMChannels.PWM_PIN_D9; }
             }
         }
     }

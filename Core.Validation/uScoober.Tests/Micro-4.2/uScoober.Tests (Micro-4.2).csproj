@@ -44,9 +44,13 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Core\uScoober.TestFramework\Micro-4.2\uScoober.TestFramework %28Micro-4.2%29.csproj">
+    <ProjectReference Include="..\..\..\Core\uScoober.TestFramework.GraphicUI\Micro-42\TestFramework.GraphicUI %28Micro-42%29.csproj">
+      <Project>{5825C7B2-EE1D-438D-B7D1-4B4506559436}</Project>
+      <Name>TestFramework.GraphicUI %28Micro-42%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Core\uScoober.TestFramework\Micro-4.2\TestFramework %28Micro-4.2%29.csproj">
       <Project>{FE696CD6-E0FD-4D4B-9BB2-6A20DFE0E11F}</Project>
-      <Name>uScoober.TestFramework %28Micro-4.2%29</Name>
+      <Name>TestFramework %28Micro-4.2%29</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Core\uScoober\Micro-4.2\uScoober %28Micro-4.2%29.csproj">
       <Project>{CBB895B4-8CC4-46F5-96D2-247D54811C45}</Project>

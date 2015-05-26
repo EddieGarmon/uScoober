@@ -16,7 +16,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Netduino.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)NetduinoPlus2.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)semver.txt" />

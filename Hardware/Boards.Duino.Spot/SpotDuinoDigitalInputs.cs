@@ -6,7 +6,7 @@ using uScoober.Hardware.Spot;
 namespace uScoober.Hardware.Boards.Spot
 {
     internal abstract class SpotDuinoDigitalInputs : DisposableBase,
-                                                 IDuinoDigitalInputs
+                                                     IDuinoDigitalInputs
     {
         private readonly Hashtable _store = new Hashtable();
 
@@ -28,7 +28,8 @@ namespace uScoober.Hardware.Boards.Spot
                                      int debounceMilliseconds = 0,
                                      bool interuptEnabled = true) {
             var input = new SpotDigitalInterupt(pin, id, (Port.ResistorMode)internalResistorMode, (Port.InterruptMode)interruptMode, debounceMilliseconds);
-            input.OnInterupt += handler; //todo: verify
+            input.OnInterupt += handler;
+            input.InteruptEnabled = interuptEnabled;
             _store.Add(pin, input);
             return input;
         }
@@ -50,9 +51,8 @@ namespace uScoober.Hardware.Boards.Spot
                                        string id = null,
                                        int debounceMilliseconds = 0,
                                        bool interuptEnabled = true) {
-            var input = new SpotDigitalInterupt(pin, id, (Port.ResistorMode)internalResistorMode, (Port.InterruptMode)interruptMode, debounceMilliseconds);
-            throw new NotImplementedException("register handler");
-            _store.Add(pin, input);
+            var input = Bind(pin, internalResistorMode, interruptMode, handler, id, debounceMilliseconds);
+            input.InvertReading = true;
             return input;
         }
 
