@@ -35,6 +35,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Extensions\RandomExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Extensions\StringBuilderExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Extensions\StringExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\BitMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\Display\IDisplayScrollingText.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\Display\IDisplayText.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\Display\IDriveTextDisplays.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\Display\IHaveEditableCharacterMap.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\I2C\I2CDeviceCore.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\I2C\II2CBus.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\I2C\II2CDevice.cs" />
@@ -53,7 +58,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\Spi\ISpiDevice.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\Spi\SpiDeviceConfig.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\Spi\SpiDeviceCore.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\Text\CharacterDisplay.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\Display\CharacterDisplay.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\Time\ClockFrequency.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\Time\IRealTimeClock.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Stopwatch.cs" />

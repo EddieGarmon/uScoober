@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using System.Reflection;
 using Microsoft.SPOT;
 using Microsoft.SPOT.Hardware;
@@ -15,7 +14,6 @@ namespace uScoober.TestFramework
         private readonly Assembly _assembly;
         private readonly IRunnerUserInput _input;
         private readonly string _logDirectory;
-        private IRunnerResultProcessor _output;
 
         private GuiTestHarness(Assembly assembly, IRunnerUserInput input, string logDirectory) {
             _assembly = assembly;
@@ -26,12 +24,19 @@ namespace uScoober.TestFramework
         protected override void OnStartup(EventArgs e) {
             base.OnStartup(e);
 
+            var dispatch = new FeedbackDispatcher();
+
             //NB: we must wait and create all UI objects in 'OnStartup' so they are on the dispatcher thread
             TestRunView gui = new TestRunView();
             MainWindow.Child = gui;
-            _output = gui;
-            if (_logDirectory != null) {
-                _output = new FeedbackDispatcher(gui, new FeedbackToDebug());
+
+            dispatch.Add(gui);
+            dispatch.Add(new FeedbackToDebug());
+            if (BuildAutomation.InBuild) {
+                dispatch.Add(new FeedbackToLogFiles());
+            }
+            else if (_logDirectory != null) {
+                dispatch.Add(new FeedbackToLogFiles(_logDirectory));
             }
 
             // connect input scroll buttons
@@ -50,7 +55,7 @@ namespace uScoober.TestFramework
                 }
             }
 
-            var runner = new TestRunner(_assembly, _input, _output);
+            var runner = new TestRunner(_assembly, _input, dispatch);
 
             if (BuildAutomation.InBuild) {
                 runner.ExecuteTests()

@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using SecretLabs.NETMF.Hardware.Netduino;
+using uScoober.Hardware.Display;
 using uScoober.Hardware.Text;
 using uScoober.TestFramework;
 
@@ -9,7 +10,7 @@ internal static class EntryPoint
         //input buttons on mcp
         //lcd char display output using mcp transfer
 
-        ICharacterDisplay charDisplay = null;
+        IDisplayText display = null;
         //TestHarness.RunTests(Assembly.GetExecutingAssembly(), null, new FeedbackToCharDisplay(charDisplay));
     }
 }
