@@ -10,7 +10,7 @@
 //            //return new Voltage(analog.Read(), VoltageUnit.Volts);
 //        }
 
-//        public static void WriteVoltage(this IPulseWidthModulatedOutput pwm, Voltage value) {
+//        public static void WriteVoltage(this IPwmOutput pwm, Voltage value) {
 //            throw new NotImplementedException("VoltageExtensions.WriteVoltage");
 //        }
 //    }

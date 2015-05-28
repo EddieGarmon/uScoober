@@ -22,7 +22,7 @@ namespace uScoober.TestFramework.Core
             //hook input events if defined
             if (input != null) {
                 if (input.StartTests != null) {
-                    input.StartTests.OnInterupt += (source, state, time) => {
+                    input.StartTests.OnInterrupt += (source, state, time) => {
                                                        Debug.Print("Attempt Restart");
                                                        ExecuteTests();
                                                    };

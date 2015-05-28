@@ -1,0 +1,2 @@
+﻿
+SPOT Tristate does not support interrupts even though it is in the inheritance tree. 

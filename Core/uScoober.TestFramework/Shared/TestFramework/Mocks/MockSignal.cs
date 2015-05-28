@@ -11,8 +11,8 @@ namespace uScoober.TestFramework.Mocks
 
         public string Name { get; private set; }
 
-        public int Pin {
-            get { return 0; }
+        public Pin Pin {
+            get { return Pin.None; }
         }
     }
 }

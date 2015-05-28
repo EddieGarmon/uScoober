@@ -165,8 +165,6 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Boards.Cerbuino", "Hardware
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Boards.Duino.Pinout", "Hardware\Boards.Duino.Pinout\Boards.Duino.Pinout.shproj", "{A323F734-469F-40F8-A71C-0897400123A6}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Boards.Duino.Spot", "Hardware\Boards.Duino.Spot\Boards.Duino.Spot.shproj", "{95403EC1-5ECE-40B9-B46C-31D867410958}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boards.Netduino.Tests (Micro-43)", "Hardware.Validation\Boards.Netduino.Tests\Boards.Netduino.Tests (Micro-43).csproj", "{399321E2-8AD6-4732-A75E-E3ECE480226C}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Boards.Netduino", "Hardware\Boards.Netduino\Boards.Netduino.shproj", "{0FE48CB1-B1CD-4FD7-B0F8-79C9F835E1FE}"
@@ -240,14 +238,14 @@ Global
 		Features\Binary.Endian\uScoober.Binary.Endian.projitems*{c9503ba6-76f8-4ba8-99a1-6515dd7eacb3}*SharedItemsImports = 13
 		Hardware\Expander.MCP23008\Expander.MCP23008.projitems*{8c1f311b-3731-47d1-8596-5ab5666bd328}*SharedItemsImports = 13
 		Core\uScoober.TestFramework.LedUI\Shared\Shared.projitems*{8f04df76-8c10-436c-96f8-e14dc08d909c}*SharedItemsImports = 4
-		Hardware\Boards.Cerbuino\Boards.Cerbuino.projitems*{d406e386-2498-4bc5-9fa2-1585259a613d}*SharedItemsImports = 4
 		Hardware\Spot.Digital\Spot.Digital.projitems*{d406e386-2498-4bc5-9fa2-1585259a613d}*SharedItemsImports = 4
-		Hardware\Spot.I2C\Spot.I2C.projitems*{d406e386-2498-4bc5-9fa2-1585259a613d}*SharedItemsImports = 4
-		Hardware\Spot.Analog\Spot.Analog.projitems*{d406e386-2498-4bc5-9fa2-1585259a613d}*SharedItemsImports = 4
-		Hardware\Boards.Duino.Spot\Boards.Duino.Spot.projitems*{d406e386-2498-4bc5-9fa2-1585259a613d}*SharedItemsImports = 4
-		Hardware\Spot.Spi\Spot.Spi.projitems*{d406e386-2498-4bc5-9fa2-1585259a613d}*SharedItemsImports = 4
-		Hardware\Spot.Pwm\Spot.Pwm.projitems*{d406e386-2498-4bc5-9fa2-1585259a613d}*SharedItemsImports = 4
 		Hardware\Boards.Duino.Pinout\Boards.Duino.Pinout.projitems*{d406e386-2498-4bc5-9fa2-1585259a613d}*SharedItemsImports = 4
+		Hardware\Spot.Spi\Spot.Spi.projitems*{d406e386-2498-4bc5-9fa2-1585259a613d}*SharedItemsImports = 4
+		Core.Validation\uScoober.Tests\Shared\Shared.projitems*{d406e386-2498-4bc5-9fa2-1585259a613d}*SharedItemsImports = 4
+		Hardware\Spot.Pwm\Spot.Pwm.projitems*{d406e386-2498-4bc5-9fa2-1585259a613d}*SharedItemsImports = 4
+		Hardware\Spot.Analog\Spot.Analog.projitems*{d406e386-2498-4bc5-9fa2-1585259a613d}*SharedItemsImports = 4
+		Hardware\Spot.I2C\Spot.I2C.projitems*{d406e386-2498-4bc5-9fa2-1585259a613d}*SharedItemsImports = 4
+		Hardware\Boards.Cerbuino\Boards.Cerbuino.projitems*{d406e386-2498-4bc5-9fa2-1585259a613d}*SharedItemsImports = 4
 		Core\uScoober.TestFramework.LedUI\Shared\Shared.projitems*{6db37f89-0eab-49f1-990e-84152a0000b5}*SharedItemsImports = 4
 		Core.Validation\uScoober.Threading.Tests\Shared\Shared.projitems*{04dbe653-e77b-4434-a604-04de48647cd0}*SharedItemsImports = 4
 		Features\DataStructures.NotifyCollection\uScoober.DataStructures.NotifyCollection.projitems*{ce076ae6-7711-4359-b98b-55ef72b18113}*SharedItemsImports = 4
@@ -256,7 +254,6 @@ Global
 		Hardware\Spot.Digital\Spot.Digital.projitems*{d3064c87-d967-49fc-a42e-fe695cb0273e}*SharedItemsImports = 4
 		Core\uScoober.TestFramework.GraphicUI\Shared\Shared.projitems*{d3064c87-d967-49fc-a42e-fe695cb0273e}*SharedItemsImports = 4
 		Hardware\Time.DS1307\Shared.projitems*{ec07e887-91d9-44e7-84d7-8bdf627a3e60}*SharedItemsImports = 13
-		Hardware\Boards.Duino.Spot\Boards.Duino.Spot.projitems*{95403ec1-5ece-40b9-b46c-31d867410958}*SharedItemsImports = 13
 		Hardware\Spot.Digital\Spot.Digital.projitems*{5825c7b2-ee1d-438d-b7d1-4b4506559436}*SharedItemsImports = 4
 		Core\uScoober.TestFramework.GraphicUI\Shared\Shared.projitems*{5825c7b2-ee1d-438d-b7d1-4b4506559436}*SharedItemsImports = 4
 		Features\Storage\uScoober.Storage.projitems*{bc5f5562-784a-4140-9b70-3a7acdf2987a}*SharedItemsImports = 13
@@ -264,30 +261,30 @@ Global
 		Hardware\Expander.MCP23017\Expander.MCP23017.projitems*{75b318fd-4673-493b-8ee5-319771db396f}*SharedItemsImports = 13
 		Hardware\Spot.I2C\Spot.I2C.projitems*{cfe23c08-997b-4fc9-aaa1-52dc3ac9dc62}*SharedItemsImports = 13
 		Core.Validation\uScoober.Threading.Tests\Shared\Shared.projitems*{3ac05dea-eabf-482c-aac7-d52cb76bd240}*SharedItemsImports = 13
-		Core.Validation\TestFramework.Tests\TestFramework.Tests.projitems*{d113b227-226b-4685-b85c-fffaed3fc847}*SharedItemsImports = 4
 		Hardware\Spot.Digital\Spot.Digital.projitems*{d113b227-226b-4685-b85c-fffaed3fc847}*SharedItemsImports = 4
+		Core.Validation\TestFramework.Tests\TestFramework.Tests.projitems*{d113b227-226b-4685-b85c-fffaed3fc847}*SharedItemsImports = 4
 		Hardware\Spot.Analog\Spot.Analog.projitems*{4c313a4a-1a46-4be6-a895-476eb62ad196}*SharedItemsImports = 13
 		Hardware\I2C.Scanner\I2C.Scanner.projitems*{06cadcff-2e78-4918-846f-3f9ac53a7e71}*SharedItemsImports = 13
 		Features\UnitsOfMeasure\uScoober.UnitsOfMeasure.projitems*{04b9ae65-4cc4-4da1-b3f7-50d1740f14ae}*SharedItemsImports = 4
 		Core.Validation\TestFramework.Tests\TestFramework.Tests.projitems*{1a3ab225-f09a-4f72-a5c8-c03c78179f8c}*SharedItemsImports = 13
 		Core\uScoober.TestFramework\Shared\Shared.projitems*{cfa58043-cab1-4b6f-8504-35e397b8bbe0}*SharedItemsImports = 13
 		Core\uScoober.Threading\Shared\Shared.projitems*{e797cc15-691d-4284-bc3f-b9e866e00aaf}*SharedItemsImports = 4
-		Features\Binary.BitCounter\uScoober.Binary.BitCounter.projitems*{87712199-3f2a-4fd4-a08f-80a444f8aa93}*SharedItemsImports = 4
-		Features\Binary.BinaryCodedDecimal\uScoober.Binary.BinaryCodedDecimal.projitems*{87712199-3f2a-4fd4-a08f-80a444f8aa93}*SharedItemsImports = 4
 		Features\Binary.Endian\uScoober.Binary.Endian.projitems*{87712199-3f2a-4fd4-a08f-80a444f8aa93}*SharedItemsImports = 4
 		Features\Binary.BitMask\uScoober.Binary.BitMask.projitems*{87712199-3f2a-4fd4-a08f-80a444f8aa93}*SharedItemsImports = 4
+		Features\Binary.BinaryCodedDecimal\uScoober.Binary.BinaryCodedDecimal.projitems*{87712199-3f2a-4fd4-a08f-80a444f8aa93}*SharedItemsImports = 4
+		Features\Binary.BitCounter\uScoober.Binary.BitCounter.projitems*{87712199-3f2a-4fd4-a08f-80a444f8aa93}*SharedItemsImports = 4
 		Core.Validation\uScoober.Tests\Shared\Shared.projitems*{57e03e08-13b1-415d-81d6-786b9ae7d9d5}*SharedItemsImports = 13
 		Features\Binary.BinaryCodedDecimal\uScoober.Binary.BinaryCodedDecimal.projitems*{88ab822b-b7d3-4877-a9a7-003a7170e979}*SharedItemsImports = 13
 		Hardware\Boards.Cerbuino\Boards.Cerbuino.projitems*{e1e42132-fe53-4145-8569-58ff8e2a14fd}*SharedItemsImports = 13
 		Core.Validation\TestFramework.Tests\TestFramework.Tests.projitems*{9a99913d-4646-4af4-b240-9108227a1530}*SharedItemsImports = 4
 		Hardware\Spot.Digital\Spot.Digital.projitems*{399321e2-8ad6-4732-a75e-e3ece480226c}*SharedItemsImports = 4
-		Hardware\Spot.I2C\Spot.I2C.projitems*{399321e2-8ad6-4732-a75e-e3ece480226c}*SharedItemsImports = 4
-		Hardware\Spot.Analog\Spot.Analog.projitems*{399321e2-8ad6-4732-a75e-e3ece480226c}*SharedItemsImports = 4
-		Hardware\Boards.Duino.Spot\Boards.Duino.Spot.projitems*{399321e2-8ad6-4732-a75e-e3ece480226c}*SharedItemsImports = 4
-		Hardware\Spot.Spi\Spot.Spi.projitems*{399321e2-8ad6-4732-a75e-e3ece480226c}*SharedItemsImports = 4
-		Hardware\Spot.Pwm\Spot.Pwm.projitems*{399321e2-8ad6-4732-a75e-e3ece480226c}*SharedItemsImports = 4
-		Hardware\Boards.Netduino\Boards.Netduino.projitems*{399321e2-8ad6-4732-a75e-e3ece480226c}*SharedItemsImports = 4
 		Hardware\Boards.Duino.Pinout\Boards.Duino.Pinout.projitems*{399321e2-8ad6-4732-a75e-e3ece480226c}*SharedItemsImports = 4
+		Hardware\Spot.Spi\Spot.Spi.projitems*{399321e2-8ad6-4732-a75e-e3ece480226c}*SharedItemsImports = 4
+		Core.Validation\uScoober.Tests\Shared\Shared.projitems*{399321e2-8ad6-4732-a75e-e3ece480226c}*SharedItemsImports = 4
+		Hardware\Boards.Netduino\Boards.Netduino.projitems*{399321e2-8ad6-4732-a75e-e3ece480226c}*SharedItemsImports = 4
+		Hardware\Spot.Pwm\Spot.Pwm.projitems*{399321e2-8ad6-4732-a75e-e3ece480226c}*SharedItemsImports = 4
+		Hardware\Spot.Analog\Spot.Analog.projitems*{399321e2-8ad6-4732-a75e-e3ece480226c}*SharedItemsImports = 4
+		Hardware\Spot.I2C\Spot.I2C.projitems*{399321e2-8ad6-4732-a75e-e3ece480226c}*SharedItemsImports = 4
 		Core\uScoober\Shared\Shared.projitems*{cbb895b4-8cc4-46f5-96d2-247d54811c45}*SharedItemsImports = 4
 		Hardware\Spot.Spi\Spot.Spi.projitems*{efa58381-e07b-4446-8d35-666c2df1e0e6}*SharedItemsImports = 13
 		Features\DataStructures.NotifyCollection\uScoober.DataStructures.NotifyCollection.projitems*{dce2d428-47c5-4577-9bdb-f19a10d01807}*SharedItemsImports = 13
@@ -748,7 +745,6 @@ Global
 		{D406E386-2498-4BC5-9FA2-1585259A613D} = {FDEC3A17-4182-487E-9DEA-6CDD284DE7F5}
 		{E1E42132-FE53-4145-8569-58FF8E2A14FD} = {FDEC3A17-4182-487E-9DEA-6CDD284DE7F5}
 		{A323F734-469F-40F8-A71C-0897400123A6} = {FDEC3A17-4182-487E-9DEA-6CDD284DE7F5}
-		{95403EC1-5ECE-40B9-B46C-31D867410958} = {FDEC3A17-4182-487E-9DEA-6CDD284DE7F5}
 		{399321E2-8AD6-4732-A75E-E3ECE480226C} = {FDEC3A17-4182-487E-9DEA-6CDD284DE7F5}
 		{0FE48CB1-B1CD-4FD7-B0F8-79C9F835E1FE} = {FDEC3A17-4182-487E-9DEA-6CDD284DE7F5}
 		{9A99913D-4646-4AF4-B240-9108227A1530} = {3A102B28-235F-4D88-BAE8-018511C0FD4B}

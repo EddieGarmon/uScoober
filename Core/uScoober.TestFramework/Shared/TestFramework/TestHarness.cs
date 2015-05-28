@@ -3,6 +3,8 @@ using System.Reflection;
 using System.Threading;
 using Microsoft.SPOT;
 using uScoober.TestFramework.Core;
+using uScoober.TestFramework.Output;
+using uScoober.Threading;
 
 namespace uScoober.TestFramework
 {
@@ -37,6 +39,13 @@ namespace uScoober.TestFramework
             if (!BuildAutomation.InBuild) {
                 Thread.Sleep(Timeout.Infinite);
             }
+            else {
+                Thread.CurrentThread.Abort();
+                //TaskScheduler.UnusedThreadTimeoutMilliseconds = 10;
+                //Task.Run(() => { });
+            } 
+
+            //todo: handle shutting down of emulator!
         }
     }
 }

@@ -131,23 +131,23 @@ namespace uScoober.Hardware.Expander
 
         public void SettingInputPolarityOnBankA_Fact() {
             BufferInput(0xA9);
-            _mcp.SetTypeOfInputLogicOnBankA(5, MCP23017.InputLogic.NotInvertedLogic);
+            _mcp.SetTypeOfInputLogicOnBankA(5, MCP23017.InputLogic.Normal);
             ObserveOutput(0x02, 0x02, 0x89);
 
             BufferInput(0xA9);
-            _mcp.SetTypeOfInputLogicOnBankA(Pin7: MCP23017.InputLogic.InvertedLogic,
-                                            Pin5: MCP23017.InputLogic.InvertedLogic,
-                                            Pin3: MCP23017.InputLogic.InvertedLogic);
+            _mcp.SetTypeOfInputLogicOnBankA(Pin7: MCP23017.InputLogic.Inverted,
+                                            Pin5: MCP23017.InputLogic.Inverted,
+                                            Pin3: MCP23017.InputLogic.Inverted);
             ObserveOutput(0x02, 0x02, 0xA9);
         }
 
         public void SettingInputPolarityOnBankB_Fact() {
             BufferInput(0x55);
-            _mcp.SetTypeOfInputLogicOnBankB(6, MCP23017.InputLogic.NotInvertedLogic);
+            _mcp.SetTypeOfInputLogicOnBankB(6, MCP23017.InputLogic.Normal);
             ObserveOutput(0x03, 0x03, 0x15);
 
             BufferInput(0x56);
-            _mcp.SetTypeOfInputLogicOnBankB(Pin4: MCP23017.InputLogic.InvertedLogic, Pin3: MCP23017.InputLogic.InvertedLogic);
+            _mcp.SetTypeOfInputLogicOnBankB(Pin4: MCP23017.InputLogic.Inverted, Pin3: MCP23017.InputLogic.Inverted);
             ObserveOutput(0x03, 0x03, 0x5E);
         }
 

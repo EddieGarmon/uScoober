@@ -18,6 +18,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Core\BuildAutomation.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Core\TestCaseResult.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Core\TestRunner.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\EmulatorButtons.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Mocks\MockAnalog.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Mocks\MockDigital.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Mocks\MockI2CBus.cs" />

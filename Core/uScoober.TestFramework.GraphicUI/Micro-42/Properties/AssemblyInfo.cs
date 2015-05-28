@@ -1,4 +1,4 @@
-using System.Reflection;
+﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
@@ -18,7 +18,7 @@ using System.Runtime.InteropServices;
 //
 //      Major Version
 //      Minor Version 
-//      Build Number
+//      NewInstance Number
 //      Revision
 //
 [assembly: AssemblyVersion("1.0.0.0")]

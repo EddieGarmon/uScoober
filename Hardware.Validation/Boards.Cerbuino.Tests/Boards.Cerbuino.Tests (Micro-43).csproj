@@ -37,8 +37,13 @@
     <Reference Include="Microsoft.SPOT.Hardware.PWM" />
     <Reference Include="Microsoft.SPOT.Native" />
     <Reference Include="Microsoft.SPOT.TinyCore" />
+    <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Core\uScoober.TestFramework.GraphicUI\Micro-43\TestFramework.GraphicUI %28Micro-43%29.csproj">
+      <Project>{D3064C87-D967-49FC-A42E-FE695CB0273E}</Project>
+      <Name>TestFramework.GraphicUI %28Micro-43%29</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Core\uScoober.TestFramework\Micro-4.3\TestFramework %28Micro-4.3%29.csproj">
       <Project>{1B2715B7-6174-4CBD-B5A4-A871074D4AF2}</Project>
       <Name>TestFramework %28Micro-4.3%29</Name>
@@ -60,6 +65,7 @@
   <Import Project="..\..\Hardware\Boards.DuinoPinout\Boards.DuinoPinout.projitems" Label="Shared" Condition="Exists('..\..\Hardware\Boards.DuinoPinout\Boards.DuinoPinout.projitems')" />
   <Import Project="..\..\Hardware\Boards.Duino.Pinout\Boards.Duino.Pinout.projitems" Label="Shared" Condition="Exists('..\..\Hardware\Boards.Duino.Pinout\Boards.Duino.Pinout.projitems')" />
   <Import Project="..\..\Hardware\Boards.Duino.Spot\Boards.Duino.Spot.projitems" Label="Shared" Condition="Exists('..\..\Hardware\Boards.Duino.Spot\Boards.Duino.Spot.projitems')" />
+  <Import Project="..\..\Core.Validation\uScoober.Tests\Shared\Shared.projitems" Label="Shared" Condition="Exists('..\..\Core.Validation\uScoober.Tests\Shared\Shared.projitems')" />
   <Import Condition="EXISTS('$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets')" Project="$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets" />
   <Import Condition="!EXISTS('$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets')" Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

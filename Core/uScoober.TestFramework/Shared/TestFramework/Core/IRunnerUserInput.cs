@@ -4,10 +4,10 @@ namespace uScoober.TestFramework.Core
 {
     public interface IRunnerUserInput
     {
-        IDigitalInterupt ScrollDown { get; }
+        IDigitalInterrupt ScrollDown { get; }
 
-        IDigitalInterupt ScrollUp { get; }
+        IDigitalInterrupt ScrollUp { get; }
 
-        IDigitalInterupt StartTests { get; }
+        IDigitalInterrupt StartTests { get; }
     }
 }

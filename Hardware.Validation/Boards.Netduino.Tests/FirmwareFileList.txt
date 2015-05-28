@@ -1,0 +1,36 @@
+DeviceInfo:
+  HAL build info: 4.3.1.0, Netduino 3 Wi-Fi (v4.3.2.2) by Secret Labs LLC
+  OEM Product codes (vendor, model, SKU): 34, 177, 4105
+  Serial Numbers (module, system):
+    00000000000000000000000000000000
+    0000000000000000
+  Solution Build Info: 4.3.2.2, Netduino 3 Wi-Fi (v4.3.2.2) by Secret Labs LLC
+  AppDomains:
+    default, id=1
+  Assemblies:
+    mscorlib,4.3.1.0
+    Microsoft.SPOT.Native,4.3.1.0
+    Microsoft.SPOT.Hardware,4.3.1.0
+    Microsoft.SPOT.Hardware.OneWire,4.3.1.0
+    Microsoft.SPOT.Hardware.PWM,4.3.1.0
+    Microsoft.SPOT.Hardware.SerialPort,4.3.1.0
+    Microsoft.SPOT.Hardware.Usb,4.3.1.0
+    Microsoft.SPOT.IO,4.3.1.0
+    Microsoft.SPOT.Net,4.3.1.0
+    Microsoft.SPOT.Net.Security,4.3.1.0
+    System,4.3.1.0
+    System.Net.Security,4.3.1.0
+    System.IO,4.3.1.0
+    Netduino.IP,1.0.0.0
+    Netduino.IP.Interop,1.0.0.0
+    Netduino.IP.LinkLayers.CC3100,1.0.0.0
+    SecretLabs.NETMF.Diagnostics,4.3.1.0
+    SecretLabs.NETMF.Hardware.Netduino,4.3.1.0
+    GoBus,1.5.0.0
+
+Memory Map Command
+Type     Start       Size
+--------------------------------
+RAM    0x20000000  0x00030000
+FLASH  0x08000000  0x00100000
+Memory Map Complete

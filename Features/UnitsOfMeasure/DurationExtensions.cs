@@ -5,7 +5,7 @@
 //{
 //    public static class DurationExtensions
 //    {
-//        public static void SetPeriod(this IPulseWidthModulatedOutput pwm, Duration period, Duration highDuration) {
+//        public static void SetPeriod(this IPwmOutput pwm, Duration period, Duration highDuration) {
 //            throw new NotImplementedException("DurationExtensions.SetPeriod");
 //        }
 //    }

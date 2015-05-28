@@ -1,6 +1,7 @@
 ﻿using Microsoft.SPOT;
+using uScoober.TestFramework.Core;
 
-namespace uScoober.TestFramework.Core
+namespace uScoober.TestFramework.Output
 {
     public class FeedbackToDebug : IRunnerResultProcessor
     {

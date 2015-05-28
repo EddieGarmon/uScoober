@@ -1,6 +1,8 @@
 ﻿namespace uScoober.Hardware
 {
-    public interface IPulseWidthModulatedOutput : ISignal
+    public delegate IPwmOutput BuildPwmOutput(PwmChannel channel, string name = null);
+
+    public interface IPwmOutput : ISignal
     {
         uint Duration { get; }
 

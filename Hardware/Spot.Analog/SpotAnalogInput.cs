@@ -8,10 +8,14 @@ namespace uScoober.Hardware.Spot
         private readonly string _name;
         private readonly AnalogInput _port;
 
-        public SpotAnalogInput(Cpu.AnalogChannel analogChannel, string id = null) {
+        static SpotAnalogInput() {
+            Signals.AnalogInput.NewInstance = (channel, name) => new SpotAnalogInput((Cpu.AnalogChannel)channel, name);
+        }
+
+        private SpotAnalogInput(Cpu.AnalogChannel analogChannel, string name = null) {
             // _port.Read() should return 0V to 3.3V
             _port = new AnalogInput(analogChannel, 3.3, 0.0, 12);
-            _name = id ?? "AnalogIn-" + analogChannel;
+            _name = name ?? "AnalogIn-" + analogChannel;
         }
 
         public string Name {
@@ -21,10 +25,10 @@ namespace uScoober.Hardware.Spot
             }
         }
 
-        public int Pin {
+        public Pin Pin {
             get {
                 ThrowIfDisposed();
-                return (int)_port.Pin;
+                return (Pin)_port.Pin;
             }
         }
 

@@ -15,43 +15,43 @@ namespace uScoober.Hardware.IO
         public enum AllDefaultValues
         {
             Low = 0,
-            High = 1,
+            High = 1
         }
 
         public enum AllLogic
         {
             NonInverted = 0,
-            AllInverted = 1,
+            AllInverted = 1
         }
 
         public enum AllOutputs
         {
             Low,
-            High,
+            High
         }
 
         public enum AllPins
         {
             Output = 0,
-            Input = 1,
+            Input = 1
         }
 
         public enum AllPorts
         {
             Disabled = 0,
-            Enabled = 1,
+            Enabled = 1
         }
 
         public enum AllPullUps
         {
             Disabled = 0,
-            Enabled = 1,
+            Enabled = 1
         }
 
         public enum AllTriggers
         {
             OnAnyEdge = 0,
-            OnEdgeOppositeOfDefaultValue = 1,
+            OnEdgeOppositeOfDefaultValue = 1
         }
 
         public enum BankInterruptPinState
@@ -78,8 +78,8 @@ namespace uScoober.Hardware.IO
         public enum InputLogic
         {
             Unchanged = -1,
-            NotInvertedLogic = 0,
-            InvertedLogic = 1
+            Normal = 0,
+            Inverted = 1
         }
 
         public enum InterruptPort
@@ -131,8 +131,45 @@ namespace uScoober.Hardware.IO
             Disabled = 1
         }
 
+        private const ushort DefaultAddress = 0x20; //0100XXX
+        private const int DefaultClockRateKhz = 400; // 1 of three recommended frequencies on the datasheet
+
         public MCP23017(II2CBus bus, ushort address = DefaultAddress, int clockRateKhz = DefaultClockRateKhz)
             : base(bus, address, clockRateKhz) { }
+
+        public byte ReadPinsOnBankA() {
+            return Read(Register.GPIO, Bank.A);
+        }
+
+        public int ReadPinsOnBankA(int pin) {
+            byte ChipRead = Read(Register.GPIO, Bank.A);
+
+            if (pin > 7 || pin < 0) {
+                throw new Exception();
+            }
+            var DeterminingByte = (byte)((1 << pin) & ChipRead);
+            if (DeterminingByte == 0) {
+                return 0;
+            }
+            return 1;
+        }
+
+        public byte ReadPinsOnBankB() {
+            return Read(Register.GPIO, Bank.B);
+        }
+
+        public int ReadPinsOnBankB(int pin) {
+            byte ChipRead = Read(Register.GPIO, Bank.B);
+
+            if (pin > 7 || pin < 0) {
+                throw new Exception();
+            }
+            var DeterminingByte = (byte)((1 << pin) & ChipRead);
+            if (DeterminingByte == 0) {
+                return 0;
+            }
+            return 1;
+        }
 
         public int ReadPinValuesCachedOnInterruptOnBankA(int pin) {
             byte ChipRead = Read(Register.InterruptCapturedValue, Bank.A);
@@ -170,40 +207,6 @@ namespace uScoober.Hardware.IO
 
         public ushort ReadPinValuesCachedOnInterruptOnBothBanks() {
             return ReadBothBanks(Register.InterruptCapturedValue);
-        }
-
-        public byte ReadPinsOnBankA() {
-            return Read(Register.GPIO, Bank.A);
-        }
-
-        public int ReadPinsOnBankA(int pin) {
-            byte ChipRead = Read(Register.GPIO, Bank.A);
-
-            if (pin > 7 || pin < 0) {
-                throw new Exception();
-            }
-            var DeterminingByte = (byte)((1 << pin) & ChipRead);
-            if (DeterminingByte == 0) {
-                return 0;
-            }
-            return 1;
-        }
-
-        public byte ReadPinsOnBankB() {
-            return Read(Register.GPIO, Bank.B);
-        }
-
-        public int ReadPinsOnBankB(int pin) {
-            byte ChipRead = Read(Register.GPIO, Bank.B);
-
-            if (pin > 7 || pin < 0) {
-                throw new Exception();
-            }
-            var DeterminingByte = (byte)((1 << pin) & ChipRead);
-            if (DeterminingByte == 0) {
-                return 0;
-            }
-            return 1;
         }
 
         public int ReadWhichPinCausedInterruptOnBankA() {
@@ -846,6 +849,232 @@ namespace uScoober.Hardware.IO
             Write(Register.InterruptTypeControl, Bank.B, ValueToWrite);
         }
 
+        public void SetInterruptPortsOnBankA(byte values) {
+            Write(Register.InterruptEnable, Bank.A, values);
+        }
+
+        public void SetInterruptPortsOnBankA(InterruptPort Pin0 = InterruptPort.Unchanged,
+                                             InterruptPort Pin1 = InterruptPort.Unchanged,
+                                             InterruptPort Pin2 = InterruptPort.Unchanged,
+                                             InterruptPort Pin3 = InterruptPort.Unchanged,
+                                             InterruptPort Pin4 = InterruptPort.Unchanged,
+                                             InterruptPort Pin5 = InterruptPort.Unchanged,
+                                             InterruptPort Pin6 = InterruptPort.Unchanged,
+                                             InterruptPort Pin7 = InterruptPort.Unchanged) {
+            int mask = Read(Register.InterruptEnable, Bank.A);
+
+            switch (Pin0) {
+                case InterruptPort.Unchanged:
+                    break;
+                case InterruptPort.Enable:
+                    mask = mask | 0x01;
+                    break;
+                case InterruptPort.Disable:
+                    mask = mask & 0xFE;
+                    break;
+            }
+            switch (Pin1) {
+                case InterruptPort.Unchanged:
+                    break;
+                case InterruptPort.Enable:
+                    mask = mask | 0x02;
+                    break;
+                case InterruptPort.Disable:
+                    mask = mask & 0xFD;
+                    break;
+            }
+            switch (Pin2) {
+                case InterruptPort.Unchanged:
+                    break;
+                case InterruptPort.Enable:
+                    mask = mask | 0x04;
+                    break;
+                case InterruptPort.Disable:
+                    mask = mask & 0xFB;
+                    break;
+            }
+            switch (Pin3) {
+                case InterruptPort.Unchanged:
+                    break;
+                case InterruptPort.Enable:
+                    mask = mask | 0x08;
+                    break;
+                case InterruptPort.Disable:
+                    mask = mask & 0xF7;
+                    break;
+            }
+            switch (Pin4) {
+                case InterruptPort.Unchanged:
+                    break;
+                case InterruptPort.Enable:
+                    mask = mask | 0x10;
+                    break;
+                case InterruptPort.Disable:
+                    mask = mask & 0xEF;
+                    break;
+            }
+            switch (Pin5) {
+                case InterruptPort.Unchanged:
+                    break;
+                case InterruptPort.Enable:
+                    mask = mask | 0x20;
+                    break;
+                case InterruptPort.Disable:
+                    mask = mask & 0xDF;
+                    break;
+            }
+            switch (Pin6) {
+                case InterruptPort.Unchanged:
+                    break;
+                case InterruptPort.Enable:
+                    mask = mask | 0x40;
+                    break;
+                case InterruptPort.Disable:
+                    mask = mask & 0xBF;
+                    break;
+            }
+            switch (Pin7) {
+                case InterruptPort.Unchanged:
+                    break;
+                case InterruptPort.Enable:
+                    mask = mask | 0x80;
+                    break;
+                case InterruptPort.Disable:
+                    mask = mask & 0x7F;
+                    break;
+            }
+            Write(Register.InterruptEnable, Bank.A, (byte)mask);
+        }
+
+        public void SetInterruptPortsOnBankA(AllPorts bank) {
+            if (bank == AllPorts.Enabled) {
+                Write(Register.InterruptEnable, Bank.A, 0xFF);
+            }
+            else {
+                Write(Register.InterruptEnable, Bank.A, 0x00);
+            }
+        }
+
+        public void SetInterruptPortsOnBankA(int pin, InterruptPort InterruptPort) {
+            byte currentState = Read(Register.InterruptEnable, Bank.A);
+            bool state = ((int)InterruptPort == 1) ? true : false;
+            byte ValueToWrite = SinglePinByteCalculation(pin, state, currentState);
+            Write(Register.InterruptEnable, Bank.A, ValueToWrite);
+        }
+
+        public void SetInterruptPortsOnBankB(byte values) {
+            Write(Register.InterruptEnable, Bank.B, values);
+        }
+
+        public void SetInterruptPortsOnBankB(InterruptPort Pin0 = InterruptPort.Unchanged,
+                                             InterruptPort Pin1 = InterruptPort.Unchanged,
+                                             InterruptPort Pin2 = InterruptPort.Unchanged,
+                                             InterruptPort Pin3 = InterruptPort.Unchanged,
+                                             InterruptPort Pin4 = InterruptPort.Unchanged,
+                                             InterruptPort Pin5 = InterruptPort.Unchanged,
+                                             InterruptPort Pin6 = InterruptPort.Unchanged,
+                                             InterruptPort Pin7 = InterruptPort.Unchanged) {
+            int mask = Read(Register.InterruptEnable, Bank.B);
+
+            switch (Pin0) {
+                case InterruptPort.Unchanged:
+                    break;
+                case InterruptPort.Enable:
+                    mask = mask | 0x01;
+                    break;
+                case InterruptPort.Disable:
+                    mask = mask & 0xFE;
+                    break;
+            }
+            switch (Pin1) {
+                case InterruptPort.Unchanged:
+                    break;
+                case InterruptPort.Enable:
+                    mask = mask | 0x02;
+                    break;
+                case InterruptPort.Disable:
+                    mask = mask & 0xFD;
+                    break;
+            }
+            switch (Pin2) {
+                case InterruptPort.Unchanged:
+                    break;
+                case InterruptPort.Enable:
+                    mask = mask | 0x04;
+                    break;
+                case InterruptPort.Disable:
+                    mask = mask & 0xFB;
+                    break;
+            }
+            switch (Pin3) {
+                case InterruptPort.Unchanged:
+                    break;
+                case InterruptPort.Enable:
+                    mask = mask | 0x08;
+                    break;
+                case InterruptPort.Disable:
+                    mask = mask & 0xF7;
+                    break;
+            }
+            switch (Pin4) {
+                case InterruptPort.Unchanged:
+                    break;
+                case InterruptPort.Enable:
+                    mask = mask | 0x10;
+                    break;
+                case InterruptPort.Disable:
+                    mask = mask & 0xEF;
+                    break;
+            }
+            switch (Pin5) {
+                case InterruptPort.Unchanged:
+                    break;
+                case InterruptPort.Enable:
+                    mask = mask | 0x20;
+                    break;
+                case InterruptPort.Disable:
+                    mask = mask & 0xDF;
+                    break;
+            }
+            switch (Pin6) {
+                case InterruptPort.Unchanged:
+                    break;
+                case InterruptPort.Enable:
+                    mask = mask | 0x40;
+                    break;
+                case InterruptPort.Disable:
+                    mask = mask & 0xBF;
+                    break;
+            }
+            switch (Pin7) {
+                case InterruptPort.Unchanged:
+                    break;
+                case InterruptPort.Enable:
+                    mask = mask | 0x80;
+                    break;
+                case InterruptPort.Disable:
+                    mask = mask & 0x7F;
+                    break;
+            }
+            Write(Register.InterruptEnable, Bank.B, (byte)mask);
+        }
+
+        public void SetInterruptPortsOnBankB(AllPorts bank) {
+            if (bank == AllPorts.Enabled) {
+                Write(Register.InterruptEnable, Bank.B, 0xFF);
+            }
+            else {
+                Write(Register.InterruptEnable, Bank.B, 0x00);
+            }
+        }
+
+        public void SetInterruptPortsOnBankB(int pin, InterruptPort InterruptPort) {
+            byte currentState = Read(Register.InterruptEnable, Bank.B);
+            bool state = ((int)InterruptPort == 1) ? true : false;
+            byte ValueToWrite = SinglePinByteCalculation(pin, state, currentState);
+            Write(Register.InterruptEnable, Bank.B, ValueToWrite);
+        }
+
         public void SetINTPinAsOpenDrainOnBankA(BankInterruptType Configuration) {
             int pin = 2;
             byte currentState = Read(Register.IOCON, Bank.A);
@@ -1103,232 +1332,6 @@ namespace uScoober.Hardware.IO
             bool state = ((int)PortDirection == 1) ? (true) : (false);
             byte ValueToWrite = SinglePinByteCalculation(pin, state, currentState);
             Write(Register.IODirection, Bank.B, ValueToWrite);
-        }
-
-        public void SetInterruptPortsOnBankA(byte values) {
-            Write(Register.InterruptEnable, Bank.A, values);
-        }
-
-        public void SetInterruptPortsOnBankA(InterruptPort Pin0 = InterruptPort.Unchanged,
-                                             InterruptPort Pin1 = InterruptPort.Unchanged,
-                                             InterruptPort Pin2 = InterruptPort.Unchanged,
-                                             InterruptPort Pin3 = InterruptPort.Unchanged,
-                                             InterruptPort Pin4 = InterruptPort.Unchanged,
-                                             InterruptPort Pin5 = InterruptPort.Unchanged,
-                                             InterruptPort Pin6 = InterruptPort.Unchanged,
-                                             InterruptPort Pin7 = InterruptPort.Unchanged) {
-            int mask = Read(Register.InterruptEnable, Bank.A);
-
-            switch (Pin0) {
-                case InterruptPort.Unchanged:
-                    break;
-                case InterruptPort.Enable:
-                    mask = mask | 0x01;
-                    break;
-                case InterruptPort.Disable:
-                    mask = mask & 0xFE;
-                    break;
-            }
-            switch (Pin1) {
-                case InterruptPort.Unchanged:
-                    break;
-                case InterruptPort.Enable:
-                    mask = mask | 0x02;
-                    break;
-                case InterruptPort.Disable:
-                    mask = mask & 0xFD;
-                    break;
-            }
-            switch (Pin2) {
-                case InterruptPort.Unchanged:
-                    break;
-                case InterruptPort.Enable:
-                    mask = mask | 0x04;
-                    break;
-                case InterruptPort.Disable:
-                    mask = mask & 0xFB;
-                    break;
-            }
-            switch (Pin3) {
-                case InterruptPort.Unchanged:
-                    break;
-                case InterruptPort.Enable:
-                    mask = mask | 0x08;
-                    break;
-                case InterruptPort.Disable:
-                    mask = mask & 0xF7;
-                    break;
-            }
-            switch (Pin4) {
-                case InterruptPort.Unchanged:
-                    break;
-                case InterruptPort.Enable:
-                    mask = mask | 0x10;
-                    break;
-                case InterruptPort.Disable:
-                    mask = mask & 0xEF;
-                    break;
-            }
-            switch (Pin5) {
-                case InterruptPort.Unchanged:
-                    break;
-                case InterruptPort.Enable:
-                    mask = mask | 0x20;
-                    break;
-                case InterruptPort.Disable:
-                    mask = mask & 0xDF;
-                    break;
-            }
-            switch (Pin6) {
-                case InterruptPort.Unchanged:
-                    break;
-                case InterruptPort.Enable:
-                    mask = mask | 0x40;
-                    break;
-                case InterruptPort.Disable:
-                    mask = mask & 0xBF;
-                    break;
-            }
-            switch (Pin7) {
-                case InterruptPort.Unchanged:
-                    break;
-                case InterruptPort.Enable:
-                    mask = mask | 0x80;
-                    break;
-                case InterruptPort.Disable:
-                    mask = mask & 0x7F;
-                    break;
-            }
-            Write(Register.InterruptEnable, Bank.A, (byte)mask);
-        }
-
-        public void SetInterruptPortsOnBankA(AllPorts bank) {
-            if (bank == AllPorts.Enabled) {
-                Write(Register.InterruptEnable, Bank.A, 0xFF);
-            }
-            else {
-                Write(Register.InterruptEnable, Bank.A, 0x00);
-            }
-        }
-
-        public void SetInterruptPortsOnBankA(int pin, InterruptPort InterruptPort) {
-            byte currentState = Read(Register.InterruptEnable, Bank.A);
-            bool state = ((int)InterruptPort == 1) ? true : false;
-            byte ValueToWrite = SinglePinByteCalculation(pin, state, currentState);
-            Write(Register.InterruptEnable, Bank.A, ValueToWrite);
-        }
-
-        public void SetInterruptPortsOnBankB(byte values) {
-            Write(Register.InterruptEnable, Bank.B, values);
-        }
-
-        public void SetInterruptPortsOnBankB(InterruptPort Pin0 = InterruptPort.Unchanged,
-                                             InterruptPort Pin1 = InterruptPort.Unchanged,
-                                             InterruptPort Pin2 = InterruptPort.Unchanged,
-                                             InterruptPort Pin3 = InterruptPort.Unchanged,
-                                             InterruptPort Pin4 = InterruptPort.Unchanged,
-                                             InterruptPort Pin5 = InterruptPort.Unchanged,
-                                             InterruptPort Pin6 = InterruptPort.Unchanged,
-                                             InterruptPort Pin7 = InterruptPort.Unchanged) {
-            int mask = Read(Register.InterruptEnable, Bank.B);
-
-            switch (Pin0) {
-                case InterruptPort.Unchanged:
-                    break;
-                case InterruptPort.Enable:
-                    mask = mask | 0x01;
-                    break;
-                case InterruptPort.Disable:
-                    mask = mask & 0xFE;
-                    break;
-            }
-            switch (Pin1) {
-                case InterruptPort.Unchanged:
-                    break;
-                case InterruptPort.Enable:
-                    mask = mask | 0x02;
-                    break;
-                case InterruptPort.Disable:
-                    mask = mask & 0xFD;
-                    break;
-            }
-            switch (Pin2) {
-                case InterruptPort.Unchanged:
-                    break;
-                case InterruptPort.Enable:
-                    mask = mask | 0x04;
-                    break;
-                case InterruptPort.Disable:
-                    mask = mask & 0xFB;
-                    break;
-            }
-            switch (Pin3) {
-                case InterruptPort.Unchanged:
-                    break;
-                case InterruptPort.Enable:
-                    mask = mask | 0x08;
-                    break;
-                case InterruptPort.Disable:
-                    mask = mask & 0xF7;
-                    break;
-            }
-            switch (Pin4) {
-                case InterruptPort.Unchanged:
-                    break;
-                case InterruptPort.Enable:
-                    mask = mask | 0x10;
-                    break;
-                case InterruptPort.Disable:
-                    mask = mask & 0xEF;
-                    break;
-            }
-            switch (Pin5) {
-                case InterruptPort.Unchanged:
-                    break;
-                case InterruptPort.Enable:
-                    mask = mask | 0x20;
-                    break;
-                case InterruptPort.Disable:
-                    mask = mask & 0xDF;
-                    break;
-            }
-            switch (Pin6) {
-                case InterruptPort.Unchanged:
-                    break;
-                case InterruptPort.Enable:
-                    mask = mask | 0x40;
-                    break;
-                case InterruptPort.Disable:
-                    mask = mask & 0xBF;
-                    break;
-            }
-            switch (Pin7) {
-                case InterruptPort.Unchanged:
-                    break;
-                case InterruptPort.Enable:
-                    mask = mask | 0x80;
-                    break;
-                case InterruptPort.Disable:
-                    mask = mask & 0x7F;
-                    break;
-            }
-            Write(Register.InterruptEnable, Bank.B, (byte)mask);
-        }
-
-        public void SetInterruptPortsOnBankB(AllPorts bank) {
-            if (bank == AllPorts.Enabled) {
-                Write(Register.InterruptEnable, Bank.B, 0xFF);
-            }
-            else {
-                Write(Register.InterruptEnable, Bank.B, 0x00);
-            }
-        }
-
-        public void SetInterruptPortsOnBankB(int pin, InterruptPort InterruptPort) {
-            byte currentState = Read(Register.InterruptEnable, Bank.B);
-            bool state = ((int)InterruptPort == 1) ? true : false;
-            byte ValueToWrite = SinglePinByteCalculation(pin, state, currentState);
-            Write(Register.InterruptEnable, Bank.B, ValueToWrite);
         }
 
         public void SetPullUpResistorsOnBankA(byte pinout) {
@@ -1608,80 +1611,80 @@ namespace uScoober.Hardware.IO
             switch (Pin0) {
                 case InputLogic.Unchanged:
                     break;
-                case InputLogic.InvertedLogic:
+                case InputLogic.Inverted:
                     mask = mask | 0x01;
                     break;
-                case InputLogic.NotInvertedLogic:
+                case InputLogic.Normal:
                     mask = mask & 0xFE;
                     break;
             }
             switch (Pin1) {
                 case InputLogic.Unchanged:
                     break;
-                case InputLogic.InvertedLogic:
+                case InputLogic.Inverted:
                     mask = mask | 0x02;
                     break;
-                case InputLogic.NotInvertedLogic:
+                case InputLogic.Normal:
                     mask = mask & 0xFD;
                     break;
             }
             switch (Pin2) {
                 case InputLogic.Unchanged:
                     break;
-                case InputLogic.InvertedLogic:
+                case InputLogic.Inverted:
                     mask = mask | 0x04;
                     break;
-                case InputLogic.NotInvertedLogic:
+                case InputLogic.Normal:
                     mask = mask & 0xFB;
                     break;
             }
             switch (Pin3) {
                 case InputLogic.Unchanged:
                     break;
-                case InputLogic.InvertedLogic:
+                case InputLogic.Inverted:
                     mask = mask | 0x08;
                     break;
-                case InputLogic.NotInvertedLogic:
+                case InputLogic.Normal:
                     mask = mask & 0xF7;
                     break;
             }
             switch (Pin4) {
                 case InputLogic.Unchanged:
                     break;
-                case InputLogic.InvertedLogic:
+                case InputLogic.Inverted:
                     mask = mask | 0x10;
                     break;
-                case InputLogic.NotInvertedLogic:
+                case InputLogic.Normal:
                     mask = mask & 0xEF;
                     break;
             }
             switch (Pin5) {
                 case InputLogic.Unchanged:
                     break;
-                case InputLogic.InvertedLogic:
+                case InputLogic.Inverted:
                     mask = mask | 0x20;
                     break;
-                case InputLogic.NotInvertedLogic:
+                case InputLogic.Normal:
                     mask = mask & 0xDF;
                     break;
             }
             switch (Pin6) {
                 case InputLogic.Unchanged:
                     break;
-                case InputLogic.InvertedLogic:
+                case InputLogic.Inverted:
                     mask = mask | 0x40;
                     break;
-                case InputLogic.NotInvertedLogic:
+                case InputLogic.Normal:
                     mask = mask & 0xBF;
                     break;
             }
             switch (Pin7) {
                 case InputLogic.Unchanged:
                     break;
-                case InputLogic.InvertedLogic:
+                case InputLogic.Inverted:
                     mask = mask | 0x80;
                     break;
-                case InputLogic.NotInvertedLogic:
+                case InputLogic.Normal:
                     mask = mask & 0x7F;
                     break;
             }
@@ -1721,80 +1724,80 @@ namespace uScoober.Hardware.IO
             switch (Pin0) {
                 case InputLogic.Unchanged:
                     break;
-                case InputLogic.InvertedLogic:
+                case InputLogic.Inverted:
                     mask = mask | 0x01;
                     break;
-                case InputLogic.NotInvertedLogic:
+                case InputLogic.Normal:
                     mask = mask & 0xFE;
                     break;
             }
             switch (Pin1) {
                 case InputLogic.Unchanged:
                     break;
-                case InputLogic.InvertedLogic:
+                case InputLogic.Inverted:
                     mask = mask | 0x02;
                     break;
-                case InputLogic.NotInvertedLogic:
+                case InputLogic.Normal:
                     mask = mask & 0xFD;
                     break;
             }
             switch (Pin2) {
                 case InputLogic.Unchanged:
                     break;
-                case InputLogic.InvertedLogic:
+                case InputLogic.Inverted:
                     mask = mask | 0x04;
                     break;
-                case InputLogic.NotInvertedLogic:
+                case InputLogic.Normal:
                     mask = mask & 0xFB;
                     break;
             }
             switch (Pin3) {
                 case InputLogic.Unchanged:
                     break;
-                case InputLogic.InvertedLogic:
+                case InputLogic.Inverted:
                     mask = mask | 0x08;
                     break;
-                case InputLogic.NotInvertedLogic:
+                case InputLogic.Normal:
                     mask = mask & 0xF7;
                     break;
             }
             switch (Pin4) {
                 case InputLogic.Unchanged:
                     break;
-                case InputLogic.InvertedLogic:
+                case InputLogic.Inverted:
                     mask = mask | 0x10;
                     break;
-                case InputLogic.NotInvertedLogic:
+                case InputLogic.Normal:
                     mask = mask & 0xEF;
                     break;
             }
             switch (Pin5) {
                 case InputLogic.Unchanged:
                     break;
-                case InputLogic.InvertedLogic:
+                case InputLogic.Inverted:
                     mask = mask | 0x20;
                     break;
-                case InputLogic.NotInvertedLogic:
+                case InputLogic.Normal:
                     mask = mask & 0xDF;
                     break;
             }
             switch (Pin6) {
                 case InputLogic.Unchanged:
                     break;
-                case InputLogic.InvertedLogic:
+                case InputLogic.Inverted:
                     mask = mask | 0x40;
                     break;
-                case InputLogic.NotInvertedLogic:
+                case InputLogic.Normal:
                     mask = mask & 0xBF;
                     break;
             }
             switch (Pin7) {
                 case InputLogic.Unchanged:
                     break;
-                case InputLogic.InvertedLogic:
+                case InputLogic.Inverted:
                     mask = mask | 0x80;
                     break;
-                case InputLogic.NotInvertedLogic:
+                case InputLogic.Normal:
                     mask = mask & 0x7F;
                     break;
             }
@@ -2090,9 +2093,6 @@ namespace uScoober.Hardware.IO
             }
         }
 
-        private const ushort DefaultAddress = 0x20; //0100XXX
-        private const int DefaultClockRateKhz = 400; // 1 of three recommended frequencies on the datasheet
-
         private enum Bank
         {
             A,
@@ -2111,7 +2111,7 @@ namespace uScoober.Hardware.IO
             InterruptFlag = 0x0E,
             InterruptCapturedValue = 0x10,
             GPIO = 0x12,
-            OutputLatch = 0x14,
+            OutputLatch = 0x14
         }
     }
 }

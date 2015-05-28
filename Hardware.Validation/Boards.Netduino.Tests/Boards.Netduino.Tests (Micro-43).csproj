@@ -40,28 +40,29 @@
   <Import Project="..\..\Hardware\Spot.I2C\Spot.I2C.projitems" Label="Shared" Condition="Exists('..\..\Hardware\Spot.I2C\Spot.I2C.projitems')" />
   <Import Project="..\..\Hardware\Spot.Pwm\Spot.Pwm.projitems" Label="Shared" Condition="Exists('..\..\Hardware\Spot.Pwm\Spot.Pwm.projitems')" />
   <Import Project="..\..\Hardware\Spot.Spi\Spot.Spi.projitems" Label="Shared" Condition="Exists('..\..\Hardware\Spot.Spi\Spot.Spi.projitems')" />
+  <Import Project="..\..\Core.Validation\uScoober.Tests\Shared\Shared.projitems" Label="Shared" Condition="Exists('..\..\Core.Validation\uScoober.Tests\Shared\Shared.projitems')" />
   <Import Project="$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets" />
   <ItemGroup>
     <Compile Include="EntryPoint.cs" />
+    <None Include="FirmwareFileList.txt" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.SPOT.Hardware" />
     <Reference Include="Microsoft.SPOT.Hardware.PWM" />
-    <Reference Include="Microsoft.SPOT.Hardware.SerialPort" />
     <Reference Include="Microsoft.SPOT.Native" />
     <Reference Include="Microsoft.SPOT.TinyCore" />
     <Reference Include="SecretLabs.NETMF.Hardware.Netduino" />
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Core\uScoober.TestFramework.GraphicUI\Micro-43\TestFramework.GraphicUI %28Micro-43%29.csproj">
+      <Project>{D3064C87-D967-49FC-A42E-FE695CB0273E}</Project>
+      <Name>TestFramework.GraphicUI %28Micro-43%29</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Core\uScoober.TestFramework\Micro-4.3\TestFramework %28Micro-4.3%29.csproj">
       <Project>{1B2715B7-6174-4CBD-B5A4-A871074D4AF2}</Project>
       <Name>TestFramework %28Micro-4.3%29</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Core\uScoober.Threading\Micro-4.3\Threading %28Micro-4.3%29.csproj">
-      <Project>{E797CC15-691D-4284-BC3F-B9E866E00AAF}</Project>
-      <Name>Threading %28Micro-4.3%29</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Core\uScoober\Micro-4.3\uScoober %28Micro-4.3%29.csproj">
       <Project>{C8A0566E-DAA6-4FBD-B407-A9B806495F88}</Project>

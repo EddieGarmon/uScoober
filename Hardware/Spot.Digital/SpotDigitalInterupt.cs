@@ -5,26 +5,32 @@ using Microsoft.SPOT.Hardware;
 
 namespace uScoober.Hardware.Spot
 {
-    internal class SpotDigitalInterupt : DisposableBase,
-                                         IDigitalInterupt
+    internal class SpotDigitalInterrupt : DisposableBase,
+                                          IDigitalInterrupt
     {
-        private static bool __autoEnableInteruptHandler = true;
+        private static bool __autoEnableInterruptHandler = true;
         private readonly int _debounceMilliseconds;
         private readonly InterruptPort _interrupt;
         private readonly string _name;
-        private bool _interuptEnabled;
+        private bool _interruptEnabled;
         private bool _invertReading;
         private DateTime _lastTriggered = DateTime.MinValue;
-        private InteruptHandler _onInterupt;
+        private InterruptHandler _onInterrupt;
 
-        public SpotDigitalInterupt(Cpu.Pin pin,
-                                   string name = null,
-                                   Port.ResistorMode internalResistorMode = Port.ResistorMode.Disabled,
-                                   Port.InterruptMode interruptMode = Port.InterruptMode.InterruptNone,
-                                   int debounceMilliseconds = 0) {
+        static SpotDigitalInterrupt() {
+            Signals.DigitalInterrupt.NewInstance =
+                (pin, name, mode, interruptMode, milliseconds) =>
+                new SpotDigitalInterrupt((Cpu.Pin)pin, name, (Port.ResistorMode)mode, (Port.InterruptMode)interruptMode, milliseconds);
+        }
+
+        private SpotDigitalInterrupt(Cpu.Pin pin,
+                                     string name = null,
+                                     Port.ResistorMode internalResistorMode = Port.ResistorMode.Disabled,
+                                     Port.InterruptMode interruptMode = Port.InterruptMode.InterruptNone,
+                                     int debounceMilliseconds = 0) {
             _interrupt = new InterruptPort(pin, false, internalResistorMode, interruptMode);
             _interrupt.OnInterrupt += ProxyToUserHandler;
-            _name = name ?? "DigitalInterupt-" + pin;
+            _name = name ?? "DigitalInterrupt-" + pin;
             _debounceMilliseconds = debounceMilliseconds;
         }
 
@@ -35,14 +41,14 @@ namespace uScoober.Hardware.Spot
             }
         }
 
-        public bool InteruptEnabled {
+        public bool InterruptEnabled {
             get {
                 ThrowIfDisposed();
-                return _interuptEnabled;
+                return _interruptEnabled;
             }
             set {
                 ThrowIfDisposed();
-                _interuptEnabled = value;
+                _interruptEnabled = value;
             }
         }
 
@@ -71,31 +77,31 @@ namespace uScoober.Hardware.Spot
             }
         }
 
-        public int Pin {
+        public Pin Pin {
             get {
                 ThrowIfDisposed();
-                return (int)_interrupt.Id;
+                return (Pin)_interrupt.Id;
             }
         }
 
-        public static bool AutoEnableInteruptHandler {
-            get { return __autoEnableInteruptHandler; }
-            set { __autoEnableInteruptHandler = value; }
+        public static bool AutoEnableInterruptHandler {
+            get { return __autoEnableInterruptHandler; }
+            set { __autoEnableInterruptHandler = value; }
         }
 
-        public event InteruptHandler OnInterupt {
+        public event InterruptHandler OnInterrupt {
             [MethodImpl(MethodImplOptions.Synchronized)]
             add {
                 ThrowIfDisposed();
-                _onInterupt = (InteruptHandler)WeakDelegate.Combine(_onInterupt, value);
-                InteruptEnabled |= AutoEnableInteruptHandler;
+                _onInterrupt = (InterruptHandler)WeakDelegate.Combine(_onInterrupt, value);
+                InterruptEnabled |= AutoEnableInterruptHandler;
             }
             [MethodImpl(MethodImplOptions.Synchronized)]
             remove {
                 ThrowIfDisposed();
-                _onInterupt = (InteruptHandler)WeakDelegate.Remove(_onInterupt, value);
-                if (_onInterupt == null) {
-                    InteruptEnabled &= !AutoEnableInteruptHandler;
+                _onInterrupt = (InterruptHandler)WeakDelegate.Remove(_onInterrupt, value);
+                if (_onInterrupt == null) {
+                    InterruptEnabled &= !AutoEnableInterruptHandler;
                 }
             }
         }
@@ -108,12 +114,12 @@ namespace uScoober.Hardware.Spot
 
         protected override void DisposeManagedResources() {
             _interrupt.Dispose();
-            _onInterupt = null;
+            _onInterrupt = null;
         }
 
         private void ProxyToUserHandler(uint pinNumber, uint value, DateTime time) {
             ThrowIfDisposed();
-            if (!InteruptEnabled) {
+            if (!InterruptEnabled) {
                 return;
             }
             DateTime debounceEnds = LastTriggered.AddMilliseconds(DebounceMilliseconds);
@@ -121,7 +127,7 @@ namespace uScoober.Hardware.Spot
                 return;
             }
             _lastTriggered = time;
-            InteruptHandler handler = _onInterupt;
+            InterruptHandler handler = _onInterrupt;
             if (handler != null) {
                 bool newValue = InvertReading ? value == 0 : value == 1;
                 handler(this, newValue, time);
@@ -129,7 +135,7 @@ namespace uScoober.Hardware.Spot
             //todo - need callback to possibly fire after debounce time if were toggled
         }
 
-        ~SpotDigitalInterupt() {
+        ~SpotDigitalInterrupt() {
             Dispose(DisposeReason.Finalizer);
         }
     }

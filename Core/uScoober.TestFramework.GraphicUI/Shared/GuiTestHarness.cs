@@ -4,6 +4,7 @@ using Microsoft.SPOT;
 using Microsoft.SPOT.Hardware;
 using Microsoft.SPOT.Presentation;
 using uScoober.TestFramework.Core;
+using uScoober.TestFramework.Output;
 using uScoober.TestFramework.UI.Views;
 using uScoober.Threading;
 
@@ -42,13 +43,13 @@ namespace uScoober.TestFramework
             // connect input scroll buttons
             if (_input != null) {
                 if (_input.ScrollUp != null) {
-                    _input.ScrollUp.OnInterupt += (source, state, time) => {
+                    _input.ScrollUp.OnInterrupt += (source, state, time) => {
                                                       Debug.Print("Scroll Up Requested");
                                                       gui.ScrollUp();
                                                   };
                 }
                 if (_input.ScrollDown != null) {
-                    _input.ScrollDown.OnInterupt += (source, state, time) => {
+                    _input.ScrollDown.OnInterrupt += (source, state, time) => {
                                                         Debug.Print("Scroll Down Requested");
                                                         gui.ScrollDown();
                                                     };

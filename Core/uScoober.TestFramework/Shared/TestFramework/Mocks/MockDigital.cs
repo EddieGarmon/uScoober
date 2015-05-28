@@ -20,29 +20,29 @@ namespace uScoober.TestFramework.Mocks
         }
     }
 
-    public class MockDigitalInterupt : MockDigitalInput,
-                                       IDigitalInterupt
+    public class MockDigitalInterrupt : MockDigitalInput,
+                                       IDigitalInterrupt
     {
-        public MockDigitalInterupt(string name)
+        public MockDigitalInterrupt(string name)
             : base(name) { }
 
-        public bool InteruptEnabled { get; set; }
+        public bool InterruptEnabled { get; set; }
 
-        public event InteruptHandler OnInterupt;
+        public event InterruptHandler OnInterrupt;
 
-        public void RaiseInterupt() {
-            RaiseInterupt(Read(), DateTime.Now);
+        public void RaiseInterrupt() {
+            RaiseInterrupt(Read(), DateTime.Now);
         }
 
-        public void RaiseInterupt(DateTime time) {
-            RaiseInterupt(Read(), time);
+        public void RaiseInterrupt(DateTime time) {
+            RaiseInterrupt(Read(), time);
         }
 
-        public void RaiseInterupt(bool state, DateTime time) {
-            if (!InteruptEnabled) {
+        public void RaiseInterrupt(bool state, DateTime time) {
+            if (!InterruptEnabled) {
                 return;
             }
-            InteruptHandler handler = OnInterupt;
+            InterruptHandler handler = OnInterrupt;
             if (handler != null) {
                 bool newValue = InvertReading ? !state : state;
                 handler(this, newValue, time);

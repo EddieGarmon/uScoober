@@ -6,6 +6,6 @@ namespace uScoober.Hardware
     {
         string Name { get; }
 
-        int Pin { get; }
+        Pin Pin { get; }
     }
 }

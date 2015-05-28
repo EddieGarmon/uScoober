@@ -9,7 +9,6 @@
     <Import_RootNamespace>uScoober.TestFramework</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)EmulatorButtons.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GuiTestHarness.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UI\Views\TestFailureDetails.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UI\Views\TestRunView.cs" />

@@ -1,6 +1,7 @@
 ﻿using System;
+using uScoober.TestFramework.Core;
 
-namespace uScoober.TestFramework.Core
+namespace uScoober.TestFramework.Output
 {
     public class FeedbackDispatcher : IRunnerResultProcessor
     {

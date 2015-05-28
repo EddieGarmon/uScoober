@@ -7,12 +7,12 @@ namespace uScoober.Hardware.Motors
     /// </summary>
     internal class BrushlessSpeedController
     {
-        private readonly IPulseWidthModulatedOutput _pwm;
+        private readonly IPwmOutput _pwm;
 
         /// <summary>
         /// </summary>
         /// <param name="pwmOutput">PWM pin</param>
-        public BrushlessSpeedController(IPulseWidthModulatedOutput pwmOutput) {
+        public BrushlessSpeedController(IPwmOutput pwmOutput) {
             _pwm = pwmOutput;
             _pwm.SetPulse(PeriodNanoSeconds, 0);
         }

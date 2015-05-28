@@ -9,9 +9,12 @@ namespace uScoober.Hardware.Light
     {
         private readonly IDigitalOutput _output;
 
-        public DigitalLed(IDigitalOutput output, string id = null) {
+        public DigitalLed(Pin pin, string name = null)
+            : this(Signals.DigitalOutput.Bind(pin, name)) { }
+
+        public DigitalLed(IDigitalOutput output, string name = null) {
             _output = output;
-            Id = id ?? _output.Name;
+            Id = name ?? _output.Name;
         }
 
         public string Id { get; private set; }

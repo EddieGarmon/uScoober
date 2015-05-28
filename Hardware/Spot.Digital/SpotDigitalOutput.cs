@@ -9,8 +9,11 @@ namespace uScoober.Hardware.Spot
         private readonly OutputPort _port;
         private bool _state;
 
-        public SpotDigitalOutput(Cpu.Pin pin, 
-            bool initialState = false, string name = null) {
+        static SpotDigitalOutput() {
+            Signals.DigitalOutput.NewInstance = (pin, name, state) => new SpotDigitalOutput((Cpu.Pin)pin, name, state);
+        }
+
+        private SpotDigitalOutput(Cpu.Pin pin, string name = null, bool initialState = false) {
             _port = new OutputPort(pin, initialState);
             _name = name ?? "DigitalOut-" + pin;
             Write(initialState);
@@ -23,10 +26,10 @@ namespace uScoober.Hardware.Spot
             }
         }
 
-        public int Pin {
+        public Pin Pin {
             get {
                 ThrowIfDisposed();
-                return (int)_port.Id;
+                return (Pin)_port.Id;
             }
         }
 

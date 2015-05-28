@@ -1,5 +1,7 @@
 ﻿namespace uScoober.Hardware
 {
+    public delegate IAnalogInput BuildAnalogInput(AnalogChannel channel, string name = null);
+
     public interface IAnalogInput : ISignal
     {
         /// <summary>

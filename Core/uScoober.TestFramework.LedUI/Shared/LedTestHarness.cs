@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Reflection;
-using System.Threading;
 using Microsoft.SPOT;
 using uScoober.Hardware.Light;
 using uScoober.TestFramework.Core;
@@ -17,24 +16,10 @@ namespace uScoober.TestFramework
             if (led == null) {
                 throw new ArgumentNullException("led");
             }
-            Debug.EnableGCMessages(showGcMessages);
 
             FeedbackToLed ui = new FeedbackToLed(led);
 
-            var dispatch = new FeedbackDispatcher(ui, new FeedbackToDebug());
-            if (BuildAutomation.InBuild) {
-                dispatch.Add(new FeedbackToLogFiles());
-            } else if (logDirectory != null) {
-                dispatch.Add(new FeedbackToLogFiles(logDirectory));
-            }
-
-            var runner = new TestRunner(assembly, input, dispatch);
-            runner.ExecuteTests()
-                  .Wait();
-
-            if (!BuildAutomation.InBuild) {
-                Thread.Sleep(Timeout.Infinite);
-            }
+            TestHarness.RunTests(assembly, input, ui, logDirectory, showGcMessages);
         }
     }
 }

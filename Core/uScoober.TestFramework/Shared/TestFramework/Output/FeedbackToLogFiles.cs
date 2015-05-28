@@ -1,6 +1,7 @@
 ﻿using System.IO;
+using uScoober.TestFramework.Core;
 
-namespace uScoober.TestFramework.Core
+namespace uScoober.TestFramework.Output
 {
     public class FeedbackToLogFiles : IRunnerResultProcessor
     {

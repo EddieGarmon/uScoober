@@ -12,9 +12,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)SpotDigitalInput.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SpotDigitalInterupt.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SpotDigitalOutput.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)SpotDigitalPort.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)Note.txt" />
     <Content Include="$(MSBuildThisFileDirectory)semver.txt" />
   </ItemGroup>
   <ItemGroup>

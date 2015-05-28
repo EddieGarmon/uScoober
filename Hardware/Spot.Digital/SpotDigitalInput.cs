@@ -9,7 +9,11 @@ namespace uScoober.Hardware.Spot
         private readonly string _name;
         private bool _invertReading;
 
-        public SpotDigitalInput(Cpu.Pin pin, string name = null, Port.ResistorMode internalResistorMode = Port.ResistorMode.Disabled) {
+        static SpotDigitalInput() {
+            Signals.DigitalInput.NewInstance = (pin, name, mode) => new SpotDigitalInput((Cpu.Pin)pin, name, (Port.ResistorMode)mode);
+        }
+
+        private SpotDigitalInput(Cpu.Pin pin, string name = null, Port.ResistorMode internalResistorMode = Port.ResistorMode.Disabled) {
             _input = new InputPort(pin, false, internalResistorMode);
             _name = name ?? "DigitalInput-" + pin;
         }
@@ -32,10 +36,10 @@ namespace uScoober.Hardware.Spot
             }
         }
 
-        public int Pin {
+        public Pin Pin {
             get {
                 ThrowIfDisposed();
-                return (int)_input.Id;
+                return (Pin)_input.Id;
             }
         }
 

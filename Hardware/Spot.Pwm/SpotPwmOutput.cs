@@ -5,14 +5,17 @@ using Microsoft.SPOT.Hardware;
 namespace uScoober.Hardware.Spot
 {
     internal class SpotPwmOutput : DisposableBase,
-                                   IPulseWidthModulatedOutput
+                                   IPwmOutput
     {
         private readonly string _name;
         private readonly PWM _pwm;
         private bool _isActive;
-        private int _pin;
 
-        public SpotPwmOutput(Cpu.PWMChannel pwmChannel, string name = null) {
+        static SpotPwmOutput() {
+            Signals.PwmOutput.NewInstance = (channel, name) => new SpotPwmOutput((Cpu.PWMChannel)channel, name);
+        }
+
+        private SpotPwmOutput(Cpu.PWMChannel pwmChannel, string name = null) {
             _pwm = new PWM(pwmChannel, 100000u, 0, PWM.ScaleFactor.Nanoseconds, false);
             _name = name ?? "PwmOut-" + pwmChannel;
         }
@@ -75,10 +78,10 @@ namespace uScoober.Hardware.Spot
             }
         }
 
-        public int Pin {
+        public Pin Pin {
             get {
                 ThrowIfDisposed();
-                return _pin;
+                return (Pin)_pwm.Pin;
             }
         }
 

@@ -13,10 +13,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)IDuino.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)IDuinoAnalogInputs.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)IDuinoDigitalInputs.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)IDuinoDigitalOutputs.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)IDuinoPwmOutputs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IDuinoAnalogChannels.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IDuinoPins.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IDuinoPwmChannels.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)semver.txt" />

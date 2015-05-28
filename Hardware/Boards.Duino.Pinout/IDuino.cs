@@ -1,20 +1,23 @@
-﻿using uScoober.Hardware.Input;
+﻿using uScoober.Hardware.I2C;
 using uScoober.Hardware.Light;
+using uScoober.Hardware.Spi;
 
 namespace uScoober.Hardware.Boards
 {
     internal interface IDuino
     {
-        IDuinoAnalogInputs AnalogIn { get; }
+        IDuinoAnalogChannels Analog { get; }
 
-        IDuinoDigitalInputs DigitalIn { get; }
+        II2CBus I2CBus { get; }
 
-        IDuinoDigitalOutputs DigitalOut { get; }
-
-        IButton OnboardButton { get; }
+        IDigitalInterrupt OnboardButton { get; }
 
         IDigitalLed OnboardLed { get; }
 
-        IDuinoPwmOutputs PwmOut { get; }
+        IDuinoPins Pins { get; }
+
+        IDuinoPwmChannels Pwm { get; }
+
+        ISpiBus SpiBus { get; }
     }
 }

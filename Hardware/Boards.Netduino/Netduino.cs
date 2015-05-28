@@ -1,7 +1,4 @@
-﻿using Microsoft.SPOT.Hardware;
-using uScoober.Hardware.Boards.Spot;
-using uScoober.Hardware.I2C;
-using uScoober.Hardware.Input;
+﻿using uScoober.Hardware.I2C;
 using uScoober.Hardware.Light;
 using uScoober.Hardware.Spi;
 using uScoober.Hardware.Spot;
@@ -13,95 +10,46 @@ namespace uScoober.Hardware.Boards
     internal class Netduino : DisposableBase,
                               IDuino
     {
-        private AnalogInputs _analogIn;
-        private DigitalInputs _digitalIn;
-        private DigitalOutputs _digitalOut;
         private II2CBus _i2CBus;
-        private PushButton _onboardButton;
         private DigitalLed _onboardLed;
-        private PwmOutputs _pwmOut;
         private ISpiBus _spiBus;
 
-        public AnalogInputs AnalogIn {
-            get { return _analogIn ?? (_analogIn = new AnalogInputs()); }
-        }
-
-        public DigitalInputs DigitalIn {
-            get { return _digitalIn ?? (_digitalIn = new DigitalInputs()); }
-        }
-
-        public DigitalOutputs DigitalOut {
-            get { return _digitalOut ?? (_digitalOut = new DigitalOutputs()); }
+        public IDuinoAnalogChannels Analog {
+            get { return AnalogChannels.Map; }
         }
 
         public II2CBus I2CBus {
             get { return _i2CBus ?? (_i2CBus = new SpotI2CBus()); }
         }
 
-        public PushButton OnboardButton {
+        public IDigitalInterrupt OnboardButton {
             get {
-                return _onboardButton
-                       ?? (_onboardButton =
-                           new PushButton(new SpotDigitalInterupt(SL.Pins.ONBOARD_BTN,
-                                                                  "on-board button",
-                                                                  (Port.ResistorMode)ResistorMode.PullUp,
-                                                                  (Port.InterruptMode)InterruptMode.InterruptEdgeLevelLow)));
+                return Signals.DigitalInterrupt.Get(Pins.OnboardButton)
+                       ?? Signals.DigitalInterrupt.Bind(Pins.OnboardButton, "on-board button", ResistorMode.PullUp, InterruptMode.InterruptEdgeBoth);
             }
         }
 
         public DigitalLed OnboardLed {
-            get { return _onboardLed ?? (_onboardLed = new DigitalLed(new SpotDigitalOutput(SL.Pins.ONBOARD_LED))); }
+            get { return _onboardLed ?? (_onboardLed = new DigitalLed(Pins.OnboardLed)); }
         }
 
-        public PwmOutputs PwmOut {
-            get { return _pwmOut ?? (_pwmOut = new PwmOutputs()); }
+        public IDuinoPins Pins {
+            get { return DigitalPins.Map; }
+        }
+
+        public IDuinoPwmChannels Pwm {
+            get { return PwmChannels.Map; }
         }
 
         public ISpiBus SpiBus {
             get { return _spiBus ?? (_spiBus = new SpotSpiBus(SL.SPI_Devices.SPI1)); }
         }
 
-        IDuinoAnalogInputs IDuino.AnalogIn {
-            get { return AnalogIn; }
-        }
-
-        IDuinoDigitalInputs IDuino.DigitalIn {
-            get { return DigitalIn; }
-        }
-
-        IDuinoDigitalOutputs IDuino.DigitalOut {
-            get { return DigitalOut; }
-        }
-
-        IButton IDuino.OnboardButton {
-            get { return OnboardButton; }
-        }
-
         IDigitalLed IDuino.OnboardLed {
             get { return OnboardLed; }
         }
 
-        IDuinoPwmOutputs IDuino.PwmOut {
-            get { return PwmOut; }
-        }
-
         protected override void DisposeManagedResources() {
-            if (_analogIn != null) {
-                _analogIn.Dispose();
-                _analogIn = null;
-            }
-            if (_digitalIn != null) {
-                _digitalIn.Dispose();
-                _digitalIn = null;
-            }
-            if (_digitalOut != null) {
-                _digitalOut.Dispose();
-                _digitalOut = null;
-            }
-            if (_pwmOut != null) {
-                _pwmOut.Dispose();
-                _pwmOut = null;
-            }
             if (_i2CBus != null) {
                 _i2CBus.Dispose();
                 _i2CBus = null;
@@ -110,71 +58,166 @@ namespace uScoober.Hardware.Boards
                 _spiBus.Dispose();
                 _spiBus = null;
             }
-            if (_onboardButton != null) {
-                _onboardButton.Dispose();
-                _onboardButton = null;
-            }
             if (_onboardLed != null) {
                 _onboardLed.Dispose();
                 _onboardLed = null;
             }
         }
 
-        public sealed class AnalogInputs : SpotDuinoAnalogInputs
+        internal sealed class AnalogChannels : IDuinoAnalogChannels
         {
-            protected override Cpu.AnalogChannel PinA0 {
-                get { return SL.AnalogChannels.ANALOG_PIN_A0; }
+            internal static readonly AnalogChannels Map = new AnalogChannels();
+
+            private AnalogChannels() { }
+
+            public AnalogChannel PinA0 {
+                get { return (AnalogChannel)SL.AnalogChannels.ANALOG_PIN_A0; }
             }
 
-            protected override Cpu.AnalogChannel PinA1 {
-                get { return SL.AnalogChannels.ANALOG_PIN_A1; }
+            public AnalogChannel PinA1 {
+                get { return (AnalogChannel)SL.AnalogChannels.ANALOG_PIN_A1; }
             }
 
-            protected override Cpu.AnalogChannel PinA2 {
-                get { return SL.AnalogChannels.ANALOG_PIN_A2; }
+            public AnalogChannel PinA2 {
+                get { return (AnalogChannel)SL.AnalogChannels.ANALOG_PIN_A2; }
             }
 
-            protected override Cpu.AnalogChannel PinA3 {
-                get { return SL.AnalogChannels.ANALOG_PIN_A3; }
+            public AnalogChannel PinA3 {
+                get { return (AnalogChannel)SL.AnalogChannels.ANALOG_PIN_A3; }
             }
 
-            protected override Cpu.AnalogChannel PinA4 {
-                get { return SL.AnalogChannels.ANALOG_PIN_A4; }
+            public AnalogChannel PinA4 {
+                get { return (AnalogChannel)SL.AnalogChannels.ANALOG_PIN_A4; }
             }
 
-            protected override Cpu.AnalogChannel PinA5 {
-                get { return SL.AnalogChannels.ANALOG_PIN_A5; }
+            public AnalogChannel PinA5 {
+                get { return (AnalogChannel)SL.AnalogChannels.ANALOG_PIN_A5; }
             }
         }
 
-        public sealed class DigitalInputs : SpotDuinoDigitalInputs { }
-
-        public sealed class DigitalOutputs : SpotDuinoDigitalOutputs { }
-
-        internal sealed class PwmOutputs : SpotDuinoPwmOutputs
+        internal sealed class DigitalPins : IDuinoPins
         {
-            protected override Cpu.PWMChannel PinD10 {
-                get { return SL.PWMChannels.PWM_PIN_D10; }
+            internal static readonly DigitalPins Map = new DigitalPins();
+
+            private DigitalPins() { }
+
+            public Pin A0 {
+                get { return (Pin)SL.Pins.GPIO_PIN_A0; }
             }
 
-            protected override Cpu.PWMChannel PinD11 {
-                get { return SL.PWMChannels.PWM_PIN_D11; }
+            public Pin A1 {
+                get { return (Pin)SL.Pins.GPIO_PIN_A1; }
             }
 
-            protected override Cpu.PWMChannel PinD3 {
-                get { return SL.PWMChannels.PWM_PIN_D3; }
+            public Pin A2 {
+                get { return (Pin)SL.Pins.GPIO_PIN_A2; }
             }
 
-            protected override Cpu.PWMChannel PinD5 {
-                get { return SL.PWMChannels.PWM_PIN_D5; }
+            public Pin A3 {
+                get { return (Pin)SL.Pins.GPIO_PIN_A3; }
             }
 
-            protected override Cpu.PWMChannel PinD6 {
-                get { return SL.PWMChannels.PWM_PIN_D6; }
+            public Pin A4 {
+                get { return (Pin)SL.Pins.GPIO_PIN_A4; }
             }
 
-            protected override Cpu.PWMChannel PinD9 {
-                get { return SL.PWMChannels.PWM_PIN_D9; }
+            public Pin A5 {
+                get { return (Pin)SL.Pins.GPIO_PIN_A5; }
+            }
+
+            public Pin D0 {
+                get { return (Pin)SL.Pins.GPIO_PIN_D0; }
+            }
+
+            public Pin D1 {
+                get { return (Pin)SL.Pins.GPIO_PIN_D1; }
+            }
+
+            public Pin D10 {
+                get { return (Pin)SL.Pins.GPIO_PIN_D10; }
+            }
+
+            public Pin D11 {
+                get { return (Pin)SL.Pins.GPIO_PIN_D11; }
+            }
+
+            public Pin D12 {
+                get { return (Pin)SL.Pins.GPIO_PIN_D12; }
+            }
+
+            public Pin D13 {
+                get { return (Pin)SL.Pins.GPIO_PIN_D13; }
+            }
+
+            public Pin D2 {
+                get { return (Pin)SL.Pins.GPIO_PIN_D2; }
+            }
+
+            public Pin D3 {
+                get { return (Pin)SL.Pins.GPIO_PIN_D3; }
+            }
+
+            public Pin D4 {
+                get { return (Pin)SL.Pins.GPIO_PIN_D4; }
+            }
+
+            public Pin D5 {
+                get { return (Pin)SL.Pins.GPIO_PIN_D5; }
+            }
+
+            public Pin D6 {
+                get { return (Pin)SL.Pins.GPIO_PIN_D6; }
+            }
+
+            public Pin D7 {
+                get { return (Pin)SL.Pins.GPIO_PIN_D7; }
+            }
+
+            public Pin D8 {
+                get { return (Pin)SL.Pins.GPIO_PIN_D8; }
+            }
+
+            public Pin D9 {
+                get { return (Pin)SL.Pins.GPIO_PIN_D9; }
+            }
+
+            public Pin OnboardButton {
+                get { return (Pin)SL.Pins.ONBOARD_BTN; }
+            }
+
+            public Pin OnboardLed {
+                get { return (Pin)SL.Pins.ONBOARD_LED; }
+            }
+        }
+
+        internal sealed class PwmChannels : IDuinoPwmChannels
+        {
+            internal static readonly PwmChannels Map = new PwmChannels();
+
+            private PwmChannels() { }
+
+            public PwmChannel PinD10 {
+                get { return (PwmChannel)SL.PWMChannels.PWM_PIN_D10; }
+            }
+
+            public PwmChannel PinD11 {
+                get { return (PwmChannel)SL.PWMChannels.PWM_PIN_D11; }
+            }
+
+            public PwmChannel PinD3 {
+                get { return (PwmChannel)SL.PWMChannels.PWM_PIN_D3; }
+            }
+
+            public PwmChannel PinD5 {
+                get { return (PwmChannel)SL.PWMChannels.PWM_PIN_D5; }
+            }
+
+            public PwmChannel PinD6 {
+                get { return (PwmChannel)SL.PWMChannels.PWM_PIN_D6; }
+            }
+
+            public PwmChannel PinD9 {
+                get { return (PwmChannel)SL.PWMChannels.PWM_PIN_D9; }
             }
         }
     }

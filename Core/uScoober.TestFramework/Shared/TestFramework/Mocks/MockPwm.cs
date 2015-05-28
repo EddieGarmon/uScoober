@@ -4,15 +4,18 @@ using uScoober.Hardware;
 namespace uScoober.TestFramework.Mocks
 {
     public class MockPulseWidthModulatedOutput : MockSignal,
-                                                 IPulseWidthModulatedOutput
+                                                 IPwmOutput
     {
+        private const uint Nanoseconds = 1000000000U;
+
+        public MockPulseWidthModulatedOutput(string name)
+            : base(name) { }
+
         public uint Duration { get; private set; }
 
-        public double DutyCycle
-        {
+        public double DutyCycle {
             get { return (double)Duration / Period; }
-            set
-            {
+            set {
                 if (value < 0 || value > 1) {
                     throw new Exception("Duty cycle must be in the range [0,1].");
                 }
@@ -20,11 +23,9 @@ namespace uScoober.TestFramework.Mocks
             }
         }
 
-        public double Frequency
-        {
+        public double Frequency {
             get { return (double)Nanoseconds / Period; }
-            set
-            {
+            set {
                 double newPeriod = Nanoseconds / value;
                 double newDuration = Period * DutyCycle;
                 Period = (uint)newPeriod;
@@ -59,10 +60,5 @@ namespace uScoober.TestFramework.Mocks
         public void Stop() {
             IsActive = false;
         }
-
-        public MockPulseWidthModulatedOutput(string name)
-            : base(name) { }
-
-        private const uint Nanoseconds = 1000000000U;
     }
 }
