@@ -4,23 +4,23 @@ namespace uScoober.Hardware.Display
 {
     public interface IDisplayText
     {
-        bool BlinkCursor { get; set; }
-
         int Columns { get; }
 
         Encoding Encoding { get; set; }
 
         bool IsBacklightEnabled { get; set; }
 
-        bool IsEnabled { get; set; }
+        bool IsCursorBlinking { get; set; }
+
+        bool IsCursorVisible { get; set; }
 
         int Rows { get; }
 
-        bool ShowCursor { get; set; }
+        void ClearAll();
 
-        void Clear();
+        void ClearRow(int row);
 
-        void SendCommand(byte data);
+        void Home();
 
         void SetCursorLocation(int row, int column);
 

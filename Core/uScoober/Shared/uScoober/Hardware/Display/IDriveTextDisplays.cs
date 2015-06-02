@@ -2,10 +2,13 @@
 {
     public interface IDriveTextDisplays
     {
-        BitMode BitTransferMode { get; }
+        /// <summary>
+        /// Set the Enable pin low so the LCD consumes the data
+        /// </summary>
+        void Commit();
 
-        void SendCommand();
+        void SetCommand(byte value);
 
-        void Write();
+        void SetData(byte value);
     }
 }

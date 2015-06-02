@@ -42,11 +42,11 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Core\uScoober.TestFramework\Micro-4.3\TestFramework %28Micro-4.3%29.csproj">
       <Project>{1B2715B7-6174-4CBD-B5A4-A871074D4AF2}</Project>
-      <Name>uScoober.TestFramework %28Micro-4.3%29</Name>
+      <Name>TestFramework %28Micro-4.3%29</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Core\uScoober.Threading\Micro-4.3\Threading %28Micro-4.3%29.csproj">
       <Project>{E797CC15-691D-4284-BC3F-B9E866E00AAF}</Project>
-      <Name>uScoober.Threading %28Micro-4.3%29</Name>
+      <Name>Threading %28Micro-4.3%29</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Core\uScoober\Micro-4.3\uScoober %28Micro-4.3%29.csproj">
       <Project>{C8A0566E-DAA6-4FBD-B407-A9B806495F88}</Project>
@@ -58,6 +58,7 @@
   <Import Project="..\..\Hardware\Spot.I2C\Spot.I2C.projitems" Label="Shared" Condition="Exists('..\..\Hardware\Spot.I2C\Spot.I2C.projitems')" />
   <Import Project="..\..\Hardware\Input.Button\Input.Button.projitems" Label="Shared" Condition="Exists('..\..\Hardware\Input.Button\Input.Button.projitems')" />
   <Import Project="..\..\Hardware\Expander.MCP23017\Expander.MCP23017.projitems" Label="Shared" Condition="Exists('..\..\Hardware\Expander.MCP23017\Expander.MCP23017.projitems')" />
+  <Import Project="..\..\Core\uScoober.TestFramework.TextUI\Shared\Shared.projitems" Label="Shared" Condition="Exists('..\..\Core\uScoober.TestFramework.TextUI\Shared\Shared.projitems')" />
   <Import Condition="EXISTS('$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets')" Project="$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets" />
   <Import Condition="!EXISTS('$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets')" Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

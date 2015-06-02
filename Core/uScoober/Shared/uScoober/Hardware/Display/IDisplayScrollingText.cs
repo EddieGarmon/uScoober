@@ -2,9 +2,11 @@
 {
     public interface IDisplayScrollingText : IDisplayText
     {
-        bool AutoScroll { get; set; }
+        //todo: bool AutoScroll { get; set; }
 
         void ScrollLeft();
+
+        void ScrollReset();
 
         void ScrollRight();
     }

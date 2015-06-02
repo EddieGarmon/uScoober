@@ -81,7 +81,7 @@ namespace uScoober.Hardware
                                                  string name = null,
                                                  ResistorMode internalResistorMode = ResistorMode.Disabled,
                                                  InterruptMode interruptMode = InterruptMode.InterruptNone,
-                                                 int debounceMilliseconds = 0) {
+                                                 int debounceMilliseconds = DigitalInterupt.DebounceDefault) {
                 var result = NewInstance(pin, name, internalResistorMode, interruptMode, debounceMilliseconds);
                 Cache.Add(pin, result);
                 return result;

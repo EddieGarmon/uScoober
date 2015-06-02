@@ -8,7 +8,6 @@ namespace uScoober.Hardware.Spot
     internal class SpotDigitalInterrupt : DisposableBase,
                                           IDigitalInterrupt
     {
-        private static bool __autoEnableInterruptHandler = true;
         private readonly int _debounceMilliseconds;
         private readonly InterruptPort _interrupt;
         private readonly string _name;
@@ -27,7 +26,7 @@ namespace uScoober.Hardware.Spot
                                      string name = null,
                                      Port.ResistorMode internalResistorMode = Port.ResistorMode.Disabled,
                                      Port.InterruptMode interruptMode = Port.InterruptMode.InterruptNone,
-                                     int debounceMilliseconds = 0) {
+                                     int debounceMilliseconds = -1) {
             _interrupt = new InterruptPort(pin, false, internalResistorMode, interruptMode);
             _interrupt.OnInterrupt += ProxyToUserHandler;
             _name = name ?? "DigitalInterrupt-" + pin;
@@ -84,24 +83,19 @@ namespace uScoober.Hardware.Spot
             }
         }
 
-        public static bool AutoEnableInterruptHandler {
-            get { return __autoEnableInterruptHandler; }
-            set { __autoEnableInterruptHandler = value; }
-        }
-
         public event InterruptHandler OnInterrupt {
             [MethodImpl(MethodImplOptions.Synchronized)]
             add {
                 ThrowIfDisposed();
                 _onInterrupt = (InterruptHandler)WeakDelegate.Combine(_onInterrupt, value);
-                InterruptEnabled |= AutoEnableInterruptHandler;
+                InterruptEnabled |= DigitalInterupt.AutoEnableInterruptHandler;
             }
             [MethodImpl(MethodImplOptions.Synchronized)]
             remove {
                 ThrowIfDisposed();
                 _onInterrupt = (InterruptHandler)WeakDelegate.Remove(_onInterrupt, value);
                 if (_onInterrupt == null) {
-                    InterruptEnabled &= !AutoEnableInterruptHandler;
+                    InterruptEnabled &= !DigitalInterupt.AutoEnableInterruptHandler;
                 }
             }
         }

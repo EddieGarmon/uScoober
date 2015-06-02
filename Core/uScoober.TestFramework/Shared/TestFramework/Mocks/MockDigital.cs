@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
+using Microsoft.SPOT;
 using uScoober.Hardware;
 
 namespace uScoober.TestFramework.Mocks
@@ -21,14 +23,31 @@ namespace uScoober.TestFramework.Mocks
     }
 
     public class MockDigitalInterrupt : MockDigitalInput,
-                                       IDigitalInterrupt
+                                        IDigitalInterrupt
     {
+        private InterruptHandler _onInterrupt;
+
         public MockDigitalInterrupt(string name)
             : base(name) { }
 
         public bool InterruptEnabled { get; set; }
 
-        public event InterruptHandler OnInterrupt;
+        public event InterruptHandler OnInterrupt {
+            [MethodImpl(MethodImplOptions.Synchronized)]
+            add {
+                ThrowIfDisposed();
+                _onInterrupt = (InterruptHandler)WeakDelegate.Combine(_onInterrupt, value);
+                InterruptEnabled |= DigitalInterupt.AutoEnableInterruptHandler;
+            }
+            [MethodImpl(MethodImplOptions.Synchronized)]
+            remove {
+                ThrowIfDisposed();
+                _onInterrupt = (InterruptHandler)WeakDelegate.Remove(_onInterrupt, value);
+                if (_onInterrupt == null) {
+                    InterruptEnabled &= !DigitalInterupt.AutoEnableInterruptHandler;
+                }
+            }
+        }
 
         public void RaiseInterrupt() {
             RaiseInterrupt(Read(), DateTime.Now);
@@ -42,7 +61,7 @@ namespace uScoober.TestFramework.Mocks
             if (!InterruptEnabled) {
                 return;
             }
-            InterruptHandler handler = OnInterrupt;
+            InterruptHandler handler = _onInterrupt;
             if (handler != null) {
                 bool newValue = InvertReading ? !state : state;
                 handler(this, newValue, time);

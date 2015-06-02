@@ -3,13 +3,14 @@
   <PropertyGroup>
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
     <HasSharedItems>true</HasSharedItems>
-    <SharedGUID>7e4927e4-f57a-407f-8240-3b36871238a4</SharedGUID>
+    <SharedGUID>868f2d79-9bd2-4994-84f5-2bceba03a4c9</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>Shared</Import_RootNamespace>
+    <Import_RootNamespace>Display.HD44780CompatibleTextDriver</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)TextTestHarness.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)UI\FeedbackToTextDisplay.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CharacterDisplay.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DisplayPins.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HD44780CompatibleTextDriver.cs" />
   </ItemGroup>
 </Project>

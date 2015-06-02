@@ -9,7 +9,7 @@ namespace uScoober.Hardware
         string name = null,
         ResistorMode internalResistorMode = ResistorMode.Disabled,
         InterruptMode interruptMode = InterruptMode.InterruptNone,
-        int debounceMilliseconds = 0);
+        int debounceMilliseconds = DigitalInterupt.DebounceDefault);
 
     public interface IDigitalInterrupt : IDigitalInput
     {

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Reflection;
-using Microsoft.SPOT;
 using uScoober.Hardware.Light;
 using uScoober.TestFramework.Core;
 using uScoober.TestFramework.UI;

@@ -10,7 +10,6 @@
     </Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)uScoober\ByteOrder.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\DataStructures\Buffer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\DataStructures\Enumerable.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\DataStructures\IQueue.cs" />
@@ -38,6 +37,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Extensions\StringExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\AnalogChannel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\BitMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\ByteOrder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\DigitalInterupt.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\Display\IDisplayScrollingText.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\Display\IDisplayText.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\Display\IDriveTextDisplays.cs" />
@@ -59,6 +60,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\Memory\AddressMap.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\Memory\IHaveAddressedMemory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\Pin.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\PinMode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\PwmChannel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\ResistorMode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\Signals.cs" />
@@ -66,7 +68,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\Spi\ISpiDevice.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\Spi\SpiDeviceConfig.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\Spi\SpiDeviceCore.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\Display\CharacterDisplay.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\Time\ClockFrequency.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\Time\IRealTimeClock.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Stopwatch.cs" />

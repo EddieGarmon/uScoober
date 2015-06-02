@@ -14,12 +14,12 @@
         <iconUrl>http://eddiegarmon.github.io/MyLogo.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <summary>
-            Minimalist core abstractions, that are testable.
+            Core abstractions that are testable.
             Interface definitions for IO and IO buses.
             Support for NETMF 4.2 and 4.3.
             Designed for extension.
         </summary>
-        <tags>NETMF Micro Framework IO TPL Tasks</tags>
+        <tags>NETMF Micro Framework IO TPL Tasks Utility Core </tags>
         <!-- example:        
         <dependencies>
             <dependency id="uScoober" version="[0.0.0-core,1.0.0-core)" />

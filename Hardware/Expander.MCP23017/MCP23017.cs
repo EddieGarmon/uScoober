@@ -1,4 +1,5 @@
 ﻿using System;
+using uScoober.DataStructures;
 using uScoober.Hardware.I2C;
 
 namespace uScoober.Hardware.IO
@@ -133,9 +134,14 @@ namespace uScoober.Hardware.IO
 
         private const ushort DefaultAddress = 0x20; //0100XXX
         private const int DefaultClockRateKhz = 400; // 1 of three recommended frequencies on the datasheet
+        private Outputs _output;
 
         public MCP23017(II2CBus bus, ushort address = DefaultAddress, int clockRateKhz = DefaultClockRateKhz)
             : base(bus, address, clockRateKhz) { }
+
+        public Outputs Output {
+            get { return _output ?? (_output = new Outputs()); }
+        }
 
         public byte ReadPinsOnBankA() {
             return Read(Register.GPIO, Bank.A);
@@ -2097,6 +2103,71 @@ namespace uScoober.Hardware.IO
         {
             A,
             B
+        }
+
+        public class Inputs
+        {
+            private readonly WeakCache Cache = new WeakCache();
+
+            public IDigitalInput Bind(Pin pin, string name = null, ResistorMode internalResistorMode = ResistorMode.Disabled) {
+                var result = NewInput(pin, name, internalResistorMode);
+                Cache.Add(pin, result);
+                return result;
+            }
+
+            public IDigitalInput Get(Pin pin) {
+                return (IDigitalInterrupt)Cache.GetIfActive(pin);
+            }
+
+            internal void DisposeActive() {
+                Cache.DisposeItemsAndClear();
+            }
+
+            private IDigitalInput NewInput(Pin pin, string name = null, ResistorMode internalResistorMode = ResistorMode.Disabled) {
+                throw new NotImplementedException();
+            }
+        }
+
+        public class Outputs
+        {
+            private readonly WeakCache Cache = new WeakCache();
+
+            public IDigitalOutput Bind(Pin pin, string name = null, bool initialState = false) {
+                var result = new Instance(pin, name, initialState);
+                Cache.Add(pin, result);
+                return result;
+            }
+
+            public IDigitalOutput Get(Pin pin) {
+                return (IDigitalOutput)Cache.GetIfActive(pin);
+            }
+
+            internal void DisposeActive() {
+                Cache.DisposeItemsAndClear();
+            }
+
+            private class Instance : IDigitalOutput
+            {
+                public Instance(Pin pin, string name = null, bool initialState = false) {
+                    Pin = pin;
+                    Name = name;
+                    State = initialState;
+                }
+
+                public string Name { get; private set; }
+
+                public Pin Pin { get; private set; }
+
+                public bool State { get; private set; }
+
+                public void Dispose() {
+                    throw new NotImplementedException();
+                }
+
+                public void Write(bool state) {
+                    throw new NotImplementedException();
+                }
+            }
         }
 
         private enum Register : byte
