@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace uScoober.Hardware.Display
 {
@@ -9,7 +7,7 @@ namespace uScoober.Hardware.Display
         public Mcp23017TextDriver(DisplayPins displayPins, IDigitalOutput enable, IDigitalOutput isDataMode, IDigitalOutput isBackLightOn)
             : base(displayPins, enable, isDataMode, isBackLightOn) { }
 
-        public override void Commit() {
+        public override void Send() {
             //align data to pins
 
             //Set enable to high

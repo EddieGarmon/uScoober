@@ -8,6 +8,9 @@ namespace uScoober.Hardware.Display
 
     {
         private readonly IDriveTextDisplays _driver;
+        private bool _isCursorBlinking = true;
+        private bool _isCursorVisible = true;
+        private bool _isEnabled = true;
 
         public CharacterDisplay(int columns, int rows, IDriveTextDisplays driver) {
             Columns = columns;
@@ -15,20 +18,28 @@ namespace uScoober.Hardware.Display
 
             _driver = driver;
 
-            //initialize
-            _driver.SetCommand(Commands.FunctionSet.Identifier); //Initializer sequence is 3 @ 0x30; sets 8bit mode
-            _driver.Commit();
-            _driver.Commit();
-            _driver.Commit();
+            SendInitializationCommands();
             //NB: we should be initialized and in 8 bit mode
 
             //FunctionSet 8bit or 4bit?, 2 or 1 line, letter grid size
-            _driver.SetCommand(Commands.FunctionSet.Identifier | Commands.FunctionSet.TwoLines);
-            _driver.Commit();
-            _driver.SetCommand(Commands.Display.Identifier | Commands.Display.On | Commands.Display.CursorUnderline); //DisplayAndCursor
-            _driver.Commit();
-            _driver.SetCommand(Commands.Clear.Identifier); //Clear
-            _driver.Commit();
+            //todo: extract SendFunctionSetup() as deployed/configured
+
+            byte functionSetupCommand = Commands.FunctionSetup.Identifier;
+            if (_driver.BitMode == BitMode.Eight) {
+                functionSetupCommand |= Commands.FunctionSetup.EightBitMode;
+            }
+            if (rows >= 2) {
+                functionSetupCommand |= Commands.FunctionSetup.TwoLines;
+            }
+            _driver.SetCommand(functionSetupCommand);
+            _driver.Send();
+
+            _driver.SetCommand(Commands.EntryMode.Identifier | Commands.EntryMode.RightToLeft);
+            _driver.Send();
+
+            SendDisplaySettings();
+
+            ClearAll();
         }
 
         public int Columns { get; private set; }
@@ -37,17 +48,35 @@ namespace uScoober.Hardware.Display
 
         public bool IsBacklightEnabled { get; set; }
 
-        public bool IsCursorBlinking { get; set; }
+        public bool IsCursorBlinking {
+            get { return _isCursorBlinking; }
+            set {
+                _isCursorBlinking = value;
+                SendDisplaySettings();
+            }
+        }
 
-        public bool IsCursorVisible { get; set; }
+        public bool IsCursorVisible {
+            get { return _isCursorVisible; }
+            set {
+                _isCursorVisible = value;
+                SendDisplaySettings();
+            }
+        }
 
-        public bool IsEnabled { get; set; }
+        public bool IsEnabled {
+            get { return _isEnabled; }
+            set {
+                _isEnabled = value;
+                SendDisplaySettings();
+            }
+        }
 
         public int Rows { get; private set; }
 
         public void ClearAll() {
-            _driver.SetCommand(Commands.Clear.Identifier);
-            _driver.Commit();
+            _driver.SetCommand(Commands.Clear);
+            _driver.Send();
             Thread.Sleep(2); // this command takes a long time!
         }
 
@@ -56,14 +85,15 @@ namespace uScoober.Hardware.Display
         }
 
         public void Home() {
-            _driver.SetCommand(Commands.Home.Identifier);
-            _driver.Commit();
+            _driver.SetCommand(Commands.Home);
+            _driver.Send();
             Thread.Sleep(2); // this command takes a long time!
         }
 
         public void SetCursorLocation(int row, int column) {
-            throw new NotImplementedException();
-            //LCD_SETDDRAMADDR
+            int address = CalculateAddress(row, column);
+            _driver.SetCommand((byte)(Commands.SetDisplayRamAddress | address));
+            _driver.Send();
         }
 
         public void Write(string text) {
@@ -84,35 +114,76 @@ namespace uScoober.Hardware.Display
 
         public void Write(byte value) {
             _driver.SetData(value);
-            _driver.Commit();
+            _driver.Send();
         }
 
-        public static class Commands
-        {
-            public static class Clear
-            {
-                public const byte Identifier = 0x01;
+        private int CalculateAddress(int row, int column) {
+            // change column value to zero-based
+            column -= 1;
+
+            int address = (row == 2) ? column + 0x40 : column;
+            throw new NotImplementedException("CharacterDisplay.CalculateAddress");
+            return address;
+        }
+
+        private void SendDisplaySettings() {
+            byte command = Commands.Display.Identifier;
+            if (_isEnabled) {
+                command |= Commands.Display.On;
             }
+            if (_isCursorVisible) {
+                command |= Commands.Display.CursorVisible;
+            }
+            if (_isCursorBlinking) {
+                command |= Commands.Display.CursorBlink;
+            }
+            _driver.SetCommand(command);
+            _driver.Send();
+        }
+
+        private void SendInitializationCommands() {
+            //Initializer sequence is 3 @ 0x30;
+            _driver.SetCommand(Commands.FunctionSetup.Identifier | Commands.FunctionSetup.EightBitMode);
+            _driver.Send();
+            _driver.Send();
+            _driver.Send();
+        }
+
+        private static class Commands
+        {
+            public const byte Clear = 0x01;
+            public const byte Home = 0x02;
+            public const byte SetCharacterRamAddress = 0x40;
+            public const byte SetDisplayRamAddress = 0x80;
 
             public static class Display
             {
                 public const byte CursorBlink = 0x01;
-                public const byte CursorUnderline = 0x02;
+                public const byte CursorVisible = 0x02;
                 public const byte Identifier = 0x08;
                 public const byte On = 0x04;
             }
 
-            public static class FunctionSet
+            public static class EntryMode
+            {
+                public const byte Identifier = 0x04;
+                public const byte RightToLeft = 0x02;
+                public const byte ShiftDisplay = 0x01;
+            }
+
+            public static class FunctionSetup
             {
                 public const byte EightBitMode = 0x10;
-                public const byte FiveByTenDotFormat = 0x04;
+                public const byte Font5X10 = 0x04;
                 public const byte Identifier = 0x20;
                 public const byte TwoLines = 0x08;
             }
 
-            public static class Home
+            public static class ShiftCursor
             {
-                public const byte Identifier = 0x02;
+                public const byte AndDisplay = 0x08;
+                public const byte Identifier = 0x10;
+                public const byte ToRight = 0x04;
             }
         }
     }

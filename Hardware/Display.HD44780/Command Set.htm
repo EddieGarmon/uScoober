@@ -1,0 +1,484 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0052)http://mil.ufl.edu/4744/docs/lcdmanual/commands.html -->
+<HTML><HEAD><META content="IE=5.0000" http-equiv="X-UA-Compatible">
+<TITLE> LCD Commands </TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<META name="GENERATOR" content="MSHTML 11.00.9600.17801"></HEAD> 
+<BODY>
+<H2>LCD Commands</H2>
+<TABLE border="1">
+  <CAPTION>HD44780 instruction set</CAPTION>
+  <TBODY>
+  <TR>
+    <TH width="85" align="center" valign="bottom" rowspan="2">Instruction</TH>
+    <TH width="300" align="center" valign="center" rowspan="1" colspan="10">Code</TH>
+    <TH width="300" align="center" valign="bottom" rowspan="2">Description</TH>
+    <TH width="85" align="center" valign="bottom" rowspan="2">Execution time**</TH></TR>
+  <TR>
+    <TH>RS</TH>
+    <TH>R/W</TH>
+    <TH>DB7</TH>
+    <TH>DB6</TH>
+    <TH>DB5</TH>
+    <TH>DB4</TH>
+    <TH>DB3</TH>
+    <TH>DB2</TH>
+    <TH>DB1</TH>
+    <TH>DB0</TH></TR>
+  <TR>
+    <TD><A href="#ClearDisplay">Clear display</A></TD>
+    <TD align="center">0</TD>
+    <TD align="center">0</TD>
+    <TD align="center">0</TD>
+    <TD align="center">0</TD>
+    <TD align="center">0</TD>
+    <TD align="center">0</TD>
+    <TD align="center">0</TD>
+    <TD align="center">0</TD>
+    <TD align="center">0</TD>
+    <TD align="center">1</TD>
+    <TD>Clears display and returns cursor to the home position (address 0).</TD>
+    <TD align="center">1.64mS</TD></TR>
+  <TR>
+    <TD><A href="#CursorHome">Cursor home</A></TD>
+    <TD align="center">0</TD>
+    <TD align="center">0</TD>
+    <TD align="center">0</TD>
+    <TD align="center">0</TD>
+    <TD align="center">0</TD>
+    <TD align="center">0</TD>
+    <TD align="center">0</TD>
+    <TD align="center">0</TD>
+    <TD align="center">1</TD>
+    <TD align="center">*</TD>
+    <TD>Returns cursor to home position (address 0).    Also returns display 
+      being shifted to the original position.    DDRAM contents remains 
+      unchanged.</TD>
+    <TD align="center">1.64mS</TD></TR>
+  <TR>
+    <TD><A href="#EntryMode">Entry mode set</A></TD>
+    <TD align="center">0</TD>
+    <TD align="center">0</TD>
+    <TD align="center">0</TD>
+    <TD align="center">0</TD>
+    <TD align="center">0</TD>
+    <TD align="center">0</TD>
+    <TD align="center">0</TD>
+    <TD align="center">1</TD>
+    <TD align="center">I/D</TD>
+    <TD align="center">S</TD>
+    <TD>Sets cursor move direction (I/D), specifies to shift the display (S).  
+        These operations are performed during data read/write.</TD>
+    <TD align="center">40uS</TD></TR>
+  <TR>
+    <TD><A href="#DisplayOnOff">Display On/Off control</A></TD>
+    <TD align="center">0</TD>
+    <TD align="center">0</TD>
+    <TD align="center">0</TD>
+    <TD align="center">0</TD>
+    <TD align="center">0</TD>
+    <TD align="center">0</TD>
+    <TD align="center">1</TD>
+    <TD align="center">D</TD>
+    <TD align="center">C</TD>
+    <TD align="center">B</TD>
+    <TD>Sets On/Off of all display (D), cursor On/Off (C) and blink of cursor 
+      position character (B).</TD>
+    <TD align="center">40uS</TD></TR>
+  <TR>
+    <TD><a href="#CursorShift">Cursor/display shift</a></TD>
+    <TD align="center">0</TD>
+    <TD align="center">0</TD>
+    <TD align="center">0</TD>
+    <TD align="center">0</TD>
+    <TD align="center">0</TD>
+    <TD align="center">1</TD>
+    <TD align="center">S/C</TD>
+    <TD align="center">R/L</TD>
+    <TD align="center">*</TD>
+    <TD align="center">*</TD>
+    <TD>Sets cursor-move or display-shift (S/C), shift direction (R/L).    
+      DDRAM contents remains unchanged.</TD>
+    <TD align="center">40uS</TD></TR>
+  <TR>
+    <TD><a href="#FunctionSet">Function set</a></TD>
+    <TD align="center">0</TD>
+    <TD align="center">0</TD>
+    <TD align="center">0</TD>
+    <TD align="center">0</TD>
+    <TD align="center">1</TD>
+    <TD align="center">DL</TD>
+    <TD align="center">N</TD>
+    <TD align="center">F</TD>
+    <TD align="center">*</TD>
+    <TD align="center">*</TD>
+    <TD>Sets interface data length (DL), number of display line (N) and 
+      character font(F).</TD>
+    <TD align="center">40uS</TD></TR>
+  <TR>
+    <TD><a href="#CharacterRam">Set CGRAM address</a></TD>
+    <TD align="center">0</TD>
+    <TD align="center">0</TD>
+    <TD align="center">0</TD>
+    <TD align="center">1</TD>
+    <TD align="center" colspan="6">CGRAM address</TD>
+    <TD>Sets the CGRAM address. CGRAM data is sent or received after this 
+      setting.</TD>
+    <TD align="center">40uS</TD></TR>
+  <TR>
+    <TD><A href="#DisplayRam">Set DDRAM address</A></TD>
+    <TD align="center">0</TD>
+    <TD align="center">0</TD>
+    <TD align="center">1</TD>
+    <TD align="center" colspan="7">DDRAM address</TD>
+    <TD>Sets the DDRAM address. DDRAM data is sent or received after this 
+      setting.</TD>
+    <TD align="center">40uS</TD></TR>
+  <TR>
+    <TD><A href="#ReadBusy">Read busy-flag and address counter</A></TD>
+    <TD align="center">0</TD>
+    <TD align="center">1</TD>
+    <TD align="center">BF</TD>
+    <TD align="center" colspan="7">DDRAM address</TD>
+    <TD>Reads Busy-flag (BF) indicating internal operation is being performed 
+      and reads address counter contents.</TD>
+    <TD align="center">0uS</TD></TR>
+  <TR>
+    <TD><A href="#WriteData">Write to CGRAM or DDRAM</A></TD>
+    <TD align="center">1</TD>
+    <TD align="center">0</TD>
+    <TD align="center" colspan="8">write data</TD>
+    <TD>Writes data to CGRAM or DDRAM.</TD>
+    <TD align="center">40uS</TD></TR>
+  <TR>
+    <TD><A href="#ReadData">Read from CGRAM or DDRAM</A></TD>
+    <TD align="center">1</TD>
+    <TD align="center">1</TD>
+    <TD align="center" colspan="8">read data</TD>
+    <TD>Reads data from CGRAM or DDRAM.</TD>
+    <TD align="center">40uS</TD></TR></TBODY></TABLE>
+<P><B>Notes:</B>
+<UL>
+  <LI>DDRAM = Display Data RAM. 
+  <LI>CGRAM = Character Generator RAM. 
+  <LI>DDRAM address corresponds to cursor position. 
+  <LI>Address Counter is used for both DDRAM and CGRAM. 
+  <LI>* = Don't care. 
+  <LI>** = Based on Fosc = 250KHz. </LI></UL>
+<P>
+<TABLE width="460" border="1">
+  <CAPTION>Bit names</CAPTION>
+  <TBODY>
+  <TR>
+    <TH width="60" align="center">Bit</TH>
+    <TH align="center" colspan="2">Settings</TH></TR>
+  <TR>
+    <TD align="center">I/D</TD>
+    <TD>0 = Decrement cursor position</TD>
+    <TD>1 = Increment cursor position</TD></TR>
+  <TR>
+    <TD align="center">S</TD>
+    <TD>0 = No display shift</TD>
+    <TD>1 = Display shift</TD></TR>
+  <TR>
+    <TD align="center">D</TD>
+    <TD>0 = Display off</TD>
+    <TD>1 = Display on</TD></TR>
+  <TR>
+    <TD align="center">C</TD>
+    <TD>0 = Cursor off</TD>
+    <TD>1 = Cursor on</TD></TR>
+  <TR>
+    <TD align="center">B</TD>
+    <TD>0 = Cursor blink off</TD>
+    <TD>1 = Cursor blink on</TD></TR>
+  <TR>
+    <TD align="center">S/C</TD>
+    <TD>0 = Move cursor</TD>
+    <TD>1 = Shift display</TD></TR>
+  <TR>
+    <TD align="center">R/L</TD>
+    <TD>0 = Shift left</TD>
+    <TD>1 = Shift right</TD></TR>
+  <TR>
+    <TD align="center">DL</TD>
+    <TD>0 = 4-bit interface</TD>
+    <TD>1 = 8-bit interface</TD></TR>
+  <TR>
+    <TD align="center">N</TD>
+    <TD>0 = 1/8 or 1/11 Duty (1 line)</TD>
+    <TD>1 = 1/16 Duty (2 lines)</TD></TR>
+  <TR>
+    <TD align="center">F</TD>
+    <TD>0 = 5x7 dots</TD>
+    <TD>1 = 5x10 dots</TD></TR>
+  <TR>
+    <TD align="center">BF</TD>
+    <TD>0 = Can accept instruction</TD>
+    <TD>1 = Internal operation in progress</TD></TR></TBODY></TABLE>
+<P>
+<HR>
+
+<P>
+<CENTER>
+<H3><a id="ClearDisplay"> Clear Display </a></H3></CENTER>
+<P>
+<CENTER>
+<PRE>RS  R/W DB7 DB6 DB5 DB4 DB3 DB2 DB1 DB0
+=== === === === === === === === === ===
+ 0   0   0   0   0   0   0   0   0   1 
+</PRE>
+Clears all display and returns the cursor to the home position (Address 0). 
+</CENTER>
+<P><B>Details</B> <BR>Writes space code (20h) into all DD RAM addresses. Sets 
+address counter to DD RAM location 0. Returns display to its original state if 
+it was shifted. In other words, the display disappears and the cursor or blink 
+goes to the left edge of the display (the first line if 2 lines are displayed).
+ Sets entry mode I/D to 1 (Increment Mode). Entry mode shift (S) bit remains 
+unchanged. 
+<P>
+<CENTER>Execution Time = 82µs-1.64ms / 120µs-4.9ms </CENTER>
+<P>
+<HR>
+
+<P>
+<CENTER>
+<H3><a id="CursorHome"> Cursor Home </a></H3>
+<P>
+<PRE>RS  R/W DB7 DB6 DB5 DB4 DB3 DB2 DB1 DB0
+ 0   0   0   0   0   0   0   0   1   * 
+</PRE>
+Returns the cursor to the home position (Address 0). Returns display to its 
+original state if it was shifted. </CENTER>
+<P><B>Details</B> <BR>Sets the address counter to DD RAM location 0 in the 
+address counter. Returns display to its original state if it was shifted. DD RAM 
+contents remain unchanged. The cursor or blink goes to the left edge of the 
+display (the first line if 2 lines are displayed). 
+<P>
+<CENTER>Execution Time = 40µs-1.6ms / 120µs-4.8ms </CENTER>
+<P>
+<HR>
+
+<P>
+<CENTER>
+<H3><a id="EntryMode"> Entry Mode Set </a></H3></CENTER>
+<P>
+<CENTER>
+<PRE>RS  R/W DB7 DB6 DB5 DB4 DB3 DB2 DB1 DB0
+=== === === === === === === === === ===
+ 0   0   0   0   0   0   0   1  I/D  S 
+</PRE>
+<P>Sets the effect of subsequent DD RAM read or write operations. Sets the 
+cursor move direction and specifies or not to shift the display. These 
+operations are performed during data read and write. </P></CENTER>
+<P><B>Details</B> <BR>Specifies whether to increment (I/D = 1) or decrement (I/D 
+= 0) the address counter after subsequent DD RAM read or write operations. 
+<P>If S = 1 the display will be shifted to the left (if I/D = 1) or right (if 
+I/D = 0) on subsequent DD RAM write operations. This makes it looks as if the 
+cursor stands still and the display moves when each character is written to the 
+DD RAM. if S = 0 the display will not shift on subsequent DD RAM write 
+operations. 
+<P>
+<CENTER>Execution Time = 40µs / 120µs  </CENTER>
+<P>
+<HR>
+
+<P>
+<CENTER>
+<H3><a id="DisplayOnOff"> Display ON/OFF </a></H3></CENTER>
+<P>
+<CENTER>
+<PRE>RS  R/W DB7 DB6 DB5 DB4 DB3 DB2 DB1 DB0
+=== === === === === === === === === ===
+ 0   0   0   0   0   0   1   D   C   B 
+</PRE>
+<P>Controls display of characters and cursor. </P></CENTER>
+<P><B>Details</B> <BR>D: The display is ON when D = 1 and OFF when D = 0. The DD 
+RAM contents remain unchanged. 
+<P>C: The cursor is displayed when C = 1 and is not displayed when C = 0. <BR>
+The cursor is displayed as 5 dots in the 8th line when the 5 x 7 dot character 
+font is selected and as 5 dots in the 11th line when the 5 x 10 dot character 
+font is selected. 
+<P>B: The character at the the cursor position blinks when B = 1. <BR>Blinking 
+is performed by switching between all blank dots and the display character every 
+409.6 ms. 
+<P>
+<CENTER>Execution Time = 40µs / 120µs </CENTER>
+<P>
+<HR>
+
+<P>
+<CENTER>
+<H3><a id="CursorShift"> Cursor and Display Shift </a></H3></CENTER>
+<P>
+<CENTER>
+<PRE>RS  R/W DB7 DB6 DB5 DB4 DB3 DB2 DB1 DB0
+=== === === === === === === === === ===
+ 0   0   0   0   0   1  S/C R/L  *   * 
+</PRE>
+Moves the cursor and shifts the display without changing DD RAM contents 
+</CENTER>
+<P><B>Details</B> <BR>Shifts cursor position or display to the right or left 
+without writing or reading display data. This function is used to correct or
+ search for the display. In a 2-line display, the cursor moves to the 2nd line 
+when it passes the 40th digit of the 1st line. Notice that the 1st and 2nd line 
+displays will shift at the same time. When the displayed data is shifted
+ repeatedly each line only moves horizontally. The 2nd line of the display does 
+not shift into the 1st line position. 
+<P>
+<PRE>S/C R/L                                          
+=== ===                                          
+ 0   0   Shifts the cursor position to the left 
+         (Address Counter is decremented by 1)   
+ 0   1   Shifts the cursor position to the right
+         (Address Counter is incremented by 1)  
+ 1   0   Shifts the entire display to the left  
+         The cursor follows the display shift   
+ 1   1   Shifts the entire display to the right 
+         The cursor follows the display shift   
+</PRE>
+<CENTER>Execution Time = 40µs / 120µs </CENTER>
+<P>
+<HR>
+
+<P>
+<CENTER>
+<H3><a id="FunctionSet"> Function Set </a></H3></CENTER>
+<P>
+<CENTER>
+<PRE>RS  R/W DB7 DB6 DB5 DB4 DB3 DB2 DB1 DB0
+=== === === === === === === === === ===
+ 0   0   0   0   1   DL  N   F   *   * 
+</PRE>
+Sets interface data length (DL), number of display lines (N) and character font 
+(F) </CENTER>
+<P><B>Details</B> <BR>This command should be issued only after automatic 
+power-on initialization has occurred, or as part of the module initialization 
+sequence. <BR>DL: Sets interface data length 
+<UL>Data sent or received in 8 bit lengths (DB7-DB0) when DL = 1 
+  <P>Data sent or received in 4 bit lengths (DB7-DB4) when DL = 0 
+  <P>When the 4 bit length is selected, data must be sent or received in pairs 
+  of 4-bits each.  The most-significant 4 bits are sent or received first. 
+</P></UL>N: Sets number of display lines 
+<P>F: Sets character font 
+<P>
+<PRE>    display Character  Duty                             
+N F  lines    Font    Factor Remarks                    
+=== ======= ========= ====== =======                    
+0 0    1    5x 7 dots  1/8    -                         
+0 1    1    5x10 dots  1/11   -                         
+1 *    2    5x 7 dots  1/16  Cannot display 2 lines with
+                             5x10 dot character font    
+</PRE>
+<P>Note that a 1 line x 16 character display is treated as a 2 line x 8 
+character display.  The first `line' is the left eight character positions on 
+the display and the second `line' is the right eight character positions. This 
+also means that the 16 characters on the display do not occupy 16 sequential DD 
+RAM locations. 
+<CENTER>Execution Time = 40µs / 120µs </CENTER>
+<P>
+<HR>
+
+<P>
+<CENTER>
+<H3><a id="CharacterRam"> Set CG RAM Address </a></H3></CENTER>
+<P>
+<CENTER>
+<PRE>RS  R/W DB7 DB6 DB5 DB4 DB3 DB2 DB1 DB0
+=== === === === === === === === === ===
+ 0   0   0   1   A   A   A   A   A   A 
+</PRE>
+<P>Sets the CG RAM address. Subsequent read or write operations refer to the CG 
+RAM. </P></CENTER>
+<P><B>Details</B> <BR>Sets the specified value (AAAAAA) into the address 
+counter. Subsequent read or write operations transfer data from, or to, the 
+character generator RAM. 
+<P>
+<CENTER>Execution Time = 40µs / 120µs </CENTER>
+<P>
+<HR>
+
+<P>
+<CENTER>
+<H3><a id="DisplayRam"> Set DDRAM Address </a></H3></CENTER>
+<P>
+<CENTER>
+<PRE>RS  R/W DB7 DB6 DB5 DB4 DB3 DB2 DB1 DB0
+=== === === === === === === === === ===
+ 0   0   1   A   A   A   A   A   A   A 
+</PRE>
+<P>Sets the DD RAM address.  Subsequent read or writes refer to the DD RAM. 
+</P></CENTER>
+<P><B>Details</B> <BR>Sets the specified value (AAAAAAA) into the address 
+counter. Subsequent read or write operations transfer data from, or to, the 
+display RAM. Note: Adjacent display RAM locations do not necessarily refer to
+ adjacent display positions. 
+<P>
+<CENTER>Execution Time = 40µs / 120µs </CENTER>
+<P>
+<HR>
+
+<P>
+<CENTER>
+<H3><a id="ReadBusy"> Read busy flag and address counter</a></H3></CENTER>
+<P>
+<CENTER>
+<PRE>RS  R/W DB7 DB6 DB5 DB4 DB3 DB2 DB1 DB0
+=== === === === === === === === === ===
+ 0   1   BF  A   A   A   A   A   A   A 
+</PRE>
+<P>Reads the state of the busy flag (BF) and the contents of the address 
+counter. </P></CENTER>
+<P><B>Details</B> <BR>Reads the busy flag (BF) that indicates the state of the 
+LCD module. BF = 1 indicates that the module is busy processing the previous 
+command. BF = 0 indicates that the module is ready to perform another command. 
+<P>The value of the address counter is also returned.  The same address counter
+ is used for both CG and DD RAM transfers. 
+<P>This command can be issued at any time. It is the only command which the LCD 
+module will accept while a previous command is still being processed. 
+<CENTER>Execution Time = 1µs </CENTER>
+<P>
+<HR>
+
+<P>
+<CENTER>
+<H3><a id="WriteData"> Write data to CG or DD RAM </a></H3></CENTER>
+<P>
+<CENTER>
+<PRE>RS  R/W DB7 DB6 DB5 DB4 DB3 DB2 DB1 DB0
+=== === === === === === === === === ===
+ 1   0   D   D   D   D   D   D   D   D 
+</PRE>
+Writes data into DD RAM or CG RAM </CENTER>
+<P><B>Details</B> <BR>Writes a byte (DDDDDDDD) to the CG or the DD RAM. The 
+destination (CG RAM or DD RAM) is determined by the most recent `Set RAM 
+Address' command. The location to which the byte will be written is the current 
+value of the address counter. After the byte is written the address counter is
+ automatically incremented or decremented according to the entry mode. The entry 
+mode also determines whether or not the display will shift. 
+<P>
+<CENTER>Execution Time = 40µs / 120µs </CENTER>
+<P>
+<HR>
+
+<P>
+<CENTER>
+<H3><a id="ReadData"> Read data from CG or DD RAM </a></H3></CENTER>
+<P>
+<CENTER>
+<PRE>RS  R/W DB7 DB6 DB5 DB4 DB3 DB2 DB1 DB0
+=== === === === === === === === === ===
+ 1   1   D   D   D   D   D   D   D   D 
+</PRE>
+Reads data from DD RAM or CG RAM. </CENTER>
+<P><B>Details</B> <BR>Reads a byte (DDDDDDDD) from the CG or DD RAM. The source 
+(CG RAM or DD RAM) is determined by the most recent `Set RAM Address' command.
+ The location from which the byte will be read is the current value of the 
+address counter. After the byte is reda the address counter is automatically 
+incremented or decremented according to the entry mode. 
+<P>
+<CENTER>Execution Time = 40µs / 120µs </CENTER>
+<P>
+<HR>
+
+<P></P></BODY></HTML>

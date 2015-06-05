@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using TestFramework.TextValidator;
 using uScoober.Hardware;
 using uScoober.Hardware.Display;
 using uScoober.Hardware.I2C;
@@ -9,6 +10,10 @@ using uScoober.TestFramework;
 internal static class EntryPoint
 {
     public static void Main() {
+        TestLcdUsingGpioProvider.WriteToScreen(BitMode.Eight);
+
+        return;
+
         //input buttons on mcp
         //lcd char display output using mcp transfer
 

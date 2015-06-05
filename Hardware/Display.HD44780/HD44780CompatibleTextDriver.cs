@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace uScoober.Hardware.Display
+﻿namespace uScoober.Hardware.Display
 {
     public abstract class HD44780CompatibleTextDriver : IDriveTextDisplays
     {
         private readonly DisplayPins _displayPins;
         protected bool _nextByteIsData; // named after the 'true' value of the RegiaterSelect bit
-        protected byte _nextByteValue;
+        protected byte _nextByte;
 
         protected HD44780CompatibleTextDriver(DisplayPins displayPins) {
             _displayPins = displayPins;
@@ -20,16 +16,18 @@ namespace uScoober.Hardware.Display
             get { return _displayPins; }
         }
 
-        public abstract void Commit();
+        public BitMode BitMode { get; private set; }
+
+        public abstract void Send();
 
         public void SetCommand(byte value) {
             _nextByteIsData = false;
-            _nextByteValue = value;
+            _nextByte = value;
         }
 
         public void SetData(byte value) {
             _nextByteIsData = true;
-            _nextByteValue = value;
+            _nextByte = value;
         }
 
         public abstract class EightBitData : HD44780CompatibleTextDriver

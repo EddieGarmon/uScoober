@@ -13,4 +13,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)DisplayPins.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)HD44780CompatibleTextDriver.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)Command Set.htm" />
+  </ItemGroup>
 </Project>

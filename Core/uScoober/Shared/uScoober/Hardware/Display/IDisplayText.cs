@@ -16,6 +16,8 @@ namespace uScoober.Hardware.Display
 
         int Rows { get; }
 
+        bool IsEnabled { get; set; }
+
         void ClearAll();
 
         void ClearRow(int row);
