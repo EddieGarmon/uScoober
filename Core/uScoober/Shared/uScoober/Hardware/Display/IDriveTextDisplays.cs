@@ -2,6 +2,8 @@
 {
     public interface IDriveTextDisplays
     {
+        BitMode BitMode { get; }
+
         /// <summary>
         /// Set the Enable pin low so the LCD consumes the data
         /// </summary>
@@ -11,6 +13,6 @@
 
         void SetData(byte value);
 
-        BitMode BitMode { get; }
+        void Initialize(bool multiline);
     }
 }

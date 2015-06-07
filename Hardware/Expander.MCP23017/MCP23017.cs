@@ -2133,6 +2133,10 @@ namespace uScoober.Hardware.IO
             private readonly WeakCache Cache = new WeakCache();
 
             public IDigitalOutput Bind(Pin pin, string name = null, bool initialState = false) {
+                if (pin == Pin.None) {
+                    return null;
+                }
+
                 var result = new Instance(pin, name, initialState);
                 Cache.Add(pin, result);
                 return result;

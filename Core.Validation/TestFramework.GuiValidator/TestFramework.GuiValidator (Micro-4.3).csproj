@@ -46,12 +46,18 @@
       <Project>{1B2715B7-6174-4CBD-B5A4-A871074D4AF2}</Project>
       <Name>TestFramework %28Micro-4.3%29</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Core\uScoober.Threading\Micro-4.3\Threading %28Micro-4.3%29.csproj">
+      <Project>{E797CC15-691D-4284-BC3F-B9E866E00AAF}</Project>
+      <Name>Threading %28Micro-4.3%29</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Core\uScoober\Micro-4.3\uScoober %28Micro-4.3%29.csproj">
       <Project>{C8A0566E-DAA6-4FBD-B407-A9B806495F88}</Project>
       <Name>uScoober %28Micro-4.3%29</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="..\TestFramework.Tests\TestFramework.Tests.projitems" Label="Shared" Condition="Exists('..\TestFramework.Tests\TestFramework.Tests.projitems')" />
+  <Import Project="..\uScoober.Tests\Shared\Shared.projitems" Label="Shared" Condition="Exists('..\uScoober.Tests\Shared\Shared.projitems')" />
+  <Import Project="..\uScoober.Threading.Tests\Shared\Shared.projitems" Label="Shared" Condition="Exists('..\uScoober.Threading.Tests\Shared\Shared.projitems')" />
   <Import Condition="EXISTS('$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets')" Project="$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets" />
   <Import Condition="!EXISTS('$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets')" Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

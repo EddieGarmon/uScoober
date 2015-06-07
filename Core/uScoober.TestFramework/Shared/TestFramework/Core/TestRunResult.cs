@@ -21,13 +21,31 @@ namespace uScoober.TestFramework.Core
 
         public string DurationSummary {
             get {
-                var builder = new StringBuilder(10);
+                //mimic format of elapsed summary
+                var builder = new StringBuilder(15);
                 double executionTime = DurationOfSetup + DurationOfExecution + DurationOfTeardown;
-                if (executionTime < 60) {
-                    builder.Append("0:");
+
+                if (executionTime < 3600) {
+                    builder.Append("00:");
                 }
                 else {
-                    var minutes = (int)(executionTime / 60);
+                    int hours = (int)(executionTime / 3600);
+                    if (hours < 10) {
+                        builder.Append("0");
+                    }
+                    builder.Append(hours);
+                    builder.Append(":");
+                    executionTime -= (hours * 3600);
+                }
+
+                if (executionTime < 60) {
+                    builder.Append("00:");
+                }
+                else {
+                    int minutes = (int)(executionTime / 60);
+                    if (minutes < 10) {
+                        builder.Append("0");
+                    }
                     builder.Append(minutes);
                     builder.Append(":");
                     executionTime -= (minutes * 60);
@@ -36,9 +54,13 @@ namespace uScoober.TestFramework.Core
                 if (executionTime < 10) {
                     builder.Append("0");
                 }
-                builder.Append(executionTime.ToString("F4"));
+                builder.Append(executionTime.ToString("F6"));
                 return builder.ToString();
             }
+        }
+
+        public string ElapsedSummary {
+            get { return (RunFinished - RunStarted).ToString(); }
         }
 
         public int FailedCount { get; private set; }

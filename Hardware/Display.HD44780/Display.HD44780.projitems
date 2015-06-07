@@ -10,10 +10,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)CharacterDisplay.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CharacterDisplayDriver.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DisplayPins.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)HD44780CompatibleTextDriver.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RegisterBasedCharacterDisplayDriver.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)Command Set.htm" />
+    <None Include="$(MSBuildThisFileDirectory)TC2004A.pdf" />
   </ItemGroup>
 </Project>

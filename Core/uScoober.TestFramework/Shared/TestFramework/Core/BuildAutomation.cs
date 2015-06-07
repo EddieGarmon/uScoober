@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 
 namespace uScoober.TestFramework.Core
 {
@@ -7,7 +8,14 @@ namespace uScoober.TestFramework.Core
         public const string MarkerFilename = @"\WINFS\BuildTesting.txt";
 
         public static bool InBuild {
-            get { return File.Exists(MarkerFilename); }
+            get {
+                try {
+                    return File.Exists(MarkerFilename);
+                }
+                catch (Exception) {
+                    return false;
+                }
+            }
         }
     }
 }

@@ -12,15 +12,15 @@ namespace uScoober.Hardware.Display
 
         bool IsCursorBlinking { get; set; }
 
-        bool IsCursorVisible { get; set; }
-
-        int Rows { get; }
+        bool IsCursorUnderlined { get; set; }
 
         bool IsEnabled { get; set; }
 
-        void ClearAll();
+        int Rows { get; }
 
         void ClearRow(int row);
+
+        void ClearScreen();
 
         void Home();
 
@@ -33,5 +33,7 @@ namespace uScoober.Hardware.Display
         void Write(byte[] buffer, int startOffset, int count);
 
         void Write(byte value);
+
+        void WriteRow(int row, string message);
     }
 }

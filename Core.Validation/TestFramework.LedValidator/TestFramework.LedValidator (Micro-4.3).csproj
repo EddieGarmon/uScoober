@@ -61,6 +61,8 @@
   <Import Project="..\TestFramework.Tests\TestFramework.Tests.projitems" Label="Shared" Condition="Exists('..\TestFramework.Tests\TestFramework.Tests.projitems')" />
   <Import Project="..\..\Hardware\Light.Led\Light.Led.projitems" Label="Shared" Condition="Exists('..\..\Hardware\Light.Led\Light.Led.projitems')" />
   <Import Project="..\..\Hardware\Spot.Digital\Spot.Digital.projitems" Label="Shared" Condition="Exists('..\..\Hardware\Spot.Digital\Spot.Digital.projitems')" />
+  <Import Project="..\uScoober.Tests\Shared\Shared.projitems" Label="Shared" Condition="Exists('..\uScoober.Tests\Shared\Shared.projitems')" />
+  <Import Project="..\uScoober.Threading.Tests\Shared\Shared.projitems" Label="Shared" Condition="Exists('..\uScoober.Threading.Tests\Shared\Shared.projitems')" />
   <Import Condition="EXISTS('$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets')" Project="$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets" />
   <Import Condition="!EXISTS('$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets')" Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

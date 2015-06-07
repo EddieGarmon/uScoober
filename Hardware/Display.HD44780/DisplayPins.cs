@@ -2,7 +2,7 @@
 {
     public class DisplayPins
     {
-        public DisplayPins(Pin dataOrCommand, Pin d4, Pin d5, Pin d6, Pin d7, Pin enable, Pin backLight = Pin.None, Pin readOrWrite = Pin.None) {
+        public DisplayPins(Pin d4, Pin d5, Pin d6, Pin d7, Pin registerSelect, Pin enable, Pin backLight = Pin.None, Pin readOrWrite = Pin.None) {
             D0 = Pin.None;
             D1 = Pin.None;
             D2 = Pin.None;
@@ -14,15 +14,14 @@
             D7 = d7;
 
             Enable = enable;
-            DataOrCommand = dataOrCommand;
+            DataOrCommand = registerSelect;
             BackLight = backLight;
             ReadOrWrite = readOrWrite;
 
             TransferMode = BitMode.Four;
         }
 
-        public DisplayPins(Pin dataOrCommand,
-                           Pin d0,
+        public DisplayPins(Pin d0,
                            Pin d1,
                            Pin d2,
                            Pin d3,
@@ -30,6 +29,7 @@
                            Pin d5,
                            Pin d6,
                            Pin d7,
+                           Pin registerSelect,
                            Pin enable,
                            Pin backLight = Pin.None,
                            Pin readOrWrite = Pin.None) {
@@ -44,7 +44,7 @@
             D7 = d7;
 
             Enable = enable;
-            DataOrCommand = dataOrCommand;
+            DataOrCommand = registerSelect;
             BackLight = backLight;
             ReadOrWrite = readOrWrite;
 
