@@ -5,27 +5,6 @@ namespace uScoober.Threading
 {
     public abstract class TaskScheduler
     {
-        public abstract void Schedule(Task task);
-
-        protected void Execute(Task task) {
-            if (task.IsCancellationRequested) {
-                task.CancelBeforeExecution();
-                return;
-            }
-            if (task.Status != TaskStatus.Scheduled) {
-                throw new Exception("Unscheduled task executing!!!");
-            }
-            try {
-                task.ExecuteNow();
-            }
-            catch (Exception ex) {
-                task.RecordException(ex);
-            }
-            finally {
-                task.Finish();
-            }
-        }
-
         private static readonly TaskScheduler __defaultScheduler = new TaskSchedulerForBackground();
         private static readonly object __unobservedLock = new object();
         public static int UnusedThreadTimeoutMilliseconds = Timeout.Infinite;
@@ -48,6 +27,27 @@ namespace uScoober.Threading
         }
 
         private static event UnobservedTaskExceptionHandler _unobservedExceptionHandler;
+
+        public abstract void Schedule(Task task);
+
+        protected void Execute(Task task) {
+            if (task.IsCancellationRequested) {
+                task.CancelBeforeExecution();
+                return;
+            }
+            if (task.Status != TaskStatus.Scheduled) {
+                throw new Exception("Unscheduled task executing!!!");
+            }
+            try {
+                task.ExecuteNow();
+            }
+            catch (Exception ex) {
+                task.RecordException(ex);
+            }
+            finally {
+                task.Finish();
+            }
+        }
 
         internal static void PublishUnobservedException(AggregateException unobservedException) {
             lock (__unobservedLock) {

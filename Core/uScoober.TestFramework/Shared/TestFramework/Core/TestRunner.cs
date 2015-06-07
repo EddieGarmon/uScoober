@@ -23,9 +23,9 @@ namespace uScoober.TestFramework.Core
             if (input != null) {
                 if (input.StartTests != null) {
                     input.StartTests.OnInterrupt += (source, state, time) => {
-                                                       Debug.Print("Attempt Restart");
-                                                       ExecuteTests();
-                                                   };
+                                                        Debug.Print("Attempt Restart");
+                                                        ExecuteTests();
+                                                    };
                 }
             }
         }

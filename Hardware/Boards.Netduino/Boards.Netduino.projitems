@@ -9,7 +9,7 @@
     <Import_RootNamespace>Boards.Netduino</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="$(MSBuildThisFileDirectory)Boards.Netduino2.nuspec" />
+    <None Include="$(MSBuildThisFileDirectory)Boards.Netduino.nuspec" />
     <None Include="$(MSBuildThisFileDirectory)Netduino2 Schematic.pdf" />
     <None Include="$(MSBuildThisFileDirectory)Netduino2+ Schematic.pdf" />
     <None Include="$(MSBuildThisFileDirectory)netduino3wifi_schematic.pdf" />

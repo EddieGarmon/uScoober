@@ -12,9 +12,9 @@ namespace uScoober.TestFramework.Mocks
             Storage = initialValues;
         }
 
-        public byte[] Storage { get; private set; }
-
         public int ReadIndex { get; set; }
+
+        public byte[] Storage { get; private set; }
 
         public void Append(params byte[] newValues) {
             int numberOfUnreadValues = Storage.Length - ReadIndex;

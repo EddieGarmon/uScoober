@@ -4,6 +4,8 @@ namespace uScoober.Threading
 {
     public class TaskSchedulerException : Exception
     {
+        private const string DefaultMessage = "Task Scheduler Exception";
+
         public TaskSchedulerException()
             : base(DefaultMessage) { }
 
@@ -15,7 +17,5 @@ namespace uScoober.Threading
 
         public TaskSchedulerException(string message, Exception innerException)
             : base(message, innerException) { }
-
-        private const string DefaultMessage = "Task Scheduler Exception";
     }
 }

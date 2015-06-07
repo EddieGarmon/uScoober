@@ -38,7 +38,8 @@ to be ignored by version control.)
 - [X] [xunit](https://github.com/xunit) inspired testing: facts and theories, constructor setup, IDisposable teardown
 - [X] running in the simulator
 - [X] decent simulator UI
-- [X] running on the hardware, inject feedback mechanism
+- [X] running on the hardware, LED UI
+- [X] running on the hardware, Character LCD UI
 - [X] hardware IO mocks
 - [ ] mock IIC bus
 - [ ] mock SPI bus
@@ -49,28 +50,27 @@ to be ignored by version control.)
 ###Features - delivered as source
 - [X] one semantic version per feature
 - [X] NuGet package delivery - independent packages per feature
-- [ ] Storage and Path API
 - [X] Binary Tools
 - [X] SPOT based managed IO
 - [X] SPOT based managed multiple device IIC bus
 - [ ] SPOT based managed multiple device SPI bus
 - [ ] BitBang, software multiple device IIC bus
 - [ ] BitBang, software multiple device SPI bus
+- [ ] Storage and Path API
 - [ ] Boot/AppContainer API (from block storage)
 - [ ] 
 
 ###Hardware - delivered as source
-- [X] one semantic version per feature
+- [X] one semantic version per component
 - [X] NuGet package delivery - independent packages per device
 
 ####Boards
-- [X] Netduino2+
-- [X] Netduino2
-- [ ] GHI?
+- [X] Secret Labs: Netduino
+- [ ] GHI: Cerbuino
+- [ ] support additional boards
 
 ####Drivers
 - [X] LEDs
-- [X] Buttons
 - [ ] MCP23008/MCP23017 IIC IO Expander
 - [ ] AT24C32 Eeprom
 - [ ] DS1307 IIC real time clock
@@ -80,10 +80,7 @@ to be ignored by version control.)
 ##Future Plans
 - [ ] run tests in remote app domain
 - [ ] offload results of hardware run tests (aggregate how? network based listener?)
-- [ ] support additional boards: GHI? who else?
-- [ ] support simple Gadgeteer API?
 - [ ] support Harnesses (similar to Gadgeteer)
 - [ ] support FTDI FT4232HL (GHI Lynx) - as a new .NET 4.5 class library?
-- [ ] UI primitives?
 
 [![Join the chat at https://gitter.im/EddieGarmon/uScoober](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/EddieGarmon/uScoober?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)

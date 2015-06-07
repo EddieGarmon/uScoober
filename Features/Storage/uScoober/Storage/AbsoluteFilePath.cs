@@ -60,6 +60,15 @@ namespace uScoober.Storage
             return GetSiblingFolderPath(folderName);
         }
 
+        /// <summary>
+        ///     Performs an implicit conversion from <see cref="System.String" /> to <see cref="AbsoluteFilePath" />.
+        /// </summary>
+        /// <param name="path">The path.</param>
+        /// <returns>The result of the conversion.</returns>
+        public static implicit operator AbsoluteFilePath(string path) {
+            return path == null ? null : new AbsoluteFilePath(path);
+        }
+
         public static RelativeFilePath operator -(AbsoluteFilePath toFile, AbsoluteFilePath fromPath) {
             throw new NotImplementedException("AbsoluteFilePath.-");
         }
@@ -75,15 +84,6 @@ namespace uScoober.Storage
             throw new NotImplementedException("AbsoluteFilePath.-");
             //var relativePath = MakeRelative(fromDir, toFile.Parent);
             //return new RelativeFilePath(relativePath, relativePath.Count, toFile.ItemName);
-        }
-
-        /// <summary>
-        ///     Performs an implicit conversion from <see cref="System.String" /> to <see cref="AbsoluteFilePath" />.
-        /// </summary>
-        /// <param name="path">The path.</param>
-        /// <returns>The result of the conversion.</returns>
-        public static implicit operator AbsoluteFilePath(string path) {
-            return path == null ? null : new AbsoluteFilePath(path);
         }
     }
 }

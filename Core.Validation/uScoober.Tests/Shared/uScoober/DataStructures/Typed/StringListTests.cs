@@ -6,19 +6,19 @@ namespace uScoober.DataStructures.Typed
 {
     public class StringListTests
     {
-        public void AddItemRange_Fact() {
-            var list = new StringList();
-            list.ShouldHaveState(0, 0);
-            list.AddRange("Hello", "Good-bye");
-            list.ShouldHaveState(2, 2, "Hello", "Good-bye");
-        }
-
         public void AddItem_Fact() {
             var list = new StringList();
             list.ShouldHaveState(0, 0);
             list.Add("Hello");
             list.ShouldHaveState(1, 1, "Hello");
             list.Add("Good-bye");
+            list.ShouldHaveState(2, 2, "Hello", "Good-bye");
+        }
+
+        public void AddItemRange_Fact() {
+            var list = new StringList();
+            list.ShouldHaveState(0, 0);
+            list.AddRange("Hello", "Good-bye");
             list.ShouldHaveState(2, 2, "Hello", "Good-bye");
         }
 
@@ -34,14 +34,6 @@ namespace uScoober.DataStructures.Typed
                 .ShouldBeFalse();
         }
 
-        public void IndexOfItem_Fact() {
-            var list = new StringList("1", "2", "3");
-            list.IndexOf("0")
-                .ShouldEqual(-1);
-            list.IndexOf("2")
-                .ShouldEqual(1);
-        }
-
         public void IndexedItem_Fact() {
             var list = new StringList("a", "b", "c");
             list.ShouldHaveState(3, 0, "a", "b", "c");
@@ -50,16 +42,12 @@ namespace uScoober.DataStructures.Typed
             list.ShouldHaveState(3, 1, "a", "#", "c");
         }
 
-        public void InsertItemRange_Fact() {
-            var list = new StringList();
-            list.InsertRange(0, "world");
-            list.ShouldHaveState(1, 1, "world");
-            list.InsertRange(0, "hello");
-            list.ShouldHaveState(2, 2, "hello", "world");
-            list.InsertRange(1, "micro");
-            list.ShouldHaveState(3, 3, "hello", "micro", "world");
-            list.InsertRange(0, "super", "awesome", "fun", "time");
-            list.ShouldHaveState(7, 7, "super", "awesome", "fun", "time", "hello", "micro", "world");
+        public void IndexOfItem_Fact() {
+            var list = new StringList("1", "2", "3");
+            list.IndexOf("0")
+                .ShouldEqual(-1);
+            list.IndexOf("2")
+                .ShouldEqual(1);
         }
 
         public void InsertItem_Fact() {
@@ -72,6 +60,18 @@ namespace uScoober.DataStructures.Typed
             list.ShouldHaveState(3, 3, "hello", "micro", "world");
             list.Insert(0, "awesome:");
             list.ShouldHaveState(4, 4, "awesome:", "hello", "micro", "world");
+        }
+
+        public void InsertItemRange_Fact() {
+            var list = new StringList();
+            list.InsertRange(0, "world");
+            list.ShouldHaveState(1, 1, "world");
+            list.InsertRange(0, "hello");
+            list.ShouldHaveState(2, 2, "hello", "world");
+            list.InsertRange(1, "micro");
+            list.ShouldHaveState(3, 3, "hello", "micro", "world");
+            list.InsertRange(0, "super", "awesome", "fun", "time");
+            list.ShouldHaveState(7, 7, "super", "awesome", "fun", "time", "hello", "micro", "world");
         }
     }
 }

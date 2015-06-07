@@ -44,7 +44,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Core\uScoober.TestFramework.GraphicUI\Micro-42\TestFramework.GraphicUI %28Micro-42%29.csproj">
+    <ProjectReference Include="..\..\..\Core\uScoober.TestFramework.GraphicUI\Micro-4.2\TestFramework.GraphicUI %28Micro-4.2%29.csproj">
       <Project>{5825C7B2-EE1D-438D-B7D1-4B4506559436}</Project>
       <Name>TestFramework.GraphicUI %28Micro-42%29</Name>
     </ProjectReference>

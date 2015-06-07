@@ -36,11 +36,9 @@
     <Reference Include="Microsoft.SPOT.Hardware" />
     <Reference Include="Microsoft.SPOT.Native" />
     <Reference Include="SecretLabs.NETMF.Hardware.Netduino, Version=4.3.1.0, Culture=neutral, processorArchitecture=MSIL" />
-    <Reference Include="System" />
-    <Reference Include="System.IO" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\uScoober.TestFramework.TextUI\Micro-43\TestFramework.TextUI %28Micro-43%29.csproj">
+    <ProjectReference Include="..\..\Core\uScoober.TestFramework.TextUI\Micro-4.3\TestFramework.TextUI %28Micro-4.3%29.csproj">
       <Project>{1DD5C443-9808-4A7B-A520-44696894B909}</Project>
       <Name>TestFramework.TextUI %28Micro-43%29</Name>
     </ProjectReference>
@@ -68,7 +66,6 @@
   <Import Project="..\..\Hardware\Display.HD44780Driver.MCP23017\Display.HD44780Driver.MCP23017.projitems" Label="Shared" Condition="Exists('..\..\Hardware\Display.HD44780Driver.MCP23017\Display.HD44780Driver.MCP23017.projitems')" />
   <Import Project="..\..\Hardware\Spot.Digital\Spot.Digital.projitems" Label="Shared" Condition="Exists('..\..\Hardware\Spot.Digital\Spot.Digital.projitems')" />
   <Import Project="..\uScoober.Tests\Shared\Shared.projitems" Label="Shared" Condition="Exists('..\uScoober.Tests\Shared\Shared.projitems')" />
-  <Import Project="..\uScoober.Threading.Tests\Shared\Shared.projitems" Label="Shared" Condition="Exists('..\uScoober.Threading.Tests\Shared\Shared.projitems')" />
   <Import Condition="EXISTS('$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets')" Project="$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets" />
   <Import Condition="!EXISTS('$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets')" Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

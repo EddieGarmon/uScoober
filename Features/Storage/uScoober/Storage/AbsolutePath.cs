@@ -29,6 +29,10 @@ namespace uScoober.Storage
             get { return base.RootValue; }
         }
 
+        IFolderPath IPath.Parent {
+            get { return Parent; }
+        }
+
         public AbsoluteFilePath GetSiblingFilePath(string name, string extension) {
             return GetSiblingFilePath(name + "." + extension);
         }
@@ -53,10 +57,6 @@ namespace uScoober.Storage
             var parts = Parts.CloneSublist(Parts.Count - 1);
             parts.Add(folderName);
             return new AbsoluteFolderPath(parts);
-        }
-
-        IFolderPath IPath.Parent {
-            get { return Parent; }
         }
     }
 }

@@ -10,9 +10,6 @@ namespace uScoober.Hardware.Memory
     public class AddressMap : Ring,
                               IHaveAddressedMemory
     {
-
-
-
         public int TotalBytesAvailable { get; private set; }
 
         public void MapRange(ushort startAddress, ushort endAddress, AddressModifier addressModifier, IHaveAddressedMemory handler) {

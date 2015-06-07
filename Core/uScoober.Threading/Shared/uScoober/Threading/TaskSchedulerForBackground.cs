@@ -6,11 +6,11 @@ namespace uScoober.Threading
 {
     internal class TaskSchedulerForBackground : TaskScheduler
     {
+        internal const int MaxThreads = 2;
         private readonly object _lock = new object();
         private readonly Thread[] _threads = new Thread[MaxThreads];
         private readonly ManualResetEvent _workAvailable = new ManualResetEvent(false);
         private readonly Queue _workQueue = new Queue();
-
         //todo optimize startup and cool down of threads
         public override void Schedule(Task task) {
             lock (_lock) {
@@ -51,7 +51,5 @@ namespace uScoober.Threading
                 }
             }
         }
-
-        internal const int MaxThreads = 2;
     }
 }

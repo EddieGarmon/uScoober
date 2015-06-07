@@ -15,7 +15,7 @@ namespace uScoober.Text
         /// <returns></returns>
         public static byte GetByte(string value) {
             int int32 = Convert.ToInt32(value, 16);
-            if (int32 < Byte.MinValue || int32 > Byte.MaxValue) {
+            if (int32 < byte.MinValue || int32 > byte.MaxValue) {
                 throw new Exception("Byte Overflow");
             }
             return (byte)int32;

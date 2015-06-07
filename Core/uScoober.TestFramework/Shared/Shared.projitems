@@ -9,6 +9,8 @@
     <Import_RootNamespace>uScoober</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Input\GpioInput.cs" />
+    <None Include="$(MSBuildThisFileDirectory)PackageContent\EntryPoint.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Assert\AssertionFailureException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Assert\ShouldExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TestFramework\Assert\Throw.cs" />

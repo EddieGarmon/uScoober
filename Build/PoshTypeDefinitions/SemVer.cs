@@ -2,6 +2,8 @@ using System;
 
 public class SemVer : IComparable
 {
+    public static readonly SemVer Zero = new SemVer(0, 0, 0);
+
     public SemVer(int major, int minor, int revision) {
         Major = major;
         Minor = minor;
@@ -61,8 +63,6 @@ public class SemVer : IComparable
                              BuildMetadata != null ? "+" : null,
                              BuildMetadata);
     }
-
-    public static readonly SemVer Zero = new SemVer(0, 0, 0);
 
     public static SemVer Parse(string input) {
         int major,

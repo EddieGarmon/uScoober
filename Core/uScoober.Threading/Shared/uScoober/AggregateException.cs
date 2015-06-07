@@ -6,6 +6,7 @@ namespace uScoober
 {
     public class AggregateException : Exception
     {
+        private const string UnhandledAggregationOfNothing = "Unhandled Aggregation of nothing!!!";
         private object _storage;
 
         public AggregateException(Exception exception) {
@@ -29,14 +30,6 @@ namespace uScoober
             }
         }
 
-        public int InnerExceptionCount {
-            get { return StorageIsRing ? StorageRing.Count : 1; }
-        }
-
-        public IEnumerable InnerExceptions {
-            get { return StorageIsRing ? (IEnumerable)StorageRing : new Enumerable.Singular(_storage); }
-        }
-
         public Exception this[int index] {
             get {
                 if (index < 0) {
@@ -51,6 +44,14 @@ namespace uScoober
                 }
                 return (Exception)_storage;
             }
+        }
+
+        public int InnerExceptionCount {
+            get { return StorageIsRing ? StorageRing.Count : 1; }
+        }
+
+        public IEnumerable InnerExceptions {
+            get { return StorageIsRing ? (IEnumerable)StorageRing : new Enumerable.Singular(_storage); }
         }
 
         private bool StorageIsRing {
@@ -79,7 +80,5 @@ namespace uScoober
             }
             _storage = new Ring(_storage, exception);
         }
-
-        private const string UnhandledAggregationOfNothing = "Unhandled Aggregation of nothing!!!";
     }
 }

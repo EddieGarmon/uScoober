@@ -253,6 +253,10 @@ namespace uScoober.DataStructures
             return result;
         }
 
+        IEnumerator IEnumerable.GetEnumerator() {
+            return GetForwardEnumerator();
+        }
+
         protected internal void CopyToArray(Array array, int index = 0) {
             IList list = array;
             var enumerator = new Enumerator(this);
@@ -260,10 +264,6 @@ namespace uScoober.DataStructures
                 list[index] = enumerator.Current;
                 index++;
             }
-        }
-
-        IEnumerator IEnumerable.GetEnumerator() {
-            return GetForwardEnumerator();
         }
 
         private static IndexedLink FindAndIndex(object value, Enumerator enumerator) {

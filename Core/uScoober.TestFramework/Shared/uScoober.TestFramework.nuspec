@@ -16,9 +16,8 @@
         <summary>
             xUnit inspired testing with uFacts and uTheories.
             Built in 'Should...' asserts.
-            Support for async tests with the use of Tasks.
             Built in hardware mocks.
-            Runs in emulator (GUI) and on target.
+            Runs in emulator and on target.
             Pluggable user feedback mechanism.
             Support for NETMF 4.2 and 4.3.
         </summary>
@@ -28,10 +27,8 @@
             <dependency id="uScoober.Threading" version="0.0.0-core" />
         </dependencies>
         <frameworkAssemblies>
-            <frameworkAssembly assemblyName="Microsoft.Spot.Graphics" />
             <frameworkAssembly assemblyName="Microsoft.Spot.Hardware" />
             <frameworkAssembly assemblyName="Microsoft.Spot.Native" />
-            <frameworkAssembly assemblyName="Microsoft.Spot.TinyCore" />
             <frameworkAssembly assemblyName="System.IO" />
         </frameworkAssemblies>
     </metadata>
@@ -41,6 +38,6 @@
         <!--NETMF 4.3-->
         <file src="..\Micro-4.3\bin\Release\**\uScoober.TestFramework.*" target="lib\netmf43\" />
         <!--Entry Point Code-->
-        <file src="..\PackageContent\EntryPoint.cs" target="content\" />
+        <file src="PackageContent\**" target="content\" />
     </files>
 </package>

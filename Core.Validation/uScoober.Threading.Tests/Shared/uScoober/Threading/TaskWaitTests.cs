@@ -5,20 +5,6 @@ namespace uScoober.Threading
 {
     public class TaskWaitTests : TaskTestBase
     {
-        public void WaitTimeoutOccurs_Fact() {
-            var cancellationSource = new CancellationSource();
-            var task = Task.Run(token => {
-                                    while (!token.IsCancellationRequested) {
-                                        Thread.Sleep(10);
-                                    }
-                                },
-                                cancellationSource);
-            bool waitSuccess = task.Wait(15);
-            waitSuccess.ShouldBeFalse();
-            cancellationSource.Cancel();
-            EnsureQuietDisposal(task);
-        }
-
         public void WaitingOnContinuationStartsAntecedent_Fact() {
             var task = Task.New(() => { });
             var continuation = task.ContinueWith(previous => { });
@@ -47,6 +33,20 @@ namespace uScoober.Threading
             task.Wait();
             task.Status.ShouldEqual(TaskStatus.RanToCompletion);
             ((int)task.Result).ShouldEqual(42);
+            EnsureQuietDisposal(task);
+        }
+
+        public void WaitTimeoutOccurs_Fact() {
+            var cancellationSource = new CancellationSource();
+            var task = Task.Run(token => {
+                                    while (!token.IsCancellationRequested) {
+                                        Thread.Sleep(10);
+                                    }
+                                },
+                                cancellationSource);
+            bool waitSuccess = task.Wait(15);
+            waitSuccess.ShouldBeFalse();
+            cancellationSource.Cancel();
             EnsureQuietDisposal(task);
         }
     }

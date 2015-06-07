@@ -6,6 +6,9 @@ namespace uScoober.Threading
     [DebuggerDisplay("[{CallbackCount}] Canceled: {IsCancelationRequested}")]
     public class CancellationSource : DisposableBase
     {
+        private static readonly CancellationSource __canceled = new CancellationSource {
+            IsCancelationRequested = true
+        };
         private readonly CancellationToken _token;
         private Queue _callbacks;
 
@@ -21,6 +24,10 @@ namespace uScoober.Threading
 
         private int CallbackCount {
             get { return _callbacks == null ? 0 : _callbacks.Count; }
+        }
+
+        public static CancellationSource Canceled {
+            get { return __canceled; }
         }
 
         public void Cancel() {
@@ -60,14 +67,6 @@ namespace uScoober.Threading
             }
             _callbacks.Clear();
             _callbacks = null;
-        }
-
-        private static readonly CancellationSource __canceled = new CancellationSource {
-            IsCancelationRequested = true
-        };
-
-        public static CancellationSource Canceled {
-            get { return __canceled; }
         }
 
         /// <summary>

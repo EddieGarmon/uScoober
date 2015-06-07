@@ -79,6 +79,54 @@ namespace uScoober.Storage
             return GetSiblingFolderPath(folderName);
         }
 
+        /// <summary>
+        ///     Implements the +.
+        /// </summary>
+        /// <param name="root">The root.</param>
+        /// <param name="relative">The relative.</param>
+        /// <returns>The result of the operator.</returns>
+        public static AbsoluteFolderPath operator +(AbsoluteFolderPath root, RelativeFolderPath relative) {
+            var parts = MakeAbsolute(root, relative);
+            return new AbsoluteFolderPath(parts);
+        }
+
+        /// <summary>
+        ///     Implements the +.
+        /// </summary>
+        /// <param name="root">The root.</param>
+        /// <param name="relative">The relative.</param>
+        /// <returns>The result of the operator.</returns>
+        public static AbsoluteFilePath operator +(AbsoluteFolderPath root, RelativeFilePath relative) {
+            var parts = MakeAbsolute(root, relative);
+            return new AbsoluteFilePath(parts);
+        }
+
+        /// <summary>
+        ///     Performs an implicit conversion from <see cref="System.String" /> to <see cref="AbsoluteFolderPath" />.
+        /// </summary>
+        /// <param name="path">The path.</param>
+        /// <returns>The result of the conversion.</returns>
+        public static implicit operator AbsoluteFolderPath(string path) {
+            return path == null ? null : new AbsoluteFolderPath(path);
+        }
+
+        /// <summary>
+        ///     Implements the -.
+        /// </summary>
+        /// <param name="toDir">To dir.</param>
+        /// <param name="fromDir">From dir.</param>
+        /// <returns>The result of the operator.</returns>
+        /// <exception cref="System.Exception">No common path exists:  + fromDir.Value +  ->  + toDir.Value</exception>
+        public static RelativeFolderPath operator -(AbsoluteFolderPath toDir, AbsoluteFolderPath fromDir) {
+            StringList relative = MakeRelative(fromDir, toDir);
+            return new RelativeFolderPath(relative);
+        }
+
+        public static RelativeFolderPath operator -(AbsoluteFolderPath toDir, AbsoluteFilePath fromFile) {
+            StringList relative = MakeRelative(fromFile.Parent, toDir);
+            return new RelativeFolderPath(relative);
+        }
+
         private static StringList MakeAbsolute(AbsoluteFolderPath fromHere, RelativePath adjustment) {
             var result = fromHere.Parts.CloneSublist(fromHere.Parts.Count);
             var enumerator = adjustment.Parts.GetEnumerator();
@@ -138,54 +186,6 @@ namespace uScoober.Storage
                 hasTo = to.MoveNext();
             }
             return relative;
-        }
-
-        /// <summary>
-        ///     Implements the +.
-        /// </summary>
-        /// <param name="root">The root.</param>
-        /// <param name="relative">The relative.</param>
-        /// <returns>The result of the operator.</returns>
-        public static AbsoluteFolderPath operator +(AbsoluteFolderPath root, RelativeFolderPath relative) {
-            var parts = MakeAbsolute(root, relative);
-            return new AbsoluteFolderPath(parts);
-        }
-
-        /// <summary>
-        ///     Implements the +.
-        /// </summary>
-        /// <param name="root">The root.</param>
-        /// <param name="relative">The relative.</param>
-        /// <returns>The result of the operator.</returns>
-        public static AbsoluteFilePath operator +(AbsoluteFolderPath root, RelativeFilePath relative) {
-            var parts = MakeAbsolute(root, relative);
-            return new AbsoluteFilePath(parts);
-        }
-
-        /// <summary>
-        ///     Implements the -.
-        /// </summary>
-        /// <param name="toDir">To dir.</param>
-        /// <param name="fromDir">From dir.</param>
-        /// <returns>The result of the operator.</returns>
-        /// <exception cref="System.Exception">No common path exists:  + fromDir.Value +  ->  + toDir.Value</exception>
-        public static RelativeFolderPath operator -(AbsoluteFolderPath toDir, AbsoluteFolderPath fromDir) {
-            StringList relative = MakeRelative(fromDir, toDir);
-            return new RelativeFolderPath(relative);
-        }
-
-        public static RelativeFolderPath operator -(AbsoluteFolderPath toDir, AbsoluteFilePath fromFile) {
-            StringList relative = MakeRelative(fromFile.Parent, toDir);
-            return new RelativeFolderPath(relative);
-        }
-
-        /// <summary>
-        ///     Performs an implicit conversion from <see cref="System.String" /> to <see cref="AbsoluteFolderPath" />.
-        /// </summary>
-        /// <param name="path">The path.</param>
-        /// <returns>The result of the conversion.</returns>
-        public static implicit operator AbsoluteFolderPath(string path) {
-            return path == null ? null : new AbsoluteFolderPath(path);
         }
     }
 }

@@ -21,18 +21,6 @@ namespace uScoober.DataStructures.Typed
             _storage = new Ring(clonefrom);
         }
 
-        public int Count {
-            get { return _storage.Count; }
-        }
-
-        public int EditVersion {
-            get { return _storage.EditVersion; }
-        }
-
-        public string First {
-            get { return _storage.Head == null ? null : (string)_storage.Head.Value; }
-        }
-
         public string this[int index] {
             get {
                 return (string)_storage.FindAtIndex(index)
@@ -43,6 +31,18 @@ namespace uScoober.DataStructures.Typed
                 _storage.IncrementEditVersion();
                 findResult.RingLink.Value = value;
             }
+        }
+
+        public int Count {
+            get { return _storage.Count; }
+        }
+
+        public int EditVersion {
+            get { return _storage.EditVersion; }
+        }
+
+        public string First {
+            get { return _storage.Head == null ? null : (string)_storage.Head.Value; }
         }
 
         public string Last {

@@ -44,6 +44,10 @@ namespace uScoober.DataStructures
                 get { return _currentLink; }
             }
 
+            object IEnumerator.Current {
+                get { return Current; }
+            }
+
             public bool MoveNext() {
                 GuardListNotEdited();
                 if (_isDone) {
@@ -100,10 +104,6 @@ namespace uScoober.DataStructures
                 if (_editVersion != _ring.EditVersion) {
                     throw new InvalidOperationException("List changed during enumeration.");
                 }
-            }
-
-            object IEnumerator.Current {
-                get { return Current; }
             }
         }
     }

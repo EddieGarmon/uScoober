@@ -1,5 +1,4 @@
 ﻿using System;
-using Microsoft.SPOT.Hardware;
 using uScoober.DataStructures;
 
 namespace uScoober.Hardware

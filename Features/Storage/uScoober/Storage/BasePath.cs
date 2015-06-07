@@ -107,6 +107,18 @@ namespace uScoober.Storage
             get { return _parts.First; }
         }
 
+        bool IPath.HasParent {
+            get { throw new Exception("Must be overridden in inherited class."); }
+        }
+
+        /// <summary>
+        ///     Gets the parent.
+        /// </summary>
+        /// <value>The parent.</value>
+        IFolderPath IPath.Parent {
+            get { throw new Exception("Must be overridden in inherited class."); }
+        }
+
         protected internal string ItemName {
             get { return _parts.Last; }
         }
@@ -309,18 +321,6 @@ namespace uScoober.Storage
             }
         }
 
-        bool IPath.HasParent {
-            get { throw new Exception("Must be overridden in inherited class."); }
-        }
-
-        /// <summary>
-        ///     Gets the parent.
-        /// </summary>
-        /// <value>The parent.</value>
-        IFolderPath IPath.Parent {
-            get { throw new Exception("Must be overridden in inherited class."); }
-        }
-
         /// <summary>
         ///     Implements the ==.
         /// </summary>
@@ -338,6 +338,15 @@ namespace uScoober.Storage
         }
 
         /// <summary>
+        ///     Performs an implicit conversion from <see cref="BasePath" /> to <see cref="System.String" />.
+        /// </summary>
+        /// <param name="path">The path.</param>
+        /// <returns>The result of the conversion.</returns>
+        public static implicit operator string(BasePath path) {
+            return path.ToString();
+        }
+
+        /// <summary>
         ///     Implements the !=.
         /// </summary>
         /// <param name="left">The left.</param>
@@ -345,15 +354,6 @@ namespace uScoober.Storage
         /// <returns>The result of the operator.</returns>
         public static bool operator !=(BasePath left, BasePath right) {
             return !(left == right);
-        }
-
-        /// <summary>
-        ///     Performs an implicit conversion from <see cref="BasePath" /> to <see cref="System.String" />.
-        /// </summary>
-        /// <param name="path">The path.</param>
-        /// <returns>The result of the conversion.</returns>
-        public static implicit operator string(BasePath path) {
-            return path.ToString();
         }
 
         private class RootMatch

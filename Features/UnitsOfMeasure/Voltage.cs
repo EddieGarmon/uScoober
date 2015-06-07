@@ -8,8 +8,10 @@ namespace uScoober.UnitsOfMeasure
         {
             MilliVolts,
             Volts,
-            KiloVolts,
+            KiloVolts
         }
+
+        private static readonly UnitTable UnitTable;
 
         static Voltage() {
             UnitTable = new UnitTable();
@@ -29,7 +31,5 @@ namespace uScoober.UnitsOfMeasure
         protected override UnitDescriptor GetDescriptorFor(Enum units) {
             return UnitTable.Lookup(units);
         }
-
-        private static readonly UnitTable UnitTable;
     }
 }

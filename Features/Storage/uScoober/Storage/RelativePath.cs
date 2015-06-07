@@ -21,6 +21,10 @@ namespace uScoober.Storage
             get { return HasParent ? _parent ?? (_parent = new RelativeFolderPath(Parts.CloneSublist(Parts.Count - 1))) : null; }
         }
 
+        IFolderPath IPath.Parent {
+            get { return Parent; }
+        }
+
         public RelativeFilePath GetSiblingFilePath(string name, string extension) {
             return GetSiblingFilePath(name + "." + extension);
         }
@@ -39,10 +43,6 @@ namespace uScoober.Storage
             parts.Add("..");
             parts.Add(folderName);
             return new RelativeFolderPath(parts);
-        }
-
-        IFolderPath IPath.Parent {
-            get { return Parent; }
         }
 
         internal static bool IsRelativeSpecialPart(string part) {

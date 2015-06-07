@@ -147,21 +147,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Time", "Time", "{8710003A-D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Eeprom", "Eeprom", "{4295183B-2F56-41E1-B88F-2CC610613AF3}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "BitBang.Pwm", "Hardware\BitBang.Pwm\BitBang.Pwm.shproj", "{46FB3C64-B0B4-47E4-96A2-331050A088A6}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Storage", "Storage", "{599D2CE8-F836-4C7F-A8A8-B9996AB670FC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UoM", "UoM", "{A436BF64-E5CF-42D1-9125-7EC6F0F04B10}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ImageBoot", "ImageBoot", "{95906289-ED73-4A99-87AD-79D291402033}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boards.Cerbuino.Tests (Micro-43)", "Hardware.Validation\Boards.Cerbuino.Tests\Boards.Cerbuino.Tests (Micro-43).csproj", "{D406E386-2498-4BC5-9FA2-1585259A613D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boards.Cerbuino.Tests (Micro-4.3)", "Hardware.Validation\Boards.Cerbuino.Tests\Boards.Cerbuino.Tests (Micro-4.3).csproj", "{D406E386-2498-4BC5-9FA2-1585259A613D}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Boards.Cerbuino", "Hardware\Boards.Cerbuino\Boards.Cerbuino.shproj", "{E1E42132-FE53-4145-8569-58FF8E2A14FD}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Boards.Duino.Pinout", "Hardware\Boards.Duino.Pinout\Boards.Duino.Pinout.shproj", "{A323F734-469F-40F8-A71C-0897400123A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boards.Netduino.Tests (Micro-43)", "Hardware.Validation\Boards.Netduino.Tests\Boards.Netduino.Tests (Micro-43).csproj", "{399321E2-8AD6-4732-A75E-E3ECE480226C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boards.Netduino.Tests (Micro-4.3)", "Hardware.Validation\Boards.Netduino.Tests\Boards.Netduino.Tests (Micro-4.3).csproj", "{399321E2-8AD6-4732-A75E-E3ECE480226C}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Boards.Netduino", "Hardware\Boards.Netduino\Boards.Netduino.shproj", "{0FE48CB1-B1CD-4FD7-B0F8-79C9F835E1FE}"
 EndProject
@@ -173,36 +171,28 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "TestFramework.Tests", "Core
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestFramework.LedValidator (Micro-4.3)", "Core.Validation\TestFramework.LedValidator\TestFramework.LedValidator (Micro-4.3).csproj", "{D113B227-226B-4685-B85C-FFFAED3FC847}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Fonts", "Fonts", "{E3FB2FFA-9735-4B72-B27F-C2D62A9EDC03}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TinyFonts", "TinyFonts", "{E3FB2FFA-9735-4B72-B27F-C2D62A9EDC03}"
 	ProjectSection(SolutionItems) = preProject
-		Fonts\Fonts.md = Fonts\Fonts.md
+		TinyFonts\Fonts.md = TinyFonts\Fonts.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Font.Nina14 (Micro-42)", "Fonts\Nina14\Micro-42\Font.Nina14 (Micro-42).csproj", "{4F2FF53B-BD11-4F84-9A6A-424B3DFDA8BF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestFramework.GraphicUI (Micro-4.2)", "Core\uScoober.TestFramework.GraphicUI\Micro-4.2\TestFramework.GraphicUI (Micro-4.2).csproj", "{5825C7B2-EE1D-438D-B7D1-4B4506559436}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Font.Nina14 (Micro-43)", "Fonts\Nina14\Micro-43\Font.Nina14 (Micro-43).csproj", "{89DBB2FF-71C5-49BA-950B-E1D5FE7DB70D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Font.Small (Micro-42)", "Fonts\Small\Micro-42\Font.Small (Micro-42).csproj", "{809983D1-54A0-4C40-8D0B-101FA101FDF1}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Font.Small (Micro-43)", "Fonts\Small\Micro-43\Font.Small (Micro-43).csproj", "{7690ABF7-7927-452E-82B6-02AC6B209BA1}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestFramework.GraphicUI (Micro-42)", "Core\uScoober.TestFramework.GraphicUI\Micro-42\TestFramework.GraphicUI (Micro-42).csproj", "{5825C7B2-EE1D-438D-B7D1-4B4506559436}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestFramework.GraphicUI (Micro-43)", "Core\uScoober.TestFramework.GraphicUI\Micro-43\TestFramework.GraphicUI (Micro-43).csproj", "{D3064C87-D967-49FC-A42E-FE695CB0273E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestFramework.GraphicUI (Micro-4.3)", "Core\uScoober.TestFramework.GraphicUI\Micro-4.3\TestFramework.GraphicUI (Micro-4.3).csproj", "{D3064C87-D967-49FC-A42E-FE695CB0273E}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "TestFramework.GraphicUI (Shared)", "Core\uScoober.TestFramework.GraphicUI\Shared\TestFramework.GraphicUI (Shared).shproj", "{B1A5F91A-96D2-4CA5-A20A-BFD9008FAAC4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestFramework.LedUI (Micro-42)", "Core\uScoober.TestFramework.LedUI\Micro-42\TestFramework.LedUI (Micro-42).csproj", "{8F04DF76-8C10-436C-96F8-E14DC08D909C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestFramework.LedUI (Micro-4.2)", "Core\uScoober.TestFramework.LedUI\Micro-4.2\TestFramework.LedUI (Micro-4.2).csproj", "{8F04DF76-8C10-436C-96F8-E14DC08D909C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestFramework.LedUI (Micro-43)", "Core\uScoober.TestFramework.LedUI\Micro-43\TestFramework.LedUI (Micro-43).csproj", "{6DB37F89-0EAB-49F1-990E-84152A0000B5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestFramework.LedUI (Micro-4.3)", "Core\uScoober.TestFramework.LedUI\Micro-4.3\TestFramework.LedUI (Micro-4.3).csproj", "{6DB37F89-0EAB-49F1-990E-84152A0000B5}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "TestFramework.LedUI (Shared)", "Core\uScoober.TestFramework.LedUI\Shared\TestFramework.LedUI (Shared).shproj", "{90BFEC71-3604-4E51-80D0-22ED2ED51CDB}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "TestFramework.TextUI (Shared)", "Core\uScoober.TestFramework.TextUI\Shared\TestFramework.TextUI (Shared).shproj", "{7E4927E4-F57A-407F-8240-3B36871238A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestFramework.TextUI (Micro-42)", "Core\uScoober.TestFramework.TextUI\Micro-42\TestFramework.TextUI (Micro-42).csproj", "{4A429D3C-48B3-42E5-9261-C7ED5184E1B9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestFramework.TextUI (Micro-4.2)", "Core\uScoober.TestFramework.TextUI\Micro-4.2\TestFramework.TextUI (Micro-4.2).csproj", "{4A429D3C-48B3-42E5-9261-C7ED5184E1B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestFramework.TextUI (Micro-43)", "Core\uScoober.TestFramework.TextUI\Micro-43\TestFramework.TextUI (Micro-43).csproj", "{1DD5C443-9808-4A7B-A520-44696894B909}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestFramework.TextUI (Micro-4.3)", "Core\uScoober.TestFramework.TextUI\Micro-4.3\TestFramework.TextUI (Micro-4.3).csproj", "{1DD5C443-9808-4A7B-A520-44696894B909}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Expander", "Expander", "{66C41BAF-F84C-42A9-BA39-50DE871495EC}"
 EndProject
@@ -225,6 +215,24 @@ EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Expander.Shift74HC595", "Hardware\Expander.Shift74HC595\Expander.Shift74HC595.shproj", "{75591536-792C-47F7-9D43-ACEA7931DA65}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Display", "Display", "{5BB186AA-E52D-4E40-8286-D8711B5C83D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TinyFonts.Nina14 (Micro-4.2)", "TinyFonts\Nina14\Micro-4.2\TinyFonts.Nina14 (Micro-4.2).csproj", "{4F2FF53B-BD11-4F84-9A6A-424B3DFDA8BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TinyFonts.Nina14 (Micro-4.3)", "TinyFonts\Nina14\Micro-4.3\TinyFonts.Nina14 (Micro-4.3).csproj", "{89DBB2FF-71C5-49BA-950B-E1D5FE7DB70D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TinyFonts.Small (Micro-4.2)", "TinyFonts\Small\Micro-4.2\TinyFonts.Small (Micro-4.2).csproj", "{809983D1-54A0-4C40-8D0B-101FA101FDF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TinyFonts.Small (Micro-4.3)", "TinyFonts\Small\Micro-4.3\TinyFonts.Small (Micro-4.3).csproj", "{7690ABF7-7927-452E-82B6-02AC6B209BA1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nina14", "Nina14", "{4208751B-61B7-4F23-B102-710E5E369D2D}"
+	ProjectSection(SolutionItems) = preProject
+		TinyFonts\Nina14\Shared\TinyFonts.Nina14.nuspec = TinyFonts\Nina14\Shared\TinyFonts.Nina14.nuspec
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Small", "Small", "{699F249D-E7D1-4B8C-8E69-67E2FD3D5582}"
+	ProjectSection(SolutionItems) = preProject
+		TinyFonts\Small\Shared\TinyFonts.Small.nuspec = TinyFonts\Small\Shared\TinyFonts.Small.nuspec
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
@@ -249,52 +257,49 @@ Global
 		Core\uScoober\Shared\Shared.projitems*{c8a0566e-daa6-4fbd-b407-a9b806495f88}*SharedItemsImports = 4
 		Core\uScoober.Threading.Presentation\Shared\Shared.projitems*{a5e36e63-2cc8-4bac-80c6-49c95aaf534c}*SharedItemsImports = 13
 		Core\uScoober.TestFramework.TextUI\Shared\Shared.projitems*{1dd5c443-9808-4a7b-a520-44696894b909}*SharedItemsImports = 4
-		Hardware\BitBang.Pwm\BitBang.Pwm.projitems*{46fb3c64-b0b4-47e4-96a2-331050a088a6}*SharedItemsImports = 13
 		Core\uScoober.TestFramework.TextUI\Shared\Shared.projitems*{4a429d3c-48b3-42e5-9261-c7ed5184e1b9}*SharedItemsImports = 4
 		Hardware\Boards.Netduino\Boards.Netduino.projitems*{0fe48cb1-b1cd-4fd7-b0f8-79c9f835e1fe}*SharedItemsImports = 13
 		Hardware\BitBang.I2C\BitBang.I2C.projitems*{cf27f5d3-3052-4879-8e3a-32b8b327d81f}*SharedItemsImports = 13
 		Core.Validation\uScoober.Tests\Shared\Shared.projitems*{bd08df60-216f-4cc7-bba5-532ac929dace}*SharedItemsImports = 4
 		Core\uScoober.TestFramework\Shared\Shared.projitems*{1b2715b7-6174-4cbd-b5a4-a871074d4af2}*SharedItemsImports = 4
-		Hardware\Display.HD44780\Display.HD44780.projitems*{58bdeb68-2fc1-4d44-ad19-a48866610daf}*SharedItemsImports = 4
-		Hardware\Spot.I2C\Spot.I2C.projitems*{58bdeb68-2fc1-4d44-ad19-a48866610daf}*SharedItemsImports = 4
-		Hardware\Display.HD44780Driver.MCP23017\Display.HD44780Driver.MCP23017.projitems*{58bdeb68-2fc1-4d44-ad19-a48866610daf}*SharedItemsImports = 4
 		Core.Validation\uScoober.Tests\Shared\Shared.projitems*{58bdeb68-2fc1-4d44-ad19-a48866610daf}*SharedItemsImports = 4
-		Hardware\Expander.MCP23017\Expander.MCP23017.projitems*{58bdeb68-2fc1-4d44-ad19-a48866610daf}*SharedItemsImports = 4
-		Hardware\Spot.Digital\Spot.Digital.projitems*{58bdeb68-2fc1-4d44-ad19-a48866610daf}*SharedItemsImports = 4
-		Core.Validation\uScoober.Threading.Tests\Shared\Shared.projitems*{58bdeb68-2fc1-4d44-ad19-a48866610daf}*SharedItemsImports = 4
 		Core.Validation\TestFramework.Tests\TestFramework.Tests.projitems*{58bdeb68-2fc1-4d44-ad19-a48866610daf}*SharedItemsImports = 4
+		Hardware\Spot.Digital\Spot.Digital.projitems*{58bdeb68-2fc1-4d44-ad19-a48866610daf}*SharedItemsImports = 4
 		Hardware\Display.HD44780Driver.Gpio\Display.HD44780Driver.Gpio.projitems*{58bdeb68-2fc1-4d44-ad19-a48866610daf}*SharedItemsImports = 4
+		Hardware\Spot.I2C\Spot.I2C.projitems*{58bdeb68-2fc1-4d44-ad19-a48866610daf}*SharedItemsImports = 4
+		Hardware\Display.HD44780\Display.HD44780.projitems*{58bdeb68-2fc1-4d44-ad19-a48866610daf}*SharedItemsImports = 4
+		Hardware\Expander.MCP23017\Expander.MCP23017.projitems*{58bdeb68-2fc1-4d44-ad19-a48866610daf}*SharedItemsImports = 4
+		Hardware\Display.HD44780Driver.MCP23017\Display.HD44780Driver.MCP23017.projitems*{58bdeb68-2fc1-4d44-ad19-a48866610daf}*SharedItemsImports = 4
 		Features\Binary.Endian\uScoober.Binary.Endian.projitems*{c9503ba6-76f8-4ba8-99a1-6515dd7eacb3}*SharedItemsImports = 13
 		Hardware\Expander.MCP23008\Expander.MCP23008.projitems*{8c1f311b-3731-47d1-8596-5ab5666bd328}*SharedItemsImports = 13
 		Core\uScoober.TestFramework.LedUI\Shared\Shared.projitems*{8f04df76-8c10-436c-96f8-e14dc08d909c}*SharedItemsImports = 4
-		Hardware\Boards.Duino.Pinout\Boards.Duino.Pinout.projitems*{d406e386-2498-4bc5-9fa2-1585259a613d}*SharedItemsImports = 4
-		Hardware\Spot.Pwm\Spot.Pwm.projitems*{d406e386-2498-4bc5-9fa2-1585259a613d}*SharedItemsImports = 4
-		Hardware\Spot.I2C\Spot.I2C.projitems*{d406e386-2498-4bc5-9fa2-1585259a613d}*SharedItemsImports = 4
 		Hardware\Boards.Cerbuino\Boards.Cerbuino.projitems*{d406e386-2498-4bc5-9fa2-1585259a613d}*SharedItemsImports = 4
-		Hardware\Spot.Spi\Spot.Spi.projitems*{d406e386-2498-4bc5-9fa2-1585259a613d}*SharedItemsImports = 4
-		Hardware\Spot.Analog\Spot.Analog.projitems*{d406e386-2498-4bc5-9fa2-1585259a613d}*SharedItemsImports = 4
 		Core.Validation\uScoober.Tests\Shared\Shared.projitems*{d406e386-2498-4bc5-9fa2-1585259a613d}*SharedItemsImports = 4
 		Hardware\Spot.Digital\Spot.Digital.projitems*{d406e386-2498-4bc5-9fa2-1585259a613d}*SharedItemsImports = 4
+		Hardware\Boards.Duino.Pinout\Boards.Duino.Pinout.projitems*{d406e386-2498-4bc5-9fa2-1585259a613d}*SharedItemsImports = 4
+		Hardware\Spot.I2C\Spot.I2C.projitems*{d406e386-2498-4bc5-9fa2-1585259a613d}*SharedItemsImports = 4
+		Hardware\Spot.Pwm\Spot.Pwm.projitems*{d406e386-2498-4bc5-9fa2-1585259a613d}*SharedItemsImports = 4
+		Hardware\Spot.Analog\Spot.Analog.projitems*{d406e386-2498-4bc5-9fa2-1585259a613d}*SharedItemsImports = 4
+		Hardware\Spot.Spi\Spot.Spi.projitems*{d406e386-2498-4bc5-9fa2-1585259a613d}*SharedItemsImports = 4
 		Core\uScoober.TestFramework.LedUI\Shared\Shared.projitems*{6db37f89-0eab-49f1-990e-84152a0000b5}*SharedItemsImports = 4
 		Core.Validation\uScoober.Threading.Tests\Shared\Shared.projitems*{04dbe653-e77b-4434-a604-04de48647cd0}*SharedItemsImports = 4
 		Features\DataStructures.NotifyCollection\uScoober.DataStructures.NotifyCollection.projitems*{ce076ae6-7711-4359-b98b-55ef72b18113}*SharedItemsImports = 4
 		Hardware\Boards.Duino.Pinout\Boards.Duino.Pinout.projitems*{a323f734-469f-40f8-a71c-0897400123a6}*SharedItemsImports = 13
 		Hardware\Expander.MCP23017\Expander.MCP23017.projitems*{db71d3f5-05c5-4fa3-8dc7-30a1ea426ce1}*SharedItemsImports = 4
-		Core\uScoober.TestFramework.GraphicUI\Shared\Shared.projitems*{d3064c87-d967-49fc-a42e-fe695cb0273e}*SharedItemsImports = 4
 		Hardware\Spot.Digital\Spot.Digital.projitems*{d3064c87-d967-49fc-a42e-fe695cb0273e}*SharedItemsImports = 4
+		Core\uScoober.TestFramework.GraphicUI\Shared\Shared.projitems*{d3064c87-d967-49fc-a42e-fe695cb0273e}*SharedItemsImports = 4
 		Hardware\Time.DS1307\Shared.projitems*{ec07e887-91d9-44e7-84d7-8bdf627a3e60}*SharedItemsImports = 13
 		Hardware\Display.HD44780Driver.MCP23008\Display.HD44780Driver.MCP23008.projitems*{5aee6ba3-f262-4306-9dc6-53ffb74cd5fe}*SharedItemsImports = 13
-		Core\uScoober.TestFramework.GraphicUI\Shared\Shared.projitems*{5825c7b2-ee1d-438d-b7d1-4b4506559436}*SharedItemsImports = 4
 		Hardware\Spot.Digital\Spot.Digital.projitems*{5825c7b2-ee1d-438d-b7d1-4b4506559436}*SharedItemsImports = 4
+		Core\uScoober.TestFramework.GraphicUI\Shared\Shared.projitems*{5825c7b2-ee1d-438d-b7d1-4b4506559436}*SharedItemsImports = 4
 		Features\Storage\uScoober.Storage.projitems*{bc5f5562-784a-4140-9b70-3a7acdf2987a}*SharedItemsImports = 13
 		Hardware\BitBang.Spi\BitBang.Spi.projitems*{303732d6-7700-446e-b1c4-b8a307186284}*SharedItemsImports = 13
 		Hardware\Expander.MCP23017\Expander.MCP23017.projitems*{75b318fd-4673-493b-8ee5-319771db396f}*SharedItemsImports = 13
 		Hardware\Spot.I2C\Spot.I2C.projitems*{cfe23c08-997b-4fc9-aaa1-52dc3ac9dc62}*SharedItemsImports = 13
 		Core.Validation\uScoober.Threading.Tests\Shared\Shared.projitems*{3ac05dea-eabf-482c-aac7-d52cb76bd240}*SharedItemsImports = 13
 		Core.Validation\uScoober.Tests\Shared\Shared.projitems*{d113b227-226b-4685-b85c-fffaed3fc847}*SharedItemsImports = 4
-		Hardware\Spot.Digital\Spot.Digital.projitems*{d113b227-226b-4685-b85c-fffaed3fc847}*SharedItemsImports = 4
-		Core.Validation\uScoober.Threading.Tests\Shared\Shared.projitems*{d113b227-226b-4685-b85c-fffaed3fc847}*SharedItemsImports = 4
 		Core.Validation\TestFramework.Tests\TestFramework.Tests.projitems*{d113b227-226b-4685-b85c-fffaed3fc847}*SharedItemsImports = 4
+		Hardware\Spot.Digital\Spot.Digital.projitems*{d113b227-226b-4685-b85c-fffaed3fc847}*SharedItemsImports = 4
 		Hardware\Spot.Analog\Spot.Analog.projitems*{4c313a4a-1a46-4be6-a895-476eb62ad196}*SharedItemsImports = 13
 		Hardware\I2C.Scanner\I2C.Scanner.projitems*{06cadcff-2e78-4918-846f-3f9ac53a7e71}*SharedItemsImports = 13
 		Features\UnitsOfMeasure\uScoober.UnitsOfMeasure.projitems*{04b9ae65-4cc4-4da1-b3f7-50d1740f14ae}*SharedItemsImports = 4
@@ -304,23 +309,22 @@ Global
 		Hardware\Display.HD44780\Display.HD44780.projitems*{868f2d79-9bd2-4994-84f5-2bceba03a4c9}*SharedItemsImports = 13
 		Core\uScoober.Threading\Shared\Shared.projitems*{e797cc15-691d-4284-bc3f-b9e866e00aaf}*SharedItemsImports = 4
 		Features\Binary.BitCounter\uScoober.Binary.BitCounter.projitems*{87712199-3f2a-4fd4-a08f-80a444f8aa93}*SharedItemsImports = 4
+		Features\Binary.BitMask\uScoober.Binary.BitMask.projitems*{87712199-3f2a-4fd4-a08f-80a444f8aa93}*SharedItemsImports = 4
 		Features\Binary.BinaryCodedDecimal\uScoober.Binary.BinaryCodedDecimal.projitems*{87712199-3f2a-4fd4-a08f-80a444f8aa93}*SharedItemsImports = 4
 		Features\Binary.Endian\uScoober.Binary.Endian.projitems*{87712199-3f2a-4fd4-a08f-80a444f8aa93}*SharedItemsImports = 4
-		Features\Binary.BitMask\uScoober.Binary.BitMask.projitems*{87712199-3f2a-4fd4-a08f-80a444f8aa93}*SharedItemsImports = 4
 		Core.Validation\uScoober.Tests\Shared\Shared.projitems*{57e03e08-13b1-415d-81d6-786b9ae7d9d5}*SharedItemsImports = 13
 		Features\Binary.BinaryCodedDecimal\uScoober.Binary.BinaryCodedDecimal.projitems*{88ab822b-b7d3-4877-a9a7-003a7170e979}*SharedItemsImports = 13
 		Hardware\Boards.Cerbuino\Boards.Cerbuino.projitems*{e1e42132-fe53-4145-8569-58ff8e2a14fd}*SharedItemsImports = 13
 		Core.Validation\uScoober.Tests\Shared\Shared.projitems*{9a99913d-4646-4af4-b240-9108227a1530}*SharedItemsImports = 4
-		Core.Validation\uScoober.Threading.Tests\Shared\Shared.projitems*{9a99913d-4646-4af4-b240-9108227a1530}*SharedItemsImports = 4
 		Core.Validation\TestFramework.Tests\TestFramework.Tests.projitems*{9a99913d-4646-4af4-b240-9108227a1530}*SharedItemsImports = 4
-		Hardware\Boards.Netduino\Boards.Netduino.projitems*{399321e2-8ad6-4732-a75e-e3ece480226c}*SharedItemsImports = 4
-		Hardware\Boards.Duino.Pinout\Boards.Duino.Pinout.projitems*{399321e2-8ad6-4732-a75e-e3ece480226c}*SharedItemsImports = 4
-		Hardware\Spot.Pwm\Spot.Pwm.projitems*{399321e2-8ad6-4732-a75e-e3ece480226c}*SharedItemsImports = 4
-		Hardware\Spot.I2C\Spot.I2C.projitems*{399321e2-8ad6-4732-a75e-e3ece480226c}*SharedItemsImports = 4
-		Hardware\Spot.Spi\Spot.Spi.projitems*{399321e2-8ad6-4732-a75e-e3ece480226c}*SharedItemsImports = 4
-		Hardware\Spot.Analog\Spot.Analog.projitems*{399321e2-8ad6-4732-a75e-e3ece480226c}*SharedItemsImports = 4
 		Core.Validation\uScoober.Tests\Shared\Shared.projitems*{399321e2-8ad6-4732-a75e-e3ece480226c}*SharedItemsImports = 4
 		Hardware\Spot.Digital\Spot.Digital.projitems*{399321e2-8ad6-4732-a75e-e3ece480226c}*SharedItemsImports = 4
+		Hardware\Boards.Netduino\Boards.Netduino.projitems*{399321e2-8ad6-4732-a75e-e3ece480226c}*SharedItemsImports = 4
+		Hardware\Boards.Duino.Pinout\Boards.Duino.Pinout.projitems*{399321e2-8ad6-4732-a75e-e3ece480226c}*SharedItemsImports = 4
+		Hardware\Spot.I2C\Spot.I2C.projitems*{399321e2-8ad6-4732-a75e-e3ece480226c}*SharedItemsImports = 4
+		Hardware\Spot.Pwm\Spot.Pwm.projitems*{399321e2-8ad6-4732-a75e-e3ece480226c}*SharedItemsImports = 4
+		Hardware\Spot.Analog\Spot.Analog.projitems*{399321e2-8ad6-4732-a75e-e3ece480226c}*SharedItemsImports = 4
+		Hardware\Spot.Spi\Spot.Spi.projitems*{399321e2-8ad6-4732-a75e-e3ece480226c}*SharedItemsImports = 4
 		Hardware\Display.HD44780Driver.Gpio\Display.HD44780Driver.Gpio.projitems*{ec057c3b-c05c-4021-b0c8-73063508f054}*SharedItemsImports = 13
 		Core\uScoober\Shared\Shared.projitems*{cbb895b4-8cc4-46f5-96d2-247d54811c45}*SharedItemsImports = 4
 		Hardware\Spot.Spi\Spot.Spi.projitems*{efa58381-e07b-4446-8d35-666c2df1e0e6}*SharedItemsImports = 13
@@ -596,46 +600,6 @@ Global
 		{D113B227-226B-4685-B85C-FFFAED3FC847}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{D113B227-226B-4685-B85C-FFFAED3FC847}.Release|Mixed Platforms.Deploy.0 = Release|Any CPU
 		{D113B227-226B-4685-B85C-FFFAED3FC847}.Release|x86.ActiveCfg = Release|Any CPU
-		{4F2FF53B-BD11-4F84-9A6A-424B3DFDA8BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4F2FF53B-BD11-4F84-9A6A-424B3DFDA8BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4F2FF53B-BD11-4F84-9A6A-424B3DFDA8BF}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{4F2FF53B-BD11-4F84-9A6A-424B3DFDA8BF}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{4F2FF53B-BD11-4F84-9A6A-424B3DFDA8BF}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{4F2FF53B-BD11-4F84-9A6A-424B3DFDA8BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4F2FF53B-BD11-4F84-9A6A-424B3DFDA8BF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4F2FF53B-BD11-4F84-9A6A-424B3DFDA8BF}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{4F2FF53B-BD11-4F84-9A6A-424B3DFDA8BF}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{4F2FF53B-BD11-4F84-9A6A-424B3DFDA8BF}.Release|x86.ActiveCfg = Release|Any CPU
-		{89DBB2FF-71C5-49BA-950B-E1D5FE7DB70D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{89DBB2FF-71C5-49BA-950B-E1D5FE7DB70D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{89DBB2FF-71C5-49BA-950B-E1D5FE7DB70D}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{89DBB2FF-71C5-49BA-950B-E1D5FE7DB70D}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{89DBB2FF-71C5-49BA-950B-E1D5FE7DB70D}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{89DBB2FF-71C5-49BA-950B-E1D5FE7DB70D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{89DBB2FF-71C5-49BA-950B-E1D5FE7DB70D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{89DBB2FF-71C5-49BA-950B-E1D5FE7DB70D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{89DBB2FF-71C5-49BA-950B-E1D5FE7DB70D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{89DBB2FF-71C5-49BA-950B-E1D5FE7DB70D}.Release|x86.ActiveCfg = Release|Any CPU
-		{809983D1-54A0-4C40-8D0B-101FA101FDF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{809983D1-54A0-4C40-8D0B-101FA101FDF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{809983D1-54A0-4C40-8D0B-101FA101FDF1}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{809983D1-54A0-4C40-8D0B-101FA101FDF1}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{809983D1-54A0-4C40-8D0B-101FA101FDF1}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{809983D1-54A0-4C40-8D0B-101FA101FDF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{809983D1-54A0-4C40-8D0B-101FA101FDF1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{809983D1-54A0-4C40-8D0B-101FA101FDF1}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{809983D1-54A0-4C40-8D0B-101FA101FDF1}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{809983D1-54A0-4C40-8D0B-101FA101FDF1}.Release|x86.ActiveCfg = Release|Any CPU
-		{7690ABF7-7927-452E-82B6-02AC6B209BA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7690ABF7-7927-452E-82B6-02AC6B209BA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7690ABF7-7927-452E-82B6-02AC6B209BA1}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{7690ABF7-7927-452E-82B6-02AC6B209BA1}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{7690ABF7-7927-452E-82B6-02AC6B209BA1}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{7690ABF7-7927-452E-82B6-02AC6B209BA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7690ABF7-7927-452E-82B6-02AC6B209BA1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7690ABF7-7927-452E-82B6-02AC6B209BA1}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{7690ABF7-7927-452E-82B6-02AC6B209BA1}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{7690ABF7-7927-452E-82B6-02AC6B209BA1}.Release|x86.ActiveCfg = Release|Any CPU
 		{5825C7B2-EE1D-438D-B7D1-4B4506559436}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5825C7B2-EE1D-438D-B7D1-4B4506559436}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5825C7B2-EE1D-438D-B7D1-4B4506559436}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
@@ -710,6 +674,46 @@ Global
 		{DB71D3F5-05C5-4FA3-8DC7-30A1EA426CE1}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{DB71D3F5-05C5-4FA3-8DC7-30A1EA426CE1}.Release|Mixed Platforms.Deploy.0 = Release|Any CPU
 		{DB71D3F5-05C5-4FA3-8DC7-30A1EA426CE1}.Release|x86.ActiveCfg = Release|Any CPU
+		{4F2FF53B-BD11-4F84-9A6A-424B3DFDA8BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F2FF53B-BD11-4F84-9A6A-424B3DFDA8BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F2FF53B-BD11-4F84-9A6A-424B3DFDA8BF}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{4F2FF53B-BD11-4F84-9A6A-424B3DFDA8BF}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{4F2FF53B-BD11-4F84-9A6A-424B3DFDA8BF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4F2FF53B-BD11-4F84-9A6A-424B3DFDA8BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F2FF53B-BD11-4F84-9A6A-424B3DFDA8BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F2FF53B-BD11-4F84-9A6A-424B3DFDA8BF}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{4F2FF53B-BD11-4F84-9A6A-424B3DFDA8BF}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{4F2FF53B-BD11-4F84-9A6A-424B3DFDA8BF}.Release|x86.ActiveCfg = Release|Any CPU
+		{89DBB2FF-71C5-49BA-950B-E1D5FE7DB70D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89DBB2FF-71C5-49BA-950B-E1D5FE7DB70D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89DBB2FF-71C5-49BA-950B-E1D5FE7DB70D}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{89DBB2FF-71C5-49BA-950B-E1D5FE7DB70D}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{89DBB2FF-71C5-49BA-950B-E1D5FE7DB70D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{89DBB2FF-71C5-49BA-950B-E1D5FE7DB70D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89DBB2FF-71C5-49BA-950B-E1D5FE7DB70D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89DBB2FF-71C5-49BA-950B-E1D5FE7DB70D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{89DBB2FF-71C5-49BA-950B-E1D5FE7DB70D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{89DBB2FF-71C5-49BA-950B-E1D5FE7DB70D}.Release|x86.ActiveCfg = Release|Any CPU
+		{809983D1-54A0-4C40-8D0B-101FA101FDF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{809983D1-54A0-4C40-8D0B-101FA101FDF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{809983D1-54A0-4C40-8D0B-101FA101FDF1}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{809983D1-54A0-4C40-8D0B-101FA101FDF1}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{809983D1-54A0-4C40-8D0B-101FA101FDF1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{809983D1-54A0-4C40-8D0B-101FA101FDF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{809983D1-54A0-4C40-8D0B-101FA101FDF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{809983D1-54A0-4C40-8D0B-101FA101FDF1}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{809983D1-54A0-4C40-8D0B-101FA101FDF1}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{809983D1-54A0-4C40-8D0B-101FA101FDF1}.Release|x86.ActiveCfg = Release|Any CPU
+		{7690ABF7-7927-452E-82B6-02AC6B209BA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7690ABF7-7927-452E-82B6-02AC6B209BA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7690ABF7-7927-452E-82B6-02AC6B209BA1}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{7690ABF7-7927-452E-82B6-02AC6B209BA1}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{7690ABF7-7927-452E-82B6-02AC6B209BA1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7690ABF7-7927-452E-82B6-02AC6B209BA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7690ABF7-7927-452E-82B6-02AC6B209BA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7690ABF7-7927-452E-82B6-02AC6B209BA1}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{7690ABF7-7927-452E-82B6-02AC6B209BA1}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{7690ABF7-7927-452E-82B6-02AC6B209BA1}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -773,7 +777,6 @@ Global
 		{D686E0FD-7632-4676-86FE-112AB9C54B58} = {1543F3EA-5B76-471B-A810-B4C19107565C}
 		{8710003A-D814-46BA-9409-4BC23DA02452} = {1543F3EA-5B76-471B-A810-B4C19107565C}
 		{4295183B-2F56-41E1-B88F-2CC610613AF3} = {1543F3EA-5B76-471B-A810-B4C19107565C}
-		{46FB3C64-B0B4-47E4-96A2-331050A088A6} = {88206F7A-8F71-4F59-AA33-517C9DC10AF1}
 		{599D2CE8-F836-4C7F-A8A8-B9996AB670FC} = {C1506BA1-46B3-4FE0-9F59-D854BC64E49B}
 		{A436BF64-E5CF-42D1-9125-7EC6F0F04B10} = {C1506BA1-46B3-4FE0-9F59-D854BC64E49B}
 		{95906289-ED73-4A99-87AD-79D291402033} = {C1506BA1-46B3-4FE0-9F59-D854BC64E49B}
@@ -786,10 +789,6 @@ Global
 		{58BDEB68-2FC1-4D44-AD19-A48866610DAF} = {3A102B28-235F-4D88-BAE8-018511C0FD4B}
 		{1A3AB225-F09A-4F72-A5C8-C03C78179F8C} = {3A102B28-235F-4D88-BAE8-018511C0FD4B}
 		{D113B227-226B-4685-B85C-FFFAED3FC847} = {3A102B28-235F-4D88-BAE8-018511C0FD4B}
-		{4F2FF53B-BD11-4F84-9A6A-424B3DFDA8BF} = {E3FB2FFA-9735-4B72-B27F-C2D62A9EDC03}
-		{89DBB2FF-71C5-49BA-950B-E1D5FE7DB70D} = {E3FB2FFA-9735-4B72-B27F-C2D62A9EDC03}
-		{809983D1-54A0-4C40-8D0B-101FA101FDF1} = {E3FB2FFA-9735-4B72-B27F-C2D62A9EDC03}
-		{7690ABF7-7927-452E-82B6-02AC6B209BA1} = {E3FB2FFA-9735-4B72-B27F-C2D62A9EDC03}
 		{5825C7B2-EE1D-438D-B7D1-4B4506559436} = {F6E84214-4068-4FF3-ACC3-18A0BFACDF8C}
 		{D3064C87-D967-49FC-A42E-FE695CB0273E} = {F6E84214-4068-4FF3-ACC3-18A0BFACDF8C}
 		{B1A5F91A-96D2-4CA5-A20A-BFD9008FAAC4} = {F6E84214-4068-4FF3-ACC3-18A0BFACDF8C}
@@ -810,5 +809,11 @@ Global
 		{CB978C8C-BA99-4ABB-92B8-41FE6133E0FA} = {5BB186AA-E52D-4E40-8286-D8711B5C83D6}
 		{75591536-792C-47F7-9D43-ACEA7931DA65} = {D686E0FD-7632-4676-86FE-112AB9C54B58}
 		{5BB186AA-E52D-4E40-8286-D8711B5C83D6} = {1543F3EA-5B76-471B-A810-B4C19107565C}
+		{4F2FF53B-BD11-4F84-9A6A-424B3DFDA8BF} = {4208751B-61B7-4F23-B102-710E5E369D2D}
+		{89DBB2FF-71C5-49BA-950B-E1D5FE7DB70D} = {4208751B-61B7-4F23-B102-710E5E369D2D}
+		{809983D1-54A0-4C40-8D0B-101FA101FDF1} = {699F249D-E7D1-4B8C-8E69-67E2FD3D5582}
+		{7690ABF7-7927-452E-82B6-02AC6B209BA1} = {699F249D-E7D1-4B8C-8E69-67E2FD3D5582}
+		{4208751B-61B7-4F23-B102-710E5E369D2D} = {E3FB2FFA-9735-4B72-B27F-C2D62A9EDC03}
+		{699F249D-E7D1-4B8C-8E69-67E2FD3D5582} = {E3FB2FFA-9735-4B72-B27F-C2D62A9EDC03}
 	EndGlobalSection
 EndGlobal

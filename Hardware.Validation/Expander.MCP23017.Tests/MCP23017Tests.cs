@@ -135,9 +135,7 @@ namespace uScoober.Hardware.Expander
             ObserveOutput(0x02, 0x02, 0x89);
 
             BufferInput(0xA9);
-            _mcp.SetTypeOfInputLogicOnBankA(Pin7: MCP23017.InputLogic.Inverted,
-                                            Pin5: MCP23017.InputLogic.Inverted,
-                                            Pin3: MCP23017.InputLogic.Inverted);
+            _mcp.SetTypeOfInputLogicOnBankA(Pin7: MCP23017.InputLogic.Inverted, Pin5: MCP23017.InputLogic.Inverted, Pin3: MCP23017.InputLogic.Inverted);
             ObserveOutput(0x02, 0x02, 0xA9);
         }
 

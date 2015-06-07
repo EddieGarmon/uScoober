@@ -15,15 +15,18 @@ internal static class EntryPoint
         //                                               .ToString());
         //                      }),
         //             Task.Run(() => { /* setup storage */
-        //                      }));
+        //                      }),
+        //             Task.Run(() => { /* setup something else */
+        //                      }),
+        //);
 
         var board = new Netduino();
         board.OnboardLed.Blink(10, 200);
 
         // how to bind signals
         Signals.DigitalOutput.Bind(board.Pins.D0);
-        Signals.DigitalInput.Bind(board.Pins.D1);
-        Signals.DigitalInterrupt.Bind(board.Pins.D2);
+        Signals.DigitalInput.Bind(board.Pins.D1,"sample this line",ResistorMode.PullUp);
+        Signals.DigitalInterrupt.Bind(board.Pins.D2,"interruptable line",ResistorMode.PullUp,InterruptMode.InterruptEdgeLow);
 
         Signals.AnalogInput.Bind(board.Analog.PinA0);
 

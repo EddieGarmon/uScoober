@@ -8,12 +8,6 @@ namespace uScoober.DataStructures
     {
         private List _list;
 
-        public void AddItemRange_Fact() {
-            _list = new List();
-            _list.AddRange("hello", "micro", "world");
-            _list.ShouldHaveState(3, 3, "hello", "micro", "world");
-        }
-
         public void AddItem_Fact() {
             _list = new List();
             _list.Add("hello");
@@ -22,6 +16,12 @@ namespace uScoober.DataStructures
             _list.ShouldHaveState(2, 2, "hello", "micro");
             _list.Add(4);
             _list.ShouldHaveState(3, 3, "hello", "micro", 4);
+        }
+
+        public void AddItemRange_Fact() {
+            _list = new List();
+            _list.AddRange("hello", "micro", "world");
+            _list.ShouldHaveState(3, 3, "hello", "micro", "world");
         }
 
         public void ContainsItem_Fact() {
@@ -49,18 +49,6 @@ namespace uScoober.DataStructures
                  .ShouldEqual(3);
         }
 
-        public void InsertItemRange_Fact() {
-            _list = new List();
-            _list.InsertRange(0, "world");
-            _list.ShouldHaveState(1, 1, "world");
-            _list.InsertRange(0, "hello");
-            _list.ShouldHaveState(2, 2, "hello", "world");
-            _list.InsertRange(1, "micro");
-            _list.ShouldHaveState(3, 3, "hello", "micro", "world");
-            _list.InsertRange(0, "super", "awesome", "fun", "time");
-            _list.ShouldHaveState(7, 7, "super", "awesome", "fun", "time", "hello", "micro", "world");
-        }
-
         public void InsertItem_Fact() {
             _list = new List();
             _list.Insert(0, "hello");
@@ -71,6 +59,18 @@ namespace uScoober.DataStructures
             _list.ShouldHaveState(3, 3, "hello", "micro", "world");
             _list.Insert(0, "awesome:");
             _list.ShouldHaveState(4, 4, "awesome:", "hello", "micro", "world");
+        }
+
+        public void InsertItemRange_Fact() {
+            _list = new List();
+            _list.InsertRange(0, "world");
+            _list.ShouldHaveState(1, 1, "world");
+            _list.InsertRange(0, "hello");
+            _list.ShouldHaveState(2, 2, "hello", "world");
+            _list.InsertRange(1, "micro");
+            _list.ShouldHaveState(3, 3, "hello", "micro", "world");
+            _list.InsertRange(0, "super", "awesome", "fun", "time");
+            _list.ShouldHaveState(7, 7, "super", "awesome", "fun", "time", "hello", "micro", "world");
         }
 
         public void MoveItems_Fact() {

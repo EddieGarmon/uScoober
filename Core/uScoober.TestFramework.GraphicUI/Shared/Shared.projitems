@@ -10,7 +10,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)GuiTestHarness.cs" />
+    <None Include="$(MSBuildThisFileDirectory)PackageContent\EntryPoint.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UI\Views\TestFailureDetails.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UI\Views\TestRunView.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)uScoober.TestFramework.GraphicUI.nuspec" />
   </ItemGroup>
 </Project>

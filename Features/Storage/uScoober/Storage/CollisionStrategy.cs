@@ -18,6 +18,6 @@
         /// <summary>
         /// Return an error if another file or folder exists with the same name and abort the operation.
         /// </summary>
-        FailIfExists = 2,
+        FailIfExists = 2
     }
 }

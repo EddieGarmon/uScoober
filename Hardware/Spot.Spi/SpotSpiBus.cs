@@ -5,12 +5,11 @@ using uScoober.Hardware.Spi;
 namespace uScoober.Hardware.Spot
 {
     internal class SpotSpiBus : DisposableBase,
-                              ISpiBus
+                                ISpiBus
     {
         private readonly SPI.SPI_module _module;
         private readonly byte[] _noOpBuffer = new byte[1];
         private readonly SPI _spotSpi;
-
         private int _lastConfigHash;
 
         public SpotSpiBus(SPI.SPI_module module) {
@@ -26,7 +25,9 @@ namespace uScoober.Hardware.Spot
         public void Read(SpiDeviceConfig config, ushort[] buffer, ByteOrder byteOrder) {
             ConfigureBusForDevice(config);
             //todo validate byte order
-            _spotSpi.WriteRead(new ushort[] {config.NoOpCommand},
+            _spotSpi.WriteRead(new ushort[] {
+                config.NoOpCommand
+            },
                                buffer);
             throw new NotImplementedException();
         }

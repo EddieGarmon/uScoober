@@ -21,14 +21,6 @@ namespace uScoober.DataStructures
             _storage = new Ring(values);
         }
 
-        public int Count {
-            get { return _storage.Count; }
-        }
-
-        public int EditVersion {
-            get { return _storage.EditVersion; }
-        }
-
         public virtual object this[int index] {
             get {
                 return _storage.FindAtIndex(index)
@@ -39,6 +31,30 @@ namespace uScoober.DataStructures
                 _storage.IncrementEditVersion();
                 findResult.RingLink.Value = value;
             }
+        }
+
+        public int Count {
+            get { return _storage.Count; }
+        }
+
+        public int EditVersion {
+            get { return _storage.EditVersion; }
+        }
+
+        bool IList.IsFixedSize {
+            get { return false; }
+        }
+
+        bool IList.IsReadOnly {
+            get { return false; }
+        }
+
+        bool ICollection.IsSynchronized {
+            get { return false; }
+        }
+
+        object ICollection.SyncRoot {
+            get { return this; }
         }
 
         public virtual int Add(object value) {
@@ -155,22 +171,6 @@ namespace uScoober.DataStructures
 
         public Ring ToRing() {
             return _storage;
-        }
-
-        bool ICollection.IsSynchronized {
-            get { return false; }
-        }
-
-        object ICollection.SyncRoot {
-            get { return this; }
-        }
-
-        bool IList.IsFixedSize {
-            get { return false; }
-        }
-
-        bool IList.IsReadOnly {
-            get { return false; }
         }
 
         public static implicit operator object[](List list) {

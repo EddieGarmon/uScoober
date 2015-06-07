@@ -10,6 +10,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)LedTestHarness.cs" />
+    <None Include="$(MSBuildThisFileDirectory)PackageContent\EntryPoint.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UI\FeedbackToLed.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)uScoober.TestFramework.LedUI.nuspec" />
   </ItemGroup>
 </Project>

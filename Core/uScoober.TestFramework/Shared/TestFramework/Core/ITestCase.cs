@@ -1,6 +1,7 @@
 ﻿namespace uScoober.TestFramework.Core
 {
-    public interface ITestCase {
+    public interface ITestCase
+    {
         string Name { get; }
 
         void RunSetup();

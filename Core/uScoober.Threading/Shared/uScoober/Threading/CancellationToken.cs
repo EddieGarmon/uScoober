@@ -4,6 +4,8 @@ namespace uScoober.Threading
 {
     public class CancellationToken
     {
+        private static readonly CancellationToken __canceled = new CancellationToken(CancellationSource.Canceled);
+        private static readonly CancellationToken __none = new CancellationToken(null);
         private readonly CancellationSource _source;
 
         internal CancellationToken(CancellationSource source) {
@@ -18,6 +20,14 @@ namespace uScoober.Threading
             get { return _source != null && _source.IsCancelationRequested; }
         }
 
+        public static CancellationToken Canceled {
+            get { return __canceled; }
+        }
+
+        public static CancellationToken None {
+            get { return __none; }
+        }
+
         public void Register(Action callback) {
             if (!CanBeCanceled) {
                 throw new Exception("Non cancellable token will never fire");
@@ -29,17 +39,6 @@ namespace uScoober.Threading
             if (IsCancellationRequested) {
                 throw new TaskCanceledException(this);
             }
-        }
-
-        private static readonly CancellationToken __canceled = new CancellationToken(CancellationSource.Canceled);
-        private static readonly CancellationToken __none = new CancellationToken(null);
-
-        public static CancellationToken Canceled {
-            get { return __canceled; }
-        }
-
-        public static CancellationToken None {
-            get { return __none; }
         }
 
         public static CancellationSource operator +(CancellationSource source1, CancellationToken token2) {

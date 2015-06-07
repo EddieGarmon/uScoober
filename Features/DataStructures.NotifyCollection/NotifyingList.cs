@@ -5,7 +5,7 @@ using System.Threading;
 namespace uScoober.DataStructures
 {
     internal class NotifyingList : List,
-                                 INotifyCollectionChanged
+                                   INotifyCollectionChanged
     {
         private IDisposable _stopNotifications;
         private int _suppressionCount;
@@ -14,6 +14,14 @@ namespace uScoober.DataStructures
 
         public NotifyingList(IEnumerable values)
             : base(values) { }
+
+        public override object this[int index] {
+            get { return base[index]; }
+            set {
+                base[index] = value;
+                NotifyOfCollectionChange(NotifyCollectionChangedAction.Reset);
+            }
+        }
 
         public bool IsNotifying {
             get { return _suppressionCount == 0; }
@@ -29,14 +37,6 @@ namespace uScoober.DataStructures
                     _stopNotifications.Dispose();
                     _stopNotifications = null;
                 }
-            }
-        }
-
-        public override object this[int index] {
-            get { return base[index]; }
-            set {
-                base[index] = value;
-                NotifyOfCollectionChange(NotifyCollectionChangedAction.Reset);
             }
         }
 

@@ -9,7 +9,11 @@
     <Import_RootNamespace>Shared</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)PackageContent\EntryPoint.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TextTestHarness.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UI\FeedbackToTextDisplay.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)uScoober.TestFramework.TextUI.nuspec" />
   </ItemGroup>
 </Project>

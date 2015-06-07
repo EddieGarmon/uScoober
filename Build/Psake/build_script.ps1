@@ -21,7 +21,7 @@ Properties {
 	# - Root Path to Version
 	$script:mapRootPathToVersion = @{}
 	# - Nuget published versions
-	$script:mapPublishedVersions = @{}
+	$script:mapLargestVersions = @{}
 
     # outputs
 	$script:packageOutput = PathFromScript "\..\Artifacts"
@@ -211,24 +211,32 @@ Task Upload -depends DefineSemVer {
 }
 
 function GetLastPublishedVersion($packageId) {
-	if (!($mapPublishedVersions.Contains($packageId))) {
+	if (!($mapLargestVersions.Contains($packageId))) {
 		# fetch last nuget published versions
 		Write-Host "Querying NuGet.org feed for $packageId..."
 		exec { 
 			$pubVersions = & $nuget list $packageId -NonInteractive -Source "https://www.nuget.org/api/v2/"
-			if ($pubVersions -eq "No packages found.") {
-				$mapPublishedVersions.Add($id, [SemVer]::Zero)
-			} else {
+			if ($pubVersions -ne "No packages found.") {
 				$pubVersions | ForEach-Object {
 					$split = $_.Split(' ')
 					$id = $split[0]
 					$version = [SemVer]::Parse($split[1])
-					$mapPublishedVersions.Add($id, $version)
+					if ($mapLargestVersions.Contains($id)) {
+						if ($version -gt $mapLargestVersions[$id]) {
+							$mapLargestVersions[$id] = $version
+						}
+					} else {
+						$mapLargestVersions.Add($id, $version)
+					}
 				}
+			} 
+			# It might not have been listed
+			if (!($mapLargestVersions.Contains($packageId))) {
+				$mapLargestVersions.Add($packageId, [SemVer]::Zero)
 			}
 		}
 	}
-	$mapPublishedVersions[$packageId]
+	$mapLargestVersions[$packageId]
 }
 
 function PathFromScript($relativePath) {

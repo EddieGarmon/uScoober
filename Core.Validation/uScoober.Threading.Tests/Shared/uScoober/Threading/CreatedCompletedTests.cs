@@ -14,19 +14,19 @@ namespace uScoober.Threading
             task.IsFaulted.ShouldBeFalse();
         }
 
-        public void CompletedWithResult_Fact() {
-            var task = Task.Completed(":)");
+        public void Completed_Fact() {
+            var task = Task.Completed();
             task.ShouldNotBeNull();
-            task.Result.ShouldEqual(":)");
             task.Status.ShouldEqual(TaskStatus.RanToCompletion);
             task.IsComplete.ShouldBeTrue();
             task.IsCanceled.ShouldBeFalse();
             task.IsFaulted.ShouldBeFalse();
         }
 
-        public void Completed_Fact() {
-            var task = Task.Completed();
+        public void CompletedWithResult_Fact() {
+            var task = Task.Completed(":)");
             task.ShouldNotBeNull();
+            task.Result.ShouldEqual(":)");
             task.Status.ShouldEqual(TaskStatus.RanToCompletion);
             task.IsComplete.ShouldBeTrue();
             task.IsCanceled.ShouldBeFalse();

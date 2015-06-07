@@ -5,6 +5,7 @@ namespace uScoober.Threading
 {
     public abstract partial class Task : IDisposable
     {
+        private static int __idCounter;
         private readonly CancellationToken _cancellationToken;
         private readonly ManualResetEvent _completionHandle;
         private readonly TaskScheduler _scheduler;
@@ -245,7 +246,5 @@ namespace uScoober.Threading
         protected void SetStatusToUnstartedContinuation() {
             Status = TaskStatus.WaitingForAnticedent;
         }
-
-        private static int __idCounter;
     }
 }

@@ -9,7 +9,6 @@
             0x00FF00FF,
             0x0000FFFF
         };
-
         internal static readonly ulong[] Masks64 = {
             0x5555555555555555,
             0x3333333333333333,

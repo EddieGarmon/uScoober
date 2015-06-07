@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <AssemblyName>Boards.Cerbuino.Tests</AssemblyName>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>uScoober.Hardware.Boards.Cerbuino.Tests</RootNamespace>
+    <ProjectTypeGuids>{b69e3092-b931-443c-abe7-7e7b65f2a37f};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D406E386-2498-4BC5-9FA2-1585259A613D}</ProjectGuid>
+    <TargetFrameworkVersion>v4.3</TargetFrameworkVersion>
+    <NetMfTargetsBaseDir Condition="'$(NetMfTargetsBaseDir)'==''">$(MSBuildExtensionsPath32)\Microsoft\.NET Micro Framework\</NetMfTargetsBaseDir>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="EntryPoint.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.SPOT.Hardware" />
+    <Reference Include="Microsoft.SPOT.Hardware.PWM" />
+    <Reference Include="Microsoft.SPOT.Native" />
+    <Reference Include="Microsoft.SPOT.TinyCore" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\uScoober.TestFramework.GraphicUI\Micro-4.3\TestFramework.GraphicUI %28Micro-4.3%29.csproj">
+      <Project>{D3064C87-D967-49FC-A42E-FE695CB0273E}</Project>
+      <Name>TestFramework.GraphicUI %28Micro-43%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\uScoober.TestFramework\Micro-4.3\TestFramework %28Micro-4.3%29.csproj">
+      <Project>{1B2715B7-6174-4CBD-B5A4-A871074D4AF2}</Project>
+      <Name>TestFramework %28Micro-4.3%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\uScoober\Micro-4.3\uScoober %28Micro-4.3%29.csproj">
+      <Project>{C8A0566E-DAA6-4FBD-B407-A9B806495F88}</Project>
+      <Name>uScoober %28Micro-4.3%29</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="..\..\Hardware\Boards.Cerbuino\Boards.Cerbuino.projitems" Label="Shared" Condition="Exists('..\..\Hardware\Boards.Cerbuino\Boards.Cerbuino.projitems')" />
+  <Import Project="..\..\Hardware\Duino.Spot\Duino.Spot.projitems" Label="Shared" Condition="Exists('..\..\Hardware\Duino.Spot\Duino.Spot.projitems')" />
+  <Import Project="..\..\Hardware\Light.Led\Light.Led.projitems" Label="Shared" Condition="Exists('..\..\Hardware\Light.Led\Light.Led.projitems')" />
+  <Import Project="..\..\Hardware\Input.Button\Input.Button.projitems" Label="Shared" Condition="Exists('..\..\Hardware\Input.Button\Input.Button.projitems')" />
+  <Import Project="..\..\Hardware\Spot.Analog\Spot.Analog.projitems" Label="Shared" Condition="Exists('..\..\Hardware\Spot.Analog\Spot.Analog.projitems')" />
+  <Import Project="..\..\Hardware\Spot.Digital\Spot.Digital.projitems" Label="Shared" Condition="Exists('..\..\Hardware\Spot.Digital\Spot.Digital.projitems')" />
+  <Import Project="..\..\Hardware\Spot.I2C\Spot.I2C.projitems" Label="Shared" Condition="Exists('..\..\Hardware\Spot.I2C\Spot.I2C.projitems')" />
+  <Import Project="..\..\Hardware\Spot.Pwm\Spot.Pwm.projitems" Label="Shared" Condition="Exists('..\..\Hardware\Spot.Pwm\Spot.Pwm.projitems')" />
+  <Import Project="..\..\Hardware\Spot.Spi\Spot.Spi.projitems" Label="Shared" Condition="Exists('..\..\Hardware\Spot.Spi\Spot.Spi.projitems')" />
+  <Import Project="..\..\Hardware\Boards.DuinoPinout\Boards.DuinoPinout.projitems" Label="Shared" Condition="Exists('..\..\Hardware\Boards.DuinoPinout\Boards.DuinoPinout.projitems')" />
+  <Import Project="..\..\Hardware\Boards.Duino.Pinout\Boards.Duino.Pinout.projitems" Label="Shared" Condition="Exists('..\..\Hardware\Boards.Duino.Pinout\Boards.Duino.Pinout.projitems')" />
+  <Import Project="..\..\Hardware\Boards.Duino.Spot\Boards.Duino.Spot.projitems" Label="Shared" Condition="Exists('..\..\Hardware\Boards.Duino.Spot\Boards.Duino.Spot.projitems')" />
+  <Import Project="..\..\Core.Validation\uScoober.Tests\Shared\Shared.projitems" Label="Shared" Condition="Exists('..\..\Core.Validation\uScoober.Tests\Shared\Shared.projitems')" />
+  <Import Condition="EXISTS('$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets')" Project="$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets" />
+  <Import Condition="!EXISTS('$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets')" Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

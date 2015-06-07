@@ -16,8 +16,10 @@ namespace uScoober.UnitsOfMeasure
             Yards,
             Fathoms,
             Miles,
-            NauticalMiles,
+            NauticalMiles
         }
+
+        private static readonly UnitTable UnitTable;
 
         static Length() {
             UnitTable = new UnitTable();
@@ -46,7 +48,5 @@ namespace uScoober.UnitsOfMeasure
         protected override UnitDescriptor GetDescriptorFor(Enum units) {
             return UnitTable.Lookup(units);
         }
-
-        private static readonly UnitTable UnitTable;
     }
 }

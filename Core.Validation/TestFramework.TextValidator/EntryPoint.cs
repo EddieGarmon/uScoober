@@ -6,12 +6,13 @@ using uScoober.Hardware.IO;
 using uScoober.Hardware.Spot;
 using uScoober.TestFramework;
 using uScoober.TestFramework.Core;
+using uScoober.TestFramework.Input;
 using SecretLabsPinAssignment = SecretLabs.NETMF.Hardware.Netduino.Pins;
 
 internal static class EntryPoint
 {
     public static void Main() {
-        //todo: include a schematic
+        //todo: include electrical schematics
 
         /*  Pick a driver that matches your hardware setup */
         IDriveTextDisplays driver = null;
@@ -87,7 +88,7 @@ internal static class EntryPoint
                                                                ResistorMode.PullUp,
                                                                InterruptMode.InterruptEdgeLow,
                                                                50);
-        return new UserInput(start, up, down);
+        return new GpioInput(start, up, down);
     }
 
     private static IDriveTextDisplays GetMcp4Driver() {
@@ -104,23 +105,5 @@ internal static class EntryPoint
         DisplayPins displayPins = new DisplayPins((Pin)21, (Pin)22, (Pin)23, (Pin)24, (Pin)25, (Pin)26, (Pin)27, (Pin)28, (Pin)1, (Pin)3, Pin.None, (Pin)2);
 
         return new Mcp23017TextDriver(mcp, displayPins);
-    }
-
-    private class UserInput : IRunnerUserInput
-    {
-        public UserInput(IDigitalInterrupt startTests)
-            : this(startTests, null, null) { }
-
-        public UserInput(IDigitalInterrupt startTests, IDigitalInterrupt scrollUp, IDigitalInterrupt scrollDown) {
-            StartTests = startTests;
-            ScrollUp = scrollUp;
-            ScrollDown = scrollDown;
-        }
-
-        public IDigitalInterrupt ScrollDown { get; private set; }
-
-        public IDigitalInterrupt ScrollUp { get; private set; }
-
-        public IDigitalInterrupt StartTests { get; private set; }
     }
 }

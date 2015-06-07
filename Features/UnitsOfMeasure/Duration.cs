@@ -14,6 +14,8 @@ namespace uScoober.UnitsOfMeasure
             Hours
         }
 
+        private static readonly UnitTable __unitTable;
+
         static Duration() {
             __unitTable = new UnitTable();
             __unitTable.SetBase(KnownUnits.Seconds, "s");
@@ -32,7 +34,5 @@ namespace uScoober.UnitsOfMeasure
         protected override UnitDescriptor GetDescriptorFor(Enum units) {
             return __unitTable.Lookup(units);
         }
-
-        private static readonly UnitTable __unitTable;
     }
 }

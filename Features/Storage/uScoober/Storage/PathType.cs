@@ -14,6 +14,6 @@ namespace uScoober.Storage
         DriveLetter = 0x2002, // C:\<path>
         NetworkShare = 0x2004, // \\server\share\<path>
         IsolatedStorage = 0x2008, // <path>
-        SdDrive = 0x2010, // \sd\<path>
+        SdDrive = 0x2010 // \sd\<path>
     }
 }

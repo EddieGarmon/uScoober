@@ -8,6 +8,31 @@ namespace uScoober.Threading
 {
     public class TaskContinuationTests : TaskTestBase
     {
+        public void ActionTask_ActionContinuation_Fact() {
+            ActionTask task = null;
+            ActionTask continuation = null;
+            task = Task.New(() => {
+                                task.HasStarted.ShouldBeTrue();
+                                continuation.HasStarted.ShouldBeFalse();
+                            });
+            continuation = task.ContinueWith(previous => {
+                                                 previous.Id.ShouldEqual(task.Id);
+                                                 previous.IsComplete.ShouldBeTrue();
+                                                 previous.Exception.ShouldBeNull();
+                                                 continuation.HasStarted.ShouldBeTrue();
+                                             });
+            task.ShouldNotBeNull();
+            continuation.ShouldNotBeNull();
+            task.HasStarted.ShouldBeFalse();
+            continuation.HasStarted.ShouldBeFalse();
+            //NB starting/waiting on first task IS NOT be required!
+            continuation.Wait();
+            task.Status.ShouldEqual(TaskStatus.RanToCompletion);
+            continuation.Status.ShouldEqual(TaskStatus.RanToCompletion);
+            EnsureQuietDisposal(task);
+            EnsureQuietDisposal(continuation);
+        }
+
         public void ActionTask_ActionContinuationAfterCancellation_Fact() {
             var continuation = Task.Canceled()
                                    .ContinueWith((previous, token) => {
@@ -38,31 +63,6 @@ namespace uScoober.Threading
             EnsureQuietDisposal(continuation);
         }
 
-        public void ActionTask_ActionContinuation_Fact() {
-            ActionTask task = null;
-            ActionTask continuation = null;
-            task = Task.New(() => {
-                                task.HasStarted.ShouldBeTrue();
-                                continuation.HasStarted.ShouldBeFalse();
-                            });
-            continuation = task.ContinueWith(previous => {
-                                                 previous.Id.ShouldEqual(task.Id);
-                                                 previous.IsComplete.ShouldBeTrue();
-                                                 previous.Exception.ShouldBeNull();
-                                                 continuation.HasStarted.ShouldBeTrue();
-                                             });
-            task.ShouldNotBeNull();
-            continuation.ShouldNotBeNull();
-            task.HasStarted.ShouldBeFalse();
-            continuation.HasStarted.ShouldBeFalse();
-            //NB starting/waiting on first task IS NOT be required!
-            continuation.Wait();
-            task.Status.ShouldEqual(TaskStatus.RanToCompletion);
-            continuation.Status.ShouldEqual(TaskStatus.RanToCompletion);
-            EnsureQuietDisposal(task);
-            EnsureQuietDisposal(continuation);
-        }
-
         public void ActionTask_CancelTaskAndActionContinuation_Fact() {
             var cs = new CancellationSource();
             var task = Task.Run(token => {
@@ -80,6 +80,17 @@ namespace uScoober.Threading
             continuation.Wait();
             task.Status.ShouldEqual(TaskStatus.Canceled);
             continuation.Status.ShouldEqual(TaskStatus.Canceled);
+            EnsureQuietDisposal(task);
+            EnsureQuietDisposal(continuation);
+        }
+
+        public void ActionTask_FuncContinuation_Fact() {
+            var task = Task.New(() => Debug.Print("Hello from First Task"));
+            var continuation = task.ContinueWith(previous => {
+                                                     Debug.Print("Return from Continuation Task");
+                                                     return 42;
+                                                 });
+            ((int)continuation.Result).ShouldEqual(42);
             EnsureQuietDisposal(task);
             EnsureQuietDisposal(continuation);
         }
@@ -113,17 +124,6 @@ namespace uScoober.Threading
             continuation.IsComplete.ShouldBeTrue();
             continuation.IsCanceled.ShouldBeFalse();
             continuation.IsFaulted.ShouldBeFalse();
-            EnsureQuietDisposal(continuation);
-        }
-
-        public void ActionTask_FuncContinuation_Fact() {
-            var task = Task.New(() => Debug.Print("Hello from First Task"));
-            var continuation = task.ContinueWith(previous => {
-                                                     Debug.Print("Return from Continuation Task");
-                                                     return 42;
-                                                 });
-            ((int)continuation.Result).ShouldEqual(42);
-            EnsureQuietDisposal(task);
             EnsureQuietDisposal(continuation);
         }
 

@@ -8,12 +8,10 @@ namespace uScoober.Binary
     internal static class Endian
     {
         public const bool MachineIsLittleEndian = true;
-
         /// <summary>
         /// The native types are in machine endian, the byte[]s are in big endian
         /// </summary>
         public static readonly IEndianByter Big = new BigEndianByter();
-
         /// <summary>
         /// The native types are in machine endian, the byte[]s are in little endian
         /// </summary>
@@ -55,57 +53,6 @@ namespace uScoober.Binary
             temp |= (value & 0x00FF000000000000ul) >> 40;
             temp |= (value & 0xFF00000000000000ul) >> 56;
             return temp;
-        }
-
-        public interface IEndianByter
-        {
-            void CopyBytes(short value, byte[] buffer, int startIndex);
-
-            void CopyBytes(ushort value, byte[] buffer, int startIndex);
-
-            void CopyBytes(int value, byte[] buffer, int startIndex);
-
-            void CopyBytes(uint value, byte[] buffer, int startIndex);
-
-            void CopyBytes(long value, byte[] buffer, int startIndex);
-
-            void CopyBytes(ulong value, byte[] buffer, int startIndex);
-
-            void CopyBytes(float value, byte[] buffer, int startIndex);
-
-            void CopyBytes(double value, byte[] buffer, int startIndex);
-
-            byte[] GetBytes(short value);
-
-            byte[] GetBytes(ushort value);
-
-            byte[] GetBytes(int value);
-
-            byte[] GetBytes(uint value);
-
-            byte[] GetBytes(long value);
-
-            byte[] GetBytes(ulong value);
-
-            byte[] GetBytes(float value);
-
-            byte[] GetBytes(double value);
-
-            double GetDouble(byte[] buffer, int startIndex = 0);
-
-            float GetFloat(byte[] buffer, int startIndex = 0);
-
-            int GetInt(byte[] buffer, int startIndex = 0);
-
-            long GetLong(byte[] buffer, int startIndex = 0);
-
-            short GetShort(byte[] buffer, int startIndex = 0);
-
-            uint GetUInt(byte[] buffer, int startIndex = 0);
-
-            ulong GetULong(byte[] buffer, int startIndex = 0);
-
-            ushort GetUShort(byte[] buffer, int startIndex = 0);
         }
 
         /// <summary>
@@ -280,6 +227,57 @@ namespace uScoober.Binary
                     throw new ArgumentOutOfRangeException("length");
                 }
             }
+        }
+
+        public interface IEndianByter
+        {
+            void CopyBytes(short value, byte[] buffer, int startIndex);
+
+            void CopyBytes(ushort value, byte[] buffer, int startIndex);
+
+            void CopyBytes(int value, byte[] buffer, int startIndex);
+
+            void CopyBytes(uint value, byte[] buffer, int startIndex);
+
+            void CopyBytes(long value, byte[] buffer, int startIndex);
+
+            void CopyBytes(ulong value, byte[] buffer, int startIndex);
+
+            void CopyBytes(float value, byte[] buffer, int startIndex);
+
+            void CopyBytes(double value, byte[] buffer, int startIndex);
+
+            byte[] GetBytes(short value);
+
+            byte[] GetBytes(ushort value);
+
+            byte[] GetBytes(int value);
+
+            byte[] GetBytes(uint value);
+
+            byte[] GetBytes(long value);
+
+            byte[] GetBytes(ulong value);
+
+            byte[] GetBytes(float value);
+
+            byte[] GetBytes(double value);
+
+            double GetDouble(byte[] buffer, int startIndex = 0);
+
+            float GetFloat(byte[] buffer, int startIndex = 0);
+
+            int GetInt(byte[] buffer, int startIndex = 0);
+
+            long GetLong(byte[] buffer, int startIndex = 0);
+
+            short GetShort(byte[] buffer, int startIndex = 0);
+
+            uint GetUInt(byte[] buffer, int startIndex = 0);
+
+            ulong GetULong(byte[] buffer, int startIndex = 0);
+
+            ushort GetUShort(byte[] buffer, int startIndex = 0);
         }
 
         /// <summary>

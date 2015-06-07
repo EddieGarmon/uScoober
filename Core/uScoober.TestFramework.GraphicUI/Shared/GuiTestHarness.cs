@@ -44,15 +44,15 @@ namespace uScoober.TestFramework
             if (_input != null) {
                 if (_input.ScrollUp != null) {
                     _input.ScrollUp.OnInterrupt += (source, state, time) => {
-                                                      Debug.Print("Scroll Up Requested");
-                                                      gui.ScrollUp();
-                                                  };
+                                                       Debug.Print("Scroll Up Requested");
+                                                       gui.ScrollUp();
+                                                   };
                 }
                 if (_input.ScrollDown != null) {
                     _input.ScrollDown.OnInterrupt += (source, state, time) => {
-                                                        Debug.Print("Scroll Down Requested");
-                                                        gui.ScrollDown();
-                                                    };
+                                                         Debug.Print("Scroll Down Requested");
+                                                         gui.ScrollDown();
+                                                     };
                 }
             }
 

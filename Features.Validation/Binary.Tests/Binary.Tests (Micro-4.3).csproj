@@ -40,7 +40,7 @@
     <Reference Include="Microsoft.SPOT.TinyCore" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\uScoober.TestFramework.GraphicUI\Micro-43\TestFramework.GraphicUI %28Micro-43%29.csproj">
+    <ProjectReference Include="..\..\Core\uScoober.TestFramework.GraphicUI\Micro-4.3\TestFramework.GraphicUI %28Micro-4.3%29.csproj">
       <Project>{D3064C87-D967-49FC-A42E-FE695CB0273E}</Project>
       <Name>TestFramework.GraphicUI %28Micro-43%29</Name>
     </ProjectReference>

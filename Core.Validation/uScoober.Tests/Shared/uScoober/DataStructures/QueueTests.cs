@@ -6,18 +6,18 @@ namespace uScoober.DataStructures
     {
         private Queue _queue;
 
+        public void Construct_Fact() {
+            _queue = new Queue();
+            _queue.IsEmpty.ShouldBeTrue();
+            _queue.Count.ShouldEqual(0);
+            _queue.ShouldEnumerateEqual();
+        }
+
         public void ConstructWithItems_Fact() {
             _queue = new Queue("first", "second");
             _queue.IsEmpty.ShouldBeFalse();
             _queue.Count.ShouldEqual(2);
             _queue.ShouldEnumerateEqual("first", "second");
-        }
-
-        public void Construct_Fact() {
-            _queue = new Queue();
-            _queue.IsEmpty.ShouldBeTrue();
-            _queue.Count.ShouldEqual(0);
-            _queue.ShouldEnumerateEqual(new object[0]);
         }
 
         public void Dequeue_Fact() {
@@ -43,7 +43,7 @@ namespace uScoober.DataStructures
             value.ShouldEqual("c");
             _queue.Count.ShouldEqual(0);
             _queue.IsEmpty.ShouldBeTrue();
-            _queue.ShouldEnumerateEqual(new object[0]);
+            _queue.ShouldEnumerateEqual();
         }
 
         public void Enqueue_Fact() {

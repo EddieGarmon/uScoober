@@ -8,8 +8,10 @@ namespace uScoober.UnitsOfMeasure
         {
             Celsius,
             Fahrenheit,
-            Kelvin,
+            Kelvin
         }
+
+        private static readonly UnitTable UnitTable;
 
         static Temperature() {
             UnitTable = new UnitTable();
@@ -29,7 +31,5 @@ namespace uScoober.UnitsOfMeasure
         protected override UnitDescriptor GetDescriptorFor(Enum units) {
             return UnitTable.Lookup(units);
         }
-
-        private static readonly UnitTable UnitTable;
     }
 }
