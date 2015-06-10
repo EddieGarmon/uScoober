@@ -66,7 +66,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\Signals.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\Spi\ISpiBus.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\Spi\ISpiDevice.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\Spi\SpiDeviceConfig.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\Spi\SpiDeviceSettings.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\Spi\SpiDeviceCore.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\Time\ClockFrequency.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)uScoober\Hardware\Time\IRealTimeClock.cs" />

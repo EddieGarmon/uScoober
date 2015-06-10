@@ -4,46 +4,82 @@
                                           ISpiDevice
     {
         private readonly ISpiBus _bus;
-        private readonly SpiDeviceConfig _config;
+        private readonly SpiDeviceSettings _settings;
 
-        protected SpiDeviceCore(ISpiBus bus, SpiDeviceConfig config) {
+        protected SpiDeviceCore(ISpiBus bus, SpiDeviceSettings settings) {
             _bus = bus;
-            _config = config;
+            _settings = settings;
         }
 
         protected void Read(byte[] buffer) {
             lock (_bus) {
-                _bus.Read(_config, buffer);
+                if (_settings.SoftChipSelectEnabled) {
+                    _settings.ChipSelect.Write(_settings.ChipSelectActiveState);
+                }
+                _bus.Read(_settings, buffer);
+                if (_settings.SoftChipSelectEnabled) {
+                    _settings.ChipSelect.Write(!_settings.ChipSelectActiveState);
+                }
             }
         }
 
         protected void Read(ushort[] buffer, ByteOrder byteOrder) {
             lock (_bus) {
-                _bus.Read(_config, buffer, byteOrder);
+                if (_settings.SoftChipSelectEnabled) {
+                    _settings.ChipSelect.Write(_settings.ChipSelectActiveState);
+                }
+                _bus.Read(_settings, buffer, byteOrder);
+                if (_settings.SoftChipSelectEnabled) {
+                    _settings.ChipSelect.Write(!_settings.ChipSelectActiveState);
+                }
             }
         }
 
         protected void Write(byte[] buffer) {
             lock (_bus) {
-                _bus.Write(_config, buffer);
+                if (_settings.SoftChipSelectEnabled) {
+                    _settings.ChipSelect.Write(_settings.ChipSelectActiveState);
+                }
+                _bus.Write(_settings, buffer);
+                if (_settings.SoftChipSelectEnabled) {
+                    _settings.ChipSelect.Write(!_settings.ChipSelectActiveState);
+                }
             }
         }
 
         protected void Write(ushort[] buffer, ByteOrder byteOrder) {
             lock (_bus) {
-                _bus.Write(_config, buffer, byteOrder);
+                if (_settings.SoftChipSelectEnabled) {
+                    _settings.ChipSelect.Write(_settings.ChipSelectActiveState);
+                }
+                _bus.Write(_settings, buffer, byteOrder);
+                if (_settings.SoftChipSelectEnabled) {
+                    _settings.ChipSelect.Write(!_settings.ChipSelectActiveState);
+                }
             }
         }
 
         protected void WriteRead(byte[] writeBuffer, byte[] readBuffer, int startReadingAtOffset = 0) {
             lock (_bus) {
-                _bus.WriteRead(_config, writeBuffer, readBuffer, startReadingAtOffset);
+                if (_settings.SoftChipSelectEnabled) {
+                    _settings.ChipSelect.Write(_settings.ChipSelectActiveState);
+                }
+                _bus.WriteRead(_settings, writeBuffer, readBuffer, startReadingAtOffset);
+                if (_settings.SoftChipSelectEnabled) {
+                    _settings.ChipSelect.Write(!_settings.ChipSelectActiveState);
+                }
             }
         }
 
         protected void WriteRead(ushort[] writeBuffer, ushort[] readBuffer, ByteOrder byteOrder, int startReadingAtOffset = 0) {
             lock (_bus) {
-                _bus.WriteRead(_config, writeBuffer, readBuffer, byteOrder, startReadingAtOffset);
+                if (_settings.SoftChipSelectEnabled) {
+                    _settings.ChipSelect.Write(_settings.ChipSelectActiveState);
+                }
+                _bus.WriteRead(_settings, writeBuffer, readBuffer, byteOrder, startReadingAtOffset);
+                if (_settings.SoftChipSelectEnabled) {
+                    _settings.ChipSelect.Write(!_settings.ChipSelectActiveState);
+                }
             }
         }
 
@@ -55,7 +91,13 @@
                                  int readCount,
                                  int startReadingAtOffset = 0) {
             lock (_bus) {
-                _bus.WriteRead(_config, writeBuffer, writeOffset, writeCount, readBuffer, readOffset, readCount, startReadingAtOffset);
+                if (_settings.SoftChipSelectEnabled) {
+                    _settings.ChipSelect.Write(_settings.ChipSelectActiveState);
+                }
+                _bus.WriteRead(_settings, writeBuffer, writeOffset, writeCount, readBuffer, readOffset, readCount, startReadingAtOffset);
+                if (_settings.SoftChipSelectEnabled) {
+                    _settings.ChipSelect.Write(!_settings.ChipSelectActiveState);
+                }
             }
         }
 
@@ -68,7 +110,13 @@
                                  ByteOrder byteOrder,
                                  int startReadingAtOffset) {
             lock (_bus) {
-                _bus.WriteRead(_config, writeBuffer, writeOffset, writeCount, readBuffer, readOffset, readCount, byteOrder, startReadingAtOffset);
+                if (_settings.SoftChipSelectEnabled) {
+                    _settings.ChipSelect.Write(_settings.ChipSelectActiveState);
+                }
+                _bus.WriteRead(_settings, writeBuffer, writeOffset, writeCount, readBuffer, readOffset, readCount, byteOrder, startReadingAtOffset);
+                if (_settings.SoftChipSelectEnabled) {
+                    _settings.ChipSelect.Write(!_settings.ChipSelectActiveState);
+                }
             }
         }
 
